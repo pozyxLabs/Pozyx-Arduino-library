@@ -1,0 +1,95 @@
+/**
+  The pozyx chat demo
+  
+  This demo requires at least two pozyx devices. It demonstrates the wireless messaging capabilities 
+  
+  This demo creates a chat. Text written in the Serial monitor will be broadcasted to all other pozyx devices
+  within range. They will see your message appear in their Serial monitor
+*/
+
+#include "Pozyx.h"
+#include "Pozyx_definitions.h"
+#include <Wire.h>
+
+String inputString = "";             // a string to hold incoming data
+boolean stringComplete = false;      // whether the string is complete
+
+uint16_t source_id;                 // the network id of this device  
+uint16_t destination_id = 0;        // the destination network id. 0 means the message is broadcasted to every device in range
+
+void setup(){
+  Serial.begin(115200);
+  if(! Pozyx.begin(false, 1, POZYX_INT_MASK_RX_DATA, 0)){
+    Serial.println("NOT WORKING");
+  }
+  
+  // read the network id of this device
+  Pozyx.regRead(POZYX_NETWORK_ID, (uint8_t*)&source_id, 2);
+  
+  Serial.println("--- Pozyx Chat started ---");
+}
+
+void loop(){
+  inputString = "";
+  while (!stringComplete) {
+    
+    // See if we have some input from the serial monitor, if so, transmit it
+    serialEvent();
+    
+    // we wait up to 50ms to see if we have received an incoming message (if so we receive an RX_DATA interrupt)
+    if(Pozyx.waitForFlag(POZYX_INT_STATUS_RX_DATA,50))
+    {
+      // we have received a message!
+      
+      uint8_t length = 0;
+      uint16_t messenger = 0x00;      
+      delay(1);
+      // Let's read out some information about the message (i.e., how many bytes did we receive and who sent the message)
+      Pozyx.getLastDataLength(&length);      
+      Pozyx.getLastNetworkId(&messenger);
+      
+      char data[length];
+
+      // read the contents of the receive (RX) buffer, this is the message that was sent to this device
+      Pozyx.readRXBufferData((uint8_t *) data, length);
+      Serial.print("Ox");
+      Serial.print(messenger, HEX);
+      Serial.print(": ");
+      Serial.println(data);
+    }
+  }  
+}
+
+void serialEvent() {
+  
+  while (Serial.available()) {
+    char inChar = (char)Serial.read();  
+    if (inChar == '\n') {
+      stringComplete = true;
+      
+      Serial.print("Ox");
+      Serial.print(source_id, HEX);
+      Serial.print(": ");
+      Serial.println(inputString);      
+      
+      int length = inputString.length();
+      uint8_t buffer[length];
+      inputString.getBytes(buffer, length);          
+     
+      // write the message to the transmit (TX) buffer
+      int status = Pozyx.writeTXBufferData(buffer, length);
+      // broadcast the contents of the TX buffer
+      status = Pozyx.sendTXBufferData(destination_id);
+      
+      inputString = "";
+      stringComplete = false;
+    }
+    else{
+      inputString += inChar;
+      Serial.print(inChar);
+    }
+  }
+}
+
+
+
