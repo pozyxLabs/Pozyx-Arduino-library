@@ -1,9 +1,11 @@
 /**
   The pozyx chat demo
+  please check out https://www.pozyx.io/Documentation/Tutorials/getting_started
   
-  This demo requires at least two pozyx devices. It demonstrates the wireless messaging capabilities 
+  This demo requires at least two pozyx shields and two Arduino's. It demonstrates the wireless messaging capabilities of the
+  pozyx device.
   
-  This demo creates a chat. Text written in the Serial monitor will be broadcasted to all other pozyx devices
+  This demo creates a chat room. Text written in the Serial monitor will be broadcasted to all other pozyx devices
   within range. They will see your message appear in their Serial monitor
 */
 
@@ -20,7 +22,9 @@ uint16_t destination_id = 0;        // the destination network id. 0 means the m
 void setup(){
   Serial.begin(115200);
   if(! Pozyx.begin(false, 1, POZYX_INT_MASK_RX_DATA, 0)){
-    Serial.println("NOT WORKING");
+    Serial.println("ERROR: Unable to connect to POZYX shield");
+    Serial.println("Reset required");
+    abort();
   }
   
   // read the network id of this device
