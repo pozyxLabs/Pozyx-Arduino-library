@@ -1,21 +1,16 @@
 /**
-  Pozyx.h - Library for Arduino Pozyx shield.
-  Copyright (c) Pozyx Laboratories.  All right reserved.
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+* Pozyx.h
+* -------
+* This file is a defination of all structures, classes and functions used in the
+* POZYX environment.
+*
+* Each function is described:
+*   - which input parameters are expected
+    - what is the behaviour
+    - and what is the expected output
+*
 */
+
 
 #ifndef POZYX_h
 #define POZYX_h
@@ -32,11 +27,23 @@ extern "C" {
   #include "Pozyx_definitions.h"
 }
 
+
+// SHOULD BE MOVED TO DEFINATIONS !!!
 #define MODE_POLLING              0
 #define MODE_INTERRUPT            1
 
-// STRUCTURES
 
+
+/**
+* POZYX STRUCTURES
+* ----------------
+*/
+
+/**
+* UMB_settings_t
+* --------------
+* The UWB settings type defines all attributes needed to set the UWB (communication) parameters
+*/
 typedef struct __attribute__((packed))_UWB_settings {    
     uint8_t channel;
     unsigned bitrate:6;
@@ -46,12 +53,22 @@ typedef struct __attribute__((packed))_UWB_settings {
     unsigned trim:8;
 }UWB_settings_t;
 
+/**
+* coordinates_t
+* -------------
+* The coordinates type defines the coordinates of position result or anchor location
+*/
 typedef struct __attribute__((packed))_coordinates {    
     int32_t x;
     int32_t y;
     int32_t z;
 }coordinates_t;
 
+/**
+* pos_error_t
+* -----------
+* The position error type gives the resulting error covariance for a given position result
+*/
 typedef struct __attribute__((packed))_pos_error {    
     int16_t x;
     int16_t y;
@@ -61,30 +78,55 @@ typedef struct __attribute__((packed))_pos_error {
     int16_t yz;
 }pos_error_t;
 
+/**
+* acceleration_t
+* --------------
+* The aceleration type can be used to store the acelerometer data
+*/
 typedef struct __attribute__((packed))_acceleration {    
     int16_t x;
     int16_t y;
     int16_t z;
 }acceleration_t;
 
+/**
+* magnetic_t
+* ----------
+* The magnetic type can be used to store the magnetometer data
+*/
 typedef struct __attribute__((packed))_magnetic {    
     int16_t x;
     int16_t y;
     int16_t z;
 }magnetic_t;
 
+/**
+* gyro_t
+* ------
+* The gyro type can be used to store the gyroscope data
+*/
 typedef struct __attribute__((packed))_gyro {    
     int16_t x;
     int16_t y;
     int16_t z;
 }gyro_t;
 
+/**
+* euler_angles_t
+* --------------
+* The euler angels type gives the resulting euler coordinates for the state of the IMU
+*/
 typedef struct __attribute__((packed))_euler_angles {    
     int16_t heading;
     int16_t roll;
     int16_t pitch;
 }euler_angles_t;
 
+/**
+* quaternion_t
+* ------------
+* The quaternion type gives the resulting quaternions for the IMU
+*/
 typedef struct __attribute__((packed))_quaternion {    
     int16_t weight;
     int16_t x;
@@ -92,18 +134,33 @@ typedef struct __attribute__((packed))_quaternion {
     int16_t z;
 }quaternion_t;
 
+/**
+* linear_acceleration_t
+* ---------------------
+* The linear acceleration type gives the resulting linear accelartion in each direction
+*/
 typedef struct __attribute__((packed))_linear_acceleration {    
     int16_t x;
     int16_t y;
     int16_t z;
 }linear_acceleration_t;
 
+/**
+* gravity_vector_t
+* ----------------
+* The gravity vector type gives the resulting gravity vector for each component
+*/
 typedef struct __attribute__((packed))_gravity_vector {    
     int16_t x;
     int16_t y;
     int16_t z;
 }gravity_vector_t;
 
+/**
+* sensor_data_t
+* -------------
+* The sensor data type allows to read the whole sensor data in one datastructure with one call
+*/
 typedef struct __attribute__((packed))_sensor_data { 
     uint32_t pressure;
     acceleration_t acceleration;
@@ -116,18 +173,33 @@ typedef struct __attribute__((packed))_sensor_data {
     int8_t temprature;   
 }sensor_data_t;
 
+/**
+* device_coordinates_t
+* --------------------
+* The device coordinates type is used to easily add a device to the POZYX system
+*/
 typedef struct __attribute__((packed))_device_coordinates { 
     uint16_t network_id;
     uint8_t flag;
     coordinates_t pos;
 }device_coordinates_t;
 
+/**
+* device_range_t
+* --------------
+* The device range type stores all the attributes linked to a range measurement
+*/
 typedef struct __attribute__((packed))_device_range {       
     uint32_t timestamp;
     uint32_t distance;
     int8_t RSS;
 }device_range_t;
 
+/**
+* device_info_t
+* -------------
+* The device info type is used to retrieve all information of a device in the POZYX system
+*/
 typedef struct __attribute__((packed))_device_info {
     uint16_t network_id;
     uint8_t flag;
@@ -136,7 +208,10 @@ typedef struct __attribute__((packed))_device_info {
 }device_info_t;
 
 
-
+/**
+* POZYX CLASS
+* -----------
+*/
 class PozyxClass
 {
 private:
@@ -148,20 +223,32 @@ private:
     static int _sw_version;       // pozyx software (firmware) version. (By updating the firmware on the pozyx device, this value can change)
    
 
-    static int i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, int size);
 
-    
-   /*
-    * Function: regWriteRead
-    * ----------------------
-    * Internal function implements the I2C interface as described in the datasheet on our website
-    * 
-    * The return values are similar to the (error) values provided in the Wire library
+    /*
+    * Function: i2cWriteWrite
+    * -----------------------
+    * Internal function that writes a number of bytes to a specfified POZYX register 
+    * Implements the I2C interface as described in the datasheet on our website
+    * Input values:
+    *   uint8_t reg_address: to POZYX address to write to
+    *   
+    * The 
     *     0: SUCCESS
     *     -10/-20: error - wire write transmission error
     *     pos. value: error - wire end transmission error
     *     -11/-21: error - available length on wire not the same as provided 
     */
+
+    static int i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, int size);
+
+/**
+  * Call a register function using I2C with given parameters
+  */
+/**
+  * Writes a number of bytes to the specified pozyx register address using I2C
+  */
+    
+   
 
 
     static void IRQ(); 
@@ -399,7 +486,7 @@ public:
     static int getDeviceIds(uint16_t devices[], int size = MAX_ANCHORS_IN_LIST, uint16_t remote_id = NULL);
 
     static int doDiscovery(int slots = 3, int slot_duration = 10);
-    static int doAnchorCalibration(int measurements = 10);
+    static int doAnchorCalibration(int option = POZYX_2D, int measurements = 10, uint16_t anchors[] = NULL, int anchor_num = 0);
 
     static int clearDevices(uint16_t remote_id = NULL);
     static int addDevice(device_coordinates_t device_coordinates, uint16_t remote_id = NULL);

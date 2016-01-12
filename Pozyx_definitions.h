@@ -201,7 +201,10 @@
 #define POZYX_DELAY_REMOTE_WRITE    5
 #define POZYX_DELAY_REMOTE_FUNCTION 10
 #define POZYX_DELAY_INTERRUPT       100
+#define POZYX_DELAY_CALIBRATION     1000  
 #define POZYX_FAILURE               0
 #define POZYX_SUCCESS               1 
+#define POZYX_2D                    2
+#define POZYX_2_5D                  1 
 
 #endif

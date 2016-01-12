@@ -782,20 +782,35 @@ int PozyxClass::doDiscovery(int slots, int slot_duration)
   }
 }
 
-int PozyxClass::doAnchorCalibration(int measurements)
+int PozyxClass::doAnchorCalibration(int option, int measurements, uint16_t anchors[], int anchor_num)
 {
   int status;
 
-  status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&measurements, 1, NULL, 0); 
+  if (anchor_num < 0 || anchor_num > 6){
+    return POZYX_FAILURE;
+  }
+
+
+  uint8_t params[2 + anchor_num * sizeof(uint16_t)];
+  params[0] = (uint8_t)option;
+  params[1] = (uint8_t)measurements;
+
+  if (anchor_num > 0){
+    memcpy(params+2, (uint8_t*) anchors, anchor_num * sizeof(uint16_t));
+  }
+
+
+  status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + anchor_num * sizeof(uint16_t), NULL, 0);
 
   // TODO WAIT FOR FUNCTION FLAG
-  if (waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
+  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_CALIBRATION * measurements)){
     return status;
   }
   else{
     return POZYX_FAILURE;
   }
 }
+
 
 int PozyxClass::clearDevices(uint16_t remote_id)
 {
