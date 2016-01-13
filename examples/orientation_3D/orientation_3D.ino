@@ -26,7 +26,7 @@
 ////////////////// PARAMETERS //////////////////
 ////////////////////////////////////////////////
 
-boolean bRemote = 1;                  // boolean to indicate if we want to read sensor data from the attached pozyx shield (value 0) or from a remote pozyx device (value 1)
+boolean bRemote = false;                  // boolean to indicate if we want to read sensor data from the attached pozyx shield (value 0) or from a remote pozyx device (value 1)
 uint16_t destination_id = 0x6606;     // the network id of the other pozyx device: fill in the network id of the other device
 uint32_t last_millis;                 // used to compute the measurement interval in milliseconds 
 
@@ -44,9 +44,7 @@ void setup()
   }
   
   last_millis = millis();
-
-  delay(10);
-  
+  delay(10);  
 }
 
 void loop(){
@@ -54,11 +52,8 @@ void loop(){
   int16_t sensor_data[24];
   uint8_t calib_status = 0; 
   int i, dt;
-  
-  sensor_data[0] = 0;
-  
-  
-  if(bRemote == 1)
+    
+  if(bRemote == true)
   {
     // remotely read the sensor data
     int status = Pozyx.remoteRegRead(destination_id, POZYX_PRESSURE, (uint8_t*)&sensor_data, 24*sizeof(int16_t));
