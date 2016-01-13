@@ -933,7 +933,9 @@ int PozyxClass::updateRemoteTags(uint16_t tags[], int tags_num)
   status &= getPositioningAnchorIds(position_anchors, MAX_ANCHORS_IN_LIST); 
 
   for (int i=0 ; i < MAX_ANCHORS_IN_LIST; i++){
-    getDeviceCoordinates(anchors[i], &anchor_coor[i]);
+    anchor_coor[i].network_id = anchors[i];
+    anchor_coor[i].flag = 0x1;
+    getDeviceCoordinates(anchors[i], &anchor_coor[i].pos);
   }
 
   if (status == POZYX_SUCCESS){
@@ -977,7 +979,7 @@ int PozyxClass::addDevice(device_coordinates_t device_coordinates, uint16_t remo
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_CLEAR, NULL, 0, NULL, 0); 
+    status = remoteRegFunction(remote_id, POZYX_DEVICE_ADD, NULL, 0, NULL, 0); 
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;
@@ -998,16 +1000,16 @@ int PozyxClass::getDeviceInfo(uint16_t device_id, device_info_t *device_info, ui
   return status;
 }
 
-int PozyxClass::getDeviceCoordinates(uint16_t device_id, device_coordinates_t *device_coordinates, uint16_t remote_id)
+int PozyxClass::getDeviceCoordinates(uint16_t device_id, coordinates_t *coordinates, uint16_t remote_id)
 {
   int status;
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 1, (uint8_t *) device_coordinates, sizeof(device_coordinates_t));
+    status = regFunction(POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 1, (uint8_t *) coordinates, sizeof(device_coordinates_t));
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 1, (uint8_t *) device_coordinates, sizeof(device_coordinates_t));
+    status = remoteRegFunction(remote_id, POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 1, (uint8_t *) coordinates, sizeof(device_coordinates_t));
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;

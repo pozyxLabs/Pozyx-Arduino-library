@@ -833,11 +833,10 @@ public:
     *   uint16_t remote_id: optional parameter that determines the remote device to be used
     */
     static int getDeviceInfo(uint16_t device_id, device_info_t *device_info, uint16_t remote_id = NULL);
-    static int getDeviceCoordinates(uint16_t device_id, device_coordinates_t *device_coordinates, uint16_t remote_id = NULL);
+    static int getDeviceCoordinates(uint16_t device_id, coordinates_t *coordinates, uint16_t remote_id = NULL);
     static int getDeviceRangeInfo(uint16_t device_id, device_range_t *device_range, uint16_t remote_id = NULL);
 
 };
-
 extern PozyxClass Pozyx;
 
 
