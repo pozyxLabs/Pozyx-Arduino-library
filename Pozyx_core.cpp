@@ -1,20 +1,8 @@
 /**
-  Pozyx.cpp - Library for Arduino Pozyx shield.
-  Copyright (c) Pozyx Laboratories.  All right reserved.
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+* Pozyx_core.cpp
+* --------------
+* This file contains the defintion of the core POZYX functions and variables
+*
 */
 
 #include "Pozyx.h"
@@ -68,7 +56,6 @@ boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms)
       }
     }     
   } 
-  
   // too bad, pozyx didn't respond 
   // 1) pozyx can select from two pins to generate interrupts, make sure the correct pin is connected with the attachInterrupt() function.
   // 2) make sure the interrupt we are waiting for is enabled in the POZYX_INT_MASK register)
@@ -78,10 +65,9 @@ boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms)
 /**
  * Initiating the Pozyx shield and test the shield
  */
-
-boolean PozyxClass::begin(boolean print_result, int mode, int interrupts, int interrupt_pin){
+int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interrupt_pin){
   
-  boolean return_value = true;
+  int status = POZYX_SUCCESS;
 
   if(print_result){
     Serial.println("Pozyx Shield");
@@ -90,11 +76,11 @@ boolean PozyxClass::begin(boolean print_result, int mode, int interrupts, int in
 
   // check if the mode parameter is valid
   if((mode != MODE_POLLING) && (mode != MODE_INTERRUPT)) 
-    return false;
+    return POZYX_FAILURE;
   
   // check if the pin is valid
   if((interrupt_pin != 0) && (interrupt_pin != 1)) 
-    return false;
+    return POZYX_FAILURE;
 
   Wire.begin();
   
@@ -105,12 +91,11 @@ boolean PozyxClass::begin(boolean print_result, int mode, int interrupts, int in
   
   uint8_t whoami, selftest;  
   uint8_t regs[3];
-  int status = 0;
   regs[2] = 0x12;
   
   // we read out the first 3 register values: who_am_i, firmware_version and harware version, respectively.
   if(regRead(POZYX_WHO_AM_I, regs, 3) == POZYX_FAILURE){
-    return false;
+    return POZYX_FAILURE;
   }  
   whoami = regs[0];
   _sw_version = regs[1];
@@ -127,12 +112,12 @@ boolean PozyxClass::begin(boolean print_result, int mode, int interrupts, int in
   // verify if the whoami is correct
   if(whoami != 0x43) {    
     // possibly the pozyx is not connected right. Also make sure the jumper of the boot pins is present.
-    return_value = false;
+    status = POZYX_FAILURE;
   }
   
   // readout the selftest registers to validate the proper functioning of pozyx
   if(regRead(POZYX_ST_RESULT, &selftest, 1) == POZYX_FAILURE){
-    return false;
+    return POZYX_FAILURE;
   } 
 
   if(print_result){
@@ -140,20 +125,19 @@ boolean PozyxClass::begin(boolean print_result, int mode, int interrupts, int in
     Serial.println(selftest, BIN);
   }
 
-  
   if((_hw_version & POZYX_TYPE) == POZYX_TAG)
   {
     // check if the uwb, pressure sensor, accelerometer, magnetometer and gyroscope are working
     if(selftest != 0b00111111) {    
-      return_value = false;
+      status = POZYX_FAILURE;
     }
   }else if((_hw_version & POZYX_TYPE) == POZYX_ANCHOR)
   {
     // check if the uwb transceiver and pressure sensor are working
     if(selftest != 0b0011000) {    
-      return_value = false;
+      status = POZYX_FAILURE;
     }
-    return return_value;
+    return status;
   }
   
   // set everything ready for interrupts
@@ -168,13 +152,13 @@ boolean PozyxClass::begin(boolean print_result, int mode, int interrupts, int in
       int_mask |= POZYX_INT_MASK_PIN;
     }          
     if (regWrite(POZYX_INT_MASK, &int_mask, 1) == POZYX_FAILURE){
-      return false;
+      return POZYX_FAILURE;
     }
   }  
   
   // all done
   delay(POZYX_DELAY_LOCAL_WRITE);
-  return return_value;
+  return status;
 }
 
 /**
@@ -205,6 +189,9 @@ int PozyxClass::regRead(uint8_t reg_address, uint8_t *buffer, int size)
   return status;
 }
 
+/**
+  * Writes a number of bytes to the specified pozyx register address using I2C
+  */
 int PozyxClass::regWrite(uint8_t reg_address, const uint8_t *pData, int size)
 {  
   // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
@@ -404,11 +391,7 @@ int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uin
   }
 }
 
-int PozyxClass::writeTXBufferData(uint8_t data[], int size){
-  writeTXBufferData(data, 0, size);
-}
-
-int PozyxClass::writeTXBufferData(uint8_t data[], int offset, int size)
+int PozyxClass::writeTXBufferData(uint8_t data[], int size, int offset)
 {
   if (offset + size > MAX_BUF_SIZE){
     return POZYX_FAILURE;
@@ -461,6 +444,20 @@ int PozyxClass::readRXBufferData(uint8_t* pData, int size)
   
   return status;
 } 
+
+int PozyxClass::sendTXBufferData(uint16_t destination)
+{
+  int status;
+
+  uint8_t params[3];
+  params[0] = (uint8_t)destination;
+  params[1] = (uint8_t)(destination>>8);
+  params[2] = 0x06;    
+  status = regFunction(POZYX_TX_SEND, (uint8_t *)&params, 3, NULL, 0);
+  delay(POZYX_DELAY_LOCAL_FUNCTION);
+
+  return status;
+}
 
 
 /*
