@@ -202,9 +202,19 @@
 #define POZYX_DELAY_REMOTE_FUNCTION 10
 #define POZYX_DELAY_INTERRUPT       100
 #define POZYX_DELAY_CALIBRATION     1000  
-#define POZYX_FAILURE               0
-#define POZYX_SUCCESS               1 
+#define POZYX_FAILURE               0x0
+#define POZYX_SUCCESS               0x1 
+#define POZYX_TIMEOUT               0x8
 #define POZYX_2D                    2
 #define POZYX_2_5D                  1 
+#define POZYX_INT_PIN0              0x0
+#define POZYX_INT_PIN1              0x1
+
+
+#define POZYX_LED_CTRL_LEDRX       0x10
+#define POZYX_LED_CTRL_LEDTX       0x20
+
+#define POZYX_ANCHOR_MODE         0
+#define POZYX_TAG_MODE            1
 
 #endif
