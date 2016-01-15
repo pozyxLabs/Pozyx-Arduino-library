@@ -205,6 +205,7 @@
 #define POZYX_FAILURE               0x0
 #define POZYX_SUCCESS               0x1 
 #define POZYX_TIMEOUT               0x8
+#define POZYX_3D                    3  
 #define POZYX_2D                    2
 #define POZYX_2_5D                  1 
 #define POZYX_INT_PIN0              0x0

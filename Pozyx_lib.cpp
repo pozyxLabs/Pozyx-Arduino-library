@@ -707,9 +707,23 @@ int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device
   return status;
 }
 
-int PozyxClass::doPositioning(coordinates_t *position)
+int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
   int status;
+
+  if(dimension != POZYX_3D && dimension != POZYX_2D && dimension != POZYX_2_5D)
+    return POZYX_FAILURE;
+  if(algorithm < 0 && algorithm > 2)
+    return POZYX_FAILURE;
+
+  // set dimension and algorithm
+  uint8_t alg_options = (dimension<<4) | algorithm;
+  status = regWrite(POZYX_POS_ALG, &alg_options, 1);
+
+  // in 2.5D mode, we also supply the height
+  if(dimension == POZYX_2_5D) {
+    status = regWrite(POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
+  }
   
   status = regFunction(POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
   
@@ -881,30 +895,55 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
   return status;
 }
 
-int PozyxClass::doAnchorCalibration(int option, uint16_t anchors[], int anchor_num, int measurements)
+int PozyxClass::doAnchorCalibration(int dimension, int num_anchors, int num_measurements, uint16_t anchors[],  int32_t heights[])
 {
   int status;
 
-  if (anchor_num < 0 || anchor_num > 6){
+  if (num_anchors < 0 || num_anchors > 6)
     return POZYX_FAILURE;
-  }
-  uint8_t params[2 + anchor_num * sizeof(uint16_t)];
-  params[0] = (uint8_t)option;
-  params[1] = (uint8_t)measurements;
+  if(dimension != POZYX_2D && dimension != POZYX_2_5D)
+    return POZYX_FAILURE;
 
-  if (anchor_num > 0){
-    memcpy(params+2, (uint8_t*) anchors, anchor_num * sizeof(uint16_t));
+  // in 2.5D mode, we must supply the heights of all the anchors
+  if(dimension == POZYX_2_5D){
+    device_coordinates_t anchor;
+    int i;
+    for(i=0; i< num_anchors; i++){
+      anchor.network_id = anchors[i];
+      anchor.flag = 0x1; 
+      anchor.pos.x = 0;
+      anchor.pos.y = 0;
+      anchor.pos.z = heights[i];
+      Pozyx.addDevice(anchor);
+    }
+  } 
+
+/*
+  Serial.println("devices added");
+  uint8_t list_size = 0;
+  status = Pozyx.getDeviceListSize(&list_size);
+  Serial.print("list size: ");
+  Serial.println(status*list_size);
+*/
+
+  uint8_t params[2 + num_anchors * sizeof(uint16_t)];
+  params[0] = (uint8_t)dimension;
+  params[1] = (uint8_t)num_measurements;
+
+  if (num_anchors > 0){
+    memcpy(params+2, (uint8_t*)anchors, num_anchors * sizeof(uint16_t));
   }
 
-  status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + anchor_num * sizeof(uint16_t), NULL, 0);
+  status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + num_anchors * sizeof(uint16_t), NULL, 0);
+  Serial.println(status);
   delay(POZYX_DELAY_LOCAL_FUNCTION);
-  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_CALIBRATION * measurements)){
-    return status;
+  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, 15000)){
+    return POZYX_SUCCESS;
   }
   else{
-    return POZYX_FAILURE;
+    return POZYX_TIMEOUT;
   }
-  return status;
+  
 }
 
 int PozyxClass::updateRemoteTags(uint16_t tags[], int tags_num)
@@ -990,11 +1029,11 @@ int PozyxClass::getDeviceInfo(uint16_t device_id, device_info_t *device_info, ui
   int status;
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICE_GETINFO, (uint8_t *) &device_id, 1, (uint8_t *) device_info, sizeof(device_info_t));
+    status = regFunction(POZYX_DEVICE_GETINFO, (uint8_t *) &device_id, 2, (uint8_t *) device_info, sizeof(device_info_t));
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICE_GETINFO, (uint8_t *) &device_id, 1, (uint8_t *) device_info, sizeof(device_info_t));
+    status = remoteRegFunction(remote_id, POZYX_DEVICE_GETINFO, (uint8_t *) &device_id, 2, (uint8_t *) device_info, sizeof(device_info_t));
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;
@@ -1005,11 +1044,11 @@ int PozyxClass::getDeviceCoordinates(uint16_t device_id, coordinates_t *coordina
   int status;
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 1, (uint8_t *) coordinates, sizeof(device_coordinates_t));
+    status = regFunction(POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 2, (uint8_t *)coordinates, sizeof(coordinates_t));
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 1, (uint8_t *) coordinates, sizeof(device_coordinates_t));
+    status = remoteRegFunction(remote_id, POZYX_DEVICE_GETCOORDS, (uint8_t *) &device_id, 2, (uint8_t *) coordinates, sizeof(coordinates_t));
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;

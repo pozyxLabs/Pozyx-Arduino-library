@@ -715,7 +715,7 @@ public:
     * Input parameters:
     *   coordinates_t *position: data object to store the result
     */
-    static int doPositioning(coordinates_t *position);
+    static int doPositioning(coordinates_t *position, uint8_t dimension = POZYX_2D, int32_t height = 0, uint8_t algorithm = 0);
 
     /**
     * Functions: int doRemotePositioning
@@ -785,8 +785,8 @@ public:
     *   int anchor_num default(0): The number of anchors in the above list
     *   int measurements default(10): The number of measurements per range
     */
-    static int doAnchorCalibration(int option = POZYX_2D, uint16_t anchors[] = NULL, int anchor_num = 0, int measurements = 10);
-
+    static int doAnchorCalibration(int dimension = POZYX_2D, int num_anchors = 0, int num_measurements = 10, uint16_t anchors[] = NULL,  int32_t heights[] = NULL);
+        
     /**
     * Functions: int updateRemoteTags
     * -------------------------------
