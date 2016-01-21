@@ -10,8 +10,8 @@
   burn on both devices.
 */
 
-#include "Pozyx.h"
-#include "Pozyx_definitions.h"
+#include <Pozyx.h>
+#include <Pozyx_definitions.h>
 #include <Wire.h>
 
 ////////////////////////////////////////////////
@@ -24,7 +24,6 @@ signed int range_step_mm = 1000;      // every 1000mm in range, one LED less wil
 ////////////////////////////////////////////////
 
 void setup(){
-  Serial.println();
   Serial.begin(115200);
     
   if(Pozyx.begin() == POZYX_FAILURE){
@@ -57,10 +56,7 @@ void loop(){
   device_range_t range;
   
   // let's do ranging with the destination 
-  status &= Pozyx.doRanging(destination_id);
-  
-  // after ranging is finished, we read the range information (including the distance in mm)
-  status &= Pozyx.getDeviceRangeInfo(destination_id, &range);
+  status &= Pozyx.doRanging(destination_id, &range);
   
   if (status == POZYX_SUCCESS){
     Serial.print(range.timestamp);
@@ -76,25 +72,22 @@ void loop(){
   else{
     Serial.println("ERROR: ranging");
   }
-
-  // just some delay
-  delay(50);
 }
 
 int ledControl(uint32_t range){
   int status = 1;
   
   // set the LEDs of this pozyx device
-  status &= Pozyx.setLed(1, (range < range_step_mm));
-  status &= Pozyx.setLed(2, (range < 2*range_step_mm));
-  status &= Pozyx.setLed(3, (range < 3*range_step_mm));
-  status &= Pozyx.setLed(4, (range < 4*range_step_mm));
+  status &= Pozyx.setLed(4, (range < range_step_mm));
+  status &= Pozyx.setLed(3, (range < 2*range_step_mm));
+  status &= Pozyx.setLed(2, (range < 3*range_step_mm));
+  status &= Pozyx.setLed(1, (range < 4*range_step_mm));
 
   // set the LEDs of the remote pozyx device
-  status &= Pozyx.setLed(1, (range < range_step_mm), destination_id);
-  status &= Pozyx.setLed(2, (range < 2*range_step_mm), destination_id);
-  status &= Pozyx.setLed(3, (range < 3*range_step_mm), destination_id);
-  status &= Pozyx.setLed(4, (range < 4*range_step_mm), destination_id);
+  status &= Pozyx.setLed(4, (range < range_step_mm), destination_id);
+  status &= Pozyx.setLed(3, (range < 2*range_step_mm), destination_id);
+  status &= Pozyx.setLed(2, (range < 3*range_step_mm), destination_id);
+  status &= Pozyx.setLed(1, (range < 4*range_step_mm), destination_id);
 
   // status will be zero if setting the LEDs failed somewhere along the way
   return status;

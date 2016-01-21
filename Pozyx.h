@@ -312,9 +312,9 @@ public:
     *   POZYX_FAILURE: error occured during the process
     *   POZYX_SUCCESS: successful execution of the function
     */
-    static int regRead(uint8_t reg_address, uint8_t *buffer, int size);
+    static int regRead(uint8_t reg_address, uint8_t *pData, int size);
     static int regWrite(uint8_t reg_address, const uint8_t *pData, int size);
-    static int regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *buffer, int size);
+    static int regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size);
 
     /**
     * Functions: int sendData / remoteRegRead / remoteRegWrite / remoteRegDunction
@@ -340,7 +340,7 @@ public:
     * Note: It's important to note that in most cases only one master tag can be active in a given
     * UWB-setting as multiple simultanious requests can collide and cause loss of data
     */
-    static int sendData(uint16_t destination, uint8_t data[], int size);
+    static int sendData(uint16_t destination, uint8_t *pData, int size);
     static int remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size);
     static int remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size);
     static int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size);
@@ -785,7 +785,7 @@ public:
     *   int anchor_num default(0): The number of anchors in the above list
     *   int measurements default(10): The number of measurements per range
     */
-    static int doAnchorCalibration(int dimension = POZYX_2D, int num_anchors = 0, int num_measurements = 10, uint16_t anchors[] = NULL,  int32_t heights[] = NULL);
+    static int doAnchorCalibration(int dimension = POZYX_2D, int num_measurements = 10, int num_anchors = 0, uint16_t anchors[] = NULL,  int32_t heights[] = NULL);
         
     /**
     * Functions: int updateRemoteTags

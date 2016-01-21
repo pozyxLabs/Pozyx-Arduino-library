@@ -895,7 +895,7 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
   return status;
 }
 
-int PozyxClass::doAnchorCalibration(int dimension, int num_anchors, int num_measurements, uint16_t anchors[],  int32_t heights[])
+int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num_anchors, uint16_t anchors[],  int32_t heights[])
 {
   int status;
 
@@ -937,7 +937,7 @@ int PozyxClass::doAnchorCalibration(int dimension, int num_anchors, int num_meas
   status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + num_anchors * sizeof(uint16_t), NULL, 0);
   Serial.println(status);
   delay(POZYX_DELAY_LOCAL_FUNCTION);
-  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, 15000)){
+  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, 25000)){
     return POZYX_SUCCESS;
   }
   else{

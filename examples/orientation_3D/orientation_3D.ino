@@ -18,8 +18,8 @@
   The data can be viewed in the Processing sketch orientation_3D.pde 
 */
 
-#include "Pozyx.h"
-#include "Pozyx_definitions.h"
+#include <Pozyx.h>
+#include <Pozyx_definitions.h>
 #include <Wire.h>
 
 ////////////////////////////////////////////////
@@ -36,7 +36,7 @@ void setup()
 {  
   Serial.begin(115200);
     
-  if(Pozyx.begin() == POZYX_FAILURE){
+  if(Pozyx.begin(false, MODE_INTERRUPT, POZYX_INT_MASK_IMU) == POZYX_FAILURE){
     Serial.println("ERROR: Unable to connect to POZYX shield");
     Serial.println("Reset required");
     delay(100);

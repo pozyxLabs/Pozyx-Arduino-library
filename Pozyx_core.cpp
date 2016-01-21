@@ -164,7 +164,7 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
 /**
   * Reads a number of bytes from the specified pozyx register address using I2C
   */
-int PozyxClass::regRead(uint8_t reg_address, uint8_t *buffer, int size)
+int PozyxClass::regRead(uint8_t reg_address, uint8_t *pData, int size)
 {  
   // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
   // because of this, we may have to split up the i2c reads in smaller chunks
@@ -180,9 +180,9 @@ int PozyxClass::regRead(uint8_t reg_address, uint8_t *buffer, int size)
     reg = reg_address+offset;    
     
     if(i+1 != n_runs){      
-      status &= i2cWriteRead(&reg, 1, buffer+offset, BUFFER_LENGTH);
+      status &= i2cWriteRead(&reg, 1, pData+offset, BUFFER_LENGTH);
     }else{      
-      status &= i2cWriteRead(&reg, 1, buffer+offset, size-offset);
+      status &= i2cWriteRead(&reg, 1, pData+offset, size-offset);
     }    
   }
   
@@ -463,7 +463,7 @@ int PozyxClass::sendTXBufferData(uint16_t destination)
 /*
  * This function sends some data bytes to the destination
  */
-int PozyxClass::sendData(uint16_t destination, uint8_t data[], int size)
+int PozyxClass::sendData(uint16_t destination, uint8_t *pData, int size)
 {
   if(size > MAX_BUF_SIZE)          return POZYX_FAILURE;        // trying to send too much data
   
@@ -471,10 +471,10 @@ int PozyxClass::sendData(uint16_t destination, uint8_t data[], int size)
 
   uint8_t tmp_data[size+1];
   tmp_data[0] = 0;                        // the first byte is the offset byte.
-  memcpy(tmp_data+1, data, size);
+  memcpy(tmp_data+1, pData, size);
   
   // set the TX buffer
-  status = regFunction(POZYX_TX_DATA, data, size, NULL, 0);  
+  status = regFunction(POZYX_TX_DATA, tmp_data, size+1, NULL, 0);  
   
   // stop if POZYX_TX_DATA returned an error.
   if(status == POZYX_FAILURE)
