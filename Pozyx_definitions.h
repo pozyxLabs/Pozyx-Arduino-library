@@ -42,10 +42,9 @@
 #define POZYX_FIRMWARE_VER        0x1   /* Returns the POZYX firmware version. */
 #define POZYX_HARDWARE_VER        0x2   /* Returns the POZYX hardware version. */
 #define POZYX_ST_RESULT         0x3   /* Returns the self-test result */
-#define POZYX_STATUS          0x4   /* Returns the status byte. */
-#define POZYX_ERRORCODE         0x5   /* Describes a possibly system error. */
-#define POZYX_INT_STATUS        0x6   /* Indicates the source of the interrupt. */
-#define POZYX_CALIB_STATUS        0x7   /* Returns the calibration status. */
+#define POZYX_ERRORCODE         0x4   /* Describes a possibly system error. */
+#define POZYX_INT_STATUS        0x5   /* Indicates the source of the interrupt. */
+#define POZYX_CALIB_STATUS        0x6   /* Returns the calibration status. */
 
 /* Configuration registers */ 
 #define POZYX_INT_MASK          0x10    /* Indicates which interrupts are enabled. */
@@ -66,8 +65,6 @@
 #define POZYX_RANGE_PROTOCOL      0x21    /* The ranging protocol */
 #define POZYX_OPERATION_MODE      0x22    /* Configure the mode of operation of the pozyx device */
 #define POZYX_SENSORS_MODE        0x23    /* Configure the mode of operation of the sensors */
-#define POZYX_TDMA_NUMSLOTS       0x2D    /* Number of slots in a superframe. goes in effect the next superframe */
-#define POZYX_TDMA_SLOTDURATION_MS    0x2F    /* Time per slot in milliseconds. goes in effect the next superframe */
 
 /* Positioning data */ 
 #define POZYX_POS_X           0x30    /* x-coordinate of the device in mm. */
@@ -82,7 +79,7 @@
 
 /* Sensor data */ 
 #define POZYX_PRESSURE          0x50    /* Pressure data in mPa */
-#define POZYX_ACCEL_X         0x54    /* Accelerometer data */
+#define POZYX_ACCEL_X         0x54    /* Accelerometer data (in mg) */
 #define POZYX_ACCEL_Y         0x56
 #define POZYX_ACCEL_Z         0x58
 #define POZYX_MAGN_X          0x5A    /* Magnemtometer data */
@@ -135,15 +132,13 @@
 #define POZYX_DEVICE_GETINFO      0xBE    /* Get the stored device information for a given pozyx device */
 #define POZYX_DEVICE_GETCOORDS      0xBF    /* Get the stored coordinates of a given pozyx device */
 #define POZYX_DEVICE_GETRANGEINFO   0xC0    /* Get the stored range inforamation of a given pozyx device */
+#define POZYX_CIR_DATA          0xC1    /* Get the channel impulse response (CIR) coefficients */
 
-/* TDMA Functions */ 
-#define POZYX_TDMA_START_SUPERFRAME   0xFA    /* Start a TDMA superframe */
-#define POZYX_TDMA_SCHEDULE_RANGING   0xFB    /* Schedule a ranging operation */
 
 /* Macro's to test if registers are readable/writable */
-#define IS_REG_READABLE(x)       ((((x)==0x0)||((x)==0x1)||((x)==0x2)||((x)==0x3)||((x)==0x4)||((x)==0x5)||((x)==0x6)||((x)==0x7)||((x)==0x10)||((x)==0x11)||((x)==0x12)||((x)==0x13)||((x)==0x14)||((x)==0x15)||((x)==0x16)||((x)==0x17)||((x)==0x18)||((x)==0x19)||((x)==0x1A)||((x)==0x1B)||((x)==0x1C)||((x)==0x1D)||((x)==0x1E)||((x)==0x1F)||((x)==0x20)||((x)==0x21)||((x)==0x22)||((x)==0x23)||((x)==0x2D)||((x)==0x2E)||((x)==0x2F)||((x)==0x30)||((x)==0x31)||((x)==0x32)||((x)==0x33)||((x)==0x34)||((x)==0x35)||((x)==0x36)||((x)==0x37)||((x)==0x38)||((x)==0x39)||((x)==0x3A)||((x)==0x3B)||((x)==0x3C)||((x)==0x3D)||((x)==0x3E)||((x)==0x3F)||((x)==0x40)||((x)==0x41)||((x)==0x42)||((x)==0x43)||((x)==0x44)||((x)==0x45)||((x)==0x46)||((x)==0x47)||((x)==0x50)||((x)==0x51)||((x)==0x52)||((x)==0x53)||((x)==0x54)||((x)==0x55)||((x)==0x56)||((x)==0x57)||((x)==0x58)||((x)==0x59)||((x)==0x5A)||((x)==0x5B)||((x)==0x5C)||((x)==0x5D)||((x)==0x5E)||((x)==0x5F)||((x)==0x60)||((x)==0x61)||((x)==0x62)||((x)==0x63)||((x)==0x64)||((x)==0x65)||((x)==0x66)||((x)==0x67)||((x)==0x68)||((x)==0x69)||((x)==0x6A)||((x)==0x6B)||((x)==0x6C)||((x)==0x6D)||((x)==0x6E)||((x)==0x6F)||((x)==0x70)||((x)==0x71)||((x)==0x72)||((x)==0x73)||((x)==0x74)||((x)==0x75)||((x)==0x76)||((x)==0x77)||((x)==0x78)||((x)==0x79)||((x)==0x7A)||((x)==0x7B)||((x)==0x7C)||((x)==0x7D)||((x)==0x7E)||((x)==0x7F)||((x)==0x80)||((x)==0x81)||((x)==0x82)||((x)==0x83)||((x)==0x84)||((x)==0x85)||((x)==0x86)||((x)==0x87)||((x)==0x88))?1:0) 
+#define IS_REG_READABLE(x)       ((((x)==0x0)||((x)==0x1)||((x)==0x2)||((x)==0x3)||((x)==0x4)||((x)==0x5)||((x)==0x6)||((x)==0x10)||((x)==0x11)||((x)==0x12)||((x)==0x13)||((x)==0x14)||((x)==0x15)||((x)==0x16)||((x)==0x17)||((x)==0x18)||((x)==0x19)||((x)==0x1A)||((x)==0x1B)||((x)==0x1C)||((x)==0x1D)||((x)==0x1E)||((x)==0x1F)||((x)==0x20)||((x)==0x21)||((x)==0x22)||((x)==0x23)||((x)==0x2D)||((x)==0x2E)||((x)==0x2F)||((x)==0x30)||((x)==0x31)||((x)==0x32)||((x)==0x33)||((x)==0x34)||((x)==0x35)||((x)==0x36)||((x)==0x37)||((x)==0x38)||((x)==0x39)||((x)==0x3A)||((x)==0x3B)||((x)==0x3C)||((x)==0x3D)||((x)==0x3E)||((x)==0x3F)||((x)==0x40)||((x)==0x41)||((x)==0x42)||((x)==0x43)||((x)==0x44)||((x)==0x45)||((x)==0x46)||((x)==0x47)||((x)==0x50)||((x)==0x51)||((x)==0x52)||((x)==0x53)||((x)==0x54)||((x)==0x55)||((x)==0x56)||((x)==0x57)||((x)==0x58)||((x)==0x59)||((x)==0x5A)||((x)==0x5B)||((x)==0x5C)||((x)==0x5D)||((x)==0x5E)||((x)==0x5F)||((x)==0x60)||((x)==0x61)||((x)==0x62)||((x)==0x63)||((x)==0x64)||((x)==0x65)||((x)==0x66)||((x)==0x67)||((x)==0x68)||((x)==0x69)||((x)==0x6A)||((x)==0x6B)||((x)==0x6C)||((x)==0x6D)||((x)==0x6E)||((x)==0x6F)||((x)==0x70)||((x)==0x71)||((x)==0x72)||((x)==0x73)||((x)==0x74)||((x)==0x75)||((x)==0x76)||((x)==0x77)||((x)==0x78)||((x)==0x79)||((x)==0x7A)||((x)==0x7B)||((x)==0x7C)||((x)==0x7D)||((x)==0x7E)||((x)==0x7F)||((x)==0x80)||((x)==0x81)||((x)==0x82)||((x)==0x83)||((x)==0x84)||((x)==0x85)||((x)==0x86)||((x)==0x87)||((x)==0x88))?1:0) 
 #define IS_REG_WRITABLE(x)       ((((x)==0x10)||((x)==0x11)||((x)==0x12)||((x)==0x13)||((x)==0x14)||((x)==0x15)||((x)==0x16)||((x)==0x17)||((x)==0x18)||((x)==0x19)||((x)==0x1A)||((x)==0x1B)||((x)==0x1C)||((x)==0x1D)||((x)==0x1E)||((x)==0x1F)||((x)==0x20)||((x)==0x21)||((x)==0x22)||((x)==0x23)||((x)==0x2D)||((x)==0x2E)||((x)==0x2F)||((x)==0x30)||((x)==0x31)||((x)==0x32)||((x)==0x33)||((x)==0x34)||((x)==0x35)||((x)==0x36)||((x)==0x37)||((x)==0x38)||((x)==0x39)||((x)==0x3A)||((x)==0x3B)||((x)==0x85)||((x)==0x86)||((x)==0x87)||((x)==0x88))?1:0) 
-#define IS_FUNCTIONCALL(x)       ((((x)==0xB0)||((x)==0xB1)||((x)==0xB2)||((x)==0xB3)||((x)==0xB4)||((x)==0xB5)||((x)==0xB6)||((x)==0xB7)||((x)==0xB8)||((x)==0xB9)||((x)==0xBA)||((x)==0xBB)||((x)==0xBC)||((x)==0xBD)||((x)==0xBE)||((x)==0xBF)||((x)==0xC0)||((x)==0xFA)||((x)==0xFB))?1:0) 
+#define IS_FUNCTIONCALL(x)       ((((x)==0xB0)||((x)==0xB1)||((x)==0xB2)||((x)==0xB3)||((x)==0xB4)||((x)==0xB5)||((x)==0xB6)||((x)==0xB7)||((x)==0xB8)||((x)==0xB9)||((x)==0xBA)||((x)==0xBB)||((x)==0xBC)||((x)==0xBD)||((x)==0xBE)||((x)==0xBF)||((x)==0xC0)||((x)==0xC1)||((x)==0xE0)||((x)==0xFA)||((x)==0xFB))?1:0) 
 
 /* Bit mask for POZYX_ST_RESULT */
 #define POZYX_ST_RESULT_ACC       0x01
@@ -186,6 +181,7 @@
 #define POZYX_LED_CTRL_LED4       0x08
 
 /* End of auto generated defines */ 
+
 
 
 #define POZYX_TYPE                                      0xE0   

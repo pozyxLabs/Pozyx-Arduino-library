@@ -686,6 +686,7 @@ int PozyxClass::doRanging(uint16_t destination, device_range_t *range){
     return status;
   }
   else{
+    Serial.println("timeout");
     return POZYX_TIMEOUT;
   }
   return status;
@@ -737,6 +738,67 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
   return status;
 }
 
+int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm){
+  int status;
+  coordinates->x = 0;
+  coordinates->y = 0;
+  coordinates->z = 0;
+  if(dimension != POZYX_3D && dimension != POZYX_2D && dimension != POZYX_2_5D)
+    return POZYX_FAILURE;
+  if(algorithm < 0 && algorithm > 2)
+    return POZYX_FAILURE;
+  // set dimension and algorithm
+  /*uint8_t alg_options = (dimension<<4) | algorithm;
+  status = remoteRegWrite(remote_id, POZYX_POS_ALG, &alg_options, 1);
+  delay(5);
+  */
+
+  // in 2.5D mode, we also supply the height
+  if(dimension == POZYX_2_5D) {
+    status = remoteRegWrite(remote_id, POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
+    delay(10);
+  }
+
+
+  status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
+
+  if(status != POZYX_SUCCESS){
+    Serial.println("error remote bla.");
+  }
+
+  if (waitForFlag(POZYX_INT_STATUS_RX_DATA , 500)){
+
+    // we received a response, now get some information about the response
+    uint8_t rx_info[3]= {0,0,0};
+    regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
+    uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
+    uint8_t data_len = rx_info[2];
+    
+    if( remote_network_id == remote_id && data_len == sizeof(coordinates_t))
+    {
+
+      status = readRXBufferData((uint8_t *) coordinates, 12); //sizeof(coordinates_t));
+      if(coordinates->x < 2500){
+        Serial.println("Weeeeird !!!");
+      }
+      return status;
+    }else{
+      Serial.println("Wrong response, no coordinates");
+      Serial.print("Remote id: ");
+      Serial.println(remote_network_id, HEX);
+      Serial.print("data length: ");
+      Serial.println(data_len);
+
+    }
+  }
+  else{
+    Serial.println("timeout");
+    return POZYX_TIMEOUT;
+  }
+  return status;
+}
+
+/*
 int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates){
   int status;
 
@@ -751,7 +813,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   }
   return status;
 }
-
+*/
 
 
 int PozyxClass::setPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint16_t remote_id)
@@ -885,7 +947,6 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
 
 
   status = regFunction(POZYX_DEVICES_DISCOVER, (uint8_t *)&params, 3, NULL, 0);
-  delay(POZYX_DELAY_LOCAL_FUNCTION);
   if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
     return status;
   }
@@ -1018,7 +1079,7 @@ int PozyxClass::addDevice(device_coordinates_t device_coordinates, uint16_t remo
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICE_ADD, NULL, 0, NULL, 0); 
+    status = remoteRegFunction(remote_id, POZYX_DEVICE_ADD, (uint8_t *) &device_coordinates, sizeof(device_coordinates_t), NULL, 0); 
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;

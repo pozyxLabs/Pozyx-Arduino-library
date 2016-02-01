@@ -306,7 +306,6 @@ int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t
   if(status == POZYX_FAILURE)
     return status;
     
-    
   // wait up to x ms to receive a response  
   if(waitForFlag(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
   {   
@@ -326,7 +325,7 @@ int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t
     
   }else{
     // timeout
-    return POZYX_FAILURE;  
+    return POZYX_TIMEOUT;  
   }
 }
 
@@ -377,16 +376,25 @@ int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uin
   
       status = readRXBufferData(return_data, size+1);   
       
-      if(status == POZYX_FAILURE)
+      if(status == POZYX_FAILURE){
+        Serial.println("could not read from rx buffer");
         return status;    
+      }
   
       memcpy(pData, return_data+1, size);
         
       return return_data[0];
+    }else{
+      Serial.println("wrong response received. remoteRegFunction");
+      Serial.print("Remote id: ");
+      Serial.println(remote_network_id, HEX);
+      Serial.print("data length: ");
+      Serial.println(data_len);
     }     
     
   }else{
     // timeout
+    Serial.println("timeout from ack");
     return POZYX_FAILURE;  
   }
 }

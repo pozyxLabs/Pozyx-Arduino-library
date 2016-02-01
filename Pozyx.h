@@ -191,7 +191,7 @@ typedef struct __attribute__((packed))_device_coordinates {
 typedef struct __attribute__((packed))_device_range {       
     uint32_t timestamp;
     uint32_t distance;
-    int8_t RSS;
+    int16_t RSS;
 }device_range_t;
 
 /**
@@ -726,7 +726,8 @@ public:
     *   uint16_t remote_id: the remote device that will do the positioning
     *   coordinates_t *position: data object to store the result
     */
-    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates);
+    //static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates);
+    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension = POZYX_2D, int32_t height = 0, uint8_t algorithm = 0);
 
     /**
     * Functions: int setPositioningAnchorIds / getPositioningAnchorIds
