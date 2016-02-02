@@ -66,19 +66,7 @@ void loop(){
 
 void printCoordinates(coordinates_t coor){
   
-  i++;
-  
-  Serial.print("pos(");
-  Serial.print(i);
-  Serial.print(") = [");
-  Serial.print(coor.x);
-  Serial.print(" ");
-  Serial.print(coor.y);
-  Serial.print(" ");
-  Serial.print(coor.z);
-  Serial.print("];");
-  
-  /*Serial.print("x_mm: ");
+  Serial.print("x_mm: ");
   Serial.print(coor.x);
   Serial.print("\t");
   Serial.print("y_mm: ");
@@ -87,13 +75,6 @@ void printCoordinates(coordinates_t coor){
   Serial.print("z_mm: ");
   Serial.print(coor.z);
   Serial.println(); 
-  */
-  /*
-  Serial.print("pos;");
-  Serial.print(coor.y + 500);
-  Serial.print(";");
-  Serial.println(coor.x + 500);
-  */
 }
 
 void printCalibrationResult(){
