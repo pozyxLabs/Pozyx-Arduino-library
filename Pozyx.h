@@ -169,7 +169,7 @@ typedef struct __attribute__((packed))_sensor_data {
     quaternion_t quaternion;
     linear_acceleration_t linear_acceleration;
     gravity_vector_t gravity_vector;
-    int8_t temprature;   
+    int8_t temperature;   
 }sensor_data_t;
 
 /**
