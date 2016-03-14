@@ -6,9 +6,14 @@
 ////////////////// PARAMETERS //////////////////
 ////////////////////////////////////////////////
 
-uint8_t num_anchors = 4;
-uint16_t anchors[4] = {0x6641,0x6639,0x663D,0x6670};
-int32_t heights[4] = {2500, 2500, 2500, 2500};
+uint8_t num_anchors = 4;                                    // the number of anchors
+uint16_t anchors[4] = {0x1156, 0x256B, 0x3325, 0x4244};     // the network id of the anchors
+int32_t heights[4] = {2750, 2000, 1900, 2350};              // anchor z-coordinates in mm
+boolean bProcessing = false;                                // set this to true to output data for the processing sketch         
+
+// only required for manual anchor calibration
+int32_t anchors_x[4] = {0, 10000, 1000, 9000};              // anchor x-coorindates in mm
+int32_t anchors_y[4] = {0, 0, 7000, 8000};                  // anchor y-coordinates in mm
 
 ////////////////////////////////////////////////
 
@@ -37,6 +42,10 @@ void setup(){
   Pozyx.clearDevices();
      
   int status = Pozyx.doAnchorCalibration(POZYX_2D, 10, num_anchors, anchors, heights);
+  // if the automatic anchor calibration is unsuccessful, try manually setting the anchor coordinates
+  // fot this, you must update the SetAnchorsManual function below
+  // comment out the doAnchorCalibration if you are using manual mode
+  //SetAnchorsManual();
   
   if (status != POZYX_SUCCESS){
     Serial.println(status);
@@ -47,7 +56,7 @@ void setup(){
   }
 
   printCalibrationResult();
-  delay(10000);
+  delay(3000);
 
   Serial.println(F("Starting positioning: "));
 
@@ -55,15 +64,21 @@ void setup(){
 
 void loop(){
   
-  coordinates_t position;
-  
+  coordinates_t position;  
   int status = Pozyx.doPositioning(&position, POZYX_2_5D, 1000);
   
-  if (status == POZYX_SUCCESS){
-    printCoordinates(position);
+  if (status == POZYX_SUCCESS)
+  {
+    // print out the result
+    if(!bProcessing){
+      printCoordinates(position);
+    }else{    
+      printCoordinatesProcessing(position);
+    }
   }
 }
 
+// function to print the coordinates to the serial monitor
 void printCoordinates(coordinates_t coor){
   
   Serial.print("x_mm: ");
@@ -77,6 +92,52 @@ void printCoordinates(coordinates_t coor){
   Serial.println(); 
 }
 
+// function to print out positoining data + ranges for the processing sketch
+void printCoordinatesProcessing(coordinates_t coor){
+  
+  // get the network id and print it
+  uint16_t network_id;
+  Pozyx.getNetworkId(&network_id);
+  
+  Serial.print("POS,0x");
+  Serial.print(network_id,HEX);
+  Serial.print(",");
+  Serial.print(coor.x);
+  Serial.print(",");
+  Serial.print(coor.y);
+  Serial.print(",");
+  Serial.print(coor.z);
+  Serial.print(",");
+  
+  // get information about the positioning error and print it
+  pos_error_t pos_error;
+  Pozyx.getPositionError(&pos_error);
+    
+  Serial.print(pos_error.x);
+  Serial.print(",");
+  Serial.print(pos_error.y);
+  Serial.print(",");
+  Serial.print(pos_error.z);
+  Serial.print(",");
+  Serial.print(pos_error.xy);
+  Serial.print(",");
+  Serial.print(pos_error.xz);
+  Serial.print(",");
+  Serial.print(pos_error.yz); 
+  
+  // read out the ranges to each anchor and print it 
+  for (int i=0; i < num_anchors; i++){
+    device_range_t range;
+    Pozyx.getDeviceRangeInfo(anchors[i], &range);
+    Serial.print(",");
+    Serial.print(range.distance);  
+    Serial.print(",");
+    Serial.print(range.RSS); 
+  }
+  Serial.println();
+}
+
+// print out the anchor coordinates (also required for the processing sketch)
 void printCalibrationResult(){
   uint8_t list_size;
   int status;
@@ -96,17 +157,34 @@ void printCalibrationResult(){
   for(int i=0; i<list_size; i++)
   {
     
-    Serial.print("Anchor ");
-    Serial.print(i);
-    Serial.print(": 0x");
-    Serial.println(device_ids[i], HEX);
-        
+    Serial.print("ANCHOR,");
+    Serial.print("0x");
+    Serial.print(device_ids[i], HEX);
+    Serial.print(",");    
     status = Pozyx.getDeviceCoordinates(device_ids[i], &anchor_coor);
     Serial.print(anchor_coor.x);
-    Serial.print(";");
-    Serial.println(anchor_coor.y);
-    //printCoordinates("",anchor_coor);
+    Serial.print(",");
+    Serial.print(anchor_coor.y);
+    Serial.print(",");
+    Serial.println(anchor_coor.z);
     
   }    
 }
 
+void SetAnchorsManual(){
+ 
+ // update this function with the anchor coordinates you have manually measured.
+ // Manually setting the anchor positions is recommended for the best accuracy. 
+ 
+ int i=0;
+ for(i=0; i<num_anchors; i++){
+   device_coordinates_t anchor;
+   anchor.network_id = anchors[i];
+   anchor.flag = 0x1; 
+   anchor.pos.x = anchors_x[i];
+   anchor.pos.y = anchors_y[i];
+   anchor.pos.z = heights[i];
+   Pozyx.addDevice(anchor);
+ }
+ 
+}
