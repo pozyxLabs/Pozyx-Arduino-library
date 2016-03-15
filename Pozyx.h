@@ -180,7 +180,7 @@ typedef struct __attribute__((packed))_sensor_raw {
     int16_t quaternion[4];
     int16_t linear_acceleration[3];
     int16_t gravity_vector[3];
-    uint8_t temprature;   
+    uint8_t temperature;   
 }sensor_raw_t;
 
 /**

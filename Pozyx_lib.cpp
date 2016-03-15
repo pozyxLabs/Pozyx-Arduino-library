@@ -613,7 +613,7 @@ int PozyxClass::getAllSensorData(sensor_data_t *sensor_data, uint16_t remote_id)
   sensor_data->gravity_vector.y = raw_data.gravity_vector[1] / POZYX_ACCEL_DIV_MG;
   sensor_data->gravity_vector.z = raw_data.gravity_vector[2] / POZYX_ACCEL_DIV_MG;
 
-  sensor_data->temprature = raw_data.temprature; 
+  sensor_data->temperature = raw_data.temperature; 
 
   return status;
 }
