@@ -214,4 +214,58 @@
 #define POZYX_ANCHOR_MODE         0
 #define POZYX_TAG_MODE            1
 
+// The GPIO modes 
+#define POZYX_GPIO_DIGITAL_INPUT    0
+#define POZYX_GPIO_PUSHPULL         1
+#define POZYX_GPIO_OPENDRAIN        1
+
+// The GPIO pull resistor configuration
+#define POZYX_GPIO_NOPULL           0
+#define POZYX_GPIO_PULLUP           1
+#define POZYX_GPIO_PULLDOWN         2
+
+// anchor selection modes
+#define POZYX_ANCHOR_SEL_MANUAL     0  
+#define POZYX_ANCHOR_SEL_AUTO       1
+
+// discovery options
+#define POZYX_DISCOVERY_ANCHORS_ONLY    0
+#define POZYX_DISCOVERY_TAGS_ONLY       1
+#define POZYX_DISCOVERY_ALL_DEVICES     2
+
+
+// how to intercept pozyx events: by polling or by interrupts
+#define MODE_POLLING              0
+#define MODE_INTERRUPT            1
+
+// Division factors for converting the raw register values to meaningful physical quantities
+#define POZYX_POS_DIV_MM               1.0f   
+#define POZYX_PRESS_DIV_PA             1000.0f
+#define POZYX_ACCEL_DIV_MG             1.0f
+#define POZYX_GYRO_DIV_DPS             16.0f
+#define POZYX_MAG_DIV_UT               16.0f
+#define POZYX_EULER_DIV_DEG            16.0f
+#define POZYX_QUAT_DIV                 16384.0f
+#define POZYX_TEMP_DIV_CELSIUS         1.0f    
+
+// error-code defintions
+#define POZYX_ERROR_NONE                  0x00  
+#define POZYX_ERROR_I2C_WRITE             0x01  
+#define POZYX_ERROR_I2C_CMDFULL           0x02  
+#define POZYX_ERROR_ANCHOR_ADD            0x03  
+#define POZYX_ERROR_COMM_QUEUE_FULL       0x04  
+#define POZYX_ERROR_I2C_READ              0x05  
+#define POZYX_ERROR_UWB_CONFIG            0x06  
+#define POZYX_ERROR_OPERATION_QUEUE_FULL  0x07  
+#define POZYX_ERROR_TDMA                  0xA0  
+#define POZYX_ERROR_STARTUP_BUSFAULT      0x08  
+#define POZYX_ERROR_FLASH_INVALID         0x09  
+#define POZYX_ERROR_NOT_ENOUGH_ANCHORS    0x0A 
+#define POZYX_ERROR_DISCOVERY             0X0B
+#define POZYX_ERROR_CALIBRATION           0x0C
+#define POZYX_ERROR_FUNC_PARAM            0x0D
+#define POZYX_ERROR_ANCHOR_NOT_FOUND      0x0E
+#define POZYX_ERROR_GENERAL               0xFF  
+
+
 #endif
