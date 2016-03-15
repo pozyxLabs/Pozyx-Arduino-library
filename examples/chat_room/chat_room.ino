@@ -9,8 +9,8 @@
   within range. They will see your message appear in their Serial monitor.
 */
 
-#include "Pozyx.h"
-#include "Pozyx_definitions.h"
+#include <Pozyx.h>
+#include <Pozyx_definitions.h>
 #include <Wire.h>
 
 uint16_t source_id;                 // the network id of this device  
