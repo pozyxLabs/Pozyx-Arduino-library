@@ -416,11 +416,12 @@ int PozyxClass::getUWBChannel(int* channel_num, uint16_t remote_id)
 {
   assert(channel_num != NULL);
 
+  *channel_num = 0;
   if(remote_id == NULL){
-    return regRead(POZYX_UWB_CHANNEL, (uint8_t *)&channel_num, 1);
+    return regRead(POZYX_UWB_CHANNEL, (uint8_t *)channel_num, 1);
   }
   else{
-    return remoteRegRead(remote_id, POZYX_UWB_CHANNEL, (uint8_t *)&channel_num, 1);
+    return remoteRegRead(remote_id, POZYX_UWB_CHANNEL, (uint8_t *)channel_num, 1);
   }
 }
 
