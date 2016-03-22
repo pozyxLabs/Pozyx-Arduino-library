@@ -1,3 +1,6 @@
+// Please read the ready-to-localize tuturial together with this example.
+// https://www.pozyx.io/Documentation/Tutorials/ready_to_localize
+
 #include <Pozyx.h>
 #include <Pozyx_definitions.h>
 #include <Wire.h>
@@ -7,11 +10,11 @@
 ////////////////////////////////////////////////
 
 uint8_t num_anchors = 4;                                    // the number of anchors
-uint16_t anchors[4] = {0x1156, 0x256B, 0x3325, 0x4244};     // the network id of the anchors
+uint16_t anchors[4] = {0x1156, 0x256B, 0x3325, 0x4244};     // the network id of the anchors: change these to the network ids of your anchors.
 int32_t heights[4] = {2750, 2000, 1900, 2350};              // anchor z-coordinates in mm
 boolean bProcessing = false;                                // set this to true to output data for the processing sketch         
 
-// only required for manual anchor calibration
+// only required for manual anchor calibration. Please change this to the coordinates measured for the anchors
 int32_t anchors_x[4] = {0, 10000, 1000, 9000};              // anchor x-coorindates in mm
 int32_t anchors_y[4] = {0, 0, 7000, 8000};                  // anchor y-coordinates in mm
 
@@ -41,12 +44,7 @@ void setup(){
   // clear all previous devices in the device list
   Pozyx.clearDevices();
      
-  int status = Pozyx.doAnchorCalibration(POZYX_2D, 10, num_anchors, anchors, heights);
-  // if the automatic anchor calibration is unsuccessful, try manually setting the anchor coordinates
-  // fot this, you must update the SetAnchorsManual function below
-  // comment out the doAnchorCalibration if you are using manual mode
-  //SetAnchorsManual();
-  
+  int status = Pozyx.doAnchorCalibration(POZYX_2_5D, 10, num_anchors, anchors, heights);
   if (status != POZYX_SUCCESS){
     Serial.println(status);
     Serial.println(F("ERROR: calibration"));
@@ -54,6 +52,11 @@ void setup(){
     delay(100);
     abort();
   }
+  
+  // if the automatic anchor calibration is unsuccessful, try manually setting the anchor coordinates.
+  // fot this, you must update the arrays anchors_x, anchors_y and heights above
+  // comment out the doAnchorCalibration block and the if-statement above if you are using manual mode
+  //SetAnchorsManual();
 
   printCalibrationResult();
   delay(3000);
@@ -146,6 +149,12 @@ void printCalibrationResult(){
   Serial.print("list size: ");
   Serial.println(status*list_size);
   
+  if(list_size == 0){
+    Serial.println("Calibration failed.");
+    Serial.println(Pozyx.getSystemError());
+    return;
+  }
+  
   uint16_t device_ids[list_size];
   status &= Pozyx.getDeviceIds(device_ids,list_size);
   
@@ -171,10 +180,8 @@ void printCalibrationResult(){
   }    
 }
 
+// function to manually set the anchor coordinates
 void SetAnchorsManual(){
- 
- // update this function with the anchor coordinates you have manually measured.
- // Manually setting the anchor positions is recommended for the best accuracy. 
  
  int i=0;
  for(i=0; i<num_anchors; i++){
