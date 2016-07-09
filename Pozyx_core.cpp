@@ -189,6 +189,9 @@ int PozyxClass::regWrite(uint8_t reg_address, const uint8_t *pData, int size)
 {  
   // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
   // because of this, we may have to split up the i2c writes in smaller chunks
+   
+  if(!IS_REG_WRITABLE(reg_address))
+    return POZYX_FAILURE;
   
   int n_runs = ceil((float)size / BUFFER_LENGTH);
   int i;
