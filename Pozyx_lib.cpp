@@ -1176,6 +1176,12 @@ int PozyxClass::getDeviceIds(uint16_t devices[],int size, uint16_t remote_id)
 
   int status;
 
+  // verify that the device list has at least the requested number of devices
+  uint8_t list_size = 0;
+  status = getDeviceListSize(&list_size, remote_id);
+  if(status == POZYX_FAILURE || list_size < size)
+    return POZYX_FAILURE;
+
   if(remote_id == NULL){
     status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, size * 2); 
     delay(POZYX_DELAY_LOCAL_FUNCTION);
@@ -1193,30 +1199,45 @@ int PozyxClass::getAnchorIds(uint16_t anchors[],int size, uint16_t remote_id)
   assert(size <= 20);
 
   int status;
-  uint16_t devices[size];
 
+  // verify that the device list has at least the requested number of devices
+  uint8_t list_size = 0;
+  status = getDeviceListSize(&list_size, remote_id);
+  if(status == POZYX_FAILURE || list_size < size)
+    return POZYX_FAILURE;
+
+  // read out all the devices in the device list
+  uint16_t devices[list_size];
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, size * 2); 
+    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t)); 
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, MAX_ANCHORS_IN_LIST * 2);  
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));  
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
 
+  // filter out the devices that are an anchor
   if(status == POZYX_SUCCESS){
     for (int i=0; i < size ; i++){
       anchors[i] = 0x0;
     }
     int j = 0;
-    for (int i=0; i < size ; i++){
-      uint8_t mode = 0x0;
-      status &= getOperationMode(&mode, devices[i]);
-      if(mode == POZYX_ANCHOR_MODE){
+    for (int i=0; i < list_size ; i++){
+
+      // read out the type of device, for this we only need to read out the first 3 bytes from POZYX_DEVICE_GETINFO
+      // the third byte will be the special flag describing the device.
+      uint8_t data[3] = {0,0,0};
+      regFunction(POZYX_DEVICE_GETINFO, (uint8_t*)&devices[i], 2, data, 3);
+      if(data[2] == POZYX_ANCHOR_MODE+1){  
         anchors[j] = devices[i];
         j++;
       }
     }
+
+    // ultimately, we didn't find enough Anchors, so we give an error
+    if(j<size)
+      return POZYX_FAILURE;
   }
   return status;
 }
@@ -1227,30 +1248,45 @@ int PozyxClass::getTagIds(uint16_t tags[],int size, uint16_t remote_id)
   assert(size <= 20);
 
   int status;
-  uint16_t devices[size];
 
+  // verify that the device list has at least the requested number of devices
+  uint8_t list_size = 0;
+  status = getDeviceListSize(&list_size, remote_id);
+  if(status == POZYX_FAILURE || list_size < size)
+    return POZYX_FAILURE;
+
+  // read out all the devices in the device list
+  uint16_t devices[list_size];
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, size * 2); 
+    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t)); 
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, MAX_ANCHORS_IN_LIST * 2);  
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));  
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
 
+  // filter out the devices that are a tag
   if(status == POZYX_SUCCESS){
     for (int i=0; i < size ; i++){
       tags[i] = 0x0;
     }
     int j = 0;
-    for (int i=0; i < size ; i++){
-      uint8_t mode = 0x0;
-      status &= getOperationMode(&mode, devices[i]);
-      if(mode == POZYX_TAG_MODE){
+    for (int i=0; i < list_size ; i++){
+
+      // read out the type of device, for this we only need to read out the first 3 bytes from POZYX_DEVICE_GETINFO
+      // the third byte will be the special flag describing the device.
+      uint8_t data[3] = {0,0,0};
+      regFunction(POZYX_DEVICE_GETINFO, (uint8_t*)&devices[i], 2, data, 3);
+      if(data[2] == POZYX_TAG_MODE+1){  
         tags[j] = devices[i];
         j++;
       }
     }
+
+    // ultimately, we didn't find enough tags, so we give an error
+    if(j<size)
+      return POZYX_FAILURE;
   }
   return status;
 }
