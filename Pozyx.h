@@ -281,6 +281,18 @@ private:
     * Internal function that sets the _interrupt variable on an Arduino interrupt
     */
     static void IRQ(); 
+
+    /**    
+    * This function calls the waitForFlag function in polling mode. After this, the previous mode is reset.
+    * 
+    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR, 
+    *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.  
+    *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
+    *
+    * @retval #true event occured.
+    * @retval #false event did not occur, this function timed out.
+    */
+    static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms);   
    
 
 public:
@@ -1374,7 +1386,7 @@ public:
     *
     * @see doRanging, getDeviceRangeInfo
     */
-    static int doRemoteRanging(uint16_t device_from, uint16_t device_to, device_range_t *device_range);
+    static int doRemoteRanging(uint16_t device_from, uint16_t device_to, device_range_t *range);
 
     /**
     * Retrieve stored ranging information.

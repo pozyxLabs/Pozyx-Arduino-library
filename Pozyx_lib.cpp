@@ -987,7 +987,7 @@ int PozyxClass::doRanging(uint16_t destination, device_range_t *range)
   if (status == POZYX_SUCCESS )
   {
     // wait for the result
-    if(waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT))
+    if(waitForFlag_safe(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT))
     {
       // read out the ranging results
       return getDeviceRangeInfo(destination, range);
@@ -1001,28 +1001,30 @@ int PozyxClass::doRanging(uint16_t destination, device_range_t *range)
   
 }
 
-int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device_range_t *device_range)
+int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device_range_t* range)
 {
   assert(device_from != 0);
   assert(device_to != 0);
-  assert(device_range != NULL);
+  assert(range != NULL);
 
   int status;
 
   // trigger remote ranging between the two devices
-  status = remoteRegFunction(device_from, POZYX_DO_RANGING, (uint8_t *) device_to, 2, NULL, 0); 
+  status = remoteRegFunction(device_from, POZYX_DO_RANGING, (uint8_t *)&device_to, 2, NULL, 0); 
   if (status == POZYX_SUCCESS)
   {
-    // the remote device (device_from) will respond with the ranging result, wait for that to happen
-    if(waitForFlag(POZYX_INT_STATUS_RX_DATA , POZYX_DELAY_INTERRUPT))
-    {
+    // the remote device (device_from) will respond with the ranging result, wait for that to happen 
+    if(waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , POZYX_DELAY_INTERRUPT))
+    {      
       // read out the ranging results from the received message
-      return readRXBufferData((uint8_t *) device_range, sizeof(device_range_t));
+      delay(5);
+      return getDeviceRangeInfo(device_to, range, device_from);
+
     }else{
       return POZYX_TIMEOUT;
-    }    
-  }else{
-    return POZYX_FAILURE;
+    }     
+  }else{    
+    return status;
   }
  
 }
@@ -1049,7 +1051,7 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
   if (status == POZYX_SUCCESS )
   {
     // wait for positioning to finish
-    if(waitForFlag(POZYX_INT_STATUS_POS, POZYX_DELAY_INTERRUPT)){
+    if(waitForFlag_safe(POZYX_INT_STATUS_POS, POZYX_DELAY_INTERRUPT)){
       status = getCoordinates(position);
       return status;
     }else{
@@ -1093,7 +1095,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
     
   }
 
-  if (waitForFlag(POZYX_INT_STATUS_RX_DATA , 500)){
+  if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 500)){
 
     // we received a response, now get some information about the response
     uint8_t rx_info[3]= {0,0,0};
@@ -1309,14 +1311,10 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
   if (status = POZYX_SUCCESS)
   {
     // temporarly switch to polling so this does not depend on the configuration of the interrupts. Ref. Github Issue #8
-    int tmp = _mode;
-    _mode = MODE_POLLING;
-    if (status = POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
-      _mode = tmp;
+    if (status = POZYX_SUCCESS && waitForFlag_safe(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
       return status;
     }
     else{
-      _mode = tmp;
       return POZYX_TIMEOUT;
     }
   }else
@@ -1370,7 +1368,7 @@ int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num
   status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + num_anchors * sizeof(uint16_t), NULL, 0);
   Serial.println(status);
   delay(POZYX_DELAY_LOCAL_FUNCTION);
-  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, 25000)){
+  if (status == POZYX_SUCCESS && waitForFlag_safe(POZYX_INT_STATUS_FUNC, 25000)){
     return POZYX_SUCCESS;
   }
   else{

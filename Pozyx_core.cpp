@@ -58,6 +58,15 @@ boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms)
   return false;  
 }
 
+boolean PozyxClass::waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms)
+{
+  int tmp = _mode;
+  _mode = MODE_POLLING;
+  boolean result = waitForFlag(interrupt_flag, timeout_ms);
+  _mode = tmp;
+  return result;
+}
+
 int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interrupt_pin){
   
   int status = POZYX_SUCCESS;
@@ -220,7 +229,7 @@ int PozyxClass::regFunction(uint8_t reg_address, uint8_t *params, int param_size
 {
 if(!IS_FUNCTIONCALL(reg_address))
     return POZYX_FAILURE;
-  
+
   uint8_t status;
   
   // this feels a bit clumsy with all these memcpy's
@@ -309,7 +318,7 @@ int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t
     return status;
     
   // wait up to x ms to receive a response  
-  if(waitForFlag(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
+  if(waitForFlag_safe(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
   {   
     // we received a response, now get some information about the response
     uint8_t rx_info[3]= {0,0,0};
@@ -364,7 +373,7 @@ int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uin
     return status;
     
   // wait up to x ms to receive a response  
-  if(waitForFlag(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
+  if(waitForFlag_safe(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
   {    
     // we received a response, now get some information about the response
     uint8_t rx_info[3];
@@ -388,23 +397,11 @@ int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uin
         
       return return_data[0];
     }else{
-      // wrong response received.
-      // debug information
-      /*
-      Serial.println("wrong response received. remoteRegFunction");
-      Serial.print("Remote id: ");
-      Serial.println(remote_network_id, HEX);
-      Serial.print("data length: ");
-      Serial.println(data_len);
-      */
-
       return POZYX_FAILURE;  
     }     
     
   }else{
     // timeout
-    // debug information
-    // Serial.println("timeout from ack");
     return POZYX_TIMEOUT;  
   }
 }
