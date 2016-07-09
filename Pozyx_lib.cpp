@@ -1305,15 +1305,22 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
   params[1] = (uint8_t)slots;
   params[2] = (uint8_t)slot_duration;
 
-
   status = regFunction(POZYX_DEVICES_DISCOVER, (uint8_t *)&params, 3, NULL, 0);
-  if (status == POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
+  if (status = POZYX_SUCCESS)
+  {
+    // temporarly switch to polling so this does not depend on the configuration of the interrupts. Ref. Github Issue #8
+    int tmp = _mode;
+    _mode = MODE_POLLING;
+    if (status = POZYX_SUCCESS && waitForFlag(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
+      _mode = tmp;
+      return status;
+    }
+    else{
+      _mode = tmp;
+      return POZYX_TIMEOUT;
+    }
+  }else
     return status;
-  }
-  else{
-    return POZYX_TIMEOUT;
-  }
-  return status;
 }
 
 int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num_anchors, uint16_t anchors[],  int32_t heights[])
