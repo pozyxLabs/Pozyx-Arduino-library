@@ -1323,7 +1323,8 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
     return status;
   
   // now wait for the discovery to finish or generate an error  
-  if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, POZYX_DELAY_INTERRUPT, &int_status)){
+  int timeout_ms = slot_duration*(slots+20);
+  if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, timeout_ms, &int_status)){
     if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
       // An error occured during auto calibration. 
