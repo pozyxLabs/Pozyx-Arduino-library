@@ -26,9 +26,10 @@ void PozyxClass::IRQ()
   _interrupt = 1;  
 }
 
-boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms)
+boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt)
 {
   long timer = millis();
+  int status;
   
   // stay in this loop until the event interrupt flag is set or until the the timer runs out
   while(millis()-timer < timeout_ms)
@@ -44,10 +45,12 @@ boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms)
       
       // Read out the interrupt status register. After reading from this register, pozyx automatically clears the interrupt flags.
       uint8_t interrupt_status = 0;
-      regRead(POZYX_INT_STATUS, &interrupt_status, 1);
-      if((interrupt_status & interrupt_flag) == interrupt_flag)
+      status = regRead(POZYX_INT_STATUS, &interrupt_status, 1);
+      if((interrupt_status & interrupt_flag) && status == POZYX_SUCCESS)
       {
-        // the interrupt we were waiting for arrived!
+        // one of the interrupts we were waiting for arrived!
+        if(interrupt != NULL)
+          *interrupt = interrupt_status;
         return true;
       }
     }     
@@ -58,11 +61,11 @@ boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms)
   return false;  
 }
 
-boolean PozyxClass::waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms)
+boolean PozyxClass::waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt)
 {
   int tmp = _mode;
   _mode = MODE_POLLING;
-  boolean result = waitForFlag(interrupt_flag, timeout_ms);
+  boolean result = waitForFlag(interrupt_flag, timeout_ms, interrupt);
   _mode = tmp;
   return result;
 }

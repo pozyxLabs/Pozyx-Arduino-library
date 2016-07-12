@@ -909,14 +909,17 @@ void PozyxClass::resetSystem(uint16_t remote_id)
 
 String PozyxClass::getSystemError(uint16_t remote_id)
 {
-  uint8_t error_code;
+  uint8_t error_code, result;
 
   if(remote_id == NULL){
-    regRead(POZYX_ERRORCODE, &error_code, 1); 
+    result = regRead(POZYX_ERRORCODE, &error_code, 1); 
   }
   else{
-    remoteRegRead(remote_id, POZYX_ERRORCODE, &error_code, 1); 
+    result = remoteRegRead(remote_id, POZYX_ERRORCODE, &error_code, 1); 
   }
+
+  if(result != POZYX_SUCCESS)
+    return F("Error: could not connect with the Pozyx device");
 
   switch(error_code)
   {
@@ -953,7 +956,7 @@ String PozyxClass::getSystemError(uint16_t remote_id)
     case POZYX_ERROR_GENERAL:
       return F("Error 0xFF: General error");
     default:
-      return F("Unknonw error");
+      return F("Unknown error");
   }
 
 }
@@ -1047,19 +1050,25 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
   }
   
   // trigger positioning
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
   status = regFunction(POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
-  if (status == POZYX_SUCCESS )
-  {
-    // wait for positioning to finish
-    if(waitForFlag_safe(POZYX_INT_STATUS_POS, POZYX_DELAY_INTERRUPT)){
-      status = getCoordinates(position);
-      return status;
-    }else{
-      return POZYX_TIMEOUT;
-    }    
-  }
-  else{
+  if (status != POZYX_SUCCESS )
     return POZYX_FAILURE;
+
+  // now wait for the positioning to finish or generate an error  
+  if (waitForFlag_safe(POZYX_INT_STATUS_POS | POZYX_INT_STATUS_ERR, 2*POZYX_DELAY_INTERRUPT, &int_status)){
+    if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
+    {
+      // An error occured during positioning. 
+      // Please read out the register POZYX_ERRORCODE to obtain more information about the error
+      return POZYX_FAILURE;
+    }else{
+      status = getCoordinates(position);
+      return POZYX_SUCCESS;
+    }    
+  }else{
+    return POZYX_TIMEOUT;
   }
 }
 
@@ -1092,7 +1101,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
 
   if(status != POZYX_SUCCESS){
-    
+    return status;
   }
 
   if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 500)){
@@ -1307,33 +1316,37 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
   params[1] = (uint8_t)slots;
   params[2] = (uint8_t)slot_duration;
 
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
   status = regFunction(POZYX_DEVICES_DISCOVER, (uint8_t *)&params, 3, NULL, 0);
-  if (status = POZYX_SUCCESS)
-  {
-    // temporarly switch to polling so this does not depend on the configuration of the interrupts. Ref. Github Issue #8
-    if (status = POZYX_SUCCESS && waitForFlag_safe(POZYX_INT_STATUS_FUNC, POZYX_DELAY_INTERRUPT)){
-      return status;
-    }
-    else{
-      return POZYX_TIMEOUT;
-    }
-  }else
+  if (status != POZYX_SUCCESS)
     return status;
+  
+  // now wait for the discovery to finish or generate an error  
+  if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, POZYX_DELAY_INTERRUPT, &int_status)){
+    if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
+    {
+      // An error occured during auto calibration. 
+      // Please read out the register POZYX_ERRORCODE to obtain more information about the error
+      return POZYX_FAILURE;
+    }else{
+      return POZYX_SUCCESS;
+    }    
+  }
+  else{
+    return POZYX_TIMEOUT;
+  }
+ 
 }
 
 int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num_anchors, uint16_t anchors[],  int32_t heights[])
 {
   assert( (dimension == POZYX_2D ) || (dimension == POZYX_2_5D));
   assert( num_measurements > 0);
-  assert( num_anchors >= 3);
+  assert( num_anchors >= 0);
   assert( num_anchors <= 6);
 
   int status;
-
-  if (num_anchors < 0 || num_anchors > 6)
-    return POZYX_FAILURE;
-  if(dimension != POZYX_2D && dimension != POZYX_2_5D)
-    return POZYX_FAILURE;
 
   // in 2.5D mode, we must supply the heights of all the anchors
   if(dimension == POZYX_2_5D){
@@ -1349,27 +1362,30 @@ int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num
     }
   } 
 
-/*
-  Serial.println("devices added");
-  uint8_t list_size = 0;
-  status = Pozyx.getDeviceListSize(&list_size);
-  Serial.print("list size: ");
-  Serial.println(status*list_size);
-*/
-
+  // prepare the register function call
   uint8_t params[2 + num_anchors * sizeof(uint16_t)];
   params[0] = (uint8_t)dimension;
   params[1] = (uint8_t)num_measurements;
-
   if (num_anchors > 0){
     memcpy(params+2, (uint8_t*)anchors, num_anchors * sizeof(uint16_t));
   }
 
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
   status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + num_anchors * sizeof(uint16_t), NULL, 0);
-  Serial.println(status);
-  delay(POZYX_DELAY_LOCAL_FUNCTION);
-  if (status == POZYX_SUCCESS && waitForFlag_safe(POZYX_INT_STATUS_FUNC, 25000)){
-    return POZYX_SUCCESS;
+  if(status != POZYX_SUCCESS)
+    return POZYX_FAILURE;
+
+  // now wait for the function to finish, or generate an error  
+  if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, 25000, &int_status)){
+    if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
+    {
+      // An error occured during auto calibration. 
+      // Please read out the register POZYX_ERRORCODE to obtain more information about the error
+      return POZYX_FAILURE;
+    }else{
+      return POZYX_SUCCESS;
+    }    
   }
   else{
     return POZYX_TIMEOUT;

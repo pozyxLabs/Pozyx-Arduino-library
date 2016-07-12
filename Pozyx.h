@@ -288,11 +288,12 @@ private:
     *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR, 
     *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.  
     *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
+    *   @param interrupt a pointer that will contain the value of the interrupt status register
     *
     * @retval #true event occured.
     * @retval #false event did not occur, this function timed out.
     */
-    static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms);   
+    static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);   
    
 
 public:
@@ -310,11 +311,12 @@ public:
     *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR, 
     *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.  
     *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
+    *   @param interrupt a pointer that will contain the value of the interrupt status register
     *
     * @retval #true event occured.
     * @retval #false event did not occur, this function timed out.
     */
-    static boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms);     
+    static boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);     
 
     /**
     * Initiates the Pozyx shield. This function initializes the pozyx device. 
