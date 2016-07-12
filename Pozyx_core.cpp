@@ -230,6 +230,9 @@ int PozyxClass::regWrite(uint8_t reg_address, const uint8_t *pData, int size)
   */
 int PozyxClass::regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size)
 {
+  assert(BUFFER_LENGTH >= size+1);           // Arduino-specific code for the i2c
+  assert(BUFFER_LENGTH >= param_size+1);     // Arduino-specific code for the i2c
+
   if(!IS_FUNCTIONCALL(reg_address))
     return POZYX_FAILURE;
 

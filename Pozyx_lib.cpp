@@ -1183,7 +1183,9 @@ int PozyxClass::getPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint
 int PozyxClass::getDeviceIds(uint16_t devices[],int size, uint16_t remote_id)
 {
   assert(size > 0);
-  assert(size <= 20);
+  // the limit on size is 20, however, due to the Arduino i2c library the limit depends on the i2c buffer size
+  // see github issue #6, thanks to lpdunwell
+  assert((BUFFER_LENGTH > 32 && size <= 20) || (size <= 15)); 
 
   int status;
 
