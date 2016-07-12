@@ -1435,7 +1435,7 @@ public:
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAIL function failed.
     */
-    static int getDeviceIds(uint16_t devices[], int size = MAX_ANCHORS_IN_LIST, uint16_t remote_id = NULL);
+    static int getDeviceIds(uint16_t devices[], int size, uint16_t remote_id = NULL);
 
     /**
     * Obtain the network IDs from all the anchors in the device list.
@@ -1448,7 +1448,7 @@ public:
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAIL function failed.
     */
-    static int getAnchorIds(uint16_t anchors[], int size = MAX_ANCHORS_IN_LIST, uint16_t remote_id = NULL);
+    static int getAnchorIds(uint16_t anchors[], int size, uint16_t remote_id = NULL);
     
     /**
     * Obtain the network IDs from all the tags in the device list.
@@ -1461,7 +1461,7 @@ public:
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAIL function failed.
     */
-    static int getTagIds(uint16_t tags[], int size = MAX_ANCHORS_IN_LIST, uint16_t remote_id = NULL);
+    static int getTagIds(uint16_t tags[], int size, uint16_t remote_id = NULL);
 
     /**
     * Discover Pozyx devices in range.
