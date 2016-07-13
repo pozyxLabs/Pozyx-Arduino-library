@@ -85,10 +85,8 @@ typedef struct __attribute__((packed))_UWB_settings {
     * See the reg:POZYX_UWB_PLEN register for more information.
     */ 
     uint8_t plen;                   
-    /** the transmit gain. The gain is given in double dBm, i.e., a gain of 2 equals 1dBm. See the reg:POZYX_UWB_GAIN register for more information.*/
-    int8_t gain;                    
-    /** The trim value for the UWB transceiver clock. The value must be lower than 32. See the reg:POZYX_UWB_XTALTRIM register for more information.*/
-    unsigned trim:8;                
+    /** The transmission gain in dB. Possible values are between 0dB and 33.5dB, with a resolution of 0.5dB. See the reg:POZYX_UWB_GAIN register for more information.*/
+    float gain_db;                                  
 }UWB_settings_t;
 
 /**
@@ -547,14 +545,14 @@ public:
     * In order to communicate, two pozyx devices must have exactly the same UWB settings.
     * Upon reset, the default UWB settings will be loaded.
     *
-    *   @param UWB_settings the new UWB settings
+    *   @param UWB_settings reference to the new UWB settings. If the gain_db is set to 0, it will automatically load the default gain value for the given uwb paramters.
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAIL function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
-    static int setUWBSettings(UWB_settings_t UWB_settings, uint16_t remote_id = NULL);
+    static int setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id = NULL);
 
     /**
     * Set the Ultra-wideband frequency channel.
@@ -595,7 +593,7 @@ public:
     * transmitter and the receiver must set the appropriate transmit power.
     * Changing the UWB channel will reset the power to the default value.
     *
-    *   @param txgain_dB the transmission gain in dB. Possible values are between 0dB and 35dB, with a resolution of 0.5dB.
+    *   @param txgain_dB the transmission gain in dB. Possible values are between 0dB and 33.5dB, with a resolution of 0.5dB.
     *   @param remote_id optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
@@ -610,7 +608,7 @@ public:
     * This function obtains the configured UWB transmission power gain. The default value is different for each UWB channel.
     * Changing the UWB channel will reset the TX power to the default value.
     *
-    *   @param txgain_dB the configured transmission gain in dB. Possible values are between 0dB and 35dB, with a resolution of 0.5dB.
+    *   @param txgain_dB the configured transmission gain in dB. Possible values are between 0dB and 33.5dB, with a resolution of 0.5dB.
     *   @param remote_id optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
