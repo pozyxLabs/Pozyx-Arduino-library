@@ -328,7 +328,7 @@ public:
     * @param interrupt_pin Pozyx interrupt pin: #POZYX_INT_PIN0 or #POZYX_INT_PIN1. This field is only required for #MODE_INTERRUPT. 
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int begin(boolean print_result = false, int mode = MODE_INTERRUPT,  int interrupts = POZYX_INT_MASK_ALL, int interrupt_pin = POZYX_INT_PIN0);
    
@@ -340,7 +340,7 @@ public:
     *   @param size: the number of bytes to read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int regRead(uint8_t reg_address, uint8_t *pData, int size);
 
@@ -352,7 +352,7 @@ public:
     *   @param size: the number of bytes to write
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int regWrite(uint8_t reg_address, const uint8_t *pData, int size);
 
@@ -366,7 +366,7 @@ public:
     *   @param size: the number of bytes that will be stored in pData
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size);
 
@@ -379,7 +379,7 @@ public:
     *   @param size: the number of bytes to write
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */    
     static int remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size);
 
@@ -392,7 +392,7 @@ public:
     *   @param size: the number of bytes to read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size);
@@ -408,7 +408,7 @@ public:
     *   @param size: the number of bytes that will be stored in pData
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size);
@@ -428,7 +428,7 @@ public:
     *   @param size number of bytes to transmit
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int sendData(uint16_t destination, uint8_t *pData, int size);
 
@@ -441,7 +441,7 @@ public:
     *   @param offset The offset in the memory
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see sendTXBufferData
     */
@@ -454,7 +454,7 @@ public:
     *   @param destination the network id of the device that should receive the data. A value of 0 will result in a broadcast.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see writeTXBufferData
     */
@@ -469,7 +469,7 @@ public:
     *   @param size the number of bytes to read from the receive buffer.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see getLastDataLength getLastNetworkId
     */
@@ -483,7 +483,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getLastNetworkId(uint16_t *network_id, uint16_t remote_id = NULL);
@@ -496,7 +496,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getLastDataLength(uint8_t *data_length, uint16_t remote_id = NULL);
@@ -508,7 +508,7 @@ public:
     *   @param network_id: reference to the network_id pointer to store the data
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int getNetworkId(uint16_t *network_id);
 
@@ -521,7 +521,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int setNetworkId(uint16_t network_id, uint16_t remote_id = NULL);
@@ -534,7 +534,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id = NULL);
@@ -549,7 +549,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id = NULL);
@@ -564,7 +564,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int setUWBChannel(int channel_num, uint16_t remote_id = NULL);
 
@@ -578,7 +578,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getUWBChannel(int* channel_num, uint16_t remote_id = NULL);
@@ -597,7 +597,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int setTxPower(float txgain_dB, uint16_t remote_id = NULL);
@@ -612,7 +612,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getTxPower(float* txgain_dB, uint16_t remote_id = NULL);
@@ -632,7 +632,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getWhoAmI(uint8_t *whoami, uint16_t remote_id = NULL);
@@ -645,7 +645,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getFirmwareVersion(uint8_t *firmware, uint16_t remote_id = NULL);
@@ -658,7 +658,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getHardwareVersion(uint8_t *hardware, uint16_t remote_id = NULL);
@@ -671,7 +671,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getSelftest(uint8_t *selftest, uint16_t remote_id = NULL);
@@ -684,7 +684,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getErrorCode(uint8_t *error_code, uint16_t remote_id = NULL);
@@ -697,7 +697,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see waitForFlag
@@ -712,7 +712,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be read
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getCalibrationStatus(uint8_t *calibration_status, uint16_t remote_id = NULL);
@@ -726,7 +726,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @note In firmware version v0.9. The GPIO state cannot be read remotely.
@@ -742,7 +742,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int setGPIO(int gpio_num, uint8_t value, uint16_t remote_id = NULL);
@@ -769,7 +769,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see setLedConfig
@@ -785,7 +785,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getInterruptMask(uint8_t *mask, uint16_t remote_id = NULL);
@@ -800,7 +800,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int setInterruptMask(uint8_t mask, uint16_t remote_id = NULL);
@@ -816,7 +816,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getConfigModeGPIO(int gpio_num, uint8_t *mode, uint16_t remote_id = NULL);
@@ -831,7 +831,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getConfigPullGPIO(int gpio_num, uint8_t *pull, uint16_t remote_id = NULL);
@@ -848,7 +848,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int setConfigGPIO(int gpio_num, int mode, int pull, uint16_t remote_id = NULL);
@@ -863,7 +863,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see setLed
@@ -887,7 +887,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used.
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see doPositioning, doRemotePositioning
@@ -902,7 +902,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see getCoordinates
@@ -918,7 +918,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getPositionError(pos_error_t *pos_error, uint16_t remote_id = NULL);
@@ -934,7 +934,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see setSelectionOfAnchors, getPositioningAnchorIds
@@ -951,7 +951,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see setSelectionOfAnchors, setPositioningAnchorIds
@@ -966,7 +966,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see setUpdateInterval
@@ -983,7 +983,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see getUpdateInterval
     */
@@ -1000,7 +1000,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     * 
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see getPositionDimension, setPositionAlgorithm
@@ -1015,7 +1015,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     * 
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see getPositionAlgorithm, setPositionAlgorithm
@@ -1033,7 +1033,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     * 
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see getPositionAlgorithm, getPositionDimension
     */
@@ -1048,7 +1048,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getAnchorSelectionMode(uint8_t *mode, uint16_t remote_id = NULL);
@@ -1063,7 +1063,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */  
     static int getNumberOfAnchors(uint8_t *nr_anchors, uint16_t remote_id = NULL);
@@ -1082,7 +1082,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see setPositioningAnchorIds to set the anchor IDs in manual anchor selection mode.
     */  
@@ -1098,7 +1098,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
     * @see setOperationMode
@@ -1116,7 +1116,7 @@ public:
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see getOperationMode
     */    
@@ -1150,7 +1150,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getSensorMode(uint8_t *sensor_mode, uint16_t remote_id = NULL);
@@ -1163,7 +1163,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int setSensorMode(uint8_t sensor_mode, uint16_t remote_id = NULL);
 
@@ -1176,7 +1176,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getAllSensorData(sensor_data_t *sensor_data, uint16_t remote_id = NULL);
@@ -1189,7 +1189,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getPressure_Pa(float32_t *pressure, uint16_t remote_id = NULL);
@@ -1204,7 +1204,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getAcceleration_mg(acceleration_t *acceleration, uint16_t remote_id = NULL);
@@ -1218,7 +1218,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getMagnetic_uT(magnetic_t *magnetic, uint16_t remote_id = NULL);
@@ -1232,7 +1232,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getAngularVelocity_dps(angular_vel_t *angular_vel, uint16_t remote_id = NULL);
@@ -1245,7 +1245,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getEulerAngles_deg(euler_angles_t *euler_angles, uint16_t remote_id = NULL);
@@ -1259,7 +1259,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getQuaternion(quaternion_t *quaternion, uint16_t remote_id = NULL);
@@ -1275,7 +1275,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getLinearAcceleration_mg(linear_acceleration_t *linear_acceleration, uint16_t remote_id = NULL);
@@ -1289,7 +1289,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getGravityVector_mg(gravity_vector_t *gravity_vector, uint16_t remote_id = NULL);
@@ -1303,7 +1303,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int getTemperature_c(float32_t *temperature, uint16_t remote_id = NULL);
@@ -1328,7 +1328,7 @@ public:
     *   @param algorithm: optional flag to specifiy the positioning algorithm to be used. Possible options are #POZYX_POS_ALG_UWB_ONLY and #POZYX_POS_ALG_LS
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors
     */
@@ -1352,7 +1352,7 @@ public:
     *   @param algorithm: optional flag to specifiy the positioning algorithm to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see doPositioning, addDevice, setSelectionOfAnchors
     */
@@ -1366,7 +1366,7 @@ public:
     *   @param range: the pointer to where the resulting data will be stored
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see doRemoteRanging, getDeviceRangeInfo
     */
@@ -1382,7 +1382,7 @@ public:
     *   @param range: the pointer to where the resulting data will be stored
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see doRanging, getDeviceRangeInfo
     */
@@ -1415,7 +1415,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see doDiscovery, doAnchorCalibration
     */
@@ -1431,7 +1431,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int getDeviceIds(uint16_t devices[], int size, uint16_t remote_id = NULL);
 
@@ -1444,7 +1444,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int getAnchorIds(uint16_t anchors[], int size, uint16_t remote_id = NULL);
     
@@ -1457,7 +1457,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int getTagIds(uint16_t tags[], int size, uint16_t remote_id = NULL);
 
@@ -1471,7 +1471,7 @@ public:
     *   @param slot_duration Time duration of an idle slot
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see getDeviceListSize, getDeviceIds
     */
@@ -1495,7 +1495,7 @@ public:
     *   @param heights The heights in mm of the anchors in the anchors[] array (only used for #POZYX_2_5D)
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     *
     * @see Please read the Ready to Localize tutorial to get started with this function.
     */
@@ -1508,7 +1508,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int clearDevices(uint16_t remote_id = NULL);
 
@@ -1521,7 +1521,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int addDevice(device_coordinates_t device_coordinates, uint16_t remote_id = NULL);
 
@@ -1534,7 +1534,7 @@ public:
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_FAILURE function failed.
     */
     static int getDeviceCoordinates(uint16_t device_id, coordinates_t *coordinates, uint16_t remote_id = NULL);
 
