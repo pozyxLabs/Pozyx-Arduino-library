@@ -7,6 +7,7 @@
 
 #include "Pozyx.h"
 #include <Wire.h>
+#include "Pozyx_new.h"
 
 extern "C" {
   #include "Pozyx_definitions.h"
@@ -144,22 +145,30 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
     }
     return status;
   }
-  
-  // set everything ready for interrupts
-  _interrupt = 0;
+
   if(_mode == MODE_INTERRUPT){
     // set the function that must be called upon an interrupt
+    // put your main code here, to run repeatedly:
+#if defined(__SAMD21G18A__) || defined(__ATSAMD21G18A__)
+    // Arduino Tian
+    int tian_interrupt_pin = interrupt_pin;
+    attachInterrupt(interrupt_pin+2, IRQ, RISING);
+#elif defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+    // Arduino UNO, Mega
     attachInterrupt(interrupt_pin, IRQ, RISING);
+#else
+    Serial.println("This is not a board supported by Pozyx, interrupts may not work");
+    attachInterrupt(interrupt_pin, IRQ, RISING);
+#endif
 
     // use interrupt as provided and initiate the interrupt mask
     uint8_t int_mask = interrupts;
-    if (interrupt_pin == 1){
-      int_mask |= POZYX_INT_MASK_PIN;
-    }          
+    configInterruptPin(5+interrupt_pin, PIN_MODE_PUSHPULL, PIN_ACTIVE_LOW, 0);
+
     if (regWrite(POZYX_INT_MASK, &int_mask, 1) == POZYX_FAILURE){
       return POZYX_FAILURE;
     }
-  }  
+  }   
   
   // all done
   delay(POZYX_DELAY_LOCAL_WRITE);
@@ -284,7 +293,23 @@ int PozyxClass::remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_
   params[0] = (uint8_t)destination;
   params[1] = (uint8_t)(destination>>8);
   params[2] = 0x04;    // flag to indicate a register write  
+
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
   status = regFunction(POZYX_TX_SEND, (uint8_t *)&params, 3, NULL, 0);
+
+  if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, 100, &int_status)){
+    if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
+    {
+      // An error occured during positioning. 
+      // Please read out the register POZYX_ERRORCODE to obtain more information about the error
+      return POZYX_FAILURE;
+    }else{      
+      return POZYX_SUCCESS;
+    }    
+  }else{
+    return POZYX_TIMEOUT;
+  }
   
   return status;
 }
@@ -317,6 +342,9 @@ int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t
   params[0] = (uint8_t)destination;
   params[1] = (uint8_t)(destination>>8);
   params[2] = 0x02;    // flag to indicate a register read  
+
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
   status = regFunction(POZYX_TX_SEND, (uint8_t *)&params, 3, NULL, 0);
   
   // stop if POZYX_TX_SEND returned an error.
@@ -324,21 +352,28 @@ int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t
     return status;
     
   // wait up to x ms to receive a response  
-  if(waitForFlag_safe(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
+  if(waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, 1000, &int_status))
   {   
-    // we received a response, now get some information about the response
-    uint8_t rx_info[3]= {0,0,0};
-    regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
-    uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
-    uint8_t data_len = rx_info[2];
-    
-    if( remote_network_id == destination && data_len == size)
+    if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
-      status = readRXBufferData(pData, size);        
-      return status;
-    }else{
-      return POZYX_FAILURE;  
-    }     
+      // An error occured during positioning. 
+      // Please read out the register POZYX_ERRORCODE to obtain more information about the error
+      return POZYX_FAILURE;
+    }else{   
+      // we received a response, now get some information about the response
+      uint8_t rx_info[3]= {0,0,0};
+      regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
+      uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
+      uint8_t data_len = rx_info[2];
+    
+      if( remote_network_id == destination && data_len == size)
+      {
+        status = readRXBufferData(pData, size);        
+        return status;
+      }else{
+        return POZYX_FAILURE;  
+      } 
+    }    
     
   }else{
     // timeout
@@ -365,46 +400,56 @@ int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uin
   
   // stop if POZYX_TX_DATA returned an error.
   if(status == POZYX_FAILURE)
+  {
     return status;
+  }
   
   // send the packet
   uint8_t tx_params[3];
   tx_params[0] = (uint8_t)destination;
   tx_params[1] = (uint8_t)(destination>>8);
   tx_params[2] = 0x08;    // flag to indicate a register function call  
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
   status = regFunction(POZYX_TX_SEND, tx_params, 3, NULL, 0);
   
   // stop if POZYX_TX_SEND returned an error.
-  if(status == POZYX_FAILURE)
+  if(status == POZYX_FAILURE){
     return status;
+  }
     
   // wait up to x ms to receive a response  
-  if(waitForFlag_safe(POZYX_INT_STATUS_RX_DATA, POZYX_DELAY_INTERRUPT))
-  {    
-    // we received a response, now get some information about the response
-    uint8_t rx_info[3];
-    regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
-    uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
-    uint8_t data_len = rx_info[2];
-            
-    if( remote_network_id == destination && data_len == size+1)
+  if(waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, 1000, &int_status))
+  {   
+    if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
-      uint8_t return_data[size+1];
-  
-      status = readRXBufferData(return_data, size+1);   
-      
-      if(status == POZYX_FAILURE){
-        // debug information
-        // Serial.println("could not read from rx buffer");
-        return status;    
-      }
-  
-      memcpy(pData, return_data+1, size);
+      return POZYX_FAILURE;
+    }else
+    {    
+      // we received a response, now get some information about the response
+      uint8_t rx_info[3];
+      regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
+      uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
+      uint8_t data_len = rx_info[2];
+              
+      if( remote_network_id == destination && data_len == size+1)
+      {
+        uint8_t return_data[size+1];
+    
+        status = readRXBufferData(return_data, size+1);   
         
-      return return_data[0];
-    }else{
-      return POZYX_FAILURE;  
-    }     
+        if(status == POZYX_FAILURE){
+          // debug information
+          return status;    
+        }
+    
+        memcpy(pData, return_data+1, size);
+          
+        return return_data[0];
+      }else{
+        return POZYX_FAILURE;  
+      } 
+    }      
     
   }else{
     // timeout

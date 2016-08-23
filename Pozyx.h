@@ -231,7 +231,7 @@ typedef struct __attribute__((packed))_device_range {
 */
 class PozyxClass
 {
-private:
+protected:
     static int _mode;               // the mode of operation, can be MODE_INTERRUPT or MODE_POLLING
     static int _interrupt;          // variable to indicate that an interrupt has occured
 
@@ -291,10 +291,12 @@ private:
     * @retval #true event occured.
     * @retval #false event did not occur, this function timed out.
     */
-    static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);   
+    
    
 
 public:
+
+    static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);   
 
     /** \addtogroup core 
      *  @{
@@ -368,7 +370,7 @@ public:
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAIL function failed.
     */
-    static int regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size);
+    static int regFunction(uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0);
 
     /**
     * Write to the registers on a remote Pozyx device (anchor or tag).
@@ -411,7 +413,7 @@ public:
     * @retval #POZYX_FAIL function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
-    static int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size);
+    static int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0);
 
 /** @}*/ 
 
@@ -751,9 +753,11 @@ public:
     /**
     * Trigger a software reset of the Pozyx device.
     * Function that will trigger the reset of the system. 
-    * This will reset all configuration values to the default values
+    * This will reload all configurations from flash memory, or to their default values.
     *
     *   @param remote_id: optional parameter that determines the remote device to be used.
+    *
+    * @see clearConfiguration, saveConfiguration
     */
     static void resetSystem(uint16_t remote_id = NULL);
 
@@ -869,6 +873,77 @@ public:
     * @see setLed
     */
     static int setLedConfig(uint8_t config = 0x0, uint16_t remote_id = NULL);
+
+        /**
+     * Configure the interrupt pin.
+     * 
+     * @param  pin          pin id on the pozyx device, can be 1,2,3,4 (or 5 or 6 on the pozyx tag)
+     * @param  mode         push-pull or pull-mode
+     * @param  bActiveHigh  is the interrupt active level HIGH (i.e. 3.3V)
+     * @param  bLatch       should the interrupt be a short pulse or should it latch until the interrupt status register is read
+     *
+     * @retval #POZYX_SUCCESS success.
+     * @retval #POZYX_FAIL function failed.   
+     */
+    static int configInterruptPin(int pin, int mode, int bActiveHigh, int bLatch, uint16_t remote_id=NULL);
+
+    /**
+    * Save (part of) the configuration to Flash memory.
+    * @version Requires firmware version v1.0
+    *
+    * This functions stores (parts of) the configurable Pozyx settings in the non-volatile flash memory of the Pozyx device.
+    * This function will save the current settings and on the next startup of the Pozyx device these saved settings will be loaded automatically.
+    * settings from the flash memory. All registers that are writable, the anchor ids for positioning and the device list (which contains the anchor coordinates) can be saved.
+    *
+    *   @param type this specifies what should be saved. Possible options are #POZYX_FLASH_REGS, #POZYX_FLASH_ANCHOR_IDS or #POZYX_FLASH_NETWORK.
+    *   @param registers an option array that holds all the register addresses for which the value must be saved. All registers that are writable are allowed.
+    *   @param num_registers optional parameter that determines the length of the registers array.
+    *   @param remote_id optional parameter that determines the remote device to be used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAIL function failed.
+    *
+    * @see clearConfiguration
+    */
+    static int saveConfiguration(int type, uint8_t registers[] = NULL, int num_registers = 0, uint16_t remote_id = NULL);
+
+    /**
+    * Clears the configuration.
+    * @version Requires firmware version v1.0
+    *
+    * This function clears (part of) the configuration that was previously stored in the non-volatile Flash memory.
+    * The next startup of the Pozyx device will load the default configuration values for the registers, anchor_ids and network list.
+    *
+    *   @param remote_id optional parameter that determines the remote device to be used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAIL function failed.
+    *
+    * @see saveConfiguration
+    */
+    static int clearConfiguration(uint16_t remote_id = NULL);
+
+    /**
+     * Verify if a register content is saved in the flash memory.
+     * @version Requires firmware version v1.0
+     *
+     * This function verifies if a given register variable, specified by its address, is saved in flash memory.
+     * @param  regAddress the register address to check
+     * @param  remote_id optional parameter that determines the remote device to be used.
+     * 
+     * @retval true(1) if the register variable is saved
+     * @retval false(0) if the register variable is not saved
+     */
+    static bool isRegisterSaved(uint8_t regAddress, uint16_t remote_id = NULL);
+
+    /**
+     * Return the number of register variables saved in flash memory.
+     * 
+     * @param  remote_id optional parameter that determines the remote device to be used.
+     * 
+     * @return           the number of register variables saved in flash memory.
+     */
+    static int getNumRegistersSaved(uint16_t remote_id = NULL);
 
 /** @}*/
 
