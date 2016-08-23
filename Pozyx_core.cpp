@@ -12,7 +12,7 @@ extern "C" {
   #include "Pozyx_definitions.h"
 }
 
-wint PozyxClass::_interrupt;
+int PozyxClass::_interrupt;
 int PozyxClass::_mode;
 
 int PozyxClass::_hw_version;       // pozyx harware version 
