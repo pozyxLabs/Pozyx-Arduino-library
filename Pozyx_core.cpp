@@ -7,13 +7,12 @@
 
 #include "Pozyx.h"
 #include <Wire.h>
-#include "Pozyx_new.h"
 
 extern "C" {
   #include "Pozyx_definitions.h"
 }
 
-int PozyxClass::_interrupt;
+wint PozyxClass::_interrupt;
 int PozyxClass::_mode;
 
 int PozyxClass::_hw_version;       // pozyx harware version 
