@@ -1179,14 +1179,14 @@ int PozyxClass::setPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint
 int PozyxClass::getPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint16_t remote_id)
 {
   assert(anchor_num > 0);
-  assert(anchor_num <= 10);
+  assert(anchor_num <= 15);
 
   int status;
   uint8_t device_list_size = 0;
 
   if(remote_id == NULL){
     getDeviceListSize(&device_list_size);
-    if (anchor_num < device_list_size){
+    if (anchor_num > device_list_size){
       return POZYX_FAILURE;
     }
 
