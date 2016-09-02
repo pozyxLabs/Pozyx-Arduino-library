@@ -296,7 +296,7 @@ int PozyxClass::getAnchorSelectionMode(uint8_t *mode, uint16_t remote_id)
   else{
     status = remoteRegRead(remote_id, POZYX_POS_NUM_ANCHORS, mode, 1);
   }
-  *mode = (*mode & 0x80 >> 7);
+  *mode = ((*mode & 0x80) >> 7);
   return status;
 }
 
@@ -1182,25 +1182,17 @@ int PozyxClass::getPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint
   assert(anchor_num <= 15);
 
   int status;
-  uint8_t device_list_size = 0;
+  uint8_t numAnchors = 0;  
+  getNumberOfAnchors(&numAnchors, remote_id);
+  if (anchor_num > numAnchors){
+    return POZYX_FAILURE;
+  }
 
   if(remote_id == NULL){
-    getDeviceListSize(&device_list_size);
-    if (anchor_num > device_list_size){
-      return POZYX_FAILURE;
-    }
-
     status = regFunction(POZYX_POS_GET_ANCHOR_IDS, NULL, 0, (uint8_t *) anchors, anchor_num * 2); 
-    delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
-  else{
-    getDeviceListSize(&device_list_size, remote_id);
-    delay(POZYX_DELAY_REMOTE_FUNCTION);
-    if (anchor_num < device_list_size){
-      return POZYX_FAILURE;
-    }
+  else{    
     status = remoteRegFunction(remote_id, POZYX_POS_GET_ANCHOR_IDS, NULL, 0, (uint8_t *) anchors, anchor_num * 2); 
-    delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;
 }
@@ -1220,13 +1212,12 @@ int PozyxClass::getDeviceIds(uint16_t devices[],int size, uint16_t remote_id)
   if(status == POZYX_FAILURE || list_size < size)
     return POZYX_FAILURE;
 
+  uint8_t params[2] = {0, size};
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, size * 2); 
-    delay(POZYX_DELAY_LOCAL_FUNCTION);
+    status = regFunction(POZYX_DEVICES_GETIDS, params, 2, (uint8_t *) devices, size * 2); 
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, MAX_ANCHORS_IN_LIST * 2);  
-    delay(POZYX_DELAY_REMOTE_FUNCTION);
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, params, 2, (uint8_t *) devices, size * 2);  
   }
   return status;
 }

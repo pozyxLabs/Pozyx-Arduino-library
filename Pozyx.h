@@ -237,7 +237,7 @@ protected:
 
 
     static int _hw_version;         // Pozyx harware version 
-    static int _sw_version;         // Pozyx software (firmware) version. (By updating the firmware on the Pozyx device, this value can change)
+    static int _fw_version;         // Pozyx software (firmware) version. (By updating the firmware on the Pozyx device, this value can change)
    
 
     /**

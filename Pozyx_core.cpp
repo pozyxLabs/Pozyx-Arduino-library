@@ -16,7 +16,7 @@ int PozyxClass::_interrupt;
 int PozyxClass::_mode;
 
 int PozyxClass::_hw_version;       // pozyx harware version 
-int PozyxClass::_sw_version;       // pozyx software (firmware) version. (By updating the firmware on the pozyx device, this value can change);
+int PozyxClass::_fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
 
 /**
  * The interrupt handler for the pozyx device: keeping it uber short!
@@ -103,15 +103,19 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
     return POZYX_FAILURE;
   }  
   whoami = regs[0];
-  _sw_version = regs[1];
+  _fw_version = regs[1];
   _hw_version = regs[2]; 
 
   if(print_result){
     Serial.print("WhoAmI: 0x");
     Serial.println(whoami, HEX);
-    Serial.print("SW ver.: ");
-    Serial.println(_sw_version);
-    Serial.print("HW ver.: ");
+    Serial.print("FW ver.: v");
+    Serial.print((_fw_version&0xF0)>>4);
+    Serial.print(".");
+    Serial.print((_fw_version&0x0F));
+    if(_fw_version < 0x10)
+      Serial.print(" (please upgrade)");
+    Serial.print("\nHW ver.: ");
     Serial.println(_hw_version);  
   }
   // verify if the whoami is correct
