@@ -154,14 +154,14 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
     // put your main code here, to run repeatedly:
 #if defined(__SAMD21G18A__) || defined(__ATSAMD21G18A__)
     // Arduino Tian
-    int tian_interrupt_pin = interrupt_pin;
-    attachInterrupt(interrupt_pin+2, IRQ, RISING);
+    int tian_interrupt_pin = interrupt_pin;
+    attachInterrupt(interrupt_pin+2, IRQ, RISING);
 #elif defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
     // Arduino UNO, Mega
     attachInterrupt(interrupt_pin, IRQ, RISING);
 #else
     Serial.println("This is not a board supported by Pozyx, interrupts may not work");
-    attachInterrupt(interrupt_pin, IRQ, RISING);
+    attachInterrupt(interrupt_pin, IRQ, RISING);
 #endif
 
     // use interrupt as provided and initiate the interrupt mask

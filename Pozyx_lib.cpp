@@ -375,8 +375,11 @@ int PozyxClass::getUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
   }
 
   // copy the register data in the UWB_settings structure
-  memcpy((uint8_t *) UWB_settings, tmp, 3);
-  UWB_settings->gain_db = ((float)tmp[3])*0.5f;  
+  UWB_settings->channel = tmp[0];
+  UWB_settings->bitrate = (tmp[1] & 0x3F);
+  UWB_settings->prf = ((tmp[1] & 0xC0)>>6);
+  UWB_settings->plen = tmp[2];
+  UWB_settings->gain_db = tmp[3]*0.5f;  
 
   return status;
 }
@@ -389,12 +392,18 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
 
   int status;
 
+  uint8_t tmp[3];
+  tmp[0] = UWB_settings->channel;  
+  tmp[1] = ((UWB_settings->bitrate) | (UWB_settings->prf << 6));  
+  tmp[2] = UWB_settings->plen;  
+
+
   // first set the uwb channel, bitrate, prf and plen, this will set gain to the default gain computed for these settings
   if(remote_id == NULL){
-    status = regWrite(POZYX_UWB_CHANNEL, (uint8_t *) UWB_settings, 3);
+    status = regWrite(POZYX_UWB_CHANNEL, tmp, 3);
     delay(2 * POZYX_DELAY_LOCAL_WRITE);    
   }else{
-    status = remoteRegWrite(remote_id, POZYX_UWB_CHANNEL, (uint8_t *) UWB_settings, 3);
+    status = remoteRegWrite(remote_id, POZYX_UWB_CHANNEL, tmp, 3);
     delay(2 * POZYX_DELAY_REMOTE_WRITE);
   }
 
@@ -405,8 +414,9 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
   // afterwards, it is possible to set the gain to a custom value
   if(UWB_settings->gain_db > 0.1){
     status = setTxPower(UWB_settings->gain_db, remote_id);
-  }else
+  }else{
     getTxPower(&(UWB_settings->gain_db), remote_id);
+  }
 
   return status;  
 }
@@ -475,7 +485,8 @@ int PozyxClass::getTxPower(float* txgain_dB, uint16_t remote_id)
     status = remoteRegRead(remote_id, POZYX_UWB_GAIN, (uint8_t *)&doublegain_dB, 1);
   }
 
-  *txgain_dB = 0.5f*doublegain_dB;
+  *txgain_dB = 0.5f*((float)doublegain_dB);
+
   return status;
 }
 

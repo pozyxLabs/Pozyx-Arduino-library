@@ -53,7 +53,7 @@ typedef float float32_t;
 /** 
 * The UWB settings type defines all attributes needed to set the UWB (communication) parameters
 */
-typedef struct __attribute__((packed))_UWB_settings {    
+typedef struct _UWB_settings {    
     /** The UWB channel number. Possible values are 1, 2, 3, 4, 5, 7. See the reg:POZYX_UWB_CHANNEL register for more information. */
     uint8_t channel;  
     /** The bitrate. Possible values are 
@@ -63,14 +63,14 @@ typedef struct __attribute__((packed))_UWB_settings {
     * - 2: 6.8Mbits/s. 
     *
     * See the reg:POZYX_UWB_RATES register for more information */              
-    unsigned bitrate:6; 
+    uint8_t bitrate; 
     /** The UWB pulse repetition frequency (PRF). Possible values are 
     * 
     * - 1: 16MHz
     * - 2: 64MHz 
     *
     * See the reg:POZYX_UWB_RATES register for more information */                    
-    unsigned prf:2;                 
+    uint8_t prf;                 
     /** The preabmle length. Possible values are:
     *
     * - 0x0C : 4096 symbols.

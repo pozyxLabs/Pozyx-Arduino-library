@@ -38,7 +38,7 @@ void setup() {
   Serial.begin(115200);
   while(!Serial); // for the Arduino Leonardo/Micro only
   
-  Wire.begin();  
+  Pozyx.begin(false); 
   
   Serial.println(F("Perform scanning"));  
   Serial.println(F("---------------------------------------------------------\n")); 
