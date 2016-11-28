@@ -494,7 +494,7 @@ public:
     * Obtain the number of bytes received.
     * This function gives the number of bytes in the last message that was wirelessly received.
     *
-    *   @param device_list_size: the pointer that stores the device list size
+    *   @param data_length: the pointer that stores the number of received bytes
     *   @param remote_id: optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
