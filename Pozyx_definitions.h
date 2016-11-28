@@ -274,7 +274,20 @@
 #define POZYX_ERROR_CALIBRATION           0x0C
 #define POZYX_ERROR_FUNC_PARAM            0x0D
 #define POZYX_ERROR_ANCHOR_NOT_FOUND      0x0E
-#define POZYX_ERROR_GENERAL               0xFF  
+#define POZYX_ERROR_FLASH         0x0F
+#define POZYX_ERROR_MEMORY          0x10
+#define POZYX_ERROR_RANGING         0x11
+#define POZYX_ERROR_RTIMEOUT1       0x12
+#define POZYX_ERROR_RTIMEOUT2       0x13
+#define POZYX_ERROR_TXLATE          0x14
+#define POZYX_ERROR_UWB_BUSY        0x15
+#define POZYX_ERROR_POSALG          0x16
+#define POZYX_ERROR_NOACK         0x17
+#define POZYX_ERROR_SNIFF_OVERFLOW      0xE0
+#define POZYX_ERROR_NO_PPS          0xF0
+#define POZYX_ERROR_NEW_TASK        0xF1
+#define POZYX_ERROR_UNRECDEV        0xFE
+#define POZYX_ERROR_GENERAL              0xFF
 
 // flash configuration types
 #define POZYX_FLASH_REGS                  1

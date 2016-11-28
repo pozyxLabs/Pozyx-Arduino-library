@@ -985,6 +985,28 @@ String PozyxClass::getSystemError(uint16_t remote_id)
       return F("Error 0x0D: Invalid function parameters for the register function");
     case POZYX_ERROR_ANCHOR_NOT_FOUND:
       return F("Error 0x0E: The coordinates of an anchor are not found");
+    case POZYX_ERROR_FLASH:
+      return F("Error 0x0F: Flash error");
+    case POZYX_ERROR_MEMORY:
+      return F("Error 0x10: Memory error");
+    case POZYX_ERROR_RANGING:
+      return F("Error 0x11: Ranging failed");
+    case POZYX_ERROR_RTIMEOUT1:
+      return F("Error 0x12: Ranging timeout");
+    case POZYX_ERROR_RTIMEOUT2:
+      return F("Error 0x13: Ranging timeout");
+    case POZYX_ERROR_TXLATE:
+      return F("Error 0x14: Tx was late");
+    case POZYX_ERROR_UWB_BUSY:
+      return F("Error 0x15: UWB is busy");
+    case POZYX_ERROR_POSALG:
+      return F("Error 0x16: Positioning failed");
+    case POZYX_ERROR_NOACK:
+      return F("Error 0x17: No Acknowledge received");
+    case POZYX_ERROR_NEW_TASK:
+      return F("Error 0xF1: Cannot create task");
+    case POZYX_ERROR_UNRECDEV :
+      return F("Error 0xFE: Hardware not recognized. Please contact support@pozyx.io");
     case POZYX_ERROR_GENERAL:
       return F("Error 0xFF: General error");
     default:
@@ -1143,10 +1165,11 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
 
   if(status != POZYX_SUCCESS){
+    delay(40);
     return status;
   }
 
-  if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 500)){
+  if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 70)){
 
     // we received a response, now get some information about the response
     uint8_t rx_info[3]= {0,0,0};
