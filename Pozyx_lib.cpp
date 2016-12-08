@@ -599,6 +599,18 @@ int PozyxClass::getPositionError(pos_error_t *pos_error, uint16_t remote_id)
  * Function regarding the sensor data
  */
 
+int PozyxClass::getRawSensorData(sensor_raw_t *sensor_raw, uint16_t remote_id)
+{
+  assert(sensor_raw != NULL);
+  
+  if(remote_id == NULL){
+    return regRead(POZYX_PRESSURE, (uint8_t *)sensor_raw, sizeof(sensor_raw_t));
+  }
+  else{
+    return remoteRegRead(remote_id, POZYX_PRESSURE, (uint8_t *)sensor_raw, sizeof(sensor_raw_t));
+  }
+}
+
 int PozyxClass::getAllSensorData(sensor_data_t *sensor_data, uint16_t remote_id)
 {
   assert(sensor_data != NULL);

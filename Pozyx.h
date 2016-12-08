@@ -1243,6 +1243,20 @@ public:
     static int setSensorMode(uint8_t sensor_mode, uint16_t remote_id = NULL);
 
     /**
+    * Obtain all raw sensor data at once as it's stored in the registers. 
+    * This functions reads out the pressure, acceleration, magnetic field strength, angular velocity, orientation in Euler angles, the orientation as a quaternion, 
+    * the linear acceleration, the gravity vector and temperature.
+    *
+    *   @param sensor_raw: reference to the sensor_raw object
+    *   @param remote_id: optional parameter that determines the remote device to be used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    */
+    static int getRawSensorData(sensor_raw_t *sensor_raw, uint16_t remote_id = NULL);
+    
+    /**
     * Obtain all sensor data at once.
     * This functions reads out the pressure, acceleration, magnetic field strength, angular velocity, orientation in Euler angles, the orientation as a quaternion, 
     * the linear acceleration, the gravity vector and temperature.
