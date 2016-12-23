@@ -1,13 +1,13 @@
 /**
-  The pozyx ready to range demo (c) Pozyx Labs
-  please check out https://www.pozyx.io/Documentation/Tutorials/getting_started
+  The Pozyx ready to range tutorial (c) Pozyx Labs
+  Please read the tutorial that accompanies this sketch: https://www.pozyx.io/Documentation/Tutorials/ready_to_range/Arduino
   
-  This demo requires two pozyx devices and one Arduino. It demonstrates the ranging capabilities and the functionality to 
-  to remotely control a pozyx device. Place one of the pozyx shields on the Arduino and upload this sketch. Move around
-  with the other pozyx device.
+  This demo requires two Pozyx devices and one Arduino. It demonstrates the ranging capabilities and the functionality to 
+  to remotely control a Pozyx device. Place one of the Pozyx shields on the Arduino and upload this sketch. Move around
+  with the other Pozyx device.
   
-  This demoe measures the range between the two devices. The closer the devices are to each other, the more LEDs will
-  burn on both devices.
+  This demo measures the range between the two devices. The closer the devices are to each other, the more LEDs will
+  light up on both devices.
 */
 
 #include <Pozyx.h>
@@ -18,8 +18,11 @@
 ////////////////// PARAMETERS //////////////////
 ////////////////////////////////////////////////
 
-uint16_t destination_id = 0x6670;     // the network id of the other pozyx device: fill in the network id of the other device
+uint16_t destination_id = 0x6069;     // the network id of the other pozyx device: fill in the network id of the other device
 signed int range_step_mm = 1000;      // every 1000mm in range, one LED less will be giving light.
+
+uint16_t remote_id = 0x605D;          // the network ID of the remote device
+bool remote = false;                  // whether to use the given remote device for ranging
 
 ////////////////////////////////////////////////
 
@@ -32,37 +35,46 @@ void setup(){
     delay(100);
     abort();
   }
-  
+  // setting the remote_id back to NULL will use the local Pozyx
+  if (!remote){
+    remote_id = NULL;
+  }
   Serial.println("------------POZYX RANGING V1.0------------");
   Serial.println("NOTES:");
-  Serial.println("- Change the parameters:\n\tdestination_id (target device)\n\trange_step (mm)\n\t");
+  Serial.println("- Change the parameters:");
+  Serial.println("\tdestination_id (target device)");
+  Serial.println("\trange_step (mm)");
   Serial.println();
-  Serial.println("- Approach target device to see range and\n led control");
+  Serial.println("- Approach target device to see range and");
+  Serial.println("led control");
   Serial.println("------------POZYX RANGING V1.0------------");
   Serial.println();
   Serial.println("START Ranging:");
   
   // make sure the pozyx system has no control over the LEDs, we're the boss
-  uint8_t configuration_leds = 0x0;    
-  Pozyx.regWrite(POZYX_CONFIG_LEDS, &configuration_leds, 1);
-  
+  uint8_t led_config = 0x0;
+  Pozyx.setLedConfig(led_config);
   // do the same with the remote device
-  Pozyx.remoteRegWrite(destination_id, POZYX_CONFIG_LEDS, &configuration_leds, 1);
+  Pozyx.setLedConfig(led_config, destination_id);   
 }
 
 void loop(){
-  
-  int status = 1;
   device_range_t range;
+  int status = 0;
   
-  // let's do ranging with the destination 
-  status &= Pozyx.doRanging(destination_id, &range);
+  // let's perform ranging with the destination
+  if(!remote)
+    status = Pozyx.doRanging(destination_id, &range);
+  else
+    status = Pozyx.doRemoteRanging(remote_id, destination_id, &range);
   
   if (status == POZYX_SUCCESS){
     Serial.print(range.timestamp);
-    Serial.print("ms \t");
+    Serial.print("ms, ");
     Serial.print(range.distance); 
-    Serial.println("mm \t");
+    Serial.print("mm, ");
+    Serial.print(range.RSS);
+    Serial.println("dBm");
     
     // now control some LEDs; the closer the two devices are, the more LEDs will be lit
     if (ledControl(range.distance) == POZYX_FAILURE){
@@ -75,15 +87,14 @@ void loop(){
 }
 
 int ledControl(uint32_t range){
-  int status = 1;
-  
-  // set the LEDs of this pozyx device
-  status &= Pozyx.setLed(4, (range < range_step_mm));
-  status &= Pozyx.setLed(3, (range < 2*range_step_mm));
-  status &= Pozyx.setLed(2, (range < 3*range_step_mm));
-  status &= Pozyx.setLed(1, (range < 4*range_step_mm));
+  int status = POZYX_SUCCESS;
+  // set the LEDs of the pozyx device
+  status &= Pozyx.setLed(4, (range < range_step_mm), remote_id);
+  status &= Pozyx.setLed(3, (range < 2*range_step_mm), remote_id);
+  status &= Pozyx.setLed(2, (range < 3*range_step_mm), remote_id);
+  status &= Pozyx.setLed(1, (range < 4*range_step_mm), remote_id);
 
-  // set the LEDs of the remote pozyx device
+  // set the LEDs of the destination pozyx device
   status &= Pozyx.setLed(4, (range < range_step_mm), destination_id);
   status &= Pozyx.setLed(3, (range < 2*range_step_mm), destination_id);
   status &= Pozyx.setLed(2, (range < 3*range_step_mm), destination_id);

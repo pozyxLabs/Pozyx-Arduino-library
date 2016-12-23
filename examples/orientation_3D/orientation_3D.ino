@@ -1,6 +1,6 @@
 /**
   The pozyx ranging demo (c) Pozyx Labs
-  please check out https://www.pozyx.io/Documentation/Tutorials/getting_started
+  please check out https://www.pozyx.io/Documentation/Tutorials/getting_started/Arduino
   
   This demo requires one (or two) pozyx shields and one Arduino. It demonstrates the 3D orientation and the functionality
   to remotely read register data from a pozyx device. Place one of the pozyx shields on the Arduino and upload this sketch. 
@@ -26,8 +26,8 @@
 ////////////////// PARAMETERS //////////////////
 ////////////////////////////////////////////////
 
-boolean bRemote = false;                  // boolean to indicate if we want to read sensor data from the attached pozyx shield (value 0) or from a remote pozyx device (value 1)
-uint16_t destination_id = 0x6606;     // the network id of the other pozyx device: fill in the network id of the other device
+boolean remote = false;               // boolean to indicate if we want to read sensor data from the attached pozyx shield (value 0) or from a remote pozyx device (value 1)
+uint16_t remote_id = 0x6606;          // the network id of the other pozyx device: fill in the network id of the other device
 uint32_t last_millis;                 // used to compute the measurement interval in milliseconds 
 
 ////////////////////////////////////////////////
@@ -42,71 +42,105 @@ void setup()
     delay(100);
     abort();
   }
+
+  if(!remote)
+    remote_id = NULL;
   
   last_millis = millis();
   delay(10);  
 }
 
 void loop(){
-  
-  int16_t sensor_data[24];
-  uint8_t calib_status = 0; 
-  int i, dt;
-    
-  if(bRemote == true)
-  {
-    // remotely read the sensor data
-    int status = Pozyx.remoteRegRead(destination_id, POZYX_PRESSURE, (uint8_t*)&sensor_data, 24*sizeof(int16_t));
-    if(status != POZYX_SUCCESS){  
+  sensor_raw_t sensor_raw;
+  uint8_t calibration_status = 0;
+  int dt;
+  int status;
+  if(remote){
+     status = Pozyx.getRawSensorData(&sensor_raw, remote_id);
+     status &= Pozyx.getCalibrationStatus(&calibration_status, remote_id);
+    if(status != POZYX_SUCCESS){
       return;
     }
-      
-  }else
-  {
-    // wait until this device gives an interrupt
-    if (Pozyx.waitForFlag(POZYX_INT_STATUS_IMU, 10))
-    {
-      // we received an interrupt from pozyx telling us new IMU data is ready, now let's read it!            
-      Pozyx.regRead(POZYX_PRESSURE, (uint8_t*)&sensor_data, 24*sizeof(int16_t)); 
-             
-      // also read out the calibration status
-      Pozyx.regRead(POZYX_CALIB_STATUS, &calib_status, 1);  
+  }else{
+    if (Pozyx.waitForFlag(POZYX_INT_STATUS_IMU, 10) == POZYX_SUCCESS){
+      Pozyx.getRawSensorData(&sensor_raw);
+      Pozyx.getCalibrationStatus(&calibration_status);
     }else{
-      // we didn't receive an interrupt
       uint8_t interrupt_status = 0;
-      Pozyx.regRead(POZYX_INT_STATUS, &interrupt_status, 1);
-    
-      return;  
+      Pozyx.getInterruptStatus(&interrupt_status);
+      return;
     }
   }
-  
-  // print out the results
-      
-  // print the measurement interval  
+
   dt = millis() - last_millis;
   last_millis += dt;    
+  // print time difference between last measurement in ms, sensor data, and calibration data
   Serial.print(dt, DEC);
-  
-  // print out the presure (this is not an int16 but rather an uint32
-  uint32_t pressure = ((uint32_t)sensor_data[0]) + (((uint32_t)sensor_data[1])<<16);
   Serial.print(",");
-  Serial.print(pressure);
-  
-  // print out all remaining sensors
-  for(i=2; i<24; i++){
-    Serial.print(",");
-    Serial.print(sensor_data[i]);
-  }
-    
-  // finally, print out the calibration status (remotely this is not available and all equal to zero)  
+  printRawSensorData(sensor_raw);
   Serial.print(",");
-  Serial.print(calib_status&0x03);
-  Serial.print(",");
-  Serial.print((calib_status&0x0C)>>2);
-  Serial.print(",");
-  Serial.print((calib_status&0x30)>>4);
-  Serial.print(",");
-  Serial.print((calib_status&0xC0)>>6);
-      
-  Serial.println();             
+  // will be zeros for remote devices as unavailable remotely.
+  printCalibrationStatus(calibration_status);
+  Serial.println();
 }
+
+void printRawSensorData(sensor_raw_t sensor_raw){
+  Serial.print(sensor_raw.pressure);
+  Serial.print(",");
+  Serial.print(sensor_raw.acceleration[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.acceleration[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.acceleration[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.magnetic[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.magnetic[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.magnetic[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.angular_vel[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.angular_vel[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.angular_vel[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.euler_angles[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.euler_angles[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.euler_angles[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.quaternion[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.quaternion[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.quaternion[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.quaternion[3]);
+  Serial.print(",");
+  Serial.print(sensor_raw.linear_acceleration[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.linear_acceleration[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.linear_acceleration[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.gravity_vector[0]);
+  Serial.print(",");
+  Serial.print(sensor_raw.gravity_vector[1]);
+  Serial.print(",");
+  Serial.print(sensor_raw.gravity_vector[2]);
+  Serial.print(",");
+  Serial.print(sensor_raw.temperature);
+}
+
+void printCalibrationStatus(uint8_t calibration_status){
+  Serial.print(calibration_status & 0x03);
+  Serial.print(",");
+  Serial.print((calibration_status & 0x0C) >> 2);
+  Serial.print(",");
+  Serial.print((calibration_status & 0x30) >> 4);
+  Serial.print(",");
+  Serial.print((calibration_status & 0xC0) >> 6);  
+}
+
