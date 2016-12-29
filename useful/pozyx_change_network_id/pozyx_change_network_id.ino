@@ -9,7 +9,7 @@ uint16_t remote_id = 0x6068; // the remote ID
 
 void setup(){
   Serial.begin(115200);
-  Serial.print("Setting the remote POZYX ID to 0x");
+  Serial.print("Setting the POZYX ID to 0x");
   Serial.println(new_id, HEX);
 
   if (!remote){
@@ -22,16 +22,16 @@ void setup(){
     delay(100);
     abort();
   }
+  
   Pozyx.setNetworkId(new_id, remote_id);
-  // check whether it registered as desired
+
   uint8_t regs[1] = {POZYX_NETWORK_ID};
-  int status = 0;
-  status = Pozyx.saveConfiguration(POZYX_FLASH_REGS, regs, 1, remote_id);
+  
+  int status = Pozyx.saveConfiguration(POZYX_FLASH_REGS, regs, 1, remote_id);
   if(status == POZYX_SUCCESS){
     Serial.println("Saving to flash was successful! Resetting system...");
     Pozyx.resetSystem(remote_id);
-  }
-  else{
+  }else{
     Serial.println("Saving to flash was unsuccessful!");
   }
 }
