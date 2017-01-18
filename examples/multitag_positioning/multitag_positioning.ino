@@ -124,13 +124,13 @@ void printErrorCode(String operation, uint16_t network_id){
 void setAnchorsManual(){
   for (int i = 0; i < num_tags; i++){
     int status = Pozyx.clearDevices(tags[i]);
-    for(int i = 0; i < num_anchors; i++){
+    for(int j = 0; j < num_anchors; j++){
       device_coordinates_t anchor;
-      anchor.network_id = anchors[i];
+      anchor.network_id = anchors[j];
       anchor.flag = 0x1; 
-      anchor.pos.x = anchors_x[i];
-      anchor.pos.y = anchors_y[i];
-      anchor.pos.z = heights[i];
+      anchor.pos.x = anchors_x[j];
+      anchor.pos.y = anchors_y[j];
+      anchor.pos.z = heights[j];
       status &= Pozyx.addDevice(anchor, tags[i]);
     }
     if (status == POZYX_SUCCESS){
