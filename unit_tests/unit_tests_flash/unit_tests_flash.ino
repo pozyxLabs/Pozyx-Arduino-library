@@ -38,7 +38,7 @@ void setup()
   Serial.println(F("Start testing flash functionality"));  
   Serial.println(F("---------------------------------------------------------\n")); 
   
-  //Test::exclude("flash*");
+  Test::exclude("flash*");
   //Test::exclude("reset*");     
 }
 
@@ -55,7 +55,7 @@ test(reset)
   int result;
 
   // read the register and change the content
-  ledconfig = 0x03;
+  ledconfig = 0x20;
   Pozyx.regWrite(POZYX_POS_ALG, &ledconfig, 1);
   delay(2);
   Pozyx.regRead(POZYX_POS_ALG, &ledconfig2, 1);  
@@ -80,7 +80,7 @@ test(multi_reset)
   // read the register and change the content
   for(i=0; i<10; i++)
   {
-    ledconfig = 0x03;
+    ledconfig = 0x20;
     Pozyx.regWrite(POZYX_POS_ALG, &ledconfig, 1);
     delay(2);
     Pozyx.regRead(POZYX_POS_ALG, &ledconfig2, 1);  

@@ -6,7 +6,6 @@
 #include <Pozyx.h>
 #include <Pozyx_definitions.h>
 #include <Wire.h>
-#include <Pozyx_new.h>
 
 /**
  * Unit tests for the Pozyx sensors: accelerometer, gyroscope, magnetometer, pressure sensor, temperature sensor, etc..

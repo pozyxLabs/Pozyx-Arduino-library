@@ -18,6 +18,9 @@
  * - POZYX_INT_CONFIG
  *
  */
+void test_pin(int pinnum, int arduino_pinnum);
+void test_pinlatch(int pinnum, int arduino_pinnum);
+void trigger_interrupt();
 
 void setup()
 {
@@ -239,4 +242,3 @@ test(open_drain)
   
 }
 */
-
