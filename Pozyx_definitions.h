@@ -60,6 +60,7 @@
 #define POZYX_UWB_PLEN          0x1E   /* Configure the UWB preamble length.  */
 #define POZYX_UWB_GAIN          0x1F   /* Configure the power gain for the UWB transmitter */
 #define POZYX_UWB_XTALTRIM        0x20   /* Trimming value for the uwb crystal. */
+#define POZYX_RANGE_PROTOCOL      0x21    /* The ranging protocol */
 #define POZYX_OPERATION_MODE        0x22   /* Configure the mode of operation of the pozyx device */
 #define POZYX_SENSORS_MODE        0x23   /* Configure the mode of operation of the sensors */
 #define POZYX_CONFIG_GPIO1        0x27   /* Configure GPIO pin 1. */
@@ -145,7 +146,7 @@
 
 /* Macro's to test if registers are readable/writable */
 
-#define IS_REG_READABLE(x)       (((((x)>=0x0)&&((x)<0x7)) || (((x)>=0x10)&&((x)<0x12)) || (((x)>=0x15)&&((x)<0x21)) || (((x)>=0x22)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x48)) || (((x)>=0x50)&&((x)<0x89)))?1:0) 
+#define IS_REG_READABLE(x)       (((((x)>=0x0)&&((x)<0x7)) || (((x)>=0x10)&&((x)<0x12)) || (((x)>=0x15)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x48)) || (((x)>=0x50)&&((x)<0x89)))?1:0) 
 #define IS_REG_WRITABLE(x)       (((((x)>=0x10)&&((x)<0x12)) || (((x)>=0x15)&&((x)<0x21)) || (((x)>=0x22)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x3c)) || (((x)>=0x85)&&((x)<0x89)))?1:0) 
 #define IS_FUNCTIONCALL(x)       (((((x)>=0xb0)&&((x)<0xbc)) || (((x)>=0xc0)&&((x)<0xc9)))?1:0) 
 
