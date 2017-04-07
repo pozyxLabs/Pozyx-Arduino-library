@@ -177,8 +177,8 @@
 
 /* Bit mask for POZYX_POS_ALG */
 #define POZYX_POS_ALG_UWB_ONLY      0x00
-#define POZYX_POS_ALG_TRACKING      0x01
 #define POZYX_POS_ALG_LS        0x02
+#define POZYX_POS_ALG_TRACKING      0x04
 
 /* Bit mask for POZYX_RANGE_PROTOCOL */
 #define POZYX_RANGE_PROTOCOL_SDS_TWR  0x00
