@@ -1111,7 +1111,7 @@ int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device
 int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
   assert(position != NULL);
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) );
+  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) || (algorithm == POZYX_POS_ALG_TRACKING));
   assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
   
   int status;
@@ -1152,7 +1152,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
 {
   assert(remote_id != 0);
   assert(coordinates != NULL);
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) );
+  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) || (algorithm == POZYX_POS_ALG_TRACKING));
   assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
   
 
