@@ -77,11 +77,11 @@ int PozyxClass::getInterruptStatus(uint8_t *interrupts, uint16_t remote_id)
   assert(interrupts != NULL);
 
   if(remote_id == NULL){
-    return regRead(POZYX_INT_STATUS, interrupts, 1); 
+    return regRead(POZYX_INT_STATUS, interrupts, 1);
   }
   else{
-    return remoteRegRead(remote_id, POZYX_INT_STATUS, interrupts, 1); 
-  }  
+    return remoteRegRead(remote_id, POZYX_INT_STATUS, interrupts, 1);
+  }
 }
 
 int PozyxClass::getCalibrationStatus(uint8_t *calibration_status, uint16_t remote_id)
@@ -89,10 +89,10 @@ int PozyxClass::getCalibrationStatus(uint8_t *calibration_status, uint16_t remot
   assert(calibration_status != NULL);
 
   if(remote_id == NULL){
-    return regRead(POZYX_CALIB_STATUS, calibration_status, 1); 
+    return regRead(POZYX_CALIB_STATUS, calibration_status, 1);
   }
   else{
-    return remoteRegRead(remote_id, POZYX_CALIB_STATUS, calibration_status, 1); 
+    return remoteRegRead(remote_id, POZYX_CALIB_STATUS, calibration_status, 1);
   }
 }
 
@@ -135,12 +135,12 @@ int PozyxClass::getUpdateInterval(uint16_t *ms, uint16_t remote_id)
 }
 
 int PozyxClass::setUpdateInterval(uint16_t ms, uint16_t remote_id)
-{ 
+{
   assert(ms > 100);
   assert(ms <= 60000);
 
   int status;
-  
+
   if(remote_id == NULL){
     status = regWrite(POZYX_POS_INTERVAL, (uint8_t *) &ms, 2);
     delay(POZYX_DELAY_LOCAL_WRITE);
@@ -151,6 +151,33 @@ int PozyxClass::setUpdateInterval(uint16_t ms, uint16_t remote_id)
   }
 
   return status;
+}
+
+int PozyxClass::setRangingProtocol(uint8_t protocol, uint16_t remote_id){
+  assert(protocol <= 2);
+
+  int status;
+  if(remote_id == NULL){
+    status = regWrite(POZYX_RANGE_PROTOCOL, &protocol, 1);
+    delay(POZYX_DELAY_LOCAL_WRITE);
+  }
+  else{
+    status = remoteRegWrite(remote_id, POZYX_RANGE_PROTOCOL, &protocol, 1);
+    delay(POZYX_DELAY_REMOTE_WRITE);
+  }
+
+  return status;
+}
+
+int PozyxClass::getRangingProtocol(uint8_t *protocol, uint16_t remote_id){
+    assert(protocol != NULL);
+
+    if(remote_id == NULL){
+      return regRead(POZYX_RANGE_PROTOCOL, protocol, 1);
+    }
+    else{
+      return remoteRegRead(remote_id, POZYX_RANGE_PROTOCOL, protocol, 1);
+    }
 }
 
 int PozyxClass::getConfigModeGPIO(int gpio_num, uint8_t *mode, uint16_t remote_id){
@@ -177,7 +204,7 @@ int PozyxClass::getConfigPullGPIO(int gpio_num, uint8_t *pull, uint16_t remote_i
   assert(gpio_num > 0);
   assert(gpio_num <= 4);
   assert(pull != NULL);
-    
+
 
   int status;
   uint8_t gpio_register = POZYX_CONFIG_GPIO1 + (gpio_num-1);
@@ -199,7 +226,7 @@ int PozyxClass::setConfigGPIO(int gpio_num, int mode, int pull, uint16_t remote_
   assert(gpio_num <= 4);
   assert((mode == POZYX_GPIO_DIGITAL_INPUT) || (mode == POZYX_GPIO_PUSHPULL) || (mode == POZYX_GPIO_OPENDRAIN) );
   assert((pull == POZYX_GPIO_NOPULL) || (mode == POZYX_GPIO_PULLUP) || (mode == POZYX_GPIO_PULLDOWN) );
-  
+
 
   int status;
   uint8_t gpio_register = POZYX_CONFIG_GPIO1 + (gpio_num-1);
@@ -266,7 +293,7 @@ int PozyxClass::getPositionDimension(uint8_t *dimension, uint16_t remote_id)
 
 int PozyxClass::setPositionAlgorithm(int algorithm, int dimension, uint16_t remote_id)
 {
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) );
+  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_TRACKING) );
   assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
 
   int status;
@@ -365,7 +392,7 @@ int PozyxClass::getUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
   assert(UWB_settings != NULL);
 
   int status;
-  uint8_t tmp[4];  
+  uint8_t tmp[4];
 
   if(remote_id == NULL){
     status = regRead(POZYX_UWB_CHANNEL, tmp, 4);
@@ -379,7 +406,7 @@ int PozyxClass::getUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
   UWB_settings->bitrate = (tmp[1] & 0x3F);
   UWB_settings->prf = ((tmp[1] & 0xC0)>>6);
   UWB_settings->plen = tmp[2];
-  UWB_settings->gain_db = tmp[3]*0.5f;  
+  UWB_settings->gain_db = tmp[3]*0.5f;
 
   return status;
 }
@@ -393,15 +420,15 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
   int status;
 
   uint8_t tmp[3];
-  tmp[0] = UWB_settings->channel;  
-  tmp[1] = ((UWB_settings->bitrate) | (UWB_settings->prf << 6));  
-  tmp[2] = UWB_settings->plen;  
+  tmp[0] = UWB_settings->channel;
+  tmp[1] = ((UWB_settings->bitrate) | (UWB_settings->prf << 6));
+  tmp[2] = UWB_settings->plen;
 
 
   // first set the uwb channel, bitrate, prf and plen, this will set gain to the default gain computed for these settings
   if(remote_id == NULL){
     status = regWrite(POZYX_UWB_CHANNEL, tmp, 3);
-    delay(2 * POZYX_DELAY_LOCAL_WRITE);    
+    delay(2 * POZYX_DELAY_LOCAL_WRITE);
   }else{
     status = remoteRegWrite(remote_id, POZYX_UWB_CHANNEL, tmp, 3);
     delay(2 * POZYX_DELAY_REMOTE_WRITE);
@@ -409,7 +436,7 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
 
   if (status == POZYX_FAILURE){
     return status;
-  }  
+  }
 
   // afterwards, it is possible to set the gain to a custom value
   if(UWB_settings->gain_db > 0.1){
@@ -418,7 +445,7 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
     getTxPower(&(UWB_settings->gain_db), remote_id);
   }
 
-  return status;  
+  return status;
 }
 
 int PozyxClass::setUWBChannel(int channel_num, uint16_t remote_id)
@@ -538,7 +565,7 @@ int PozyxClass::setSensorMode(uint8_t sensor_mode, uint16_t remote_id)
 
   if(remote_id == NULL){
     status = regWrite(POZYX_SENSORS_MODE, (uint8_t *) &sensor_mode, 1);
-    
+
     // delay required to switch modes.
     delay(20);
   }
@@ -602,7 +629,7 @@ int PozyxClass::getPositionError(pos_error_t *pos_error, uint16_t remote_id)
 int PozyxClass::getRawSensorData(sensor_raw_t *sensor_raw, uint16_t remote_id)
 {
   assert(sensor_raw != NULL);
-  
+
   if(remote_id == NULL){
     return regRead(POZYX_PRESSURE, (uint8_t *)sensor_raw, sizeof(sensor_raw_t));
   }
@@ -639,7 +666,7 @@ int PozyxClass::getAllSensorData(sensor_data_t *sensor_data, uint16_t remote_id)
   sensor_data->angular_vel.x = raw_data.angular_vel[0] / POZYX_GYRO_DIV_DPS;
   sensor_data->angular_vel.y = raw_data.angular_vel[1] / POZYX_GYRO_DIV_DPS;
   sensor_data->angular_vel.z = raw_data.angular_vel[2] / POZYX_GYRO_DIV_DPS;
-  
+
   sensor_data->euler_angles.heading = raw_data.euler_angles[0] / POZYX_EULER_DIV_DEG;
   sensor_data->euler_angles.roll  = raw_data.euler_angles[1] / POZYX_EULER_DIV_DEG;
   sensor_data->euler_angles.pitch = raw_data.euler_angles[2] / POZYX_EULER_DIV_DEG;
@@ -657,7 +684,7 @@ int PozyxClass::getAllSensorData(sensor_data_t *sensor_data, uint16_t remote_id)
   sensor_data->gravity_vector.y = raw_data.gravity_vector[1] / POZYX_ACCEL_DIV_MG;
   sensor_data->gravity_vector.z = raw_data.gravity_vector[2] / POZYX_ACCEL_DIV_MG;
 
-  sensor_data->temperature = raw_data.temperature; 
+  sensor_data->temperature = raw_data.temperature;
 
   return status;
 }
@@ -671,10 +698,10 @@ int PozyxClass::getPressure_Pa(float32_t *pressure, uint16_t remote_id)
   int status;
 
   if(remote_id == NULL){
-    status = regRead(POZYX_PRESSURE, (uint8_t *)&raw_data, sizeof(uint32_t)); 
+    status = regRead(POZYX_PRESSURE, (uint8_t *)&raw_data, sizeof(uint32_t));
   }
   else{
-    status = remoteRegRead(remote_id, POZYX_PRESSURE, (uint8_t *)&raw_data, sizeof(uint32_t)); 
+    status = remoteRegRead(remote_id, POZYX_PRESSURE, (uint8_t *)&raw_data, sizeof(uint32_t));
   }
 
   // convert the raw data from the pressure sensor to pressure in Pascal
@@ -696,7 +723,7 @@ int PozyxClass::getAcceleration_mg(acceleration_t *acceleration, uint16_t remote
   }
   else{
     status = remoteRegRead(remote_id, POZYX_ACCEL_X, (uint8_t *)&raw_data, 3*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data from the accelerometer to acceleration in mg
   acceleration->x = raw_data[0] / POZYX_ACCEL_DIV_MG;
@@ -719,7 +746,7 @@ int PozyxClass::getMagnetic_uT(magnetic_t *magnetic, uint16_t remote_id)
   }
   else{
     status = remoteRegRead(remote_id, POZYX_MAGN_X, (uint8_t *)&raw_data, 3*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data from the magnetometer to magnetic field strength in µTesla (ut)
   magnetic->x = raw_data[0] / POZYX_MAG_DIV_UT;
@@ -742,7 +769,7 @@ int PozyxClass::getAngularVelocity_dps(angular_vel_t *angular_vel, uint16_t remo
   }
   else{
     status = remoteRegRead(remote_id, POZYX_GYRO_X, (uint8_t *)&raw_data, 3*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data from the gyroscope to angular velocity in degrees per second (dps)
   angular_vel->x = raw_data[0] / POZYX_GYRO_DIV_DPS;
@@ -765,7 +792,7 @@ int PozyxClass::getEulerAngles_deg(euler_angles_t *euler_angles, uint16_t remote
   }
   else{
     status = remoteRegRead(remote_id, POZYX_EUL_HEADING, (uint8_t *)&raw_data, 3*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data from to euler angles in degrees
   euler_angles->heading = raw_data[0] / POZYX_EULER_DIV_DEG;
@@ -776,7 +803,7 @@ int PozyxClass::getEulerAngles_deg(euler_angles_t *euler_angles, uint16_t remote
 }
 
 int PozyxClass::getQuaternion(quaternion_t *quaternion, uint16_t remote_id)
-{ 
+{
   assert(quaternion != NULL);
 
   // the raw data are four 16bit values
@@ -788,7 +815,7 @@ int PozyxClass::getQuaternion(quaternion_t *quaternion, uint16_t remote_id)
   }
   else{
     status = remoteRegRead(remote_id, POZYX_QUAT_W, (uint8_t *)&raw_data, 4*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data from to a quaternion
   quaternion->weight = raw_data[0] / POZYX_QUAT_DIV;
@@ -812,7 +839,7 @@ int PozyxClass::getLinearAcceleration_mg(linear_acceleration_t *linear_accelerat
   }
   else{
     status = remoteRegRead(remote_id, POZYX_LIA_X, (uint8_t *)&raw_data, 3*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data to linear acceleration in mg
   linear_acceleration->x = raw_data[0] / POZYX_ACCEL_DIV_MG;
@@ -835,7 +862,7 @@ int PozyxClass::getGravityVector_mg(gravity_vector_t *gravity_vector, uint16_t r
   }
   else{
     status = remoteRegRead(remote_id, POZYX_GRAV_X, (uint8_t *)&raw_data, 3*sizeof(int16_t));
-  } 
+  }
 
   // convert the raw data to gravity vector in mg
   gravity_vector->x = raw_data[0] / POZYX_ACCEL_DIV_MG;
@@ -854,10 +881,10 @@ int PozyxClass::getTemperature_c(float32_t *temperature, uint16_t remote_id)
   int status;
 
   if(remote_id == NULL){
-    status = regRead(POZYX_TEMPERATURE, (uint8_t *)&raw_data, 1); 
+    status = regRead(POZYX_TEMPERATURE, (uint8_t *)&raw_data, 1);
   }
   else{
-    status = remoteRegRead(remote_id, POZYX_TEMPERATURE, (uint8_t *)&raw_data, 1); 
+    status = remoteRegRead(remote_id, POZYX_TEMPERATURE, (uint8_t *)&raw_data, 1);
   }
 
   // convert the raw data to the temperature in degrees Celcius
@@ -871,7 +898,7 @@ int PozyxClass::getDeviceListSize(uint8_t *device_list_size, uint16_t remote_id)
   assert(device_list_size != NULL);
 
   if(remote_id == NULL){
-    return regRead(POZYX_DEVICE_LIST_SIZE, (uint8_t *) device_list_size, 1);  
+    return regRead(POZYX_DEVICE_LIST_SIZE, (uint8_t *) device_list_size, 1);
   }
   else{
     return remoteRegRead(remote_id, POZYX_DEVICE_LIST_SIZE, (uint8_t *) device_list_size, 1);
@@ -887,7 +914,7 @@ int PozyxClass::getLastNetworkId(uint16_t *network_id, uint16_t remote_id)
   }
   else{
     return remoteRegRead(remote_id, POZYX_RX_NETWORK_ID, (uint8_t *) network_id, 2);
-  } 
+  }
 }
 
 int PozyxClass::getLastDataLength(uint8_t *data_length, uint16_t remote_id)
@@ -895,10 +922,10 @@ int PozyxClass::getLastDataLength(uint8_t *data_length, uint16_t remote_id)
   assert(data_length != NULL);
 
   if(remote_id == NULL){
-    return regRead(POZYX_RX_DATA_LEN, (uint8_t *) data_length, 1);  
+    return regRead(POZYX_RX_DATA_LEN, (uint8_t *) data_length, 1);
   }
   else{
-    return remoteRegRead(remote_id, POZYX_RX_DATA_LEN, (uint8_t *) data_length, 1); 
+    return remoteRegRead(remote_id, POZYX_RX_DATA_LEN, (uint8_t *) data_length, 1);
   }
 }
 
@@ -909,7 +936,7 @@ int PozyxClass::getGPIO(int gpio_num, uint8_t *value, uint16_t remote_id)
   assert(gpio_num >= 1);
   assert(gpio_num <= 4);
   assert(value != NULL);
-   
+
   uint8_t gpio_register = POZYX_GPIO1 + (gpio_num-1);
   if(remote_id == NULL){
     return regRead(gpio_register, (uint8_t *) value, 1);
@@ -942,12 +969,12 @@ void PozyxClass::resetSystem(uint16_t remote_id)
 {
   if(remote_id == NULL){
     regFunction(POZYX_RESET_SYS, NULL, 0, NULL, 0);
-    delay(1000); 
+    delay(1000);
   }
   else{
-    remoteRegFunction(remote_id, POZYX_RESET_SYS, NULL, 0, NULL, 0); 
+    remoteRegFunction(remote_id, POZYX_RESET_SYS, NULL, 0, NULL, 0);
   }
-  
+
 }
 
 
@@ -956,10 +983,10 @@ String PozyxClass::getSystemError(uint16_t remote_id)
   uint8_t error_code, result;
 
   if(remote_id == NULL){
-    result = regRead(POZYX_ERRORCODE, &error_code, 1); 
+    result = regRead(POZYX_ERRORCODE, &error_code, 1);
   }
   else{
-    result = remoteRegRead(remote_id, POZYX_ERRORCODE, &error_code, 1); 
+    result = remoteRegRead(remote_id, POZYX_ERRORCODE, &error_code, 1);
   }
 
   if(result != POZYX_SUCCESS)
@@ -1035,8 +1062,8 @@ int PozyxClass::setLed(int led_num, boolean state, uint16_t remote_id)
 
   int status;
   // the 4 MSB indicate which led we wish to control, the 4 LSB indicate the state of the leds
-  uint8_t params = (0x1 << (led_num-1+4)) | (((uint8_t)state) << (led_num-1));  
-  
+  uint8_t params = (0x1 << (led_num-1+4)) | (((uint8_t)state) << (led_num-1));
+
   if(remote_id == NULL){
     return regFunction(POZYX_LED_CTRL, &params, 1, NULL, 0);
   }
@@ -1050,11 +1077,11 @@ int PozyxClass::doRanging(uint16_t destination, device_range_t *range)
   assert(destination != 0);
   assert(range != NULL);
   memset((uint8_t*)range, 0, sizeof(device_range_t));
-  
+
   // trigger the ranging
   uint8_t int_status = 0;
   Pozyx.regRead(POZYX_INT_STATUS, &int_status, 1);
-  int status = regFunction(POZYX_DO_RANGING, (uint8_t *) &destination, 2, NULL, 0);  
+  int status = regFunction(POZYX_DO_RANGING, (uint8_t *) &destination, 2, NULL, 0);
   if (status == POZYX_SUCCESS )
   {
     // wait for the result
@@ -1073,8 +1100,8 @@ int PozyxClass::doRanging(uint16_t destination, device_range_t *range)
   }else{
     return POZYX_FAILURE;
   }
-  
-  
+
+
 }
 
 int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device_range_t* range)
@@ -1089,31 +1116,31 @@ int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device
   range->RSS = 0;
 
   // trigger remote ranging between the two devices
-  status = remoteRegFunction(device_from, POZYX_DO_RANGING, (uint8_t *)&device_to, 2, NULL, 0); 
+  status = remoteRegFunction(device_from, POZYX_DO_RANGING, (uint8_t *)&device_to, 2, NULL, 0);
   if (status == POZYX_SUCCESS)
   {
-    // the remote device (device_from) will respond with the ranging result, wait for that to happen 
+    // the remote device (device_from) will respond with the ranging result, wait for that to happen
     if(waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , POZYX_DELAY_INTERRUPT))
-    {      
+    {
       // read out the ranging results from the received message
       //delay(5);
       return getDeviceRangeInfo(device_to, range, device_from);
 
     }else{
       return POZYX_TIMEOUT;
-    }     
-  }else{    
+    }
+  }else{
     return status;
   }
- 
+
 }
 
 int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
   assert(position != NULL);
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) || (algorithm == POZYX_POS_ALG_TRACKING));
+  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_TRACKING));
   assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
-  
+
   int status;
 
   // set dimension and algorithm
@@ -1124,25 +1151,25 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
   if(dimension == POZYX_2_5D) {
     status = regWrite(POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
   }
-  
+
   // trigger positioning
   uint8_t int_status = 0;
-  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
-  status = regFunction(POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
+  status = regFunction(POZYX_DO_POSITIONING, NULL, 0, NULL, 0);
   if (status != POZYX_SUCCESS )
     return POZYX_FAILURE;
 
-  // now wait for the positioning to finish or generate an error  
+  // now wait for the positioning to finish or generate an error
   if (waitForFlag_safe(POZYX_INT_STATUS_POS | POZYX_INT_STATUS_ERR, 2*POZYX_DELAY_INTERRUPT, &int_status)){
     if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
-      // An error occured during positioning. 
+      // An error occured during positioning.
       // Please read out the register POZYX_ERRORCODE to obtain more information about the error
       return POZYX_FAILURE;
     }else{
       status = getCoordinates(position);
       return POZYX_SUCCESS;
-    }    
+    }
   }else{
     return POZYX_TIMEOUT;
   }
@@ -1152,9 +1179,9 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
 {
   assert(remote_id != 0);
   assert(coordinates != NULL);
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_LS) || (algorithm == POZYX_POS_ALG_TRACKING));
+  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_TRACKING));
   assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
-  
+
 
   int status;
   coordinates->x = 0;
@@ -1174,7 +1201,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   }
 
   // trigger remote positioning
-  status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0); 
+  status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0);
 
   if(status != POZYX_SUCCESS){
     delay(40);
@@ -1188,7 +1215,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
     regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
     uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
     uint8_t data_len = rx_info[2];
-    
+
     // check if we have received the expected response, i.e., a packet containing the coordinates.
     if( remote_network_id == remote_id && data_len == sizeof(coordinates_t))
     {
@@ -1213,10 +1240,10 @@ int PozyxClass::setPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint
   int status;
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_POS_SET_ANCHOR_IDS, (uint8_t *) anchors, anchor_num * 2, NULL, 0); 
+    status = regFunction(POZYX_POS_SET_ANCHOR_IDS, (uint8_t *) anchors, anchor_num * 2, NULL, 0);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_POS_SET_ANCHOR_IDS, (uint8_t *) anchors, anchor_num * 2, NULL, 0); 
+    status = remoteRegFunction(remote_id, POZYX_POS_SET_ANCHOR_IDS, (uint8_t *) anchors, anchor_num * 2, NULL, 0);
   }
   return status;
 }
@@ -1228,17 +1255,17 @@ int PozyxClass::getPositioningAnchorIds(uint16_t anchors[], int anchor_num, uint
   assert(anchor_num <= 15);
 
   int status;
-  uint8_t numAnchors = 0;  
+  uint8_t numAnchors = 0;
   getNumberOfAnchors(&numAnchors, remote_id);
   if (anchor_num > numAnchors){
     return POZYX_FAILURE;
   }
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_POS_GET_ANCHOR_IDS, NULL, 0, (uint8_t *) anchors, anchor_num * 2); 
+    status = regFunction(POZYX_POS_GET_ANCHOR_IDS, NULL, 0, (uint8_t *) anchors, anchor_num * 2);
   }
-  else{    
-    status = remoteRegFunction(remote_id, POZYX_POS_GET_ANCHOR_IDS, NULL, 0, (uint8_t *) anchors, anchor_num * 2); 
+  else{
+    status = remoteRegFunction(remote_id, POZYX_POS_GET_ANCHOR_IDS, NULL, 0, (uint8_t *) anchors, anchor_num * 2);
   }
   return status;
 }
@@ -1248,7 +1275,7 @@ int PozyxClass::getDeviceIds(uint16_t devices[],int size, uint16_t remote_id)
   assert(size > 0);
   // the limit on size is 20, however, due to the Arduino i2c library the limit depends on the i2c buffer size
   // see github issue #6, thanks to lpdunwell
-  assert((BUFFER_LENGTH > 32 && size <= 20) || (size <= 15)); 
+  assert((BUFFER_LENGTH > 32 && size <= 20) || (size <= 15));
 
   int status;
 
@@ -1260,10 +1287,10 @@ int PozyxClass::getDeviceIds(uint16_t devices[],int size, uint16_t remote_id)
 
   uint8_t params[2] = {0, size};
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_GETIDS, params, 2, (uint8_t *) devices, size * 2); 
+    status = regFunction(POZYX_DEVICES_GETIDS, params, 2, (uint8_t *) devices, size * 2);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, params, 2, (uint8_t *) devices, size * 2);  
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, params, 2, (uint8_t *) devices, size * 2);
   }
   return status;
 }
@@ -1284,11 +1311,11 @@ int PozyxClass::getAnchorIds(uint16_t anchors[],int size, uint16_t remote_id)
   // read out all the devices in the device list
   uint16_t devices[list_size];
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t)); 
+    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));  
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
 
@@ -1304,7 +1331,7 @@ int PozyxClass::getAnchorIds(uint16_t anchors[],int size, uint16_t remote_id)
       // the third byte will be the special flag describing the device.
       uint8_t data[3] = {0,0,0};
       regFunction(POZYX_DEVICE_GETINFO, (uint8_t*)&devices[i], 2, data, 3);
-      if(data[2] == POZYX_ANCHOR_MODE+1){  
+      if(data[2] == POZYX_ANCHOR_MODE+1){
         anchors[j] = devices[i];
         j++;
       }
@@ -1333,11 +1360,11 @@ int PozyxClass::getTagIds(uint16_t tags[],int size, uint16_t remote_id)
   // read out all the devices in the device list
   uint16_t devices[list_size];
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t)); 
+    status = regFunction(POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));  
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_GETIDS, NULL, 0, (uint8_t *) devices, list_size * sizeof(uint16_t));
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
 
@@ -1353,7 +1380,7 @@ int PozyxClass::getTagIds(uint16_t tags[],int size, uint16_t remote_id)
       // the third byte will be the special flag describing the device.
       uint8_t data[3] = {0,0,0};
       regFunction(POZYX_DEVICE_GETINFO, (uint8_t*)&devices[i], 2, data, 3);
-      if(data[2] == POZYX_TAG_MODE+1){  
+      if(data[2] == POZYX_TAG_MODE+1){
         tags[j] = devices[i];
         j++;
       }
@@ -1381,27 +1408,27 @@ int PozyxClass::doDiscovery(int type, int slots, int slot_duration)
   params[2] = (uint8_t)slot_duration;
 
   uint8_t int_status = 0;
-  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
   status = regFunction(POZYX_DEVICES_DISCOVER, (uint8_t *)&params, 3, NULL, 0);
   if (status != POZYX_SUCCESS)
     return status;
-  
-  // now wait for the discovery to finish or generate an error  
+
+  // now wait for the discovery to finish or generate an error
   int timeout_ms = slot_duration*(slots+20);
   if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, timeout_ms, &int_status)){
     if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
-      // An error occured during auto calibration. 
+      // An error occured during auto calibration.
       // Please read out the register POZYX_ERRORCODE to obtain more information about the error
       return POZYX_FAILURE;
     }else{
       return POZYX_SUCCESS;
-    }    
+    }
   }
   else{
     return POZYX_TIMEOUT;
   }
- 
+
 }
 
 int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num_anchors, uint16_t anchors[],  int32_t heights[])
@@ -1419,13 +1446,13 @@ int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num
     int i;
     for(i=0; i< num_anchors; i++){
       anchor.network_id = anchors[i];
-      anchor.flag = 0x1; 
+      anchor.flag = 0x1;
       anchor.pos.x = 0;
       anchor.pos.y = 0;
       anchor.pos.z = heights[i];
       Pozyx.addDevice(anchor);
     }
-  } 
+  }
 
   // prepare the register function call
   uint8_t params[2 + num_anchors * sizeof(uint16_t)];
@@ -1436,26 +1463,26 @@ int PozyxClass::doAnchorCalibration(int dimension, int num_measurements, int num
   }
 
   uint8_t int_status = 0;
-  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
   status = regFunction(POZYX_DEVICES_CALIBRATE, (uint8_t *)&params, 2 + num_anchors * sizeof(uint16_t), NULL, 0);
   if(status != POZYX_SUCCESS)
     return POZYX_FAILURE;
 
-  // now wait for the function to finish, or generate an error  
+  // now wait for the function to finish, or generate an error
   if (waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, 25000, &int_status)){
     if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
-      // An error occured during auto calibration. 
+      // An error occured during auto calibration.
       // Please read out the register POZYX_ERRORCODE to obtain more information about the error
       return POZYX_FAILURE;
     }else{
       return POZYX_SUCCESS;
-    }    
+    }
   }
   else{
     return POZYX_TIMEOUT;
   }
-  
+
 }
 
 int PozyxClass::clearDevices(uint16_t remote_id)
@@ -1463,11 +1490,11 @@ int PozyxClass::clearDevices(uint16_t remote_id)
   int status;
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICES_CLEAR, NULL, 0, NULL, 0); 
+    status = regFunction(POZYX_DEVICES_CLEAR, NULL, 0, NULL, 0);
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICES_CLEAR, NULL, 0, NULL, 0); 
+    status = remoteRegFunction(remote_id, POZYX_DEVICES_CLEAR, NULL, 0, NULL, 0);
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;
@@ -1478,11 +1505,11 @@ int PozyxClass::addDevice(device_coordinates_t device_coordinates, uint16_t remo
   int status;
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_DEVICE_ADD, (uint8_t *) &device_coordinates, sizeof(device_coordinates_t), NULL, 0); 
+    status = regFunction(POZYX_DEVICE_ADD, (uint8_t *) &device_coordinates, sizeof(device_coordinates_t), NULL, 0);
     delay(POZYX_DELAY_LOCAL_FUNCTION);
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_DEVICE_ADD, (uint8_t *) &device_coordinates, sizeof(device_coordinates_t), NULL, 0); 
+    status = remoteRegFunction(remote_id, POZYX_DEVICE_ADD, (uint8_t *) &device_coordinates, sizeof(device_coordinates_t), NULL, 0);
     delay(POZYX_DELAY_REMOTE_FUNCTION);
   }
   return status;
@@ -1510,7 +1537,7 @@ int PozyxClass::getDeviceRangeInfo(uint16_t device_id, device_range_t *device_ra
 {
   assert(device_id != 0);
   assert(device_range != NULL);
-  
+
   int status;
 
   if(remote_id == NULL){
@@ -1556,8 +1583,8 @@ int PozyxClass::saveConfiguration(int type, uint8_t registers[], int num_registe
   if(remote_id == NULL){
     // trigger the register function to save
     uint8_t int_status = 0;
-    regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
-    status = regFunction(POZYX_FLASH_SAVE, params, num_params, NULL, 0); 
+    regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
+    status = regFunction(POZYX_FLASH_SAVE, params, num_params, NULL, 0);
     if(status != POZYX_SUCCESS){
       return status;
     }
@@ -1566,23 +1593,23 @@ int PozyxClass::saveConfiguration(int type, uint8_t registers[], int num_registe
     {
       if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
       {
-        // An error occured during positioning. 
+        // An error occured during positioning.
         // Please read out the register POZYX_ERRORCODE to obtain more information about the error
         return POZYX_FAILURE;
-      }else{        
+      }else{
         return POZYX_SUCCESS;
-      }    
+      }
     }else{
       return POZYX_TIMEOUT;
     }
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_FLASH_SAVE, params, num_params, NULL, 0); 
+    status = remoteRegFunction(remote_id, POZYX_FLASH_SAVE, params, num_params, NULL, 0);
 
     // give some time for saving to flash memory
     delay(500);
   }
-  
+
   return status;
 }
 
@@ -1590,10 +1617,10 @@ int PozyxClass::clearConfiguration(uint16_t remote_id)
 {
   int status;
   if(remote_id == NULL){
-    
+
     uint8_t int_status = 0;
-    regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it  
-    status = regFunction(POZYX_FLASH_RESET); 
+    regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
+    status = regFunction(POZYX_FLASH_RESET);
 
     if(status != POZYX_SUCCESS){
       return status;
@@ -1603,22 +1630,22 @@ int PozyxClass::clearConfiguration(uint16_t remote_id)
     {
       if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
       {
-        // An error occured during positioning. 
+        // An error occured during positioning.
         // Please read out the register POZYX_ERRORCODE to obtain more information about the error
         return POZYX_FAILURE;
-      }else{        
+      }else{
         return POZYX_SUCCESS;
-      }    
+      }
     }else{
       return POZYX_TIMEOUT;
     }
   }
   else{
-    status = remoteRegFunction(remote_id, POZYX_FLASH_RESET); 
+    status = remoteRegFunction(remote_id, POZYX_FLASH_RESET);
 
     // give some time to clear the flash memory
     delay(500);
-  }  
+  }
 
   return status;
 }
@@ -1631,9 +1658,9 @@ int PozyxClass::getNumRegistersSaved(uint16_t remote_id)
   memset(details, 0, 20);
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20); 
+    status = regFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20);
   }else{
-    status = remoteRegFunction(remote_id, POZYX_FLASH_DETAILS, NULL, 0, details, 20); 
+    status = remoteRegFunction(remote_id, POZYX_FLASH_DETAILS, NULL, 0, details, 20);
   }
 
   // the number of registers saved is equal to the number of bits set in the details array
@@ -1647,7 +1674,7 @@ int PozyxClass::getNumRegistersSaved(uint16_t remote_id)
     }
   }
 
-  return num;  
+  return num;
 }
 
 bool PozyxClass::isRegisterSaved(uint8_t regAddress, uint16_t remote_id)
@@ -1657,9 +1684,9 @@ bool PozyxClass::isRegisterSaved(uint8_t regAddress, uint16_t remote_id)
   uint8_t details[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
   if(remote_id == NULL){
-    status = regFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20); 
+    status = regFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20);
   }else{
-    status = remoteRegFunction(remote_id, POZYX_FLASH_DETAILS, NULL, 0, details, 20); 
+    status = remoteRegFunction(remote_id, POZYX_FLASH_DETAILS, NULL, 0, details, 20);
   }
 
   // the register address is represented by a specific bit in the bitstring stored in details.
@@ -1690,7 +1717,7 @@ void __attribute__((weak)) __assert (const char *func, const char *file, int lin
   }
 
     // halt after outputting information
-    abort(); 
+    abort();
 }
 #else
 void __attribute__((weak)) __assert_pozyx (const char *__func, const char *__file, int __lineno)
@@ -1702,14 +1729,14 @@ void __attribute__((weak)) __assert_pozyx (const char *__func, const char *__fil
     Serial.print("Filename: ");
     Serial.println(__file);
     Serial.print("Line number: ");
-    Serial.println(__lineno); 
+    Serial.println(__lineno);
 
     // platform independent delay to allow the string to be printed
     delay(10);
   }
 
   // halt after outputting information
-  abort(); 
+  abort();
 }
 
 #endif
