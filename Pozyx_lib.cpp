@@ -733,6 +733,17 @@ int PozyxClass::getAcceleration_mg(acceleration_t *acceleration, uint16_t remote
   return status;
 }
 
+int PozyxClass::getMaxLinearAcceleration(uint16_t *max_lin_acc, uint16_t remote_id){
+  assert(max_lin_acc != NULL);
+
+  if(remote_id == NULL){
+    return regRead(POZYX_MAX_LIN_ACC, (uint8_t *) max_lin_acc, 2);
+  }
+  else{
+    return remoteRegRead(remote_id, POZYX_MAX_LIN_ACC, (uint8_t *) max_lin_acc, 2);
+  }
+}
+
 int PozyxClass::getMagnetic_uT(magnetic_t *magnetic, uint16_t remote_id)
 {
   assert(magnetic != NULL);

@@ -80,6 +80,8 @@
 #define POZYX_POS_ERR_XZ        0x44   /* estimated covariance of xz */
 #define POZYX_POS_ERR_YZ        0x46   /* estimated covariance of yz */
 
+#define POZYX_MAX_LIN_ACC       0x4E   /* maximum linear acceleration since */
+
 /* Sensor data */
 
 #define POZYX_PRESSURE          0x50   /* Pressure data */

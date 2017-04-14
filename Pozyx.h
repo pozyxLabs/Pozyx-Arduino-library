@@ -1313,6 +1313,19 @@ public:
     */
     static int getPressure_Pa(float32_t *pressure, uint16_t remote_id = NULL);
 
+    /**
+    * Obtain the max linear acceleration
+    * This registers functions similarly to the interrupt and error registers in that it clears
+    * the register's value upon reading. This is the max linear acceleration since the last read.
+    *
+    *   @param max_lin_acc: pointer to a variable that will hold the max linear acceleration
+    *   @param remote_id: optional parameter that determines the remote device to be used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    */
+    static int getMaxLinearAcceleration(uint16_t *max_lin_acc, uint16_t remote_id = NULL);
 
     /**
     * Obtain the 3D acceleration vector in mg.
