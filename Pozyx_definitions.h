@@ -50,6 +50,7 @@
 
 #define POZYX_INT_MASK          0x10   /* Indicates which interrupts are enabled. */
 #define POZYX_INT_CONFIG        0x11   /* Configure the interrupt pin */
+#define POZYX_POS_FILTER        0x14   /* Pozyx filter configuration register */
 #define POZYX_CONFIG_LEDS       0x15   /* Configure the LEDs */
 #define POZYX_POS_ALG         0x16   /* Algorithm used for positioning */
 #define POZYX_POS_NUM_ANCHORS       0x17   /* Configure the number of anchors and selection procedure */
