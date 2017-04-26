@@ -148,8 +148,8 @@
 
 /* Macro's to test if registers are readable/writable */
 
-#define IS_REG_READABLE(x)       (((((x)>=0x0)&&((x)<0x7)) || (((x)>=0x10)&&((x)<0x12)) || (((x)>=0x15)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x48)) || (((x)>=0x50)&&((x)<0x89)))?1:0)
-#define IS_REG_WRITABLE(x)       (((((x)>=0x10)&&((x)<0x12)) || (((x)>=0x15)&&((x)<0x21)) || (((x)>=0x22)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x3c)) || (((x)>=0x85)&&((x)<0x89)))?1:0)
+#define IS_REG_READABLE(x)       (((((x)>=0x0)&&((x)<0x7)) || (((x)>=0x10)&&((x)<0x12)) || (((x)>=0x14)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x48)) || (((x)>=0x50)&&((x)<0x89)))?1:0)
+#define IS_REG_WRITABLE(x)       (((((x)>=0x10)&&((x)<0x12)) || (((x)>=0x14)&&((x)<0x21)) || (((x)>=0x22)&&((x)<0x24)) || (((x)>=0x27)&&((x)<0x2b)) || (((x)>=0x30)&&((x)<0x3c)) || (((x)>=0x85)&&((x)<0x89)))?1:0)
 #define IS_FUNCTIONCALL(x)       (((((x)>=0xb0)&&((x)<0xbc)) || (((x)>=0xc0)&&((x)<0xc9)))?1:0)
 
 /* End of auto generated defines */
@@ -180,6 +180,7 @@
 
 /* Bit mask for POZYX_POS_ALG */
 #define POZYX_POS_ALG_UWB_ONLY      0x00
+#define POZYX_POS_ALG_LS            0x00 // deprecated so default to UWB only
 #define POZYX_POS_ALG_TRACKING      0x04
 
 /* Bit mask for POZYX_RANGE_PROTOCOL */
