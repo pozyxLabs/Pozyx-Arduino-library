@@ -1,10 +1,13 @@
 # Pozyx-Arduino-library
 The Arduino library for use with the pozyx shield.
 
-The library requires **firmware version 1.0** installed on the Pozyx devices.
+The library requires **firmware version 1.1** installed on the Pozyx devices.
+If you're on an older version of the firmware and do not want to upgrade for some reason, please download an older release of the library according to their respective release description.
 
 Documentation for the library can be found here:
 https://www.pozyx.io/Documentation/Datasheet/arduino
+
+If you encounter any issues, please send a mail to support@pozyx.io instead of creating an issue here.
 
 The following folders can be found together with this library:
 
