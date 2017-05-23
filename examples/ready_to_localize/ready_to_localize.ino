@@ -193,6 +193,6 @@ void setAnchorsManual(){
     Pozyx.addDevice(anchor, remote_id);
   }
   if (num_anchors > 4){
-    Pozyx.setSelectionOfAnchors(POZYX_ANCHOR_SEL_AUTO, num_anchors);
+    Pozyx.setSelectionOfAnchors(POZYX_ANCHOR_SEL_AUTO, num_anchors, remote_id);
   }
 }
