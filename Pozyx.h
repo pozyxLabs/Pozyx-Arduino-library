@@ -298,42 +298,6 @@ public:
 
     static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
 
-    /** \addtogroup core
-     *  @{
-     */
-
-    /**
-    * Wait until the Pozyx shields has raised a specfic event flag or until timeout.
-    * This functions halts the process flow until a specific event flag was raised by the Pozyx
-    * shield. The event flag is checked by reading the contents of the reg:POZYX_INT_STATUS register.
-    * This function can work in both polled and interupt mode
-    *
-    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
-    *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.
-    *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
-    *   @param interrupt a pointer that will contain the value of the interrupt status register
-    *
-    * @retval #true event occured.
-    * @retval #false event did not occur, this function timed out.
-    */
-    static boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
-
-    /**
-    * Initiates the Pozyx shield. This function initializes the pozyx device.
-    * It will verify that the device is functioning correctly by means of the self-test, and it will configure the interrupts.
-    * See the register reg:POZYX_INT_MASK for more details about the interrupts.
-    *
-    * @param print_result outputs the result of the function to the Serial output
-    * @param mode The modus of the system: #MODE_POLLING or #MODE_INTERRUPT
-    * @param interrupts defines which events trigger interrupts. This field is only required for #MODE_INTERRUPT. Possible
-    * values are bit-wise combinations of #POZYX_INT_MASK_ERR, #POZYX_INT_MASK_POS, #POZYX_INT_MASK_IMU, #POZYX_INT_MASK_RX_DATA and #POZYX_INT_MASK_FUNC. Use #POZYX_INT_MASK_ALL to trigger on all events.
-    * @param interrupt_pin Pozyx interrupt pin: #POZYX_INT_PIN0 or #POZYX_INT_PIN1. This field is only required for #MODE_INTERRUPT.
-    *
-    * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAILURE function failed.
-    */
-    static int begin(boolean print_result = false, int mode = MODE_INTERRUPT,  int interrupts = POZYX_INT_MASK_ALL, int interrupt_pin = POZYX_INT_PIN0);
-
     /**
     * Read from the registers of the connected Pozyx shield.
     *
@@ -415,9 +379,43 @@ public:
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0);
-/** @}*/
 
-// currently groupless TODO
+    /** \addtogroup core
+     *  @{
+     */
+
+    /**
+    * Wait until the Pozyx shields has raised a specfic event flag or until timeout.
+    * This functions halts the process flow until a specific event flag was raised by the Pozyx
+    * shield. The event flag is checked by reading the contents of the reg:POZYX_INT_STATUS register.
+    * This function can work in both polled and interupt mode
+    *
+    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
+    *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.
+    *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
+    *   @param interrupt a pointer that will contain the value of the interrupt status register
+    *
+    * @retval #true event occured.
+    * @retval #false event did not occur, this function timed out.
+    */
+    static boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
+
+    /**
+    * Initiates the Pozyx shield. This function initializes the pozyx device.
+    * It will verify that the device is functioning correctly by means of the self-test, and it will configure the interrupts.
+    * See the register reg:POZYX_INT_MASK for more details about the interrupts.
+    *
+    * @param print_result outputs the result of the function to the Serial output
+    * @param mode The modus of the system: #MODE_POLLING or #MODE_INTERRUPT
+    * @param interrupts defines which events trigger interrupts. This field is only required for #MODE_INTERRUPT. Possible
+    * values are bit-wise combinations of #POZYX_INT_MASK_ERR, #POZYX_INT_MASK_POS, #POZYX_INT_MASK_IMU, #POZYX_INT_MASK_RX_DATA and #POZYX_INT_MASK_FUNC. Use #POZYX_INT_MASK_ALL to trigger on all events.
+    * @param interrupt_pin Pozyx interrupt pin: #POZYX_INT_PIN0 or #POZYX_INT_PIN1. This field is only required for #MODE_INTERRUPT.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    */
+    static int begin(boolean print_result = false, int mode = MODE_INTERRUPT,  int interrupts = POZYX_INT_MASK_ALL, int interrupt_pin = POZYX_INT_PIN0);
+
 
     /**
     * Read from the registers on a local or remote Pozyx device (anchor or tag).
@@ -463,6 +461,9 @@ public:
     */
     static int useFunction(uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0, uint16_t remote_id=NULL);
 
+/** @}*/
+
+// currently groupless TODO
 
 
 /** \addtogroup communication_functions
