@@ -292,8 +292,6 @@ protected:
     * @retval #false event did not occur, this function timed out.
     */
 
-
-
 public:
 
     static boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
@@ -1562,7 +1560,7 @@ public:
     *
     * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors
     */
-    static int doPositioning(coordinates_t *position, uint8_t dimension = POZYX_2D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
+    static int doPositioning(coordinates_t *position, uint8_t dimension = POZYX_3D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
 
     /**
     * Obtain the coordinates of a remote device.
@@ -1586,7 +1584,7 @@ public:
     *
     * @see doPositioning, addDevice, setSelectionOfAnchors
     */
-    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension = POZYX_2D, int32_t height = 0, uint8_t algorithm = 0);
+    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension = POZYX_3D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
 
     /**
     * Trigger ranging with a remote device.

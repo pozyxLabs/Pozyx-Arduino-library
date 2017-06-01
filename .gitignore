@@ -1,3 +1,4 @@
 Doxyfile
 xml/
 html/
+*.gch
