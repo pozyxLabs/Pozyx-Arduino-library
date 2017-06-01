@@ -184,6 +184,12 @@
 #define POZYX_POS_ALG_LS            0x00 // deprecated so default to UWB only
 #define POZYX_POS_ALG_TRACKING      0x04
 
+/* Bit masks for POZYX_POS_FILTER */
+#define FILTER_TYPE_NONE            0x00
+#define FILTER_TYPE_FIR             0x01
+#define FILTER_TYPE_MOVINGAVERAGE   0x03
+#define FILTER_TYPE_MOVINGMEDIAN    0x04
+
 /* Bit mask for POZYX_RANGE_PROTOCOL */
 #define POZYX_RANGE_PROTOCOL_PRECISION  0x00
 #define POZYX_RANGE_PROTOCOL_FAST    0x01

@@ -41,7 +41,7 @@ void setup(){
   if (!remote){
     remote_id = NULL;
   }
-  Serial.println("------------POZYX RANGING V1.0------------");
+  Serial.println("------------POZYX RANGING V1.1------------");
   Serial.println("NOTES:");
   Serial.println("- Change the parameters:");
   Serial.println("\tdestination_id (target device)");
@@ -49,7 +49,7 @@ void setup(){
   Serial.println();
   Serial.println("- Approach target device to see range and");
   Serial.println("led control");
-  Serial.println("------------POZYX RANGING V1.0------------");
+  Serial.println("------------POZYX RANGING V1.1------------");
   Serial.println();
   Serial.println("START Ranging:");
 

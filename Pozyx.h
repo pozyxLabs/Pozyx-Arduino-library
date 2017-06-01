@@ -382,6 +382,7 @@ public:
     *
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size);
 
@@ -414,8 +415,55 @@ public:
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
     static int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0);
-
 /** @}*/
+
+// currently groupless TODO
+
+    /**
+    * Read from the registers on a local or remote Pozyx device (anchor or tag).
+    *
+    *   @param reg_address: the specific register address to start reading from
+    *   @param pData: a pointer to the data thas will be read
+    *   @param size: the number of bytes to read
+    *   @param remote_id: this is the network id of the remote Pozyx tag, if used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    */
+    static int getRead(uint8_t reg_address, uint8_t *pData, int size, uint16_t remote_id=NULL);
+
+    /**
+    * Write to the registers of a local remote Pozyx device (anchor or tag).
+    *
+    *   @param reg_address: the specific register address to start writing to
+    *   @param pData: a pointer to the data thas will be written
+    *   @param size: the number of bytes to write
+    *   @param remote_id: this is the network id of the remote Pozyx tag, if used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    */
+    static int setWrite(uint8_t reg_address, const uint8_t *pData, int size, uint16_t remote_id=NULL);
+
+    /**
+    * Call a register funcion on a local or remote Pozyx device (anchor or tag).
+    *
+    *   @param reg_address: the specific register address of the function
+    *   @param params: this is the pointer to a parameter array required for the specific function that is called
+    *   @param param_size: the number of bytes in the params array
+    *   @param pData: a pointer to the data thas will be read
+    *   @param size: the number of bytes that will be stored in pData
+    *   @param remote_id: this is the network id of the remote Pozyx tag, if used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    */
+    static int useFunction(uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0, uint16_t remote_id=NULL);
+
+
 
 /** \addtogroup communication_functions
  *  @{
@@ -1095,6 +1143,55 @@ public:
     * @see doRanging, getRangingProtocol
     */
     static int setRangingProtocol(uint8_t protocol, uint16_t remote_id = NULL);
+
+    /** TODO
+    * Obtain the configured positioning filter strength.
+    * This function obtains the configured positioning filter strength by reading from the reg:POZYX_POS_FILTER register.
+    *
+    *   @param filter_strength pointer to the variable holding the filter strength used in the built-in filter.
+    *   This strength is the amount of previous samples used in positioning.
+    *   Possible values for the position filter strength is between 0 and 15 samples.
+    *   @param remote_id optional parameter that determines the remote device to be used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    *
+    * @see getPositionFilterType, getPositionFilter, setPositionFilter, setPositionFilterType, setPositionFilterStrength
+    */
+    static int getPositionFilterStrength(uint8_t *filter_strength, uint16_t remote_id = NULL);
+
+    /** TODO
+    * Obtain the configured positioning algorithm.
+    * This function obtains the configured positioning algorithm by reading from the reg:POZYX_POS_ALG register.
+    *
+    *   @param algorithm pointer to the variable holding the algorithm used to determine position.
+    *   Possible values for the positioning algorithm are #POZYX_POS_ALG_UWB_ONLY and #POZYX_POS_ALG_LS.
+    *   @param remote_id optional parameter that determines the remote device to be used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    *
+    * @see getPositionDimension, setPositionAlgorithm
+    */
+    static int getPositionFilterType(uint8_t *filter_type, uint16_t remote_id = NULL);
+
+    /** TODO
+    * Configure the ranging protocol.
+    * This function configures the ranging protocol by writing to the reg:POZYX_RANGE_PROTOCOL register.
+    *
+    *   @param protocol Ranging protocol used when ranging.
+    *   Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION.
+    *   @param remote_id optional parameter that determines the remote device to be used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    *
+    * @see doRanging, getRangingProtocol
+    */
+    static int setPositionFilter(uint8_t filter_type, uint8_t filter_strength, uint16_t remote_id = NULL);
 
     /**
     * Obtain the configured positioning algorithm.
