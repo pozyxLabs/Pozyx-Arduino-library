@@ -34,7 +34,7 @@ void device_check(uint16_t remote_id){
     Serial.print("device 0x");
     Serial.println(remote_id, HEX);
   }
-  
+
   Serial.print("who am i: ");
   Serial.println(data[0], HEX);
   Serial.print("firmware version: 0x");
@@ -49,20 +49,24 @@ void device_check(uint16_t remote_id){
 
 
 void network_check_discovery(){
-  if( Pozyx.doDiscovery(POZYX_DISCOVERY_ALL_DEVICES) == POZYX_SUCCESS){    
+  if( Pozyx.doDiscovery(POZYX_DISCOVERY_ALL_DEVICES) == POZYX_SUCCESS){
     uint8_t num_devices = 0;
     Pozyx.getDeviceListSize(&num_devices);
     Serial.print("Discovery found: ");
     Serial.print(num_devices);
     Serial.println(" device(s).");
     uint16_t tags[num_devices];
+    if (num_devices == 0){
+      Serial.println("FIN.");
+      return;
+    }
     Pozyx.getDeviceIds(tags, num_devices);
 
     for(int i = 0; i < num_devices; i++){
       Serial.print("0x");
       Serial.print(tags[i], HEX);
       if (i != num_devices - 1){
-        Serial.print(", "); 
+        Serial.print(", ");
       }
     }
     Serial.println();
@@ -70,5 +74,5 @@ void network_check_discovery(){
 }
 
 void loop() {
-  
+
 }

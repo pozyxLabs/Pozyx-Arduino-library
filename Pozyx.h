@@ -356,7 +356,7 @@ public:
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAILURE function failed.
     */
-    static int regWrite(uint8_t reg_address, const uint8_t *pData, int size);
+    static int regWrite(uint8_t reg_address, uint8_t *pData, int size);
 
     /**
     * Call a register funcion on the connected Pozyx shield.
@@ -445,7 +445,7 @@ public:
     * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     */
-    static int setWrite(uint8_t reg_address, const uint8_t *pData, int size, uint16_t remote_id=NULL);
+    static int setWrite(uint8_t reg_address, uint8_t *pData, int size, uint16_t remote_id=NULL);
 
     /**
     * Call a register funcion on a local or remote Pozyx device (anchor or tag).

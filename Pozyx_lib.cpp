@@ -24,7 +24,7 @@ int PozyxClass::getRead(uint8_t reg_address, uint8_t *pData, int size, uint16_t 
   }
 }
 
-int PozyxClass::setWrite(uint8_t reg_address, const uint8_t *pData, int size, uint16_t remote_id)
+int PozyxClass::setWrite(uint8_t reg_address, uint8_t *pData, int size, uint16_t remote_id)
 {
   if (remote_id == NULL){
     return regWrite(reg_address, pData, size);
@@ -162,14 +162,14 @@ int PozyxClass::setLedConfig(uint8_t config, uint16_t remote_id)
 
 int PozyxClass::getPositionFilterStrength(uint8_t *filter_strength, uint16_t remote_id)
 {
-  status = getRead(POZYX_POS_FILTER, filter_strength, 1, remote_id);
+  int status = getRead(POZYX_POS_FILTER, filter_strength, 1, remote_id);
   *filter_strength = (*filter_strength & 0xF0) >> 4;
   return status;
 }
 
 int PozyxClass::getPositionFilterType(uint8_t *filter_type, uint16_t remote_id)
 {
-  status = getRead(POZYX_POS_FILTER, filter_type, 1, remote_id);
+  int status = getRead(POZYX_POS_FILTER, filter_type, 1, remote_id);
   *filter_type = (*filter_type & 0xF);
   return status;
 }
@@ -294,7 +294,7 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
     status &= getUWBSettings(&local_settings);
     status &= setUWBSettings(UWB_settings);
     status &= setTxPower(UWB_settings->gain_db, remote_id);
-    status &= setUWBSettings(local_settings);
+    status &= setUWBSettings(&local_settings);
     return status;
   }
 }
