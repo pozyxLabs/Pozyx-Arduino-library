@@ -604,6 +604,20 @@ public:
     static int setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id = NULL);
 
     /**
+    * Overwrite the UWB settings except the gain.
+    * This function overwrites the UWB settings such as UWB channel, PRF, etc.
+    * In order to communicate, two pozyx devices must have exactly the same UWB settings.
+    * Upon reset, the default UWB settings will be loaded.
+    *
+    *   @param UWB_settings reference to the new UWB settings. If the gain_db is set to 0, it will automatically load the default gain value for the given uwb paramters.
+    *   @param remote_id optional parameter that determines the remote device to be used
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    * @retval #POZYX_TIMEOUT function timed out, no response received.
+    */
+    static int setUWBSettingsExceptGain(UWB_settings_t *UWB_settings, uint16_t remote_id=NULL);
+    /**
     * Set the Ultra-wideband frequency channel.
     * This function sets the ultra-wideband (UWB) frequency channel used for transmission and reception.
     * For wireless communication, both the receiver and transmitter must be on the same UWB channel.
@@ -949,10 +963,67 @@ public:
     *
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_TIMEOUT function timed out.
     *
     * @see clearConfiguration
     */
     static int saveConfiguration(int type, uint8_t registers[] = NULL, int num_registers = 0, uint16_t remote_id = NULL);
+
+    /**
+    * Save registers to the flash memory. See saveConfiguration for more information
+    * @version Requires firmware version v1.0
+    *
+    *   @param registers an option array that holds all the register addresses for which the value must be saved. All registers that are writable are allowed.
+    *   @param num_registers optional parameter that determines the length of the registers array.
+    *   @param remote_id optional parameter that determines the remote device to be used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_TIMEOUT function timed out.
+    * @see clearConfiguration
+    */
+    static int saveRegisters(uint8_t registers[] = NULL, int num_registers = 0, uint16_t remote_id = NULL);
+
+    /**
+    * Save the Pozyx's stored network to its flash memory. See saveConfiguration for more information
+    * @version Requires firmware version v1.0
+    *
+    *   @param remote_id optional parameter that determines the remote device to be used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_TIMEOUT function timed out.
+    * @see clearConfiguration
+    */
+    static int saveNetwork(uint16_t remote_id = NULL);
+
+    /**
+    * Save the Pozyx's stored anchor list to its flash memory. See saveConfiguration for more information
+    * @version Requires firmware version v1.0
+    *
+    *   @param remote_id optional parameter that determines the remote device to be used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_TIMEOUT function timed out.
+    * @see clearConfiguration
+    */
+    static int saveAnchorIds(uint16_t remote_id = NULL);
+
+    /**
+    * Save the Pozyx's stored UWB settings to its flash memory. See saveConfiguration for more information
+    * @version Requires firmware version v1.0
+    *
+    *   @param remote_id optional parameter that determines the remote device to be used.
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAIL function failed.
+    * @retval #POZYX_TIMEOUT function timed out.
+    * @see clearConfiguration
+    */
+    static int saveUWBSettings(uint16_t remote_id = NULL);
+
+    // static int saveAnchorSelection(int type, uint8_t registers[] = NULL, int num_registers = 0, uint16_t remote_id = NULL);
 
     /**
     * Clears the configuration.
@@ -1542,11 +1613,13 @@ public:
  *  @{
  */
     /**
+    *
     * Obtain the coordinates.
     * This function triggers the positioning algorithm to perform positioning with the given parameters.
     * By default it will automatically select 4 anchors from the internal device list. It will then perform
     * ranging with these anchors and use the results to compute the coordinates.
     * This function requires that the coordinates for the anchors are stored in the internal device list.
+    * On its way to deprecation, use setPositionAlgorithm once and new doPositioning instead
     *
     * Please read the tutorial ready to localize to get started with positioning.
     *
@@ -1563,15 +1636,34 @@ public:
     static int doPositioning(coordinates_t *position, uint8_t dimension = POZYX_3D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
 
     /**
-    * Obtain the coordinates of a remote device.
+    * Obtain the coordinates.
+    * This function triggers the positioning algorithm to perform positioning with the given parameters.
+    * By default it will automatically select 4 anchors from the internal device list. It will then perform
+    * ranging with these anchors and use the results to compute the coordinates.
+    * This function requires that the coordinates for the anchors are stored in the internal device list.
     *
-    * @note This function is subject to major change upon the next firmware update.
+    * Please read the tutorial ready to localize to get started with positioning.
+    *
+    *   @param position: data object to store the result
+    *   @param height: optional parameter that is used for #POZYX_2_5D to give the height in mm of the tag
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    *
+    * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors, setPositionAlgorithm
+    */
+    // static int doPositioning(coordinates_t *position, int32_t height = 0);
+
+    /**
+    *
+    * Obtain the coordinates of a remote device.
     *
     * This function triggers the positioning algorithm on a remote pozyx device to perform positioning with the given parameters.
     * By default it will automatically select 4 anchors from the internal device list on the remote device. The device will perform
     * ranging with the anchors and use the results to compute the coordinates.
     * This function requires that the coordinates for the anchors are stored in the internal device list on the remote device.
     * After positioning is completed, the remote device will automatically transmit the result back.
+    * On its way to deprecation, will be made deprecated with 1.2
     *
     *   @param remote_id: the remote device that will do the positioning
     *   @param position: data object to store the result
@@ -1585,6 +1677,26 @@ public:
     * @see doPositioning, addDevice, setSelectionOfAnchors
     */
     static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension = POZYX_3D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
+
+    /**
+    * Obtain the coordinates of a remote device. Don't use with 2.5D!
+    *
+    * This function triggers the positioning algorithm on a remote pozyx device to perform positioning with the given parameters.
+    * By default it will automatically select 4 anchors from the internal device list on the remote device. The device will perform
+    * ranging with the anchors and use the results to compute the coordinates.
+    * This function requires that the coordinates for the anchors are stored in the internal device list on the remote device.
+    * After positioning is completed, the remote device will automatically transmit the result back.
+    *
+    *   @param remote_id: the remote device that will do the positioning
+    *   @param position: data object to store the result
+    *   @param height: optional parameter that is used for #POZYX_2_5D to give the height in mm of the tag
+    *
+    * @retval #POZYX_SUCCESS success.
+    * @retval #POZYX_FAILURE function failed.
+    *
+    * @see doPositioning, addDevice, setSelectionOfAnchors, setPositionAlgorithm
+    */
+    // static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, int32_t height = 0);
 
     /**
     * Trigger ranging with a remote device.

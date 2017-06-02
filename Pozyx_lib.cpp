@@ -299,6 +299,21 @@ int PozyxClass::setUWBSettings(UWB_settings_t *UWB_settings, uint16_t remote_id)
   }
 }
 
+int PozyxClass::setUWBSettingsExceptGain(UWB_settings_t *UWB_settings, uint16_t remote_id)
+{
+  assert(UWB_settings->channel >= 1);
+  assert(UWB_settings->channel <= 7);
+  assert(UWB_settings->channel != 6);
+
+  uint8_t tmp[3];
+  tmp[0] = UWB_settings->channel;
+  tmp[1] = ((UWB_settings->bitrate) | (UWB_settings->prf << 6));
+  tmp[2] = UWB_settings->plen;
+
+  // first set the uwb channel, bitrate, prf and plen
+  return setWrite(POZYX_UWB_CHANNEL, tmp, 3, remote_id);
+}
+
 int PozyxClass::setUWBChannel(int channel_num, uint16_t remote_id)
 {
   assert(channel_num >= 1);
@@ -768,20 +783,13 @@ int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device
 int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
   assert(position != NULL);
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_TRACKING));
-  assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
 
   int status;
 
-  // set dimension and algorithm
-  uint8_t alg_options = (dimension<<4) | algorithm;
-  status = regWrite(POZYX_POS_ALG, &alg_options, 1);
-
   // in 2.5D mode, we also supply the height
-  if(dimension == POZYX_2_5D) {
+  if (dimension == POZYX_2_5D){
     status = regWrite(POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
   }
-
   // trigger positioning
   uint8_t int_status = 0;
   regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
@@ -805,28 +813,54 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
   }
 }
 
+// int PozyxClass::doPositioning(coordinates_t *position, int32_t height)
+// {
+//   assert(position != NULL);
+//
+//   int status;
+//
+//   // in 2.5D mode, we also supply the height
+//   uint8_t dimension;
+//   getPositionDimension(&dimension);
+//   if (dimension == POZYX_2_5D){
+//     status = regWrite(POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
+//   }
+//   // trigger positioning
+//   uint8_t int_status = 0;
+//   regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
+//   status = regFunction(POZYX_DO_POSITIONING, NULL, 0, NULL, 0);
+//   if (status != POZYX_SUCCESS )
+//     return POZYX_FAILURE;
+//
+//   // now wait for the positioning to finish or generate an error
+//   if (waitForFlag_safe(POZYX_INT_STATUS_POS | POZYX_INT_STATUS_ERR, 2*POZYX_DELAY_INTERRUPT, &int_status)){
+//     if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
+//     {
+//       // An error occured during positioning.
+//       // Please read out the register POZYX_ERRORCODE to obtain more information about the error
+//       return POZYX_FAILURE;
+//     }else{
+//       status = getCoordinates(position);
+//       return POZYX_SUCCESS;
+//     }
+//   }else{
+//     return POZYX_TIMEOUT;
+//   }
+// }
+
 int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
   assert(remote_id != 0);
   assert(coordinates != NULL);
-  assert( (algorithm == POZYX_POS_ALG_UWB_ONLY ) || (algorithm == POZYX_POS_ALG_TRACKING));
-  assert( (dimension == POZYX_3D ) || (dimension == POZYX_2D) || (dimension == POZYX_2_5D) );
-
 
   int status;
   coordinates->x = 0;
   coordinates->y = 0;
   coordinates->z = 0;
 
-  // set dimension and algorithm
-  /*uint8_t alg_options = (dimension<<4) | algorithm;
-  status = remoteRegWrite(remote_id, POZYX_POS_ALG, &alg_options, 1);
-  delay(5);
-  */
-
   // in 2.5D mode, we also supply the height
   if(dimension == POZYX_2_5D) {
-    status = remoteRegWrite(remote_id, POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
+    remoteRegWrite(remote_id, POZYX_POS_Z, (uint8_t*)&height, sizeof(int32_t));
     delay(10);
   }
 
@@ -838,7 +872,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
     return status;
   }
 
-  // never change this again...
+  // change timeout flag if crashes
   if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 200)){
 
     // we received a response, now get some information about the response
@@ -850,7 +884,6 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
     // check if we have received the expected response, i.e., a packet containing the coordinates.
     if( remote_network_id == remote_id && data_len == sizeof(coordinates_t))
     {
-
       status = readRXBufferData((uint8_t *) coordinates, 12); //sizeof(coordinates_t));
       return status;
     }else{
@@ -862,6 +895,49 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   }
   return status;
 }
+
+// int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, int32_t height)
+// {
+//   assert(remote_id != 0);
+//   assert(coordinates != NULL);
+//
+//   int status;
+//   coordinates->x = 0;
+//   coordinates->y = 0;
+//   coordinates->z = 0;
+//
+//   // trigger remote positioning
+//   status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0);
+//
+//   if(status != POZYX_SUCCESS){
+//     delay(40);
+//     return status;
+//   }
+//
+//   // never change this again...
+//   if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 200)){
+//
+//     // we received a response, now get some information about the response
+//     uint8_t rx_info[3]= {0,0,0};
+//     regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
+//     uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
+//     uint8_t data_len = rx_info[2];
+//
+//     // check if we have received the expected response, i.e., a packet containing the coordinates.
+//     if( remote_network_id == remote_id && data_len == sizeof(coordinates_t))
+//     {
+//
+//       status = readRXBufferData((uint8_t *) coordinates, 12); //sizeof(coordinates_t));
+//       return status;
+//     }else{
+//       return POZYX_FAILURE;
+//     }
+//   }
+//   else{
+//     return POZYX_TIMEOUT;
+//   }
+//   return status;
+// }
 
 int PozyxClass::setPositioningAnchorIds(uint16_t anchors[], int num_anchors, uint16_t remote_id)
 {
@@ -1162,6 +1238,27 @@ int PozyxClass::saveConfiguration(int type, uint8_t registers[], int num_registe
   }
 
   return status;
+}
+
+int PozyxClass::saveRegisters(uint8_t registers[], int num_registers, uint16_t remote_id)
+{
+  return saveConfiguration(POZYX_FLASH_REGS, registers, num_registers, remote_id);
+}
+
+int PozyxClass::saveNetwork(uint16_t remote_id)
+{
+  return saveConfiguration(POZYX_FLASH_NETWORK, NULL, 0, remote_id);
+}
+
+int PozyxClass::saveAnchorIds(uint16_t remote_id)
+{
+  return saveConfiguration(POZYX_FLASH_ANCHOR_IDS, NULL, 0, remote_id);
+}
+
+int PozyxClass::saveUWBSettings(uint16_t remote_id)
+{
+  uint8_t registers[4] = {POZYX_UWB_CHANNEL, POZYX_UWB_RATES, POZYX_UWB_PLEN, POZYX_UWB_GAIN};
+  saveRegisters(registers, 4, remote_id);
 }
 
 int PozyxClass::clearConfiguration(uint16_t remote_id)

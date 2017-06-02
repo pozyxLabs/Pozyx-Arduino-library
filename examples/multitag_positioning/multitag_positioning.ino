@@ -58,6 +58,7 @@ void setup(){
 
   // configures all remote tags and prints the success of their configuration.
   setAnchorsManual();
+  setTagsAlgorithm();
   delay(2000);
 
   Serial.println(F("Starting positioning: "));
@@ -117,6 +118,12 @@ void printErrorCode(String operation, uint16_t network_id){
     Serial.print(operation);
     Serial.print(", couldn't retrieve remote error code, local error: 0x");
     Serial.println(error_code, HEX);
+  }
+}
+
+void setTagsAlgorithm(){
+  for (int i = 0; i < num_tags; i++){
+    Pozyx.setPositionAlgorithm(algorithm, dimension, tags[i]);
   }
 }
 

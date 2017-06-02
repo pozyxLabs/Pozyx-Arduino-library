@@ -64,6 +64,8 @@ void setup(){
   Pozyx.clearDevices(remote_id);
   // sets the anchor manually
   setAnchorsManual();
+  // sets the positioning algorithm
+  Pozyx.setPositionAlgorithm(algorithm, dimension, remote_id);
 
   printCalibrationResult();
   delay(2000);
