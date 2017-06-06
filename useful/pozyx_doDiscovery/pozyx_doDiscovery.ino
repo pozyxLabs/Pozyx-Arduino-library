@@ -19,7 +19,9 @@ uint8_t bitrate = 0;        // values 0, 1, 2
 uint8_t prf = 2;            // values 1, 2
 uint8_t plen = 0x08;
 
-int num_found = -1;
+int prev_list_size = -1;
+uint16_t* devices = new uint16_t[0];
+uint16_t* prev_devices = new uint16_t[0];
 
 void setup() {
   Serial.begin(115200);
@@ -50,36 +52,43 @@ void setup() {
 }
 
 void loop() {
-
+  // Get new device list
   Pozyx.clearDevices();
   int status = Pozyx.doDiscovery(POZYX_DISCOVERY_ALL_DEVICES);
-
   uint8_t list_size = 0;
   status = Pozyx.getDeviceListSize(&list_size);
-  
-  if(list_size != num_found)
+  devices = new uint16_t[list_size];
+  if (list_size>0)
+    status = Pozyx.getDeviceIds(devices, list_size);
+
+  // Check if device list has changed
+  bool hasChanged;
+  if (prev_list_size != list_size) {
+    hasChanged = true;
+  } else {
+    hasChanged = !deviceListsAreEqual(devices, prev_devices, list_size);
+  }
+
+  // Print device list when changed
+  if(hasChanged)
   {
-    num_found = list_size;
-  
     Serial.print("Number of pozyx devices discovered: ");
     Serial.println(list_size);
   
     if(list_size > 0)
     {
       Serial.println("List of device IDs: ");
-      
-      uint16_t devices[list_size];
-      status = Pozyx.getDeviceIds(devices, list_size);
-      
-      int i;
-      for(i=0; i<list_size; i++)
+      for(int i=0; i<list_size; i++)
       {      
         Serial.print("\t0x");
         Serial.println(devices[i], HEX);
       }
     }
-  }   
+  }
 
+  delete[] prev_devices;
+  prev_devices = devices;
+  prev_list_size = list_size;
 }
 
 void print_uwb_settings(){
@@ -131,4 +140,24 @@ int getPreambleLength(int plen_code)
     Serial.println("Illigal preamble code");
   
   return 0;
+}
+
+bool deviceListsAreEqual(uint16_t* deviceList1, uint16_t* deviceList2, int list_size) {
+  bool areEqual = true;
+  int i = 0;
+  while (areEqual && i<list_size) {
+    areEqual = listHasDevice(deviceList2, list_size, deviceList1[i]);
+    i++;
+  }
+  return areEqual;
+}
+
+bool listHasDevice(uint16_t* deviceList, int list_size, uint16_t device) {
+  bool hasDevice = false;
+  int i = 0;
+  while (!hasDevice && i<list_size) {
+    hasDevice = deviceList[i] == device;
+    i++;
+  }
+  return hasDevice;
 }
