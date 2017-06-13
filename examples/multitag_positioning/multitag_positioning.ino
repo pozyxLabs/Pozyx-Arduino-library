@@ -59,7 +59,7 @@ void setup(){
   // configures all remote tags and prints the success of their configuration.
   setAnchorsManual();
   setTagsAlgorithm();
-  delay(2000);
+  delay(1000);
 
   Serial.println(F("Starting positioning: "));
 }
@@ -139,6 +139,9 @@ void setAnchorsManual(){
       anchor.pos.y = anchors_y[j];
       anchor.pos.z = heights[j];
       status &= Pozyx.addDevice(anchor, tags[i]);
+    }
+    if (num_anchors > 4){
+      Pozyx.setSelectionOfAnchors(POZYX_ANCHOR_SEL_AUTO, num_anchors, tags[i]);
     }
     if (status == POZYX_SUCCESS){
       Serial.print("Configuring ID 0x");
