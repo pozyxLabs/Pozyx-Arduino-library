@@ -1819,6 +1819,7 @@ public:
 
     /**
     * Automatically obtain the relative anchor positions.
+    * WARNING: This is currently experimental and will be improved in the next firmware version!
     * This function triggers the automatic anchor calibration to obtain the relative coordinates of up to 6
     * pozyx devices in range. This function can be used for quickly setting up the positioning system.
     * The procedure may take several hundres of milliseconds depending on the number of devices in range and
@@ -1836,8 +1837,6 @@ public:
     *
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAILURE function failed.
-    *
-    * @see Please read the Ready to Localize tutorial to get started with this function.
     */
     static int doAnchorCalibration(int dimension = POZYX_2D, int num_measurements = 10, int num_anchors = 0, uint16_t anchors[] = NULL,  int32_t heights[] = NULL);
 
