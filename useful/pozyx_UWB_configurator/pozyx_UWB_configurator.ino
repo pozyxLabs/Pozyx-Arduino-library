@@ -34,6 +34,8 @@ int devices_found;
 uint16_t devId[MAX_DEVICES];
 UWB_settings_t devSettings[MAX_DEVICES];
 
+bool long_plen = false;
+
 void setup() {
   Serial.begin(115200);
   while(!Serial); // for the Arduino Leonardo/Micro only
@@ -75,7 +77,11 @@ void setup() {
     delay(20);
 
     Pozyx.clearDevices();
-    Pozyx.doDiscovery(POZYX_DISCOVERY_ALL_DEVICES);
+    if (long_plen) {
+      Pozyx.doDiscovery(POZYX_DISCOVERY_ALL_DEVICES, 3, 200);
+    } else {
+      Pozyx.doDiscovery(POZYX_DISCOVERY_ALL_DEVICES);
+    }
 
     uint8_t list_size = 0;
     result = Pozyx.getDeviceListSize(&list_size);
