@@ -1612,28 +1612,6 @@ public:
 /** \addtogroup positioning_functions
  *  @{
  */
-    /**
-    *
-    * Obtain the coordinates.
-    * This function triggers the positioning algorithm to perform positioning with the given parameters.
-    * By default it will automatically select 4 anchors from the internal device list. It will then perform
-    * ranging with these anchors and use the results to compute the coordinates.
-    * This function requires that the coordinates for the anchors are stored in the internal device list.
-    * On its way to deprecation, use setPositionAlgorithm once and new doPositioning instead
-    *
-    * Please read the tutorial ready to localize to get started with positioning.
-    *
-    *   @param position: data object to store the result
-    *   @param dimension: optional flag to specify the positioning dimension, possible options are #POZYX_2D, #POZYX_2_5D, and #POZYX_3D
-    *   @param height: optional parameter that is used for #POZYX_2_5D to give the height in mm of the tag
-    *   @param algorithm: optional flag to specifiy the positioning algorithm to be used. Possible options are #POZYX_POS_ALG_UWB_ONLY and #POZYX_POS_ALG_LS
-    *
-    * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAILURE function failed.
-    *
-    * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors
-    */
-    static int doPositioning(coordinates_t *position, uint8_t dimension = POZYX_3D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
 
     /**
     * Obtain the coordinates.
@@ -1652,31 +1630,7 @@ public:
     *
     * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    // static int doPositioning(coordinates_t *position, int32_t height = 0);
-
-    /**
-    *
-    * Obtain the coordinates of a remote device.
-    *
-    * This function triggers the positioning algorithm on a remote pozyx device to perform positioning with the given parameters.
-    * By default it will automatically select 4 anchors from the internal device list on the remote device. The device will perform
-    * ranging with the anchors and use the results to compute the coordinates.
-    * This function requires that the coordinates for the anchors are stored in the internal device list on the remote device.
-    * After positioning is completed, the remote device will automatically transmit the result back.
-    * On its way to deprecation, will be made deprecated with 1.2
-    *
-    *   @param remote_id: the remote device that will do the positioning
-    *   @param position: data object to store the result
-    *   @param dimension: optional flag to specify the positioning dimension, possible options are #POZYX_2D, #POZYX_2_5D, and #POZYX_3D
-    *   @param height: optional parameter that is used for #POZYX_2_5D to give the height in mm of the tag
-    *   @param algorithm: optional flag to specifiy the positioning algorithm to be used
-    *
-    * @retval #POZYX_SUCCESS success.
-    * @retval #POZYX_FAILURE function failed.
-    *
-    * @see doPositioning, addDevice, setSelectionOfAnchors
-    */
-    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension = POZYX_3D, int32_t height = 0, uint8_t algorithm = POZYX_POS_ALG_UWB_ONLY);
+    static int doPositioning(coordinates_t *position, int32_t height = 0);
 
     /**
     * Obtain the coordinates of a remote device. Don't use with 2.5D!
@@ -1696,7 +1650,7 @@ public:
     *
     * @see doPositioning, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    // static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, int32_t height = 0);
+    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, int32_t height = 0);
 
     /**
     * Trigger ranging with a remote device.
