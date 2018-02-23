@@ -262,7 +262,7 @@
 #define POZYX_PRESS_DIV_PA             1000.0f
 #define POZYX_ACCEL_DIV_MG             1.0f
 #define POZYX_GYRO_DIV_DPS             16.0f
-#define POZYX_MAG_DIV_UT               16.0f
+#define POZYX_MAG_DIV_UT               1.0f
 #define POZYX_EULER_DIV_DEG            16.0f
 #define POZYX_QUAT_DIV                 16384.0f
 #define POZYX_TEMP_DIV_CELSIUS         1.0f
