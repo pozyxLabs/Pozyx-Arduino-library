@@ -1630,7 +1630,7 @@ public:
     *
     * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    static int doPositioning(coordinates_t *position, int32_t height = 0);
+    static int doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm);
 
     /**
     * Obtain the coordinates of a remote device. Don't use with 2.5D!
@@ -1650,7 +1650,7 @@ public:
     *
     * @see doPositioning, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, int32_t height = 0);
+    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm);
 
     /**
     * Trigger ranging with a remote device.
