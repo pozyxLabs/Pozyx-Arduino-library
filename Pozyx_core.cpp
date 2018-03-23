@@ -143,7 +143,7 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
   }else if((_hw_version & POZYX_TYPE) == POZYX_ANCHOR)
   {
     // check if the uwb transceiver and pressure sensor are working
-    if(selftest != 0b0011000) {
+    if(selftest != 0b00110000) {
       status = POZYX_FAILURE;
     }
     return status;
