@@ -8,6 +8,12 @@
 #include "Pozyx.h"
 #include <Wire.h>
 
+#if defined(__SAM3X8E__)
+// Arduino Due
+#define Wire Wire1
+#endif
+
+
 extern "C" {
   #include "Pozyx_definitions.h"
 }
@@ -160,7 +166,7 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
     // Arduino UNO, Mega
     attachInterrupt(interrupt_pin, IRQ, RISING);
 #else
-    Serial.println("This is not a board supported by Pozyx, interrupts may not work");
+    Serial.println("This is not a board supported by Pozyx, interrupts may not work");
     attachInterrupt(interrupt_pin, IRQ, RISING);
 #endif
 
