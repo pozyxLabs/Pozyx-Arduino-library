@@ -1615,7 +1615,10 @@ public:
 /** \addtogroup positioning_functions
  *  @{
  */
-
+    
+    [[deprecated("doPositioning will no longer set the algorithm in future releases. Use setPositionAlgorithm in setup() instead.")]]
+    static int doPositioning(coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm);
+    
     /**
     * Obtain the coordinates.
     * This function triggers the positioning algorithm to perform positioning with the given parameters.
@@ -1633,9 +1636,9 @@ public:
     *
     * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    static int doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm);
+    static int doPositioning(coordinates_t *position, uint8_t dimension, int32_t height=0);
 
-    [[deprecated("doRemotePositioning will no longer set the algorithm in future releases. Use setPositionAlgorithm in your setup instead.")]]
+    [[deprecated("doRemotePositioning will no longer set the algorithm in future releases. Use setPositionAlgorithm in setup() instead.")]]
     static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm);
 
     /**
