@@ -570,6 +570,18 @@ int PozyxClass::sendData(uint16_t destination, uint8_t *pData, int size)
   */
 int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, int size)
 {
+  /*Serial.print("\t\ti2cWriteWrite(0x");
+  Serial.print(reg_address, HEX);
+  Serial.print(", [0x");
+  for(int i = 0; i < size; i++) {
+    if(i>0)
+      Serial.print(", 0x");
+    Serial.print(pData[i], HEX);
+  }
+  Serial.print("], ");
+  Serial.print(size);
+  Serial.println(")");*/
+  
   int n, error;
 
   Wire.beginTransmission(POZYX_I2C_ADDRESS);
@@ -590,7 +602,9 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
   error = Wire.endTransmission(true); // release the I2C-bus
   if (error != 0)
     return (POZYX_FAILURE);
-
+  
+  //Serial.println("\t\t\tsuccess");
+  
   return (POZYX_SUCCESS);         // return : no error
 }
 
@@ -599,6 +613,16 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
   */
 int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int read_len)
 {
+  /*Serial.print("\t\ti2cWriteRead([0x");
+  for(int i = 0; i < write_len; i++) {
+    if(i>0)
+      Serial.print(", 0x");
+    Serial.print(write_data[i],HEX);
+  }
+  Serial.print("], uint8_t* read_data, ");
+  Serial.print(read_len);
+  Serial.println(")");*/
+  
   int i, n;
 
   Wire.beginTransmission(POZYX_I2C_ADDRESS);
@@ -608,6 +632,8 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
 
   if (n != 1)
     return (POZYX_FAILURE);
+  
+  //Serial.println("\t\t\tWrite success");
 
   n = Wire.endTransmission(false);    // hold the I2C-bus for a repeated start
 
@@ -629,6 +655,15 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
   if ( i != read_len){
     return (POZYX_FAILURE);
   }
+  
+  /*Serial.println("\t\t\tRead success");
+  Serial.print("\t\t\tread_data = [0x");
+  for(int i = 0; i < read_len; i++) {
+    if(i>0)
+      Serial.print(", 0x");
+    Serial.print(read_data[i], HEX);
+  }
+  Serial.println("]");*/
 
   return (POZYX_SUCCESS);  // return : no error
 }
