@@ -848,6 +848,42 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
 //   }
 // }
 
+int PozyxClass::remoteRegFunctionWithoutCheck(uint16_t destination, uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size){
+  if(!IS_FUNCTIONCALL(reg_address))      return POZYX_FAILURE;        // the register is not a function
+
+  int status = 0;
+
+  // first prepare the packet to send
+  uint8_t tmp_data[param_size+2];
+  tmp_data[0] = 0;
+  tmp_data[1] = reg_address;                // the first byte is the function register address we want to call.
+  memcpy(tmp_data+2, params, param_size);   // the remaining bytes are the parameter bytes for the function.
+  status = regFunction(POZYX_TX_DATA, tmp_data, param_size+2, NULL, 0);
+
+  if (status == POZYX_FAILURE) {
+    return status;
+  }
+
+    // send the packet
+  uint8_t tx_params[3];
+  tx_params[0] = (uint8_t)destination;
+  tx_params[1] = (uint8_t)(destination>>8);
+  tx_params[2] = 0x08;    // flag to indicate a register function call
+  uint8_t int_status = 0;
+  regRead(POZYX_INT_STATUS, &int_status, 1);      // first clear out the interrupt status register by reading from it
+  status = regFunction(POZYX_TX_SEND, tx_params, 3, NULL, 0);
+
+  // stop if POZYX_TX_SEND returned an error.
+  if(status == POZYX_FAILURE){
+    return status;
+  }
+
+  waitForFlag_safe(POZYX_INT_STATUS_FUNC | POZYX_INT_STATUS_ERR, 20, &int_status);
+
+  return status;
+
+}
+
 int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
   assert(remote_id != 0);
@@ -865,6 +901,32 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   }
 
   // trigger remote positioning
+  uint8_t firmware;
+  getFirmwareVersion(&firmware);
+
+  if (firmware == 0x13) {
+    uint8_t params_positioning[2] = {1, 0};
+    status = remoteRegFunctionWithoutCheck(remote_id, POZYX_DO_POSITIONING, params_positioning, 2, NULL, 0);
+
+    if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 200) == POZYX_SUCCESS){
+      uint8_t rx_info[3]= {0,0,0};
+      regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
+      uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
+      uint8_t data_len = rx_info[2];
+
+      if( remote_network_id == remote_id && data_len == (sizeof(coordinates_t) + 1))
+      {
+        status = readRXBufferData((uint8_t *) coordinates, 12); //sizeof(coordinates_t));
+        return status;
+      }else{
+        return POZYX_FAILURE;
+      }
+    } else{
+      return POZYX_TIMEOUT;
+    }
+    return status;
+  }
+
   status = remoteRegFunction(remote_id, POZYX_DO_POSITIONING, NULL, 0, NULL, 0);
 
   if(status != POZYX_SUCCESS){

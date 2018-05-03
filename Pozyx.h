@@ -396,6 +396,25 @@ public:
     * @retval #true event occured.
     * @retval #false event did not occur, this function timed out.
     */
+
+    static int remoteRegFunctionWithoutCheck(uint16_t destination, uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0);
+
+    /** \addtogroup core
+     *  @{
+     */
+
+    /**
+    * Does the same as the remoteRegFunction, but doesn't wait for nearly as long and doesn't care about whether the function worked.
+    *
+    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
+    *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.
+    *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
+    *   @param interrupt a pointer that will contain the value of the interrupt status register
+    *
+    * @retval #true event occured.
+    * @retval #false event did not occur, this function timed out.
+    */
+
     static boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt = NULL);
 
     /**
