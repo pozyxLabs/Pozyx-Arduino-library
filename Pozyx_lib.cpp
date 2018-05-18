@@ -710,11 +710,10 @@ int PozyxClass::setLed(int led_num, boolean state, uint16_t remote_id)
   assert(led_num <= 4);
   assert( (state == true) || (state == false) );
 
-  int status;
   // the 4 MSB indicate which led we wish to control, the 4 LSB indicate the state of the leds
   uint8_t params = (0x1 << (led_num-1+4)) | (((uint8_t)state) << (led_num-1));
 
-  useFunction(POZYX_LED_CTRL, &params, 1, NULL, 0, remote_id);
+  return useFunction(POZYX_LED_CTRL, &params, 1, NULL, 0, remote_id);
 }
 
 int PozyxClass::doRanging(uint16_t destination, device_range_t *range)
