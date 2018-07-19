@@ -123,6 +123,8 @@
   </compound>
   <compound refid="changelog_8md" kind="file"><name>changelog.md</name>
   </compound>
+  <compound refid="_c_o_n_t_r_i_b_u_t_i_n_g_8md" kind="file"><name>CONTRIBUTING.md</name>
+  </compound>
   <compound refid="_pozyx_8h" kind="file"><name>Pozyx.h</name>
     <member refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kind="define"><name>NULL</name></member>
     <member refid="_pozyx_8h_1ad6d5aaa966ca7424f7cb9bd01f2c838b" kind="define"><name>assert</name></member>
@@ -481,6 +483,8 @@
     <member refid="group__device__list_1ga5a54f0d50b547d02c915464eca53e82f" kind="function"><name>getDeviceCoordinates</name></member>
   </compound>
   <compound refid="md_changelog" kind="page"><name>md_changelog</name>
+  </compound>
+  <compound refid="md__c_o_n_t_r_i_b_u_t_i_n_g" kind="page"><name>md_CONTRIBUTING</name>
   </compound>
   <compound refid="md__r_e_a_d_m_e" kind="page"><name>md_README</name>
   </compound>

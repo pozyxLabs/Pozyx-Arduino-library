@@ -6611,7 +6611,7 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Provides an interface to an attached Pozyx shield </para>    </detaileddescription>
+<para>Provides an interface to an attached Pozyx shield. </para>    </detaileddescription>
     <location file="Pozyx.h" line="236" column="1" bodyfile="Pozyx.h" bodystart="235" bodyend="1864"/>
     <listofallmembers>
       <member refid="class_pozyx_class_1a97fd77c200c18cff08ec2d13144c0bad" prot="protected" virt="non-virtual"><scope>PozyxClass</scope><name>_fw_version</name></member>

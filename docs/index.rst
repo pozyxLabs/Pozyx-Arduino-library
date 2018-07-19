@@ -10,7 +10,5 @@ Welcome to Pozyx Arduino Library's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-
-.. doxygenclass:: PozyxClass
-    :members:
+   api/index
+   

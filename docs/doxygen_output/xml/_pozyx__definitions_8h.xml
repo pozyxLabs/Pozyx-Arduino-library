@@ -6,30 +6,30 @@
     <includedby refid="_pozyx__core_8cpp" local="yes">Pozyx_core.cpp</includedby>
     <includedby refid="_pozyx__lib_8cpp" local="yes">Pozyx_lib.cpp</includedby>
     <invincdepgraph>
-      <node id="22">
+      <node id="24">
         <label>Pozyx_lib.cpp</label>
         <link refid="_pozyx__lib_8cpp"/>
       </node>
-      <node id="21">
+      <node id="23">
         <label>Pozyx_core.cpp</label>
         <link refid="_pozyx__core_8cpp"/>
       </node>
-      <node id="20">
+      <node id="22">
         <label>Pozyx.h</label>
         <link refid="_pozyx_8h"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="21">
         <label>Pozyx_definitions.h</label>
         <link refid="_pozyx__definitions_8h"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

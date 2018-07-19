@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="md__c_o_n_t_r_i_b_u_t_i_n_g" kind="page">
+    <compoundname>md_CONTRIBUTING</compoundname>
+    <title>Contributing guide</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>For now, this&apos;ll only be about documentation:</para><para><heading level="2">Generating documentation</heading>
+</para><para>To generate the documentation, you&apos;ll need to install both Doxygen and Sphinx.</para><para>When these are installed, you can run the following in your favorite shell to build the documentation.</para><para><itemizedlist>
+<listitem><para>doxygen Doxyfile</para></listitem><listitem><para>cd docs</para></listitem><listitem><para>make html </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>
