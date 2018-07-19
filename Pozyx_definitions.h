@@ -1,4 +1,4 @@
-/**
+/*
   Pozyx_definitions.h - Library for Arduino Pozyx shield.
   Copyright (c) Pozyx Laboratories.  All right reserved.
 
@@ -28,7 +28,7 @@
 #define _POZYX_FORMAT_FOOT
 #define _POZYX_FORMAT_INCH
 
-// maximum number of anchors to be stored in the interal anchor list on the pozyx device
+/* Maximum number of anchors to be stored in the interal anchor list on the pozyx device */
 #define MAX_ANCHORS_IN_LIST          20
 
 #define POZYX_I2C_ADDRESS        0x4B

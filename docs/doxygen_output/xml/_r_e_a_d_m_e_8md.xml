@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Pozyx-Arduino-library</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>Arduino<sp/>library<sp/>for<sp/>use<sp/>with<sp/>the<sp/>pozyx<sp/>shield.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Please<sp/>download<sp/>a<sp/>release<sp/>version<sp/>for<sp/>a<sp/>safely<sp/>stable<sp/>experience!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>library<sp/>requires<sp/>**firmware<sp/>version<sp/>1.1**<sp/>installed<sp/>on<sp/>the<sp/>Pozyx<sp/>devices.</highlight></codeline>
+<codeline><highlight class="normal">If<sp/>you&apos;re<sp/>on<sp/>an<sp/>older<sp/>version<sp/>of<sp/>the<sp/>firmware<sp/>and<sp/>do<sp/>not<sp/>want<sp/>to<sp/>upgrade<sp/>for<sp/>some<sp/>reason,<sp/>please<sp/>download<sp/>an<sp/>older<sp/>release<sp/>of<sp/>the<sp/>library<sp/>according<sp/>to<sp/>their<sp/>respective<sp/>release<sp/>description.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Documentation<sp/>for<sp/>the<sp/>library<sp/>can<sp/>be<sp/>found<sp/>here:</highlight></codeline>
+<codeline><highlight class="normal">https://www.pozyx.io/Documentation/Datasheet/arduino</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>encounter<sp/>any<sp/>issues,<sp/>please<sp/>send<sp/>a<sp/>mail<sp/>to<sp/>support@pozyx.io<sp/>instead<sp/>of<sp/>creating<sp/>an<sp/>issue<sp/>here.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>following<sp/>folders<sp/>can<sp/>be<sp/>found<sp/>together<sp/>with<sp/>this<sp/>library:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/><sp/>**examples**.<sp/>These<sp/>example<sp/>scripts<sp/>showcase<sp/>some<sp/>basic<sp/>functionality<sp/>of<sp/>the<sp/>Pozyx<sp/>device,<sp/>each<sp/>example<sp/>comes<sp/>with<sp/>a<sp/>tutorial<sp/>that<sp/>can<sp/>be<sp/>found<sp/>on<sp/>the<sp/>pozyx<sp/>website<sp/>https://www.pozyx.io/Documentation</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/><sp/>**unit_test**.<sp/>This<sp/>folder<sp/>contains<sp/>a<sp/>collection<sp/>of<sp/>Arduino<sp/>scripts<sp/>that<sp/>can<sp/>be<sp/>run<sp/>to<sp/>test<sp/>certain<sp/>functionalities<sp/>of<sp/>the<sp/>Pozyx<sp/>device.<sp/>They<sp/>also<sp/>serve<sp/>as<sp/>some<sp/>good<sp/>examples<sp/>for<sp/>some<sp/>Arduino<sp/>library<sp/>functions.</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/><sp/>**useful**.<sp/>This<sp/>folder<sp/>contains<sp/>a<sp/>number<sp/>of<sp/>useful<sp/>Arduino<sp/>sketches<sp/>that<sp/>provide<sp/>basic<sp/>functionality<sp/>such<sp/>as<sp/>discovering<sp/>all<sp/>pozyx<sp/>devices<sp/>or<sp/>configuring<sp/>them.</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

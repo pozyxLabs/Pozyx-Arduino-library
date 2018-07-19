@@ -24,7 +24,7 @@ copyright = '2018, Samuel Van de Velde, Vadim Vermeiren, Laurent Van Acker'
 author = 'Samuel Van de Velde, Vadim Vermeiren, Laurent Van Acker'
 
 # The short X.Y version
-version = ''
+version = '1.2'
 # The full version, including alpha/beta/rc tags
 release = '1.2.2'
 
@@ -39,7 +39,13 @@ release = '1.2.2'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'breathe',
 ]
+
+
+breathe_projects = { "ardupozyx": '/'.join(__file__.split('/')[:-1]) + "/doxygen_output/xml"}
+
+breathe_default_project = "ardupozyx"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

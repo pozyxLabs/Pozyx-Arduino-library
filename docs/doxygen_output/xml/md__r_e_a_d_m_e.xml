@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>Pozyx-Arduino-library</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Arduino library for use with the pozyx shield.</para><para>Please download a release version for a safely stable experience!</para><para>The library requires <bold>firmware version 1.1</bold> installed on the Pozyx devices. If you&apos;re on an older version of the firmware and do not want to upgrade for some reason, please download an older release of the library according to their respective release description.</para><para>Documentation for the library can be found here: <ulink url="https://www.pozyx.io/Documentation/Datasheet/arduino">https://www.pozyx.io/Documentation/Datasheet/arduino</ulink></para><para>If you encounter any issues, please send a mail to <ulink url="mailto:support@pozyx.io">support@pozyx.io</ulink> instead of creating an issue here.</para><para>The following folders can be found together with this library:</para><para><orderedlist>
+<listitem><para><bold>examples</bold>. These example scripts showcase some basic functionality of the Pozyx device, each example comes with a tutorial that can be found on the pozyx website <ulink url="https://www.pozyx.io/Documentation">https://www.pozyx.io/Documentation</ulink></para></listitem><listitem><para><bold>unit_test</bold>. This folder contains a collection of Arduino scripts that can be run to test certain functionalities of the Pozyx device. They also serve as some good examples for some Arduino library functions.</para></listitem><listitem><para><bold>useful</bold>. This folder contains a number of useful Arduino sketches that provide basic functionality such as discovering all pozyx devices or configuring them. </para></listitem></orderedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

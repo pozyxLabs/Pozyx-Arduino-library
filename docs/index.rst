@@ -9,3 +9,8 @@ Welcome to Pozyx Arduino Library's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+
+
+.. doxygenclass:: PozyxClass
+    :members:
