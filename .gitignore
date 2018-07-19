@@ -2,3 +2,4 @@ Doxyfile
 xml/
 html/
 *.gch
+docs/_build
