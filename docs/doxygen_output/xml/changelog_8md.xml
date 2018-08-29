@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="changelog_8md" kind="file" language="Markdown">
+    <compoundname>changelog.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Arduino<sp/>Pozyx<sp/>library<sp/>change<sp/>log</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>1.0.1</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>function<sp/>documentation<sp/>for<sp/>doxygen</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>defines<sp/>for<sp/>parameter<sp/>descriptions</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>assertions<sp/>to<sp/>all<sp/>functions<sp/>for<sp/>checking<sp/>API<sp/>function<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>function<sp/>getErrorCode</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>function<sp/>setTxPower,<sp/>getTxPower</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>function<sp/>setUWBChannel,<sp/>getUWBChannel</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>unit<sp/>tests<sp/>for<sp/>platform<sp/>specific<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>sensor<sp/>functions<sp/>now<sp/>return<sp/>the<sp/>sensor<sp/>values<sp/>in<sp/>metric<sp/>numbers<sp/>instead<sp/>of<sp/>raw<sp/>numbers</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>spurious<sp/>Serial.print<sp/>lines<sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getAcceleration<sp/>to<sp/>getAcceleration_mg</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getGyro<sp/>to<sp/>getAngularVelocity_dps</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getEulerAngles<sp/>to<sp/>getEulerAngles_deg</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getGravity<sp/>to<sp/>getGravityVector_mg</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getLinearAcceleration<sp/>to<sp/>getLinearAcceleration_mg</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getSensorData<sp/>to<sp/>getAllSensorData</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getPressure<sp/>to<sp/>getPressure_Pa</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getMagnetic<sp/>to<sp/>getMagnetic_uT</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Rename<sp/>function<sp/>getTemperature<sp/>to<sp/>getTemperature_c</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>1.0.0</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>initial<sp/>release</highlight></codeline>
+    </programlisting>
+    <location file="changelog.md"/>
+  </compounddef>
+</doxygen>

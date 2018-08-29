@@ -1,0 +1,505 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="group__core" kind="group">
+    <compoundname>core</compoundname>
+    <title>Core</title>
+    <innergroup refid="group__communication__functions">Communication_functions</innergroup>
+    <innergroup refid="group__system__functions">System_functions</innergroup>
+    <innergroup refid="group__positioning__functions">Positioning_functions</innergroup>
+    <innergroup refid="group__sensor__data">Sensor_data</innergroup>
+    <innergroup refid="group__device__list">Device_list</innergroup>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__core_1ga9e093f0461a60c4075647d1917b0589a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::remoteRegFunctionWithoutCheck</definition>
+        <argsstring>(uint16_t destination, uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0)</argsstring>
+        <name>remoteRegFunctionWithoutCheck</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>params</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>param_size</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pData</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait until the Pozyx shields has raised a specfic event flag or until timeout. This functions halts the process flow until a specific event flag was raised by the Pozyx shield. The event flag is checked by reading the contents of the reg:POZYX_INT_STATUS register. This function can work in both polled and interupt mode</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>interrupt_flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the exepected Pozyx interrupt. Possible values are <ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>, <ref refid="_pozyx__definitions_8h_1a048d311aa3d0be6a900394b7d032efed" kindref="member">POZYX_INT_STATUS_POS</ref>, <ref refid="_pozyx__definitions_8h_1a61d0e83e9bb9841bb82805998d149f26" kindref="member">POZYX_INT_STATUS_IMU</ref>, <ref refid="_pozyx__definitions_8h_1abfd293c41db9ffe65bb85f0f1bdccdf8" kindref="member">POZYX_INT_STATUS_RX_DATA</ref>, <ref refid="_pozyx__definitions_8h_1accffa569bd1d710ff28fe1d7f2ee1bf8" kindref="member">POZYX_INT_STATUS_FUNC</ref>, or combinations. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum waiting time in milliseconds for flag to occur </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interrupt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer that will contain the value of the interrupt status register</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>#true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event occured. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>#false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event did not occur, this function timed out. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="403" column="1" bodyfile="Pozyx_lib.cpp" bodystart="858" bodyend="892"/>
+      </memberdef>
+      <memberdef kind="function" id="group__core_1ga4cd1d89a1534c50604d8a5875373dd12" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean PozyxClass::waitForFlag</definition>
+        <argsstring>(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt=NULL)</argsstring>
+        <name>waitForFlag</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>interrupt_flag</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeout_ms</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>interrupt</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Does the same as the remoteRegFunction, but doesn&apos;t wait for nearly as long and doesn&apos;t care about whether the function worked.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>interrupt_flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the exepected Pozyx interrupt. Possible values are <ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>, <ref refid="_pozyx__definitions_8h_1a048d311aa3d0be6a900394b7d032efed" kindref="member">POZYX_INT_STATUS_POS</ref>, <ref refid="_pozyx__definitions_8h_1a61d0e83e9bb9841bb82805998d149f26" kindref="member">POZYX_INT_STATUS_IMU</ref>, <ref refid="_pozyx__definitions_8h_1abfd293c41db9ffe65bb85f0f1bdccdf8" kindref="member">POZYX_INT_STATUS_RX_DATA</ref>, <ref refid="_pozyx__definitions_8h_1accffa569bd1d710ff28fe1d7f2ee1bf8" kindref="member">POZYX_INT_STATUS_FUNC</ref>, or combinations. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum waiting time in milliseconds for flag to occur </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interrupt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer that will contain the value of the interrupt status register</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>#true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event occured. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>#false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event did not occur, this function timed out. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="421" column="1" bodyfile="Pozyx_core.cpp" bodystart="35" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="group__core_1ga0cad29680b4e3a0c443c30761a947b83" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::begin</definition>
+        <argsstring>(boolean print_result=false, int mode=MODE_INTERRUPT, int interrupts=POZYX_INT_MASK_ALL, int interrupt_pin=POZYX_INT_PIN0)</argsstring>
+        <name>begin</name>
+        <param>
+          <type>boolean</type>
+          <declname>print_result</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mode</declname>
+          <defval><ref refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kindref="member">MODE_INTERRUPT</ref></defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>interrupts</declname>
+          <defval><ref refid="_pozyx__definitions_8h_1a4f8d4e7ea781553e473ed6199112da45" kindref="member">POZYX_INT_MASK_ALL</ref></defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>interrupt_pin</declname>
+          <defval><ref refid="_pozyx__definitions_8h_1acb4a6e3f633b4725d8e02ddfe8be1a6a" kindref="member">POZYX_INT_PIN0</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initiates the Pozyx shield. This function initializes the pozyx device. It will verify that the device is functioning correctly by means of the self-test, and it will configure the interrupts. See the register reg:POZYX_INT_MASK for more details about the interrupts.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>print_result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>outputs the result of the function to the Serial output </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The modus of the system: <ref refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" kindref="member">MODE_POLLING</ref> or <ref refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kindref="member">MODE_INTERRUPT</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interrupts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>defines which events trigger interrupts. This field is only required for <ref refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kindref="member">MODE_INTERRUPT</ref>. Possible values are bit-wise combinations of <ref refid="_pozyx__definitions_8h_1a7b4d13c90f0ea1ca87b00a3b73430a03" kindref="member">POZYX_INT_MASK_ERR</ref>, <ref refid="_pozyx__definitions_8h_1ac44fb524d7f24a0efb90ac2939d7d71d" kindref="member">POZYX_INT_MASK_POS</ref>, <ref refid="_pozyx__definitions_8h_1add38f764c047f0baa7c668f6366d5703" kindref="member">POZYX_INT_MASK_IMU</ref>, <ref refid="_pozyx__definitions_8h_1a0c11b24d009ef6afcbe047a92f260ebe" kindref="member">POZYX_INT_MASK_RX_DATA</ref> and <ref refid="_pozyx__definitions_8h_1a45e046522f52f4d41c2e0ebcd0c14c84" kindref="member">POZYX_INT_MASK_FUNC</ref>. Use <ref refid="_pozyx__definitions_8h_1a4f8d4e7ea781553e473ed6199112da45" kindref="member">POZYX_INT_MASK_ALL</ref> to trigger on all events. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interrupt_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pozyx interrupt pin: <ref refid="_pozyx__definitions_8h_1acb4a6e3f633b4725d8e02ddfe8be1a6a" kindref="member">POZYX_INT_PIN0</ref> or <ref refid="_pozyx__definitions_8h_1accbf30f50d2d3b1f265dc8f2817ba8bd" kindref="member">POZYX_INT_PIN1</ref>. This field is only required for <ref refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kindref="member">MODE_INTERRUPT</ref>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="437" column="1" bodyfile="Pozyx_core.cpp" bodystart="79" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="group__core_1ga885a1cbe432b93aa7107547b57b086aa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getRead</definition>
+        <argsstring>(uint8_t reg_address, uint8_t *pData, int size, uint16_t remote_id=NULL)</argsstring>
+        <name>getRead</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pData</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read from the registers on a local or remote Pozyx device (anchor or tag).</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reg_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the specific register address to start reading from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the data thas will be read </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of bytes to read </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is the network id of the remote Pozyx tag, if used.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="452" column="1" bodyfile="Pozyx_lib.cpp" bodystart="15" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__core_1ga0f403c525576e80ac3f32ac83d6cfba6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::setWrite</definition>
+        <argsstring>(uint8_t reg_address, uint8_t *pData, int size, uint16_t remote_id=NULL)</argsstring>
+        <name>setWrite</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pData</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write to the registers of a local remote Pozyx device (anchor or tag).</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reg_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the specific register address to start writing to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the data thas will be written </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of bytes to write </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is the network id of the remote Pozyx tag, if used.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="466" column="1" bodyfile="Pozyx_lib.cpp" bodystart="27" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="group__core_1gadab19b087724c3f5d9bac2b7f37960a0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::useFunction</definition>
+        <argsstring>(uint8_t reg_address, uint8_t *params=NULL, int param_size=0, uint8_t *pData=NULL, int size=0, uint16_t remote_id=NULL)</argsstring>
+        <name>useFunction</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>params</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>param_size</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pData</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Call a register funcion on a local or remote Pozyx device (anchor or tag).</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reg_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the specific register address of the function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is the pointer to a parameter array required for the specific function that is called </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>param_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of bytes in the params array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the data thas will be read </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of bytes that will be stored in pData </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this is the network id of the remote Pozyx tag, if used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="482" column="1" bodyfile="Pozyx_lib.cpp" bodystart="39" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

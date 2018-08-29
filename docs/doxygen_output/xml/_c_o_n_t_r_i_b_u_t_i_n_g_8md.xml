@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_c_o_n_t_r_i_b_u_t_i_n_g_8md" kind="file" language="Markdown">
+    <compoundname>CONTRIBUTING.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Contributing<sp/>guide</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>now,<sp/>this&apos;ll<sp/>only<sp/>be<sp/>about<sp/>documentation:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Generating<sp/>documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>generate<sp/>the<sp/>documentation,<sp/>you&apos;ll<sp/>need<sp/>to<sp/>install<sp/>both<sp/>Doxygen<sp/>and<sp/>Sphinx.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>these<sp/>are<sp/>installed,<sp/>you<sp/>can<sp/>run<sp/>the<sp/>following<sp/>in<sp/>your<sp/>favorite<sp/>shell<sp/>to<sp/>build<sp/>the<sp/>documentation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>doxygen<sp/>Doxyfile</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>cd<sp/>docs</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>make<sp/>html</highlight></codeline>
+    </programlisting>
+    <location file="CONTRIBUTING.md"/>
+  </compounddef>
+</doxygen>

@@ -1,4 +1,6 @@
-Doxyfile
-xml/
-html/
+# Doxyfile
+docs/doxygen_output/*
 *.gch
+docs/_build
+
+!docs/doxygen_output/xml

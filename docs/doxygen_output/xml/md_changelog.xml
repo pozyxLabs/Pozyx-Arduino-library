@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="md_changelog" kind="page">
+    <compoundname>md_changelog</compoundname>
+    <title>Arduino Pozyx library change log</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="2">Version 1.0.1</heading>
+</para><para><itemizedlist>
+<listitem><para>Added function documentation for doxygen</para></listitem><listitem><para>Added defines for parameter descriptions</para></listitem><listitem><para>Added assertions to all functions for checking API function parameters</para></listitem><listitem><para>Added function getErrorCode</para></listitem><listitem><para>Added function setTxPower, getTxPower</para></listitem><listitem><para>Added function setUWBChannel, getUWBChannel</para></listitem><listitem><para>Added unit tests for platform specific functions</para></listitem><listitem><para>The sensor functions now return the sensor values in metric numbers instead of raw numbers</para></listitem><listitem><para>Removed spurious Serial.print lines</para></listitem><listitem><para>Rename function getAcceleration to getAcceleration_mg</para></listitem><listitem><para>Rename function getGyro to getAngularVelocity_dps</para></listitem><listitem><para>Rename function getEulerAngles to getEulerAngles_deg</para></listitem><listitem><para>Rename function getGravity to getGravityVector_mg</para></listitem><listitem><para>Rename function getLinearAcceleration to getLinearAcceleration_mg</para></listitem><listitem><para>Rename function getSensorData to getAllSensorData</para></listitem><listitem><para>Rename function getPressure to getPressure_Pa</para></listitem><listitem><para>Rename function getMagnetic to getMagnetic_uT</para></listitem><listitem><para>Rename function getTemperature to getTemperature_c</para></listitem></itemizedlist>
+</para><para><heading level="2">Version 1.0.0</heading>
+</para><para><itemizedlist>
+<listitem><para>initial release </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

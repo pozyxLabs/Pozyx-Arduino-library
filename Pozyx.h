@@ -229,8 +229,8 @@ typedef struct __attribute__((packed))_device_range {
 }device_range_t;
 
 /**
-* Pozyx CLASS
-* -----------
+* Provides an interface to an attached Pozyx shield.
+* 
 */
 class PozyxClass
 {
