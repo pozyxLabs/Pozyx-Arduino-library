@@ -216,6 +216,8 @@
 #define POZYX_DELAY_REMOTE_WRITE    5
 #define POZYX_DELAY_REMOTE_FUNCTION 10
 #define POZYX_DELAY_INTERRUPT       100
+#define POZYX_DELAY_POSITIONING     1000
+#define POZYX_DELAY_REMOTE_POSITIONING     1000
 #define POZYX_DELAY_CALIBRATION     1000
 #define POZYX_FAILURE               0x0
 #define POZYX_SUCCESS               0x1
@@ -259,6 +261,8 @@
 
 // Division factors for converting the raw register values to meaningful physical quantities
 #define POZYX_POS_DIV_MM               1.0f
+#define POZYX_PRESS_DIVPOSITIONING     1000
+#define POZYX_PRESS_DIVREMOTE_POSITIONING     1000
 #define POZYX_PRESS_DIV_PA             1000.0f
 #define POZYX_ACCEL_DIV_MG             1.0f
 #define POZYX_GYRO_DIV_DPS             16.0f
