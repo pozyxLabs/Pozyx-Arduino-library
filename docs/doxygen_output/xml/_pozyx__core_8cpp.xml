@@ -1,0 +1,712 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_pozyx__core_8cpp" kind="file" language="C++">
+    <compoundname>Pozyx_core.cpp</compoundname>
+    <includes refid="_pozyx_8h" local="yes">Pozyx.h</includes>
+    <includes local="no">Wire.h</includes>
+    <includes refid="_pozyx__definitions_8h" local="yes">Pozyx_definitions.h</includes>
+    <incdepgraph>
+      <node id="16">
+        <label>assert.h</label>
+      </node>
+      <node id="12">
+        <label>Pozyx_core.cpp</label>
+        <link refid="_pozyx__core_8cpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>WProgram.h</label>
+      </node>
+      <node id="18">
+        <label>Wire.h</label>
+      </node>
+      <node id="13">
+        <label>Pozyx.h</label>
+        <link refid="_pozyx_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Pozyx_definitions.h</label>
+        <link refid="_pozyx__definitions_8h"/>
+      </node>
+      <node id="14">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_pozyx__core_8cpp_1a46279fcbb42c9e7c0939e4407287c673" prot="public" static="no" mutable="no">
+        <type><ref refid="class_pozyx_class" kindref="compound">PozyxClass</ref></type>
+        <definition>PozyxClass Pozyx</definition>
+        <argsstring></argsstring>
+        <name>Pozyx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx_core.cpp" line="671" column="1" bodyfile="Pozyx_core.cpp" bodystart="671" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_pozyx_8h" kindref="compound">Pozyx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Wire.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__SAM3X8E__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Arduino<sp/>Due</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Wire<sp/>Wire1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&quot;<ref refid="_pozyx__definitions_8h" kindref="compound">Pozyx_definitions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1af916f70635f849606f56e397c8819559" kindref="member">PozyxClass::_interrupt</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">PozyxClass::_mode</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1a7d90ea29359f478426a89499b103587d" kindref="member">PozyxClass::_hw_version</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>pozyx<sp/>harware<sp/>version</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1a97fd77c200c18cff08ec2d13144c0bad" kindref="member">PozyxClass::_fw_version</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>pozyx<sp/>firmware<sp/>version.<sp/>(By<sp/>updating<sp/>the<sp/>firmware<sp/>on<sp/>the<sp/>pozyx<sp/>device,<sp/>this<sp/>value<sp/>can<sp/>change);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1aa3983137052275b0b42fb9fc02f01c69" kindref="member">PozyxClass::IRQ</ref>()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1af916f70635f849606f56e397c8819559" kindref="member">_interrupt</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="group__core_1ga4cd1d89a1534c50604d8a5875373dd12" kindref="member">PozyxClass::waitForFlag</ref>(uint8_t<sp/>interrupt_flag,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeout_ms,<sp/>uint8_t<sp/>*interrupt)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timer<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stay<sp/>in<sp/>this<sp/>loop<sp/>until<sp/>the<sp/>event<sp/>interrupt<sp/>flag<sp/>is<sp/>set<sp/>or<sp/>until<sp/>the<sp/>the<sp/>timer<sp/>runs<sp/>out</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(millis()-timer<sp/>&lt;<sp/>timeout_ms)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>polling<sp/>mode,<sp/>we<sp/>insert<sp/>a<sp/>small<sp/>delay<sp/>such<sp/>that<sp/>we<sp/>don&apos;t<sp/>swamp<sp/>the<sp/>i2c<sp/>bus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/><ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref><sp/>==<sp/><ref refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" kindref="member">MODE_POLLING</ref><sp/>){</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(1);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<ref refid="class_pozyx_class_1af916f70635f849606f56e397c8819559" kindref="member">_interrupt</ref><sp/>==<sp/>1)<sp/>||<sp/>(<ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref><sp/>==<sp/><ref refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" kindref="member">MODE_POLLING</ref>))</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pozyx_class_1af916f70635f849606f56e397c8819559" kindref="member">_interrupt</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>out<sp/>the<sp/>interrupt<sp/>status<sp/>register.<sp/>After<sp/>reading<sp/>from<sp/>this<sp/>register,<sp/>pozyx<sp/>automatically<sp/>clears<sp/>the<sp/>interrupt<sp/>flags.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>interrupt_status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a2439fa21bf44f8ba036b68fc35194861" kindref="member">POZYX_INT_STATUS</ref>,<sp/>&amp;interrupt_status,<sp/>1);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((interrupt_status<sp/>&amp;<sp/>interrupt_flag)<sp/>&amp;&amp;<sp/>status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>one<sp/>of<sp/>the<sp/>interrupts<sp/>we<sp/>were<sp/>waiting<sp/>for<sp/>arrived!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(interrupt<sp/>!=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*interrupt<sp/>=<sp/>interrupt_status;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>too<sp/>bad,<sp/>pozyx<sp/>didn&apos;t<sp/>respond</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>1)<sp/>pozyx<sp/>can<sp/>select<sp/>from<sp/>two<sp/>pins<sp/>to<sp/>generate<sp/>interrupts,<sp/>make<sp/>sure<sp/>the<sp/>correct<sp/>pin<sp/>is<sp/>connected<sp/>with<sp/>the<sp/>attachInterrupt()<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>2)<sp/>make<sp/>sure<sp/>the<sp/>interrupt<sp/>we<sp/>are<sp/>waiting<sp/>for<sp/>is<sp/>enabled<sp/>in<sp/>the<sp/>POZYX_INT_MASK<sp/>register)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1acff795fffca268ba2c46d4c53402b559" kindref="member">PozyxClass::waitForFlag_safe</ref>(uint8_t<sp/>interrupt_flag,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeout_ms,<sp/>uint8_t<sp/>*interrupt)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref><sp/>=<sp/><ref refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" kindref="member">MODE_POLLING</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="group__core_1ga4cd1d89a1534c50604d8a5875373dd12" kindref="member">waitForFlag</ref>(interrupt_flag,<sp/>timeout_ms,<sp/>interrupt);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref><sp/>=<sp/>tmp;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__core_1ga0cad29680b4e3a0c443c30761a947b83" kindref="member">PozyxClass::begin</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>print_result,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interrupts,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interrupt_pin){</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(print_result){</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Pozyx<sp/>Shield&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;------------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>mode<sp/>parameter<sp/>is<sp/>valid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((mode<sp/>!=<sp/><ref refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" kindref="member">MODE_POLLING</ref>)<sp/>&amp;&amp;<sp/>(mode<sp/>!=<sp/><ref refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kindref="member">MODE_INTERRUPT</ref>))</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>pin<sp/>is<sp/>valid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((interrupt_pin<sp/>!=<sp/>0)<sp/>&amp;&amp;<sp/>(interrupt_pin<sp/>!=<sp/>1))</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>Wire.begin();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>a<sp/>bit<sp/>until<sp/>the<sp/>pozyx<sp/>board<sp/>is<sp/>up<sp/>and<sp/>running</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>delay(250);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref><sp/>=<sp/>mode;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>uint8_t<sp/>whoami,<sp/>selftest;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>uint8_t<sp/>regs[3];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>regs[2]<sp/>=<sp/>0x12;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>read<sp/>out<sp/>the<sp/>first<sp/>3<sp/>register<sp/>values:<sp/>who_am_i,<sp/>firmware_version<sp/>and<sp/>harware<sp/>version,<sp/>respectively.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a826a344db3afe75fb69fb35219c7ab62" kindref="member">POZYX_WHO_AM_I</ref>,<sp/>regs,<sp/>3)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>){</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>whoami<sp/>=<sp/>regs[0];</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1a97fd77c200c18cff08ec2d13144c0bad" kindref="member">_fw_version</ref><sp/>=<sp/>regs[1];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1a7d90ea29359f478426a89499b103587d" kindref="member">_hw_version</ref><sp/>=<sp/>regs[2];</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(print_result){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;WhoAmI:<sp/>0x&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(whoami,<sp/>HEX);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;FW<sp/>ver.:<sp/>v&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print((<ref refid="class_pozyx_class_1a97fd77c200c18cff08ec2d13144c0bad" kindref="member">_fw_version</ref>&amp;0xF0)&gt;&gt;4);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print((<ref refid="class_pozyx_class_1a97fd77c200c18cff08ec2d13144c0bad" kindref="member">_fw_version</ref>&amp;0x0F));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_pozyx_class_1a97fd77c200c18cff08ec2d13144c0bad" kindref="member">_fw_version</ref><sp/>&lt;<sp/>0x10)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>(please<sp/>upgrade)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;\nHW<sp/>ver.:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(<ref refid="class_pozyx_class_1a7d90ea29359f478426a89499b103587d" kindref="member">_hw_version</ref>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>if<sp/>the<sp/>whoami<sp/>is<sp/>correct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(whoami<sp/>!=<sp/>0x43)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>possibly<sp/>the<sp/>pozyx<sp/>is<sp/>not<sp/>connected<sp/>right.<sp/>Also<sp/>make<sp/>sure<sp/>the<sp/>jumper<sp/>of<sp/>the<sp/>boot<sp/>pins<sp/>is<sp/>present.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>readout<sp/>the<sp/>selftest<sp/>registers<sp/>to<sp/>validate<sp/>the<sp/>proper<sp/>functioning<sp/>of<sp/>pozyx</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a562a50b65cde02f123caf6bc1d8f4172" kindref="member">POZYX_ST_RESULT</ref>,<sp/>&amp;selftest,<sp/>1)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>){</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(print_result){</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;selftest:<sp/>0b&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(selftest,<sp/>BIN);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((<ref refid="class_pozyx_class_1a7d90ea29359f478426a89499b103587d" kindref="member">_hw_version</ref><sp/>&amp;<sp/><ref refid="_pozyx__definitions_8h_1af47344ba0be9459806d84b1c06ba85d3" kindref="member">POZYX_TYPE</ref>)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1a3f2ad54e56af48fb935e1890116d3ab8" kindref="member">POZYX_TAG</ref>)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>uwb,<sp/>pressure<sp/>sensor,<sp/>accelerometer,<sp/>magnetometer<sp/>and<sp/>gyroscope<sp/>are<sp/>working</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(selftest<sp/>!=<sp/>0b00111111)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((<ref refid="class_pozyx_class_1a7d90ea29359f478426a89499b103587d" kindref="member">_hw_version</ref><sp/>&amp;<sp/><ref refid="_pozyx__definitions_8h_1af47344ba0be9459806d84b1c06ba85d3" kindref="member">POZYX_TYPE</ref>)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ab450925adca0562eaf8d7721b7680e36" kindref="member">POZYX_ANCHOR</ref>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>uwb<sp/>transceiver<sp/>and<sp/>pressure<sp/>sensor<sp/>are<sp/>working</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(selftest<sp/>!=<sp/>0b00110000)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_pozyx_class_1aa2e059007b885b212ffa868d60876e9c" kindref="member">_mode</ref><sp/>==<sp/><ref refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kindref="member">MODE_INTERRUPT</ref>){</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>function<sp/>that<sp/>must<sp/>be<sp/>called<sp/>upon<sp/>an<sp/>interrupt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>put<sp/>your<sp/>main<sp/>code<sp/>here,<sp/>to<sp/>run<sp/>repeatedly:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__SAMD21G18A__)<sp/>||<sp/>defined(__ATSAMD21G18A__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>Tian</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tian_interrupt_pin<sp/>=<sp/>interrupt_pin;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>attachInterrupt(interrupt_pin+2,<sp/><ref refid="class_pozyx_class_1aa3983137052275b0b42fb9fc02f01c69" kindref="member">IRQ</ref>,<sp/>RISING);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__AVR_ATmega328P__)<sp/>||<sp/>defined(__AVR_ATmega1280__)<sp/>||<sp/>defined(__AVR_ATmega2560__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>UNO,<sp/>Mega</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>attachInterrupt(interrupt_pin,<sp/><ref refid="class_pozyx_class_1aa3983137052275b0b42fb9fc02f01c69" kindref="member">IRQ</ref>,<sp/>RISING);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;This<sp/>is<sp/>not<sp/>a<sp/>board<sp/>supported<sp/>by<sp/>Pozyx,<sp/>interrupts<sp/>may<sp/>not<sp/>work&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>attachInterrupt(interrupt_pin,<sp/><ref refid="class_pozyx_class_1aa3983137052275b0b42fb9fc02f01c69" kindref="member">IRQ</ref>,<sp/>RISING);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>interrupt<sp/>as<sp/>provided<sp/>and<sp/>initiate<sp/>the<sp/>interrupt<sp/>mask</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>int_mask<sp/>=<sp/>interrupts;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__system__functions_1ga676e273b3119e9d83f96b36909c9033c" kindref="member">configInterruptPin</ref>(5+interrupt_pin,<sp/><ref refid="_pozyx__definitions_8h_1ab1934889333cf4657924683a2a0eb31d" kindref="member">PIN_MODE_PUSHPULL</ref>,<sp/><ref refid="_pozyx__definitions_8h_1ae397a62cb15b4e5927a836f9043905fa" kindref="member">PIN_ACTIVE_LOW</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_pozyx_class_1ab379fbaaacaf6905b53bca43e0864783" kindref="member">regWrite</ref>(<ref refid="_pozyx__definitions_8h_1ab87c54fb9fca2026f22c745b5a22326c" kindref="member">POZYX_INT_MASK</ref>,<sp/>&amp;int_mask,<sp/>1)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>){</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>all<sp/>done</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>delay(<ref refid="_pozyx__definitions_8h_1acb85ab097ea01436ae1ea3b1a463eb90" kindref="member">POZYX_DELAY_LOCAL_WRITE</ref>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">PozyxClass::regRead</ref>(uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>BUFFER_LENGTH<sp/>is<sp/>defined<sp/>in<sp/>wire.h,<sp/>it<sp/>limits<sp/>the<sp/>maximum<sp/>amount<sp/>of<sp/>bytes<sp/>that<sp/>can<sp/>be<sp/>transmitted/received<sp/>with<sp/>i2c<sp/>in<sp/>one<sp/>go</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>because<sp/>of<sp/>this,<sp/>we<sp/>may<sp/>have<sp/>to<sp/>split<sp/>up<sp/>the<sp/>i2c<sp/>reads<sp/>in<sp/>smaller<sp/>chunks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="_pozyx__definitions_8h_1a3e70356c9d238de010465735d3e0c50d" kindref="member">IS_REG_READABLE</ref>(reg_address))</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_runs<sp/>=<sp/>ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)size<sp/>/<sp/>BUFFER_LENGTH);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>uint8_t<sp/>reg;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;n_runs;<sp/>i++)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>i*BUFFER_LENGTH;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>reg<sp/>=<sp/>reg_address+offset;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i+1<sp/>!=<sp/>n_runs){</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>&amp;=<sp/><ref refid="class_pozyx_class_1a5b778c55e44313c4351305bb8d5569ad" kindref="member">i2cWriteRead</ref>(&amp;reg,<sp/>1,<sp/>pData+offset,<sp/>BUFFER_LENGTH);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>&amp;=<sp/><ref refid="class_pozyx_class_1a5b778c55e44313c4351305bb8d5569ad" kindref="member">i2cWriteRead</ref>(&amp;reg,<sp/>1,<sp/>pData+offset,<sp/>size-offset);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1ab379fbaaacaf6905b53bca43e0864783" kindref="member">PozyxClass::regWrite</ref>(uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>BUFFER_LENGTH<sp/>is<sp/>defined<sp/>in<sp/>wire.h,<sp/>it<sp/>limits<sp/>the<sp/>maximum<sp/>amount<sp/>of<sp/>bytes<sp/>that<sp/>can<sp/>be<sp/>transmitted/received<sp/>with<sp/>i2c<sp/>in<sp/>one<sp/>go</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>because<sp/>of<sp/>this,<sp/>we<sp/>may<sp/>have<sp/>to<sp/>split<sp/>up<sp/>the<sp/>i2c<sp/>writes<sp/>in<sp/>smaller<sp/>chunks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="_pozyx__definitions_8h_1a47b3c8f0b1a9984662710f2548ac0348" kindref="member">IS_REG_WRITABLE</ref>(reg_address))</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_runs<sp/>=<sp/>ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)size<sp/>/<sp/>BUFFER_LENGTH);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;n_runs;<sp/>i++)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>i*BUFFER_LENGTH;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i+1<sp/>!=<sp/>n_runs){</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>&amp;=<sp/><ref refid="class_pozyx_class_1a81b84df3001d7eff4669d483042df341" kindref="member">i2cWriteWrite</ref>(reg_address+offset,<sp/>pData+offset,<sp/>BUFFER_LENGTH);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>&amp;=<sp/><ref refid="class_pozyx_class_1a81b84df3001d7eff4669d483042df341" kindref="member">i2cWriteWrite</ref>(reg_address+offset,<sp/>pData+offset,<sp/>size-offset);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">PozyxClass::regFunction</ref>(uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*params,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>param_size,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="250"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><ref refid="_pozyx_8h_1ad6d5aaa966ca7424f7cb9bd01f2c838b" kindref="member">assert</ref>(BUFFER_LENGTH<sp/>&gt;=<sp/>size+1);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Arduino-specific<sp/>code<sp/>for<sp/>the<sp/>i2c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><ref refid="_pozyx_8h_1ad6d5aaa966ca7424f7cb9bd01f2c838b" kindref="member">assert</ref>(BUFFER_LENGTH<sp/>&gt;=<sp/>param_size+1);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Arduino-specific<sp/>code<sp/>for<sp/>the<sp/>i2c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="_pozyx__definitions_8h_1ae0e360602bd361f7f049b4375a0d0748" kindref="member">IS_FUNCTIONCALL</ref>(reg_address))</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>feels<sp/>a<sp/>bit<sp/>clumsy<sp/>with<sp/>all<sp/>these<sp/>memcpy&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>uint8_t<sp/>write_data[param_size+1];</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>write_data[0]<sp/>=<sp/>reg_address;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/>memcpy(write_data+1,<sp/>params,<sp/>param_size);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>uint8_t<sp/>read_data[size+1];</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>write<sp/>some<sp/>data<sp/>with<sp/>i2c<sp/>and<sp/>then<sp/>read<sp/>some<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1a5b778c55e44313c4351305bb8d5569ad" kindref="member">i2cWriteRead</ref>(write_data,<sp/>param_size<sp/>+<sp/>1,<sp/>read_data,<sp/>size+1);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>)</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/>memcpy(pData,<sp/>read_data+1,<sp/>size);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>first<sp/>byte<sp/>that<sp/>a<sp/>function<sp/>returns<sp/>is<sp/>always<sp/>it&apos;s<sp/>success<sp/>indicator,<sp/>so<sp/>we<sp/>simply<sp/>pass<sp/>this<sp/>through</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>read_data[0];</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1a5d13bcf5ff327999fe57e568239e2d02" kindref="member">PozyxClass::remoteRegWrite</ref>(uint16_t<sp/>destination,<sp/>uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>some<sp/>checks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="_pozyx__definitions_8h_1a47b3c8f0b1a9984662710f2548ac0348" kindref="member">IS_REG_WRITABLE</ref>(reg_address))<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>register<sp/>is<sp/>not<sp/>writable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(size<sp/>&gt;<sp/><ref refid="_pozyx__definitions_8h_1a7244ab798f58214294b580ca0bb48552" kindref="member">MAX_BUF_SIZE</ref>-1)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>trying<sp/>to<sp/>write<sp/>too<sp/>much<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>prepare<sp/>the<sp/>packet<sp/>to<sp/>send</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>uint8_t<sp/>tmp_data[size+1];</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>tmp_data[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>tmp_data[1]<sp/>=<sp/>reg_address;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>first<sp/>byte<sp/>is<sp/>the<sp/>register<sp/>address<sp/>we<sp/>want<sp/>to<sp/>start<sp/>writing<sp/>to.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>memcpy(tmp_data+2,<sp/>pData,<sp/>size);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>remaining<sp/>bytes<sp/>are<sp/>the<sp/>data<sp/>bytes<sp/>to<sp/>be<sp/>written<sp/>starting<sp/>at<sp/>the<sp/>register<sp/>address.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1aee47ac1bd7d95ab1670034cf8d307f63" kindref="member">POZYX_TX_DATA</ref>,<sp/>(uint8_t<sp/>*)&amp;tmp_data,<sp/>size+2,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stop<sp/>if<sp/>POZYX_TX_DATA<sp/>returned<sp/>an<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>)</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>send<sp/>the<sp/>packet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>uint8_t<sp/>params[3];</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>params[0]<sp/>=<sp/>(uint8_t)destination;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/>params[1]<sp/>=<sp/>(uint8_t)(destination&gt;&gt;8);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/>params[2]<sp/>=<sp/>0x04;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>flag<sp/>to<sp/>indicate<sp/>a<sp/>register<sp/>write</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/>uint8_t<sp/>int_status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a2439fa21bf44f8ba036b68fc35194861" kindref="member">POZYX_INT_STATUS</ref>,<sp/>&amp;int_status,<sp/>1);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>clear<sp/>out<sp/>the<sp/>interrupt<sp/>status<sp/>register<sp/>by<sp/>reading<sp/>from<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1a93d384a0b3b5a9b876e7acc69795d579" kindref="member">POZYX_TX_SEND</ref>,<sp/>(uint8_t<sp/>*)&amp;params,<sp/>3,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_pozyx_class_1acff795fffca268ba2c46d4c53402b559" kindref="member">waitForFlag_safe</ref>(<ref refid="_pozyx__definitions_8h_1accffa569bd1d710ff28fe1d7f2ee1bf8" kindref="member">POZYX_INT_STATUS_FUNC</ref><sp/>|<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>,<sp/>100,<sp/>&amp;int_status)){</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((int_status<sp/>&amp;<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>)</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>error<sp/>occured<sp/>during<sp/>positioning.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Please<sp/>read<sp/>out<sp/>the<sp/>register<sp/>POZYX_ERRORCODE<sp/>to<sp/>obtain<sp/>more<sp/>information<sp/>about<sp/>the<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref>;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref>;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1ad568f435b4d77a54a7cf903df74b45fc" kindref="member">PozyxClass::remoteRegRead</ref>(uint16_t<sp/>destination,<sp/>uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>some<sp/>checks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="_pozyx__definitions_8h_1a3e70356c9d238de010465735d3e0c50d" kindref="member">IS_REG_READABLE</ref>(reg_address))<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>register<sp/>is<sp/>not<sp/>readable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(size<sp/>&gt;<sp/><ref refid="_pozyx__definitions_8h_1a7244ab798f58214294b580ca0bb48552" kindref="member">MAX_BUF_SIZE</ref>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>trying<sp/>to<sp/>read<sp/>too<sp/>much<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(destination<sp/>==<sp/>0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remote<sp/>read<sp/>not<sp/>allowed<sp/>in<sp/>broadcast<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>prepare<sp/>the<sp/>packet<sp/>to<sp/>send</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>uint8_t<sp/>tmp_data[3];</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/>tmp_data[0]<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>offset<sp/>in<sp/>the<sp/>TX<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/>tmp_data[1]<sp/>=<sp/>reg_address;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>first<sp/>byte<sp/>is<sp/>the<sp/>register<sp/>address<sp/>we<sp/>want<sp/>to<sp/>start<sp/>reading<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/>tmp_data[2]<sp/>=<sp/>size;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>to<sp/>read<sp/>starting<sp/>from<sp/>the<sp/>register<sp/>address</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1aee47ac1bd7d95ab1670034cf8d307f63" kindref="member">POZYX_TX_DATA</ref>,<sp/>(uint8_t<sp/>*)&amp;tmp_data,<sp/>3,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stop<sp/>if<sp/>POZYX_TX_DATA<sp/>returned<sp/>an<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>)</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>send<sp/>the<sp/>packet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/>uint8_t<sp/>params[3];</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/>params[0]<sp/>=<sp/>(uint8_t)destination;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/>params[1]<sp/>=<sp/>(uint8_t)(destination&gt;&gt;8);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/>params[2]<sp/>=<sp/>0x02;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>flag<sp/>to<sp/>indicate<sp/>a<sp/>register<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/>uint8_t<sp/>int_status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a2439fa21bf44f8ba036b68fc35194861" kindref="member">POZYX_INT_STATUS</ref>,<sp/>&amp;int_status,<sp/>1);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>clear<sp/>out<sp/>the<sp/>interrupt<sp/>status<sp/>register<sp/>by<sp/>reading<sp/>from<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1a93d384a0b3b5a9b876e7acc69795d579" kindref="member">POZYX_TX_SEND</ref>,<sp/>(uint8_t<sp/>*)&amp;params,<sp/>3,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stop<sp/>if<sp/>POZYX_TX_SEND<sp/>returned<sp/>an<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>)</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>up<sp/>to<sp/>x<sp/>ms<sp/>to<sp/>receive<sp/>a<sp/>response</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_pozyx_class_1acff795fffca268ba2c46d4c53402b559" kindref="member">waitForFlag_safe</ref>(<ref refid="_pozyx__definitions_8h_1accffa569bd1d710ff28fe1d7f2ee1bf8" kindref="member">POZYX_INT_STATUS_FUNC</ref><sp/>|<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>,<sp/>1000,<sp/>&amp;int_status))</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((int_status<sp/>&amp;<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>)</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>error<sp/>occured<sp/>during<sp/>positioning.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Please<sp/>read<sp/>out<sp/>the<sp/>register<sp/>POZYX_ERRORCODE<sp/>to<sp/>obtain<sp/>more<sp/>information<sp/>about<sp/>the<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>received<sp/>a<sp/>response,<sp/>now<sp/>get<sp/>some<sp/>information<sp/>about<sp/>the<sp/>response</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>rx_info[3]=<sp/>{0,0,0};</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a535743eaab5d0ea0871cfa9b11e329f0" kindref="member">POZYX_RX_NETWORK_ID</ref>,<sp/>rx_info,<sp/>3);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>remote_network_id<sp/>=<sp/>rx_info[0]<sp/>+<sp/>((uint16_t)rx_info[1]&lt;&lt;8);</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>data_len<sp/>=<sp/>rx_info[2];</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>remote_network_id<sp/>==<sp/>destination<sp/>&amp;&amp;<sp/>data_len<sp/>==<sp/>size)</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="group__communication__functions_1gadb46aa57dde9068f0a4d77b5f13326e4" kindref="member">readRXBufferData</ref>(pData,<sp/>size);</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>timeout</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref>;</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"></highlight></codeline>
+<codeline lineno="393"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="394"><highlight class="comment"><sp/>*<sp/>Wirelessly<sp/>call<sp/>a<sp/>register<sp/>function<sp/>with<sp/>given<sp/>parameters<sp/>on<sp/>a<sp/>remote<sp/>Pozyx<sp/>device<sp/>using<sp/>UWB,<sp/>the<sp/>data<sp/>from<sp/>the<sp/>function<sp/>is<sp/>stored<sp/>in<sp/>pData</highlight></codeline>
+<codeline lineno="395"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="396"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1a5025d43098530aeafef6730d20b3233a" kindref="member">PozyxClass::remoteRegFunction</ref>(uint16_t<sp/>destination,<sp/>uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*params,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>param_size,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="397"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>some<sp/>checks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="_pozyx__definitions_8h_1ae0e360602bd361f7f049b4375a0d0748" kindref="member">IS_FUNCTIONCALL</ref>(reg_address))<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>register<sp/>is<sp/>not<sp/>a<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"></highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>prepare<sp/>the<sp/>packet<sp/>to<sp/>send</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/>uint8_t<sp/>tmp_data[param_size+2];</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/>tmp_data[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/>tmp_data[1]<sp/>=<sp/>reg_address;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>first<sp/>byte<sp/>is<sp/>the<sp/>function<sp/>register<sp/>address<sp/>we<sp/>want<sp/>to<sp/>call.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/>memcpy(tmp_data+2,<sp/>params,<sp/>param_size);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>remaining<sp/>bytes<sp/>are<sp/>the<sp/>parameter<sp/>bytes<sp/>for<sp/>the<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1aee47ac1bd7d95ab1670034cf8d307f63" kindref="member">POZYX_TX_DATA</ref>,<sp/>tmp_data,<sp/>param_size+2,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stop<sp/>if<sp/>POZYX_TX_DATA<sp/>returned<sp/>an<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>)</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>send<sp/>the<sp/>packet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/>uint8_t<sp/>tx_params[3];</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/>tx_params[0]<sp/>=<sp/>(uint8_t)destination;</highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/>tx_params[1]<sp/>=<sp/>(uint8_t)(destination&gt;&gt;8);</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"><sp/><sp/>tx_params[2]<sp/>=<sp/>0x08;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>flag<sp/>to<sp/>indicate<sp/>a<sp/>register<sp/>function<sp/>call</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="421"><highlight class="normal"><sp/><sp/>uint8_t<sp/>int_status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a2439fa21bf44f8ba036b68fc35194861" kindref="member">POZYX_INT_STATUS</ref>,<sp/>&amp;int_status,<sp/>1);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>first<sp/>clear<sp/>out<sp/>the<sp/>interrupt<sp/>status<sp/>register<sp/>by<sp/>reading<sp/>from<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="423"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1a93d384a0b3b5a9b876e7acc69795d579" kindref="member">POZYX_TX_SEND</ref>,<sp/>tx_params,<sp/>3,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stop<sp/>if<sp/>POZYX_TX_SEND<sp/>returned<sp/>an<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>){</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>up<sp/>to<sp/>x<sp/>ms<sp/>to<sp/>receive<sp/>a<sp/>response</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_pozyx_class_1acff795fffca268ba2c46d4c53402b559" kindref="member">waitForFlag_safe</ref>(<ref refid="_pozyx__definitions_8h_1accffa569bd1d710ff28fe1d7f2ee1bf8" kindref="member">POZYX_INT_STATUS_FUNC</ref><sp/>|<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>,<sp/>1000,<sp/>&amp;int_status))</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((int_status<sp/>&amp;<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>)<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1a07cffdbd09ebd81c7463a1e9c5521946" kindref="member">POZYX_INT_STATUS_ERR</ref>)</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>received<sp/>a<sp/>response,<sp/>now<sp/>get<sp/>some<sp/>information<sp/>about<sp/>the<sp/>response</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>rx_info[3];</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_pozyx_class_1ab5284924a70c65d7356da578ae303771" kindref="member">regRead</ref>(<ref refid="_pozyx__definitions_8h_1a535743eaab5d0ea0871cfa9b11e329f0" kindref="member">POZYX_RX_NETWORK_ID</ref>,<sp/>rx_info,<sp/>3);</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>remote_network_id<sp/>=<sp/>rx_info[0]<sp/>+<sp/>((uint16_t)rx_info[1]&lt;&lt;8);</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>data_len<sp/>=<sp/>rx_info[2];</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"></highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>remote_network_id<sp/>==<sp/>destination<sp/>&amp;&amp;<sp/>data_len<sp/>==<sp/>size+1)</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>return_data[size+1];</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"></highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="group__communication__functions_1gadb46aa57dde9068f0a4d77b5f13326e4" kindref="member">readRXBufferData</ref>(return_data,<sp/>size+1);</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"></highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>){</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>debug<sp/>information</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"></highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(pData,<sp/>return_data+1,<sp/>size);</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"></highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>return_data[0];</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"></highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>timeout</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref>;</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="467"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__communication__functions_1ga225e4a2f67bb89fb4d212c458c8ebaad" kindref="member">PozyxClass::writeTXBufferData</ref>(uint8_t<sp/>data[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset)</highlight></codeline>
+<codeline lineno="470"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(offset<sp/>+<sp/>size<sp/>&gt;<sp/><ref refid="_pozyx__definitions_8h_1a7244ab798f58214294b580ca0bb48552" kindref="member">MAX_BUF_SIZE</ref>){</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"></highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>status<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_bytes<sp/>=<sp/>BUFFER_LENGTH-2;</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_runs<sp/>=<sp/>ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)size<sp/>/<sp/>max_bytes);</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/>uint8_t<sp/>params[BUFFER_LENGTH];</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"></highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>out<sp/>the<sp/>received<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;n_runs;<sp/>i++)</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/>params[0]<sp/>=<sp/>offset<sp/>+<sp/>i*max_bytes;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>offset</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i+1<sp/>!=<sp/>n_runs){</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(params+1,<sp/>data+i*max_bytes,<sp/>max_bytes);</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>&amp;=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1aee47ac1bd7d95ab1670034cf8d307f63" kindref="member">POZYX_TX_DATA</ref>,<sp/>params,<sp/>max_bytes<sp/>+<sp/>1,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="488"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(params+1,<sp/>data+i*max_bytes,<sp/>size-i*max_bytes);</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>&amp;=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1aee47ac1bd7d95ab1670034cf8d307f63" kindref="member">POZYX_TX_DATA</ref>,<sp/>params,<sp/>size-i*max_bytes+1,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="491"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="492"><highlight class="normal"></highlight></codeline>
+<codeline lineno="493"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="494"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"></highlight></codeline>
+<codeline lineno="496"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__communication__functions_1gadb46aa57dde9068f0a4d77b5f13326e4" kindref="member">PozyxClass::readRXBufferData</ref>(uint8_t*<sp/>pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="497"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(size<sp/>&gt;<sp/><ref refid="_pozyx__definitions_8h_1a7244ab798f58214294b580ca0bb48552" kindref="member">MAX_BUF_SIZE</ref>){</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"></highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/>uint8_t<sp/>params[2];</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_bytes<sp/>=<sp/>BUFFER_LENGTH-1;</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_runs<sp/>=<sp/>ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)size<sp/>/<sp/>max_bytes);</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"></highlight></codeline>
+<codeline lineno="508"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>out<sp/>the<sp/>received<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;n_runs;<sp/>i++)</highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"><sp/><sp/><sp/><sp/>params[0]<sp/>=<sp/>i*max_bytes;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>offset</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="512"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i+1<sp/>!=<sp/>n_runs){</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>params[1]<sp/>=<sp/>max_bytes;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>to<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="514"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>params[1]<sp/>=<sp/>size<sp/>-<sp/>i*max_bytes;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>to<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="516"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1a47e1d35d9c8288210fd582c25289fdd1" kindref="member">POZYX_RX_DATA</ref>,<sp/>params,<sp/>2,<sp/>pData+params[0],<sp/>params[1]);</highlight></codeline>
+<codeline lineno="518"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="519"><highlight class="normal"></highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="521"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="522"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__communication__functions_1gaf19e819167efc22337dd4d1b4c3a008f" kindref="member">PozyxClass::sendTXBufferData</ref>(uint16_t<sp/>destination)</highlight></codeline>
+<codeline lineno="524"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"></highlight></codeline>
+<codeline lineno="527"><highlight class="normal"><sp/><sp/>uint8_t<sp/>params[3];</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"><sp/><sp/>params[0]<sp/>=<sp/>(uint8_t)destination;</highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><sp/><sp/>params[1]<sp/>=<sp/>(uint8_t)(destination&gt;&gt;8);</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"><sp/><sp/>params[2]<sp/>=<sp/>0x06;</highlight></codeline>
+<codeline lineno="531"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1a93d384a0b3b5a9b876e7acc69795d579" kindref="member">POZYX_TX_SEND</ref>,<sp/>(uint8_t<sp/>*)&amp;params,<sp/>3,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="532"><highlight class="normal"><sp/><sp/>delay(<ref refid="_pozyx__definitions_8h_1a133636f5481958a2421f3bda0b4c8b62" kindref="member">POZYX_DELAY_LOCAL_FUNCTION</ref>);</highlight></codeline>
+<codeline lineno="533"><highlight class="normal"></highlight></codeline>
+<codeline lineno="534"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="535"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="536"><highlight class="normal"></highlight></codeline>
+<codeline lineno="537"><highlight class="normal"></highlight></codeline>
+<codeline lineno="538"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="539"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>sends<sp/>some<sp/>data<sp/>bytes<sp/>to<sp/>the<sp/>destination</highlight></codeline>
+<codeline lineno="540"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__communication__functions_1ga29050eb9e12179b084b4f3fc5e8e7fa4" kindref="member">PozyxClass::sendData</ref>(uint16_t<sp/>destination,<sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="542"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(size<sp/>&gt;<sp/><ref refid="_pozyx__definitions_8h_1a7244ab798f58214294b580ca0bb48552" kindref="member">MAX_BUF_SIZE</ref>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>trying<sp/>to<sp/>send<sp/>too<sp/>much<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="544"><highlight class="normal"></highlight></codeline>
+<codeline lineno="545"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="546"><highlight class="normal"></highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><sp/><sp/>uint8_t<sp/>tmp_data[size+1];</highlight></codeline>
+<codeline lineno="548"><highlight class="normal"><sp/><sp/>tmp_data[0]<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>first<sp/>byte<sp/>is<sp/>the<sp/>offset<sp/>byte.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><sp/><sp/>memcpy(tmp_data+1,<sp/>pData,<sp/>size);</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"></highlight></codeline>
+<codeline lineno="551"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>TX<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="552"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1aee47ac1bd7d95ab1670034cf8d307f63" kindref="member">POZYX_TX_DATA</ref>,<sp/>tmp_data,<sp/>size+1,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="553"><highlight class="normal"></highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>stop<sp/>if<sp/>POZYX_TX_DATA<sp/>returned<sp/>an<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="555"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(status<sp/>==<sp/><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>)</highlight></codeline>
+<codeline lineno="556"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="557"><highlight class="normal"></highlight></codeline>
+<codeline lineno="558"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>send<sp/>the<sp/>packet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="559"><highlight class="normal"><sp/><sp/>uint8_t<sp/>params[3];</highlight></codeline>
+<codeline lineno="560"><highlight class="normal"><sp/><sp/>params[0]<sp/>=<sp/>(uint8_t)destination;</highlight></codeline>
+<codeline lineno="561"><highlight class="normal"><sp/><sp/>params[1]<sp/>=<sp/>(uint8_t)(destination&gt;&gt;8);</highlight></codeline>
+<codeline lineno="562"><highlight class="normal"><sp/><sp/>params[2]<sp/>=<sp/>0x06;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>flag<sp/>to<sp/>indicate<sp/>we&apos;re<sp/>just<sp/>sending<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="563"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/><ref refid="class_pozyx_class_1ad2a2d810f61ca208bdec7e4128de169b" kindref="member">regFunction</ref>(<ref refid="_pozyx__definitions_8h_1a93d384a0b3b5a9b876e7acc69795d579" kindref="member">POZYX_TX_SEND</ref>,<sp/>(uint8_t<sp/>*)&amp;params,<sp/>3,<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="564"><highlight class="normal"></highlight></codeline>
+<codeline lineno="565"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="566"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="567"><highlight class="normal"></highlight></codeline>
+<codeline lineno="571"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1a81b84df3001d7eff4669d483042df341" kindref="member">PozyxClass::i2cWriteWrite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>reg_address,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*pData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size)</highlight></codeline>
+<codeline lineno="572"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*Serial.print(&quot;\t\ti2cWriteWrite(0x&quot;);</highlight></codeline>
+<codeline lineno="574"><highlight class="comment"><sp/><sp/>Serial.print(reg_address,<sp/>HEX);</highlight></codeline>
+<codeline lineno="575"><highlight class="comment"><sp/><sp/>Serial.print(&quot;,<sp/>[0x&quot;);</highlight></codeline>
+<codeline lineno="576"><highlight class="comment"><sp/><sp/>for(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="577"><highlight class="comment"><sp/><sp/><sp/><sp/>if(i&gt;0)</highlight></codeline>
+<codeline lineno="578"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(&quot;,<sp/>0x&quot;);</highlight></codeline>
+<codeline lineno="579"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(pData[i],<sp/>HEX);</highlight></codeline>
+<codeline lineno="580"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="581"><highlight class="comment"><sp/><sp/>Serial.print(&quot;],<sp/>&quot;);</highlight></codeline>
+<codeline lineno="582"><highlight class="comment"><sp/><sp/>Serial.print(size);</highlight></codeline>
+<codeline lineno="583"><highlight class="comment"><sp/><sp/>Serial.println(&quot;)&quot;);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="584"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="585"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/>error;</highlight></codeline>
+<codeline lineno="586"><highlight class="normal"></highlight></codeline>
+<codeline lineno="587"><highlight class="normal"><sp/><sp/>Wire.beginTransmission(<ref refid="_pozyx__definitions_8h_1aad255527a4a54eb2cf09fc6171c32213" kindref="member">POZYX_I2C_ADDRESS</ref>);</highlight></codeline>
+<codeline lineno="588"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>the<sp/>starting<sp/>register<sp/>address</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="589"><highlight class="normal"><sp/><sp/>n<sp/>=<sp/>Wire.write(reg_address);</highlight></codeline>
+<codeline lineno="590"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>!=<sp/>1)</highlight></codeline>
+<codeline lineno="591"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="592"><highlight class="normal"></highlight></codeline>
+<codeline lineno="593"><highlight class="normal"><sp/><sp/>error<sp/>=<sp/>Wire.endTransmission(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>hold<sp/>the<sp/>bus<sp/>for<sp/>a<sp/>repeated<sp/>start</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="594"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="595"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="596"><highlight class="normal"></highlight></codeline>
+<codeline lineno="597"><highlight class="normal"><sp/><sp/>Wire.beginTransmission(<ref refid="_pozyx__definitions_8h_1aad255527a4a54eb2cf09fc6171c32213" kindref="member">POZYX_I2C_ADDRESS</ref>);</highlight></codeline>
+<codeline lineno="598"><highlight class="normal"><sp/><sp/>n<sp/>=<sp/>Wire.write(pData,<sp/>size);<sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>data<sp/>bytes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="599"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>!=<sp/>size)</highlight></codeline>
+<codeline lineno="600"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="601"><highlight class="normal"></highlight></codeline>
+<codeline lineno="602"><highlight class="normal"><sp/><sp/>error<sp/>=<sp/>Wire.endTransmission(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>release<sp/>the<sp/>I2C-bus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="603"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="604"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="605"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="606"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Serial.println(&quot;\t\t\tsuccess&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="607"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="608"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>:<sp/>no<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="609"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="610"><highlight class="normal"></highlight></codeline>
+<codeline lineno="614"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class_1a5b778c55e44313c4351305bb8d5569ad" kindref="member">PozyxClass::i2cWriteRead</ref>(uint8_t*<sp/>write_data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>write_len,<sp/>uint8_t*<sp/>read_data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>read_len)</highlight></codeline>
+<codeline lineno="615"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="616"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*Serial.print(&quot;\t\ti2cWriteRead([0x&quot;);</highlight></codeline>
+<codeline lineno="617"><highlight class="comment"><sp/><sp/>for(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>write_len;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="618"><highlight class="comment"><sp/><sp/><sp/><sp/>if(i&gt;0)</highlight></codeline>
+<codeline lineno="619"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(&quot;,<sp/>0x&quot;);</highlight></codeline>
+<codeline lineno="620"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(write_data[i],HEX);</highlight></codeline>
+<codeline lineno="621"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="622"><highlight class="comment"><sp/><sp/>Serial.print(&quot;],<sp/>uint8_t*<sp/>read_data,<sp/>&quot;);</highlight></codeline>
+<codeline lineno="623"><highlight class="comment"><sp/><sp/>Serial.print(read_len);</highlight></codeline>
+<codeline lineno="624"><highlight class="comment"><sp/><sp/>Serial.println(&quot;)&quot;);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="625"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="626"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>n;</highlight></codeline>
+<codeline lineno="627"><highlight class="normal"></highlight></codeline>
+<codeline lineno="628"><highlight class="normal"><sp/><sp/>Wire.beginTransmission(<ref refid="_pozyx__definitions_8h_1aad255527a4a54eb2cf09fc6171c32213" kindref="member">POZYX_I2C_ADDRESS</ref>);</highlight></codeline>
+<codeline lineno="629"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;write_len;<sp/>i++){</highlight></codeline>
+<codeline lineno="630"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>=<sp/>Wire.write(*(write_data+i));<sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>parameter<sp/>bytes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="631"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="632"><highlight class="normal"></highlight></codeline>
+<codeline lineno="633"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>!=<sp/>1)</highlight></codeline>
+<codeline lineno="634"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="635"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="636"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Serial.println(&quot;\t\t\tWrite<sp/>success&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="637"><highlight class="normal"></highlight></codeline>
+<codeline lineno="638"><highlight class="normal"><sp/><sp/>n<sp/>=<sp/>Wire.endTransmission(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>hold<sp/>the<sp/>I2C-bus<sp/>for<sp/>a<sp/>repeated<sp/>start</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="639"><highlight class="normal"></highlight></codeline>
+<codeline lineno="640"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="641"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="642"><highlight class="normal"></highlight></codeline>
+<codeline lineno="643"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Third<sp/>parameter<sp/>is<sp/>true:<sp/>relase<sp/>I2C-bus<sp/>after<sp/>data<sp/>is<sp/>read.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="644"><highlight class="normal"><sp/><sp/>Wire.requestFrom(<ref refid="_pozyx__definitions_8h_1aad255527a4a54eb2cf09fc6171c32213" kindref="member">POZYX_I2C_ADDRESS</ref>,<sp/>read_len,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="645"><highlight class="normal"><sp/><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="646"><highlight class="normal"></highlight></codeline>
+<codeline lineno="647"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(Wire.available())</highlight></codeline>
+<codeline lineno="648"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(i&lt;read_len)</highlight></codeline>
+<codeline lineno="650"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>read_data[i++]=Wire.read();</highlight></codeline>
+<codeline lineno="651"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="652"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wire.read();</highlight></codeline>
+<codeline lineno="653"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="654"><highlight class="normal"></highlight></codeline>
+<codeline lineno="655"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>i<sp/>!=<sp/>read_len){</highlight></codeline>
+<codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref>);</highlight></codeline>
+<codeline lineno="657"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="658"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="659"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*Serial.println(&quot;\t\t\tRead<sp/>success&quot;);</highlight></codeline>
+<codeline lineno="660"><highlight class="comment"><sp/><sp/>Serial.print(&quot;\t\t\tread_data<sp/>=<sp/>[0x&quot;);</highlight></codeline>
+<codeline lineno="661"><highlight class="comment"><sp/><sp/>for(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>read_len;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="662"><highlight class="comment"><sp/><sp/><sp/><sp/>if(i&gt;0)</highlight></codeline>
+<codeline lineno="663"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(&quot;,<sp/>0x&quot;);</highlight></codeline>
+<codeline lineno="664"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(read_data[i],<sp/>HEX);</highlight></codeline>
+<codeline lineno="665"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="666"><highlight class="comment"><sp/><sp/>Serial.println(&quot;]&quot;);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="667"><highlight class="normal"></highlight></codeline>
+<codeline lineno="668"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>:<sp/>no<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="669"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="670"><highlight class="normal"></highlight></codeline>
+<codeline lineno="671"><highlight class="normal"><ref refid="class_pozyx_class" kindref="compound">PozyxClass</ref><sp/><ref refid="_pozyx__core_8cpp_1a46279fcbb42c9e7c0939e4407287c673" kindref="member">Pozyx</ref>;</highlight></codeline>
+    </programlisting>
+    <location file="Pozyx_core.cpp"/>
+  </compounddef>
+</doxygen>

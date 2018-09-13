@@ -1,4 +1,4 @@
-/**
+/*
   Pozyx_definitions.h - Library for Arduino Pozyx shield.
   Copyright (c) Pozyx Laboratories.  All right reserved.
 
@@ -28,7 +28,7 @@
 #define _POZYX_FORMAT_FOOT
 #define _POZYX_FORMAT_INCH
 
-// maximum number of anchors to be stored in the interal anchor list on the pozyx device
+/* Maximum number of anchors to be stored in the interal anchor list on the pozyx device */
 #define MAX_ANCHORS_IN_LIST          20
 
 #define POZYX_I2C_ADDRESS        0x4B
@@ -216,6 +216,8 @@
 #define POZYX_DELAY_REMOTE_WRITE    5
 #define POZYX_DELAY_REMOTE_FUNCTION 10
 #define POZYX_DELAY_INTERRUPT       100
+#define POZYX_DELAY_POSITIONING     1000
+#define POZYX_DELAY_REMOTE_POSITIONING     1000
 #define POZYX_DELAY_CALIBRATION     1000
 #define POZYX_FAILURE               0x0
 #define POZYX_SUCCESS               0x1
@@ -259,10 +261,12 @@
 
 // Division factors for converting the raw register values to meaningful physical quantities
 #define POZYX_POS_DIV_MM               1.0f
+#define POZYX_PRESS_DIVPOSITIONING     1000
+#define POZYX_PRESS_DIVREMOTE_POSITIONING     1000
 #define POZYX_PRESS_DIV_PA             1000.0f
 #define POZYX_ACCEL_DIV_MG             1.0f
 #define POZYX_GYRO_DIV_DPS             16.0f
-#define POZYX_MAG_DIV_UT               1.0f
+#define POZYX_MAG_DIV_UT               16.0f
 #define POZYX_EULER_DIV_DEG            16.0f
 #define POZYX_QUAT_DIV                 16384.0f
 #define POZYX_TEMP_DIV_CELSIUS         1.0f

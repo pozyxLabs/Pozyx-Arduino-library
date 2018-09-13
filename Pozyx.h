@@ -22,6 +22,9 @@
  #include "WProgram.h"
 #endif
 
+#undef NULL
+#define NULL 0
+
 ///////////////////////////////////////////////// ASSERTIONS /////////////////////////////////////
 // assertions will check for wrong use of the library.
 
@@ -226,8 +229,8 @@ typedef struct __attribute__((packed))_device_range {
 }device_range_t;
 
 /**
-* Pozyx CLASS
-* -----------
+* Provides an interface to an attached Pozyx shield.
+* 
 */
 class PozyxClass
 {
@@ -1631,7 +1634,10 @@ public:
 /** \addtogroup positioning_functions
  *  @{
  */
-
+    
+    [[deprecated("doPositioning will no longer set the algorithm in future releases. Use setPositionAlgorithm in setup() instead.")]]
+    static int doPositioning(coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm);
+    
     /**
     * Obtain the coordinates.
     * This function triggers the positioning algorithm to perform positioning with the given parameters.
@@ -1649,7 +1655,10 @@ public:
     *
     * @see doRemotePositioning, doAnchorCalibration, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    static int doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm);
+    static int doPositioning(coordinates_t *position, uint8_t dimension, int32_t height=0);
+
+    [[deprecated("doRemotePositioning will no longer set the algorithm in future releases. Use setPositionAlgorithm in setup() instead.")]]
+    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm);
 
     /**
     * Obtain the coordinates of a remote device. Don't use with 2.5D!
@@ -1669,7 +1678,7 @@ public:
     *
     * @see doPositioning, addDevice, setSelectionOfAnchors, setPositionAlgorithm
     */
-    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm);
+    static int doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height=0);
 
     /**
     * Trigger ranging with a remote device.

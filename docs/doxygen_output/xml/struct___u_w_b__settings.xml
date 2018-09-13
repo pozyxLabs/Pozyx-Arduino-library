@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct___u_w_b__settings" kind="struct" language="C++" prot="public">
+    <compoundname>_UWB_settings</compoundname>
+    <includes refid="_pozyx_8h" local="no">Pozyx.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct___u_w_b__settings_1a3b79ca47fa11d60ef22bbae80a94ee37" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t _UWB_settings::channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The UWB channel number. Possible values are 1, 2, 3, 4, 5, 7. See the reg:POZYX_UWB_CHANNEL register for more information. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="61" column="1" bodyfile="Pozyx.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___u_w_b__settings_1adcc1aa68634d215d24949552c52d22e1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t _UWB_settings::bitrate</definition>
+        <argsstring></argsstring>
+        <name>bitrate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bitrate. Possible values are</para><para><itemizedlist>
+<listitem><para>0: 110kbits/s</para></listitem><listitem><para>1: 850kbits/s</para></listitem><listitem><para>2: 6.8Mbits/s.</para></listitem></itemizedlist>
+</para><para>See the reg:POZYX_UWB_RATES register for more information </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="69" column="1" bodyfile="Pozyx.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___u_w_b__settings_1a130bca0015ed2a9935e0f8f96bb374ed" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t _UWB_settings::prf</definition>
+        <argsstring></argsstring>
+        <name>prf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The UWB pulse repetition frequency (PRF). Possible values are</para><para><itemizedlist>
+<listitem><para>1: 16MHz</para></listitem><listitem><para>2: 64MHz</para></listitem></itemizedlist>
+</para><para>See the reg:POZYX_UWB_RATES register for more information </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="76" column="1" bodyfile="Pozyx.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___u_w_b__settings_1a1606bcc43f236fe48abbac8db2c048d3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t _UWB_settings::plen</definition>
+        <argsstring></argsstring>
+        <name>plen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The preabmle length. Possible values are:</para><para><itemizedlist>
+<listitem><para>0x0C : 4096 symbols.</para></listitem><listitem><para>0x28 : 2048 symbols.</para></listitem><listitem><para>0x18 : 1536 symbols.</para></listitem><listitem><para>0x08 : 1024 symbols.</para></listitem><listitem><para>0x34 : 512 symbols.</para></listitem><listitem><para>0x24 : 256 symbols.</para></listitem><listitem><para>0x14 : 128 symbols.</para></listitem><listitem><para>0x04 : 64 symbols.</para></listitem></itemizedlist>
+</para><para>See the reg:POZYX_UWB_PLEN register for more information. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="90" column="1" bodyfile="Pozyx.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct___u_w_b__settings_1aef9404cc5dd34eb45670e0320a902915" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _UWB_settings::gain_db</definition>
+        <argsstring></argsstring>
+        <name>gain_db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The transmission gain in dB. Possible values are between 0dB and 33.5dB, with a resolution of 0.5dB. See the reg:POZYX_UWB_GAIN register for more information. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="92" column="1" bodyfile="Pozyx.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The UWB settings type defines all attributes needed to set the UWB (communication) parameters </para>    </detaileddescription>
+    <location file="Pozyx.h" line="59" column="1" bodyfile="Pozyx.h" bodystart="59" bodyend="93"/>
+    <listofallmembers>
+      <member refid="struct___u_w_b__settings_1adcc1aa68634d215d24949552c52d22e1" prot="public" virt="non-virtual"><scope>_UWB_settings</scope><name>bitrate</name></member>
+      <member refid="struct___u_w_b__settings_1a3b79ca47fa11d60ef22bbae80a94ee37" prot="public" virt="non-virtual"><scope>_UWB_settings</scope><name>channel</name></member>
+      <member refid="struct___u_w_b__settings_1aef9404cc5dd34eb45670e0320a902915" prot="public" virt="non-virtual"><scope>_UWB_settings</scope><name>gain_db</name></member>
+      <member refid="struct___u_w_b__settings_1a1606bcc43f236fe48abbac8db2c048d3" prot="public" virt="non-virtual"><scope>_UWB_settings</scope><name>plen</name></member>
+      <member refid="struct___u_w_b__settings_1a130bca0015ed2a9935e0f8f96bb374ed" prot="public" virt="non-virtual"><scope>_UWB_settings</scope><name>prf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

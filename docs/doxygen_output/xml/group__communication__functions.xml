@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="group__communication__functions" kind="group">
+    <compoundname>Communication_functions</compoundname>
+    <title>Communication_functions</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__communication__functions_1ga29050eb9e12179b084b4f3fc5e8e7fa4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::sendData</definition>
+        <argsstring>(uint16_t destination, uint8_t *pData, int size)</argsstring>
+        <name>sendData</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pData</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wirelessly transmit data to a remote pozyx device. This function combines writeTXBufferData and sendTXBufferData to write data to the transmit buffer and immediately transmit it.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the network id of the device that should receive the data. A value of 0 will result in a broadcast </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the data that should be transmitted </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of bytes to transmit</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="504" column="1" bodyfile="Pozyx_core.cpp" bodystart="541" bodyend="566"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga225e4a2f67bb89fb4d212c458c8ebaad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::writeTXBufferData</definition>
+        <argsstring>(uint8_t data[], int size, int offset=0)</argsstring>
+        <name>writeTXBufferData</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>data</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write data bytes in the transmit buffer. This function writes bytes in the transmit buffer without sending it yet.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data[]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array with data bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of the data array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the memory</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__communication__functions_1gaf19e819167efc22337dd4d1b4c3a008f" kindref="member">sendTXBufferData</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="519" column="1" bodyfile="Pozyx_core.cpp" bodystart="469" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gaf19e819167efc22337dd4d1b4c3a008f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::sendTXBufferData</definition>
+        <argsstring>(uint16_t destination=0x0)</argsstring>
+        <name>sendTXBufferData</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>destination</declname>
+          <defval>0x0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wirelessly transmit data. Wirelessly transmit the contents of the transmit buffer over UWB.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the network id of the device that should receive the data. A value of 0 will result in a broadcast.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__communication__functions_1ga225e4a2f67bb89fb4d212c458c8ebaad" kindref="member">writeTXBufferData</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="532" column="1" bodyfile="Pozyx_core.cpp" bodystart="523" bodyend="535"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gadb46aa57dde9068f0a4d77b5f13326e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::readRXBufferData</definition>
+        <argsstring>(uint8_t *pData, int size)</argsstring>
+        <name>readRXBufferData</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pData</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read data bytes from receive buffer. This function reads the bytes from the receive buffer from the last received message.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to where the data will be stored </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of bytes to read from the receive buffer.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__communication__functions_1gade1d3c8328fb4824fee67f6a9e293048" kindref="member">getLastDataLength</ref> <ref refid="group__communication__functions_1gaf12ab7871238655d94d2dff47f862d7b" kindref="member">getLastNetworkId</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="547" column="1" bodyfile="Pozyx_core.cpp" bodystart="496" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gaf12ab7871238655d94d2dff47f862d7b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getLastNetworkId</definition>
+        <argsstring>(uint16_t *network_id, uint16_t remote_id=NULL)</argsstring>
+        <name>getLastNetworkId</name>
+        <param>
+          <type>uint16_t *</type>
+          <declname>network_id</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the network id of the last message. This function identifies the source of the last message that was wirelessly received.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>network_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pointer that stores the network_id </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="560" column="1" bodyfile="Pozyx_lib.cpp" bodystart="595" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gade1d3c8328fb4824fee67f6a9e293048" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getLastDataLength</definition>
+        <argsstring>(uint8_t *data_length, uint16_t remote_id=NULL)</argsstring>
+        <name>getLastDataLength</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data_length</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the number of bytes received. This function gives the number of bytes in the last message that was wirelessly received.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pointer that stores the number of received bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="573" column="1" bodyfile="Pozyx_lib.cpp" bodystart="600" bodyend="603"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gadbe022f756c0f94492447e9d174309b3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getNetworkId</definition>
+        <argsstring>(uint16_t *network_id)</argsstring>
+        <name>getNetworkId</name>
+        <param>
+          <type>uint16_t *</type>
+          <declname>network_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the network id of the connected Pozyx device. The network id is a unique 16bit identifier determined based on the hardware components. When the system is reset the orignal value is restored</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>network_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference to the network_id pointer to store the data</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="584" column="1" bodyfile="Pozyx_lib.cpp" bodystart="239" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga2cea6b1a80fce5bf7a9897efd04bde81" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::setNetworkId</definition>
+        <argsstring>(uint16_t network_id, uint16_t remote_id=NULL)</argsstring>
+        <name>setNetworkId</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>network_id</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Overwrite the network id. This function overwrites the network id of the pozyx device either locally or remotely. The network id must be unique within a network. When the system is reset the orignal network id is restored.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>network_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new network id </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="598" column="1" bodyfile="Pozyx_lib.cpp" bodystart="244" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gaa6251a69252cbeae44a3500837f39c84" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getUWBSettings</definition>
+        <argsstring>(UWB_settings_t *UWB_settings, uint16_t remote_id=NULL)</argsstring>
+        <name>getUWBSettings</name>
+        <param>
+          <type><ref refid="_pozyx_8h_1aa96363e7b5f3f825c1b231ca6fec62bd" kindref="member">UWB_settings_t</ref> *</type>
+          <declname>UWB_settings</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the current UWB settings. Functions to retrieve the current UWB settings. In order to communicate, two pozyx devices must have exactly the same UWB settings.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>UWB_settings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference to the UWB settings object to store the data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="611" column="1" bodyfile="Pozyx_lib.cpp" bodystart="252" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga952c2c68db0b6fba1b1ba196a3db0d6e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::setUWBSettings</definition>
+        <argsstring>(UWB_settings_t *UWB_settings, uint16_t remote_id=NULL)</argsstring>
+        <name>setUWBSettings</name>
+        <param>
+          <type><ref refid="_pozyx_8h_1aa96363e7b5f3f825c1b231ca6fec62bd" kindref="member">UWB_settings_t</ref> *</type>
+          <declname>UWB_settings</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Overwrite the UWB settings. This function overwrites the UWB settings such as UWB channel, gain, PRF, etc. In order to communicate, two pozyx devices must have exactly the same UWB settings. Upon reset, the default UWB settings will be loaded.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>UWB_settings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference to the new UWB settings. If the gain_db is set to 0, it will automatically load the default gain value for the given uwb paramters. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="626" column="1" bodyfile="Pozyx_lib.cpp" bodystart="270" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga84bf963d6bc3e6edc3b00b5fe9be9afe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::setUWBSettingsExceptGain</definition>
+        <argsstring>(UWB_settings_t *UWB_settings, uint16_t remote_id=NULL)</argsstring>
+        <name>setUWBSettingsExceptGain</name>
+        <param>
+          <type><ref refid="_pozyx_8h_1aa96363e7b5f3f825c1b231ca6fec62bd" kindref="member">UWB_settings_t</ref> *</type>
+          <declname>UWB_settings</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Overwrite the UWB settings except the gain. This function overwrites the UWB settings such as UWB channel, PRF, etc. In order to communicate, two pozyx devices must have exactly the same UWB settings. Upon reset, the default UWB settings will be loaded.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>UWB_settings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference to the new UWB settings. If the gain_db is set to 0, it will automatically load the default gain value for the given uwb paramters. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="641" column="1" bodyfile="Pozyx_lib.cpp" bodystart="302" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga17bea516300c6de7fe272840fd241438" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::setUWBChannel</definition>
+        <argsstring>(int channel_num, uint16_t remote_id=NULL)</argsstring>
+        <name>setUWBChannel</name>
+        <param>
+          <type>int</type>
+          <declname>channel_num</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the Ultra-wideband frequency channel. This function sets the ultra-wideband (UWB) frequency channel used for transmission and reception. For wireless communication, both the receiver and transmitter must be on the same UWB channel. More information can be found in the register reg:POZYX_UWB_CHANNEL.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the channel number, possible values are 1, 2, 3, 4, 5 and 7. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="654" column="1" bodyfile="Pozyx_lib.cpp" bodystart="317" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga853c7e76e5510432be94c3bc75fc9a12" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getUWBChannel</definition>
+        <argsstring>(int *channel_num, uint16_t remote_id=NULL)</argsstring>
+        <name>getUWBChannel</name>
+        <param>
+          <type>int *</type>
+          <declname>channel_num</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Ultra-wideband frequency channel. This function reads the ultra-wideband (UWB) frequency channel used for transmission and reception. For wireless communication, both the receiver and transmitter must be on the same UWB channel. More information can be found in the register reg:POZYX_UWB_CHANNEL.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the channel number currently set, possible values are 1, 2, 3, 4, 5 and 7. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="669" column="1" bodyfile="Pozyx_lib.cpp" bodystart="326" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1gae75bc774ba8308025a8dc20dd3ef4398" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::setTxPower</definition>
+        <argsstring>(float txgain_dB, uint16_t remote_id=NULL)</argsstring>
+        <name>setTxPower</name>
+        <param>
+          <type>float</type>
+          <declname>txgain_dB</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>configure the UWB transmission power.</para><para><simplesect kind="note"><para>setting a large TX gain may cause the system to fall out of regulation. Applications that require regulations must set an appropriate TX gain to meet the spectral mask of your region. This can be verified with a spectrum analyzer.</para></simplesect>
+This function configures the UWB transmission power gain. The default value is different for each UWB channel. Setting a larger transmit power will result in a larger range. For increased communication range (which is two-way), both the transmitter and the receiver must set the appropriate transmit power. Changing the UWB channel will reset the power to the default value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>txgain_dB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the transmission gain in dB. Possible values are between 0dB and 33.5dB, with a resolution of 0.5dB. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="688" column="1" bodyfile="Pozyx_lib.cpp" bodystart="334" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="group__communication__functions_1ga5320c7377e7479f39b76d44f40cd3540" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PozyxClass::getTxPower</definition>
+        <argsstring>(float *txgain_dB, uint16_t remote_id=NULL)</argsstring>
+        <name>getTxPower</name>
+        <param>
+          <type>float *</type>
+          <declname>txgain_dB</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>remote_id</declname>
+          <defval><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the UWB transmission power.</para><para>This function obtains the configured UWB transmission power gain. The default value is different for each UWB channel. Changing the UWB channel will reset the TX power to the default value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>txgain_dB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the configured transmission gain in dB. Possible values are between 0dB and 33.5dB, with a resolution of 0.5dB. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>function timed out, no response received. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx.h" line="703" column="1" bodyfile="Pozyx_lib.cpp" bodystart="344" bodyend="354"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

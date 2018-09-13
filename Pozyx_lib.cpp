@@ -779,7 +779,15 @@ int PozyxClass::doRemoteRanging(uint16_t device_from, uint16_t device_to, device
 
 }
 
-int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height, uint8_t algorithm)
+int PozyxClass::doPositioning(coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm)
+{
+  int status = setPositionAlgorithm(algorithm, dimension);
+  if (status != POZYX_SUCCESS)
+    return status;
+  return doPositioning(coordinates, dimension, height);
+}
+
+int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_t height)
 {
   assert(position != NULL);
 
@@ -797,7 +805,7 @@ int PozyxClass::doPositioning(coordinates_t *position, uint8_t dimension, int32_
     return POZYX_FAILURE;
 
   // now wait for the positioning to finish or generate an error
-  if (waitForFlag_safe(POZYX_INT_STATUS_POS | POZYX_INT_STATUS_ERR, 2*POZYX_DELAY_INTERRUPT, &int_status)){
+  if (waitForFlag_safe(POZYX_INT_STATUS_POS | POZYX_INT_STATUS_ERR, POZYX_DELAY_POSITIONING, &int_status)){
     if((int_status & POZYX_INT_STATUS_ERR) == POZYX_INT_STATUS_ERR)
     {
       // An error occured during positioning.
@@ -885,6 +893,14 @@ int PozyxClass::remoteRegFunctionWithoutCheck(uint16_t destination, uint8_t reg_
 
 int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height, uint8_t algorithm)
 {
+  int status = setPositionAlgorithm(algorithm, dimension, remote_id);
+  if (status != POZYX_SUCCESS)
+    return status;
+  return doRemotePositioning(remote_id, coordinates, dimension, height);
+}
+
+int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinates, uint8_t dimension, int32_t height)
+{
   assert(remote_id != 0);
   assert(coordinates != NULL);
 
@@ -903,11 +919,11 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   uint8_t firmware;
   getFirmwareVersion(&firmware);
 
-  if (firmware == 0x13) {
+  if (firmware >= 0x13) {
     uint8_t params_positioning[2] = {1, 0};
     status = remoteRegFunctionWithoutCheck(remote_id, POZYX_DO_POSITIONING, params_positioning, 2, NULL, 0);
 
-    if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 200) == POZYX_SUCCESS){
+    if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , POZYX_DELAY_REMOTE_POSITIONING) == POZYX_SUCCESS){
       uint8_t rx_info[3]= {0,0,0};
       regRead(POZYX_RX_NETWORK_ID, rx_info, 3);
       uint16_t remote_network_id = rx_info[0] + ((uint16_t)rx_info[1]<<8);
@@ -934,7 +950,7 @@ int PozyxClass::doRemotePositioning(uint16_t remote_id, coordinates_t *coordinat
   }
 
   // change timeout flag if crashes
-  if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , 200)){
+  if (waitForFlag_safe(POZYX_INT_STATUS_RX_DATA , POZYX_DELAY_REMOTE_POSITIONING)){
 
     // we received a response, now get some information about the response
     uint8_t rx_info[3]= {0,0,0};
