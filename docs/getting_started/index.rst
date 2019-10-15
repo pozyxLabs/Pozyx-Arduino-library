@@ -73,7 +73,7 @@ But disadvantages too:
 Ultimately, the decision which you want to use depends on your application and your
 available hardware.
 
-The documentation for using USB directly can be found `here <pypozyx.rtfd.io>`_.
+The documentation for using USB directly can be found `here <https://pypozyx.rtfd.io>`_.
 
 Required headers
 ~~~~~~~~~~~~~~~~
