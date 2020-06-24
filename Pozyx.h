@@ -1236,7 +1236,7 @@ public:
     */
     static int setRangingProtocol(uint8_t protocol, uint16_t remote_id = NULL);
 
-    /** TODO
+    /**
     * Obtain the configured positioning filter strength.
     * This function obtains the configured positioning filter strength by reading from the reg:POZYX_POS_FILTER register.
     *
@@ -1249,39 +1249,41 @@ public:
     * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
-    * @see getPositionFilterType, getPositionFilter, setPositionFilter, setPositionFilterType, setPositionFilterStrength
+    * @see getPositionFilterType, setPositionFilter
     */
     static int getPositionFilterStrength(uint8_t *filter_strength, uint16_t remote_id = NULL);
 
-    /** TODO
-    * Obtain the configured positioning algorithm.
-    * This function obtains the configured positioning algorithm by reading from the reg:POZYX_POS_ALG register.
+    /** 
+    * Obtain the configured positioning filter type.
+    * This function obtains the configured positioning filter type by reading from the reg:POZYX_POS_FILTER register.
     *
-    *   @param algorithm pointer to the variable holding the algorithm used to determine position.
-    *   Possible values for the positioning algorithm are #POZYX_POS_ALG_UWB_ONLY and #POZYX_POS_ALG_LS.
+    *   @param filter_type pointer to the variable holding the filter type data.
+    *   Possible values for the positioning algorithm are #FILTER_TYPE_NONE, #FILTER_TYPE_FIR, #FILTER_TYPE_MOVINGMEDIAN, and #FILTER_TYPE_MOVINGAVERAGE.
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
-    * @see getPositionDimension, setPositionAlgorithm
+    * @see getPositionFilterStrength, setPositionFilter
     */
     static int getPositionFilterType(uint8_t *filter_type, uint16_t remote_id = NULL);
 
-    /** TODO
-    * Configure the ranging protocol.
-    * This function configures the ranging protocol by writing to the reg:POZYX_RANGE_PROTOCOL register.
+    /** 
+    * Configure the positioning filter.
+    * This function configures the positioning filter by writing to the reg:POZYX_POS_FILTER register.
     *
-    *   @param protocol Ranging protocol used when ranging.
-    *   Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION.
+    *   @param filter_type Filter type used when positioning.
+    *   Possible values for the positioning algorithm are #FILTER_TYPE_NONE, #FILTER_TYPE_FIR, #FILTER_TYPE_MOVINGMEDIAN, and #FILTER_TYPE_MOVINGAVERAGE.
+    *   @param filter_strength Filter strength used when positioning.
+    *   Possible values for the position filter strength is between 0 and 15 samples.
     *   @param remote_id optional parameter that determines the remote device to be used
     *
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAILURE function failed.
     * @retval #POZYX_TIMEOUT function timed out, no response received.
     *
-    * @see doRanging, getRangingProtocol
+    * @see getPositionFilterStrength, getPositionFilterType
     */
     static int setPositionFilter(uint8_t filter_type, uint8_t filter_strength, uint16_t remote_id = NULL);
 
