@@ -1,47 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="_pozyx__core_8cpp" kind="file" language="C++">
     <compoundname>Pozyx_core.cpp</compoundname>
     <includes refid="_pozyx_8h" local="yes">Pozyx.h</includes>
     <includes local="no">Wire.h</includes>
     <includes refid="_pozyx__definitions_8h" local="yes">Pozyx_definitions.h</includes>
     <incdepgraph>
-      <node id="16">
+      <node id="5">
         <label>assert.h</label>
       </node>
-      <node id="12">
+      <node id="1">
         <label>Pozyx_core.cpp</label>
         <link refid="_pozyx__core_8cpp"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="4">
         <label>WProgram.h</label>
       </node>
-      <node id="18">
+      <node id="7">
         <label>Wire.h</label>
       </node>
-      <node id="13">
+      <node id="2">
         <label>Pozyx.h</label>
         <link refid="_pozyx_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="6">
         <label>Pozyx_definitions.h</label>
         <link refid="_pozyx__definitions_8h"/>
       </node>
-      <node id="14">
+      <node id="3">
         <label>inttypes.h</label>
       </node>
     </incdepgraph>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_core.cpp" line="671" column="1" bodyfile="Pozyx_core.cpp" bodystart="671" bodyend="-1"/>
+        <location file="Pozyx_core.cpp" line="671" column="12" bodyfile="Pozyx_core.cpp" bodystart="671" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

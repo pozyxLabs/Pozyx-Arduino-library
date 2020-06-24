@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="group__device__list" kind="group">
     <compoundname>device_list</compoundname>
     <title>Device_list</title>
@@ -21,19 +21,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the number of devices stored internally. The following function retrieves the number of devices stored in the device list.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the number of devices stored internally. The following function retrieves the number of devices stored in the device list.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>device_list_size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the pointer that stores the device list size </para></parameterdescription>
+<para>the pointer that stores the device list size </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -41,21 +44,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__device__list_1ga563ac8a8cae694f75fdcdaac9781b5cc" kindref="member">doDiscovery</ref>, <ref refid="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" kindref="member">doAnchorCalibration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__device__list_1ga563ac8a8cae694f75fdcdaac9781b5cc" kindref="member">doDiscovery</ref>, <ref refid="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" kindref="member">doAnchorCalibration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1744" column="1" bodyfile="Pozyx_lib.cpp" bodystart="590" bodyend="593"/>
+        <location file="Pozyx.h" line="1746" column="16" bodyfile="Pozyx_lib.cpp" bodystart="590" bodyend="593"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga2606d4f50a13e31bbb7f75666774c622" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -79,26 +86,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the network IDs from all the devices in the device list. Function to get all the network ids of the devices in the device list</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the network IDs from all the devices in the device list. Function to get all the network ids of the devices in the device list</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>devices[]</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>array that will be filled with the network ids </para></parameterdescription>
+<para>array that will be filled with the network ids </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of network IDs to read. </para></parameterdescription>
+<para>the number of network IDs to read. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -106,20 +117,23 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1758" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1045" bodyend="1061"/>
+        <location file="Pozyx.h" line="1760" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1045" bodyend="1061"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga792c8f5bc8a5e420a243cf39922974fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -143,26 +157,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the network IDs from all the anchors in the device list. Function to get all the network ids of the anchors in the device list</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the network IDs from all the anchors in the device list. Function to get all the network ids of the anchors in the device list</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>devices[]</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>array that will be filled with the network ids </para></parameterdescription>
+<para>array that will be filled with the network ids </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of network IDs to read. </para></parameterdescription>
+<para>the number of network IDs to read. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -170,20 +188,23 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1771" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1063" bodyend="1101"/>
+        <location file="Pozyx.h" line="1773" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1063" bodyend="1101"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga2fbc8f498c8b58fce93fde945b124523" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -207,26 +228,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the network IDs from all the tags in the device list. Function to get all the network ids of the tags in the device list</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the network IDs from all the tags in the device list. Function to get all the network ids of the tags in the device list</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>tags[]</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>array that will be filled with the network ids </para></parameterdescription>
+<para>array that will be filled with the network ids </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of network IDs to read. </para></parameterdescription>
+<para>the number of network IDs to read. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -234,20 +259,23 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1784" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1103" bodyend="1143"/>
+        <location file="Pozyx.h" line="1786" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1103" bodyend="1143"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga563ac8a8cae694f75fdcdaac9781b5cc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -272,26 +300,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Discover Pozyx devices in range. Function to wirelessly discover anchors/tags/all Pozyx devices in range. The discovered devices are added to the internal device list.</para><para><parameterlist kind="param"><parameteritem>
+<para>Discover Pozyx devices in range. Function to wirelessly discover anchors/tags/all Pozyx devices in range. The discovered devices are added to the internal device list.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>type</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>which type of device to discover. Possible values are <ref refid="_pozyx__definitions_8h_1aaf8b8a370641b5c75bdcbb3b76567ab6" kindref="member">POZYX_DISCOVERY_ANCHORS_ONLY</ref>: anchors only, <ref refid="_pozyx__definitions_8h_1aa4930276a621144b07085484d8c49f07" kindref="member">POZYX_DISCOVERY_TAGS_ONLY</ref>: tags only or <ref refid="_pozyx__definitions_8h_1a3170131dfc671cd4a4f4e6fd5677ecc5" kindref="member">POZYX_DISCOVERY_ALL_DEVICES</ref>: anchors and tags </para></parameterdescription>
+<para>which type of device to discover. Possible values are <ref refid="_pozyx__definitions_8h_1aaf8b8a370641b5c75bdcbb3b76567ab6" kindref="member">POZYX_DISCOVERY_ANCHORS_ONLY</ref>: anchors only, <ref refid="_pozyx__definitions_8h_1aa4930276a621144b07085484d8c49f07" kindref="member">POZYX_DISCOVERY_TAGS_ONLY</ref>: tags only or <ref refid="_pozyx__definitions_8h_1a3170131dfc671cd4a4f4e6fd5677ecc5" kindref="member">POZYX_DISCOVERY_ALL_DEVICES</ref>: anchors and tags </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>slots</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The number of slots to wait for a response of an undiscovered device </para></parameterdescription>
+<para>The number of slots to wait for a response of an undiscovered device </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>slot_duration</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Time duration of an idle slot</para></parameterdescription>
+<para>Time duration of an idle slot</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -299,21 +331,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__device__list_1ga3b304a60d246f30bb89a31017978e6b4" kindref="member">getDeviceListSize</ref>, <ref refid="group__device__list_1ga2606d4f50a13e31bbb7f75666774c622" kindref="member">getDeviceIds</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__device__list_1ga3b304a60d246f30bb89a31017978e6b4" kindref="member">getDeviceListSize</ref>, <ref refid="group__device__list_1ga2606d4f50a13e31bbb7f75666774c622" kindref="member">getDeviceIds</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1800" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1145" bodyend="1181"/>
+        <location file="Pozyx.h" line="1802" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1145" bodyend="1181"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -352,40 +388,46 @@
         <detaileddescription>
 <para>Automatically obtain the relative anchor positions. WARNING: This is currently experimental and will be improved in the next firmware version! This function triggers the automatic anchor calibration to obtain the relative coordinates of up to 6 pozyx devices in range. This function can be used for quickly setting up the positioning system. The procedure may take several hundres of milliseconds depending on the number of devices in range and the number of range measurements requested. During the calibration proces LED 2 will be turned on. At the end of calibration the corresponding bit in the reg:POZYX_CALIB_STATUS register will be set. The resulting coordinates are stored in the internal device list. <linebreak/>
 <linebreak/>
-Please read the tutorial Ready to Localize to learn how to use this function.</para><para><parameterlist kind="param"><parameteritem>
+Please read the tutorial Ready to Localize to learn how to use this function.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>type</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>dimension of the calibration, can be <ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref> or <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref> </para></parameterdescription>
+<para>dimension of the calibration, can be <ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref> or <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref> </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>measurements</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The number of measurements per link. Recommended 10. Theoretically, a larger number should result in better calibration accuracy. </para></parameterdescription>
+<para>The number of measurements per link. Recommended 10. Theoretically, a larger number should result in better calibration accuracy. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>anchor_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The number of anchors in the anchors[] array </para></parameterdescription>
+<para>The number of anchors in the anchors[] array </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>anchors[]</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The anchors that determine the axis (see datasheet) </para></parameterdescription>
+<para>The anchors that determine the axis (see datasheet) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>heights</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The heights in mm of the anchors in the anchors[] array (only used for <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref>)</para></parameterdescription>
+<para>The heights in mm of the anchors in the anchors[] array (only used for <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref>)</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -393,20 +435,23 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1823" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1183" bodyend="1235"/>
+        <location file="Pozyx.h" line="1825" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1183" bodyend="1235"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga7ce8c358b99e9c1d3d67ca041d8919bc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -421,12 +466,14 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Empty the internal list of devices. This function empties the internal list of devices.</para><para><parameterlist kind="param"><parameteritem>
+<para>Empty the internal list of devices. This function empties the internal list of devices.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -434,20 +481,23 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1834" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1237" bodyend="1240"/>
+        <location file="Pozyx.h" line="1836" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1237" bodyend="1240"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1gaa009179113eb5cea2260e025f2352576" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -466,19 +516,22 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Manualy adds a device to the device list. This function can be used to manually add a device and its coordinates to the device list. Once the device is added, it can be used for positioning.</para><para><parameterlist kind="param"><parameteritem>
+<para>Manualy adds a device to the device list. This function can be used to manually add a device and its coordinates to the device list. Once the device is added, it can be used for positioning.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>device_coordinates</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the device information to be added </para></parameterdescription>
+<para>the device information to be added </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -486,20 +539,23 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1847" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1242" bodyend="1245"/>
+        <location file="Pozyx.h" line="1849" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1242" bodyend="1245"/>
       </memberdef>
       <memberdef kind="function" id="group__device__list_1ga5a54f0d50b547d02c915464eca53e82f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -522,26 +578,30 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Retrieve the stored coordinates of a device. This function retrieves the device coordinates stored in the internal device list.</para><para><parameterlist kind="param"><parameteritem>
+<para>Retrieve the stored coordinates of a device. This function retrieves the device coordinates stored in the internal device list.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>device_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>device from which the information needs to be retrieved </para></parameterdescription>
+<para>device from which the information needs to be retrieved </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>device_coordinates</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>data object to store the information </para></parameterdescription>
+<para>data object to store the information </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -549,20 +609,23 @@ Please read the tutorial Ready to Localize to learn how to use this function.</p
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1860" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1247" bodyend="1253"/>
+        <location file="Pozyx.h" line="1862" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1247" bodyend="1253"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

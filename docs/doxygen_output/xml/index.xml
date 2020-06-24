@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
   <compound refid="struct___u_w_b__settings" kind="struct"><name>_UWB_settings</name>
     <member refid="struct___u_w_b__settings_1a3b79ca47fa11d60ef22bbae80a94ee37" kind="variable"><name>channel</name></member>
     <member refid="struct___u_w_b__settings_1adcc1aa68634d215d24949552c52d22e1" kind="variable"><name>bitrate</name></member>
@@ -294,6 +294,8 @@
     <member refid="_pozyx__definitions_8h_1a287375ef05e1a728853427682d805dba" kind="define"><name>POZYX_DELAY_REMOTE_WRITE</name></member>
     <member refid="_pozyx__definitions_8h_1a05bff13cd63b91eb95e9695bfb8e7c32" kind="define"><name>POZYX_DELAY_REMOTE_FUNCTION</name></member>
     <member refid="_pozyx__definitions_8h_1ab3bd326dd06121533fab4166279aad6e" kind="define"><name>POZYX_DELAY_INTERRUPT</name></member>
+    <member refid="_pozyx__definitions_8h_1accfe5e80a04ccb598e6b905ec4a1dec2" kind="define"><name>POZYX_DELAY_POSITIONING</name></member>
+    <member refid="_pozyx__definitions_8h_1a4d9cb05643d8ddf2315febf4b251670e" kind="define"><name>POZYX_DELAY_REMOTE_POSITIONING</name></member>
     <member refid="_pozyx__definitions_8h_1a0fda3cf7b8359460f6e2850960c0cd2c" kind="define"><name>POZYX_DELAY_CALIBRATION</name></member>
     <member refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kind="define"><name>POZYX_FAILURE</name></member>
     <member refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kind="define"><name>POZYX_SUCCESS</name></member>
@@ -321,6 +323,8 @@
     <member refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" kind="define"><name>MODE_POLLING</name></member>
     <member refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" kind="define"><name>MODE_INTERRUPT</name></member>
     <member refid="_pozyx__definitions_8h_1a364dd4106755dec43f13bad863fb6493" kind="define"><name>POZYX_POS_DIV_MM</name></member>
+    <member refid="_pozyx__definitions_8h_1aadf626be681c8dd988fd9fc7e644dbe8" kind="define"><name>POZYX_PRESS_DIVPOSITIONING</name></member>
+    <member refid="_pozyx__definitions_8h_1a197e4f49870c82e0b362e9d4ccdf122d" kind="define"><name>POZYX_PRESS_DIVREMOTE_POSITIONING</name></member>
     <member refid="_pozyx__definitions_8h_1a8880296c3a872f003992fdf90bd5b3d7" kind="define"><name>POZYX_PRESS_DIV_PA</name></member>
     <member refid="_pozyx__definitions_8h_1a21fd7cc96b2f6ac0c3ea14284d03c9b3" kind="define"><name>POZYX_ACCEL_DIV_MG</name></member>
     <member refid="_pozyx__definitions_8h_1a9457bfb66415f1a852cdb6a7ca3d704b" kind="define"><name>POZYX_GYRO_DIV_DPS</name></member>

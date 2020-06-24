@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="group__system__functions" kind="group">
     <compoundname>System_functions</compoundname>
     <title>System_functions</title>
@@ -21,19 +21,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the who_am_i value. This function reads the reg:POZYX_WHO_AM_I register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the who_am_i value. This function reads the reg:POZYX_WHO_AM_I register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>whoami</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. whoami </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. whoami </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -41,27 +44,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="723" column="1" bodyfile="Pozyx_lib.cpp" bodystart="49" bodyend="52"/>
+        <location file="Pozyx.h" line="723" column="16" bodyfile="Pozyx_lib.cpp" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gaf3093e564d3835f8754e9cc28cb9a48c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -80,19 +87,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the firmware version. This function reads the reg:POZYX_FIRMWARE_VER register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the firmware version. This function reads the reg:POZYX_FIRMWARE_VER register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>firmware</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. the firmware version </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. the firmware version </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -100,27 +110,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="736" column="1" bodyfile="Pozyx_lib.cpp" bodystart="54" bodyend="57"/>
+        <location file="Pozyx.h" line="736" column="16" bodyfile="Pozyx_lib.cpp" bodystart="54" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga895e9594b285a0f23214c81e9d30b91c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -139,19 +153,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain hte hardware version. This function reads the reg:POZYX_HARDWARE_VER register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain hte hardware version. This function reads the reg:POZYX_HARDWARE_VER register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>data</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. hardware version </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. hardware version </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -159,27 +176,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="749" column="1" bodyfile="Pozyx_lib.cpp" bodystart="59" bodyend="62"/>
+        <location file="Pozyx.h" line="749" column="16" bodyfile="Pozyx_lib.cpp" bodystart="59" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga86f8b2fd2562db79bdf352ca46152719" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -198,19 +219,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the selftest result. This function reads the reg:POZYX_ST_RESULT register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the selftest result. This function reads the reg:POZYX_ST_RESULT register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>data</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. the selftest result </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. the selftest result </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -218,27 +242,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="762" column="1" bodyfile="Pozyx_lib.cpp" bodystart="64" bodyend="67"/>
+        <location file="Pozyx.h" line="762" column="16" bodyfile="Pozyx_lib.cpp" bodystart="64" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga285bc9305004b9119a0fd8266ab08200" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -257,19 +285,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the error code. This function reads the reg:POZYX_ERRORCODE register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the error code. This function reads the reg:POZYX_ERRORCODE register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>data</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. the error code </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. the error code </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -277,27 +308,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="775" column="1" bodyfile="Pozyx_lib.cpp" bodystart="69" bodyend="72"/>
+        <location file="Pozyx.h" line="775" column="16" bodyfile="Pozyx_lib.cpp" bodystart="69" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga76d383a705dd806cc95b38d23c07e326" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -316,19 +351,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the interrupt status. This function reads the reg:POZYX_INT_STATUS register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the interrupt status. This function reads the reg:POZYX_INT_STATUS register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>data</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. the interrupt status </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. the interrupt status </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -336,28 +374,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__core_1ga4cd1d89a1534c50604d8a5875373dd12" kindref="member">waitForFlag</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__core_1ga4cd1d89a1534c50604d8a5875373dd12" kindref="member">waitForFlag</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="790" column="1" bodyfile="Pozyx_lib.cpp" bodystart="74" bodyend="77"/>
+        <location file="Pozyx.h" line="790" column="16" bodyfile="Pozyx_lib.cpp" bodystart="74" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga8b200afdb4d42fe806d7d49af1c37f36" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -376,19 +419,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the calibration status. This function reads the reg:POZYX_CALIB_STATUS register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the calibration status. This function reads the reg:POZYX_CALIB_STATUS register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>data</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pointer where the read data should be stored e.g. calibration status </para></parameterdescription>
+<para>reference to the pointer where the read data should be stored e.g. calibration status </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be read</para></parameterdescription>
+<para>optional parameter that determines the remote device to be read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -396,27 +442,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="803" column="1" bodyfile="Pozyx_lib.cpp" bodystart="79" bodyend="82"/>
+        <location file="Pozyx.h" line="803" column="16" bodyfile="Pozyx_lib.cpp" bodystart="79" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga0ba68964f3f4b595666e79609fecbe3b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -439,26 +489,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the digital value on one of the GPIO pins. Function to retieve the value of the given General Purpose Input/output pin (GPIO) on the target device</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the digital value on one of the GPIO pins. Function to retieve the value of the given General Purpose Input/output pin (GPIO) on the target device</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>gpio_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the gpio pin to be set or retrieved. Possible values are 1, 2, 3 or 4. </para></parameterdescription>
+<para>the gpio pin to be set or retrieved. Possible values are 1, 2, 3 or 4. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>value</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the pointer that stores the value for the GPIO. </para></parameterdescription>
+<para>the pointer that stores the value for the GPIO. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -466,28 +520,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>In firmware version v0.9. The GPIO state cannot be read remotely. </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="note"><para>In firmware version v0.9. The GPIO state cannot be read remotely. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="819" column="1" bodyfile="Pozyx_lib.cpp" bodystart="605" bodyend="613"/>
+        <location file="Pozyx.h" line="819" column="16" bodyfile="Pozyx_lib.cpp" bodystart="605" bodyend="613"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga200ea9ae04f0b5fa243c8ef51395e19c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -510,26 +569,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Set the digital value on one of the GPIO pins. Function to set or set the value of the given GPIO on the target device</para><para><parameterlist kind="param"><parameteritem>
+<para>Set the digital value on one of the GPIO pins. Function to set or set the value of the given GPIO on the target device</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>gpio_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the gpio pin to be set or retrieved. Possible values are 1, 2, 3 or 4. </para></parameterdescription>
+<para>the gpio pin to be set or retrieved. Possible values are 1, 2, 3 or 4. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>value</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the value for the GPIO. Can be O (LOW) or 1 (HIGH). </para></parameterdescription>
+<para>the value for the GPIO. Can be O (LOW) or 1 (HIGH). </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -537,27 +600,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="833" column="1" bodyfile="Pozyx_lib.cpp" bodystart="615" bodyend="624"/>
+        <location file="Pozyx.h" line="833" column="16" bodyfile="Pozyx_lib.cpp" bodystart="615" bodyend="624"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gaf061e892b42c49c9fb757b576517dc79" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -572,19 +639,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Trigger a software reset of the Pozyx device. Function that will trigger the reset of the system. This will reload all configurations from flash memory, or to their default values.</para><para><parameterlist kind="param"><parameteritem>
+<para>Trigger a software reset of the Pozyx device. Function that will trigger the reset of the system. This will reload all configurations from flash memory, or to their default values.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref>, <ref refid="group__system__functions_1ga32df3976a9da4ad34996c6e3d5beafac" kindref="member">saveConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref>, <ref refid="group__system__functions_1ga32df3976a9da4ad34996c6e3d5beafac" kindref="member">saveConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="845" column="1" bodyfile="Pozyx_lib.cpp" bodystart="626" bodyend="633"/>
+        <location file="Pozyx.h" line="845" column="17" bodyfile="Pozyx_lib.cpp" bodystart="626" bodyend="633"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gadc6e6fc23f97ac78e364e9aed5f6f482" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -607,26 +678,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Function for turning the leds on and off. This function allows you to turn one of the 4 LEDs on the Pozyx board on or off. By default, the LEDs are controlled by the Pozyx system to give status information. This can be changed using the function setLedConfig.</para><para><parameterlist kind="param"><parameteritem>
+<para>Function for turning the leds on and off. This function allows you to turn one of the 4 LEDs on the Pozyx board on or off. By default, the LEDs are controlled by the Pozyx system to give status information. This can be changed using the function setLedConfig.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>led_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the led number to be controlled, value between 1, 2, 3 or 4. </para></parameterdescription>
+<para>the led number to be controlled, value between 1, 2, 3 or 4. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>state</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the state to set the selected led to. Can be 0 (led is off) or 1 (led is on) </para></parameterdescription>
+<para>the state to set the selected led to. Can be 0 (led is off) or 1 (led is on) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -634,28 +709,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga68c4c11cffc3dd13be1d7644e7c21e46" kindref="member">setLedConfig</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga68c4c11cffc3dd13be1d7644e7c21e46" kindref="member">setLedConfig</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="864" column="1" bodyfile="Pozyx_lib.cpp" bodystart="707" bodyend="717"/>
+        <location file="Pozyx.h" line="864" column="16" bodyfile="Pozyx_lib.cpp" bodystart="707" bodyend="717"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga43de1df64bc9de209fceb0cd10a758d3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -674,19 +754,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Function to obtain the interrupt configuration. This functions obtains the interrupt mask from the register reg:POZYX_INT_MASK. The interrupt mask is used to determine which event trigger an interrupt.</para><para><parameterlist kind="param"><parameteritem>
+<para>Function to obtain the interrupt configuration. This functions obtains the interrupt mask from the register reg:POZYX_INT_MASK. The interrupt mask is used to determine which event trigger an interrupt.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mask</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the configured interrupt mask </para></parameterdescription>
+<para>the configured interrupt mask </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -694,27 +777,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="878" column="1" bodyfile="Pozyx_lib.cpp" bodystart="84" bodyend="87"/>
+        <location file="Pozyx.h" line="878" column="16" bodyfile="Pozyx_lib.cpp" bodystart="84" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga52fb95d19ffe5dee60bbe0c0617f49e5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -733,19 +820,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Function to configure the interrupts. Function to configure the interrupts by means of the interrupt mask from the register reg:POZYX_INT_MASK. The interrupt mask is used to determine which event trigger an interrupt.</para><para><parameterlist kind="param"><parameteritem>
+<para>Function to configure the interrupts. Function to configure the interrupts by means of the interrupt mask from the register reg:POZYX_INT_MASK. The interrupt mask is used to determine which event trigger an interrupt.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mask</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the interrupt mask to be written. Bit-wise combinations of the following flags are allowed: <ref refid="_pozyx__definitions_8h_1a7b4d13c90f0ea1ca87b00a3b73430a03" kindref="member">POZYX_INT_MASK_ERR</ref>, <ref refid="_pozyx__definitions_8h_1ac44fb524d7f24a0efb90ac2939d7d71d" kindref="member">POZYX_INT_MASK_POS</ref>, <ref refid="_pozyx__definitions_8h_1add38f764c047f0baa7c668f6366d5703" kindref="member">POZYX_INT_MASK_IMU</ref>, <ref refid="_pozyx__definitions_8h_1a0c11b24d009ef6afcbe047a92f260ebe" kindref="member">POZYX_INT_MASK_RX_DATA</ref>, <ref refid="_pozyx__definitions_8h_1a45e046522f52f4d41c2e0ebcd0c14c84" kindref="member">POZYX_INT_MASK_FUNC</ref>. </para></parameterdescription>
+<para>reference to the interrupt mask to be written. Bit-wise combinations of the following flags are allowed: <ref refid="_pozyx__definitions_8h_1a7b4d13c90f0ea1ca87b00a3b73430a03" kindref="member">POZYX_INT_MASK_ERR</ref>, <ref refid="_pozyx__definitions_8h_1ac44fb524d7f24a0efb90ac2939d7d71d" kindref="member">POZYX_INT_MASK_POS</ref>, <ref refid="_pozyx__definitions_8h_1add38f764c047f0baa7c668f6366d5703" kindref="member">POZYX_INT_MASK_IMU</ref>, <ref refid="_pozyx__definitions_8h_1a0c11b24d009ef6afcbe047a92f260ebe" kindref="member">POZYX_INT_MASK_RX_DATA</ref>, <ref refid="_pozyx__definitions_8h_1a45e046522f52f4d41c2e0ebcd0c14c84" kindref="member">POZYX_INT_MASK_FUNC</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -753,27 +843,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="893" column="1" bodyfile="Pozyx_lib.cpp" bodystart="88" bodyend="91"/>
+        <location file="Pozyx.h" line="893" column="16" bodyfile="Pozyx_lib.cpp" bodystart="88" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gaefd634e8e7429ff0bd0a31809e1d8315" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -796,26 +890,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the pull configuration of a GPIO pin. Function to obtain the configured pin mode of the GPIO for the given pin number. This is performed by reading from the reg:POZYX_CONFIG_GPIO1 up to reg:POZYX_CONFIG_GPIO4 register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the pull configuration of a GPIO pin. Function to obtain the configured pin mode of the GPIO for the given pin number. This is performed by reading from the reg:POZYX_CONFIG_GPIO1 up to reg:POZYX_CONFIG_GPIO4 register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>gpio_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the pin to update </para></parameterdescription>
+<para>the pin to update </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to the mode of GPIO. Possible values <ref refid="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" kindref="member">POZYX_GPIO_DIGITAL_INPUT</ref>, <ref refid="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" kindref="member">POZYX_GPIO_PUSHPULL</ref>, <ref refid="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" kindref="member">POZYX_GPIO_OPENDRAIN</ref> </para></parameterdescription>
+<para>pointer to the mode of GPIO. Possible values <ref refid="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" kindref="member">POZYX_GPIO_DIGITAL_INPUT</ref>, <ref refid="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" kindref="member">POZYX_GPIO_PUSHPULL</ref>, <ref refid="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" kindref="member">POZYX_GPIO_OPENDRAIN</ref> </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -823,27 +921,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="909" column="1" bodyfile="Pozyx_lib.cpp" bodystart="116" bodyend="128"/>
+        <location file="Pozyx.h" line="909" column="16" bodyfile="Pozyx_lib.cpp" bodystart="116" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga96ff15d44a1d7473d2e2ad46f5a8b513" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -866,26 +968,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the pull configuration of a GPIO pin. Function to obtain the configured pull resistor of the GPIO for the given pin number. This is performed by reading from the reg:POZYX_CONFIG_GPIO1 up to reg:POZYX_CONFIG_GPIO4 register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the pull configuration of a GPIO pin. Function to obtain the configured pull resistor of the GPIO for the given pin number. This is performed by reading from the reg:POZYX_CONFIG_GPIO1 up to reg:POZYX_CONFIG_GPIO4 register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>gpio_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the pin to update </para></parameterdescription>
+<para>the pin to update </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pull</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pull configuration of GPIO. Possible values are <ref refid="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" kindref="member">POZYX_GPIO_NOPULL</ref>, <ref refid="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" kindref="member">POZYX_GPIO_PULLUP</ref>, <ref refid="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" kindref="member">POZYX_GPIO_PULLDOWN</ref>. </para></parameterdescription>
+<para>pull configuration of GPIO. Possible values are <ref refid="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" kindref="member">POZYX_GPIO_NOPULL</ref>, <ref refid="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" kindref="member">POZYX_GPIO_PULLUP</ref>, <ref refid="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" kindref="member">POZYX_GPIO_PULLDOWN</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -893,27 +999,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="924" column="1" bodyfile="Pozyx_lib.cpp" bodystart="130" bodyend="143"/>
+        <location file="Pozyx.h" line="924" column="16" bodyfile="Pozyx_lib.cpp" bodystart="130" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gad03adc2ff6c500597c603062567cbe2f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -940,33 +1050,38 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the GPIOs. Function to set the configuration mode of the GPIO for the given pin number. This is performed by writing to the reg:POZYX_CONFIG_GPIO1 up to reg:POZYX_CONFIG_GPIO4 register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the GPIOs. Function to set the configuration mode of the GPIO for the given pin number. This is performed by writing to the reg:POZYX_CONFIG_GPIO1 up to reg:POZYX_CONFIG_GPIO4 register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>gpio_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the GPIO pin to update. Possible values are 1, 2, 3 or 4. </para></parameterdescription>
+<para>the GPIO pin to update. Possible values are 1, 2, 3 or 4. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the mode of GPIO. Possible values <ref refid="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" kindref="member">POZYX_GPIO_DIGITAL_INPUT</ref>, <ref refid="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" kindref="member">POZYX_GPIO_PUSHPULL</ref>, <ref refid="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" kindref="member">POZYX_GPIO_OPENDRAIN</ref> </para></parameterdescription>
+<para>the mode of GPIO. Possible values <ref refid="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" kindref="member">POZYX_GPIO_DIGITAL_INPUT</ref>, <ref refid="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" kindref="member">POZYX_GPIO_PUSHPULL</ref>, <ref refid="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" kindref="member">POZYX_GPIO_OPENDRAIN</ref> </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pull</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pull configuration of GPIO. Possible values are <ref refid="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" kindref="member">POZYX_GPIO_NOPULL</ref>, <ref refid="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" kindref="member">POZYX_GPIO_PULLUP</ref>, <ref refid="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" kindref="member">POZYX_GPIO_PULLDOWN</ref>. </para></parameterdescription>
+<para>pull configuration of GPIO. Possible values are <ref refid="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" kindref="member">POZYX_GPIO_NOPULL</ref>, <ref refid="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" kindref="member">POZYX_GPIO_PULLUP</ref>, <ref refid="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" kindref="member">POZYX_GPIO_PULLDOWN</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -974,27 +1089,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="941" column="1" bodyfile="Pozyx_lib.cpp" bodystart="145" bodyend="156"/>
+        <location file="Pozyx.h" line="941" column="16" bodyfile="Pozyx_lib.cpp" bodystart="145" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga68c4c11cffc3dd13be1d7644e7c21e46" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1014,19 +1133,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the LEDs. This function configures the 6 LEDs on the pozyx device by writing to the register reg:POZYX_LED_CTRL. More specifically, the function configures which LEDs give system information. By default all the LEDs will give system information.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the LEDs. This function configures the 6 LEDs on the pozyx device by writing to the register reg:POZYX_LED_CTRL. More specifically, the function configures which LEDs give system information. By default all the LEDs will give system information.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>config</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>default: the configuration to be set. See POZYX_LED_CTRL for details. </para></parameterdescription>
+<para>default: the configuration to be set. See POZYX_LED_CTRL for details. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1034,28 +1156,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1gadc6e6fc23f97ac78e364e9aed5f6f482" kindref="member">setLed</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1gadc6e6fc23f97ac78e364e9aed5f6f482" kindref="member">setLed</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="958" column="1" bodyfile="Pozyx_lib.cpp" bodystart="158" bodyend="161"/>
+        <location file="Pozyx.h" line="958" column="16" bodyfile="Pozyx_lib.cpp" bodystart="158" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga676e273b3119e9d83f96b36909c9033c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1086,33 +1213,38 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the interrupt pin.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the interrupt pin.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>pin</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pin id on the pozyx device, can be 1,2,3,4 (or 5 or 6 on the pozyx tag) </para></parameterdescription>
+<para>pin id on the pozyx device, can be 1,2,3,4 (or 5 or 6 on the pozyx tag) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>push-pull or pull-mode </para></parameterdescription>
+<para>push-pull or pull-mode </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>bActiveHigh</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>is the interrupt active level HIGH (i.e. 3.3V) </para></parameterdescription>
+<para>is the interrupt active level HIGH (i.e. 3.3V) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>bLatch</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>should the interrupt be a short pulse or should it latch until the interrupt status register is read</para></parameterdescription>
+<para>should the interrupt be a short pulse or should it latch until the interrupt status register is read</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1120,20 +1252,23 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="971" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1263" bodyend="1273"/>
+        <location file="Pozyx.h" line="971" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1263" bodyend="1273"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga32df3976a9da4ad34996c6e3d5beafac" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1163,34 +1298,40 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Save (part of) the configuration to Flash memory. <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
-This functions stores (parts of) the configurable Pozyx settings in the non-volatile flash memory of the Pozyx device. This function will save the current settings and on the next startup of the Pozyx device these saved settings will be loaded automatically. settings from the flash memory. All registers that are writable, the anchor ids for positioning and the device list (which contains the anchor coordinates) can be saved.</para><para><parameterlist kind="param"><parameteritem>
+<para>Save (part of) the configuration to Flash memory. <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
+This functions stores (parts of) the configurable Pozyx settings in the non-volatile flash memory of the Pozyx device. This function will save the current settings and on the next startup of the Pozyx device these saved settings will be loaded automatically. settings from the flash memory. All registers that are writable, the anchor ids for positioning and the device list (which contains the anchor coordinates) can be saved.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>type</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>this specifies what should be saved. Possible options are <ref refid="_pozyx__definitions_8h_1a7ff8d0d00e4aaf3f9d2e2119926780e9" kindref="member">POZYX_FLASH_REGS</ref>, <ref refid="_pozyx__definitions_8h_1ac71959bd8d24fffa8fa73a492cae62e7" kindref="member">POZYX_FLASH_ANCHOR_IDS</ref> or <ref refid="_pozyx__definitions_8h_1a03219e6997b604c65c6df81db4a1fe54" kindref="member">POZYX_FLASH_NETWORK</ref>. </para></parameterdescription>
+<para>this specifies what should be saved. Possible options are <ref refid="_pozyx__definitions_8h_1a7ff8d0d00e4aaf3f9d2e2119926780e9" kindref="member">POZYX_FLASH_REGS</ref>, <ref refid="_pozyx__definitions_8h_1ac71959bd8d24fffa8fa73a492cae62e7" kindref="member">POZYX_FLASH_ANCHOR_IDS</ref> or <ref refid="_pozyx__definitions_8h_1a03219e6997b604c65c6df81db4a1fe54" kindref="member">POZYX_FLASH_NETWORK</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>registers</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>an option array that holds all the register addresses for which the value must be saved. All registers that are writable are allowed. </para></parameterdescription>
+<para>an option array that holds all the register addresses for which the value must be saved. All registers that are writable are allowed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>num_registers</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the length of the registers array. </para></parameterdescription>
+<para>optional parameter that determines the length of the registers array. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1198,28 +1339,33 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out.</para></parameterdescription>
+<para>function timed out.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="992" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1275" bodyend="1318"/>
+        <location file="Pozyx.h" line="992" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1275" bodyend="1318"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gaa5a7bdd8aefca8b397273bf71dc05b38" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1245,27 +1391,31 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Save registers to the flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
+<para>Save registers to the flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
 <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>registers</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>an option array that holds all the register addresses for which the value must be saved. All registers that are writable are allowed. </para></parameterdescription>
+<para>an option array that holds all the register addresses for which the value must be saved. All registers that are writable are allowed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>num_registers</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the length of the registers array. </para></parameterdescription>
+<para>optional parameter that determines the length of the registers array. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1273,28 +1423,33 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out. </para></parameterdescription>
+<para>function timed out. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1007" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1320" bodyend="1323"/>
+        <location file="Pozyx.h" line="1007" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1320" bodyend="1323"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga1752085446546dad185ca06d66587f58" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1309,13 +1464,15 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Save the Pozyx&apos;s stored network to its flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
+<para>Save the Pozyx&apos;s stored network to its flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
 <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1323,28 +1480,33 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out. </para></parameterdescription>
+<para>function timed out. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1020" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1325" bodyend="1328"/>
+        <location file="Pozyx.h" line="1020" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1325" bodyend="1328"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gaf14bf7f3af9872ee5a65e295a22925de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1359,13 +1521,15 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Save the Pozyx&apos;s stored anchor list to its flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
+<para>Save the Pozyx&apos;s stored anchor list to its flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
 <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1373,28 +1537,33 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out. </para></parameterdescription>
+<para>function timed out. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1033" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1330" bodyend="1333"/>
+        <location file="Pozyx.h" line="1033" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1330" bodyend="1333"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga59e825f3bf85e0705af28fee7d216c9d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1409,13 +1578,15 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Save the Pozyx&apos;s stored UWB settings to its flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
+<para>Save the Pozyx&apos;s stored UWB settings to its flash memory. See saveConfiguration for more information <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
 <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1423,28 +1594,33 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out. </para></parameterdescription>
+<para>function timed out. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" kindref="member">clearConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1046" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1335" bodyend="1339"/>
+        <location file="Pozyx.h" line="1046" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1335" bodyend="1339"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga119d86f9d9488396a3baad6a0b1f9564" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1459,13 +1635,16 @@ This functions stores (parts of) the configurable Pozyx settings in the non-vola
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Clears the configuration. <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
-This function clears (part of) the configuration that was previously stored in the non-volatile Flash memory. The next startup of the Pozyx device will load the default configuration values for the registers, anchor_ids and network list.</para><para><parameterlist kind="param"><parameteritem>
+<para>Clears the configuration. <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
+This function clears (part of) the configuration that was previously stored in the non-volatile Flash memory. The next startup of the Pozyx device will load the default configuration values for the registers, anchor_ids and network list.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1473,21 +1652,25 @@ This function clears (part of) the configuration that was previously stored in t
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>#POZYX_FAIL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__system__functions_1ga32df3976a9da4ad34996c6e3d5beafac" kindref="member">saveConfiguration</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__system__functions_1ga32df3976a9da4ad34996c6e3d5beafac" kindref="member">saveConfiguration</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1064" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1341" bodyend="1376"/>
+        <location file="Pozyx.h" line="1064" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1341" bodyend="1376"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1gaadb3265c0ef8f1511c351046b3262f7e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1506,20 +1689,23 @@ This function clears (part of) the configuration that was previously stored in t
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Verify if a register content is saved in the flash memory. <simplesect kind="version"><para>Requires firmware version v1.0</para></simplesect>
+<para>Verify if a register content is saved in the flash memory. <simplesect kind="version"><para>Requires firmware version v1.0</para>
+</simplesect>
 This function verifies if a given register variable, specified by its address, is saved in flash memory. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>regAddress</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the register address to check </para></parameterdescription>
+<para>the register address to check </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1527,20 +1713,23 @@ This function verifies if a given register variable, specified by its address, i
 <parametername>true(1)</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>if the register variable is saved </para></parameterdescription>
+<para>if the register variable is saved </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>false(0)</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>if the register variable is not saved </para></parameterdescription>
+<para>if the register variable is not saved </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1077" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1399" bodyend="1410"/>
+        <location file="Pozyx.h" line="1077" column="17" bodyfile="Pozyx_lib.cpp" bodystart="1399" bodyend="1410"/>
       </memberdef>
       <memberdef kind="function" id="group__system__functions_1ga93b4780f24c486f1d2e5f9b7a665fcba" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1555,19 +1744,23 @@ This function verifies if a given register variable, specified by its address, i
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Return the number of register variables saved in flash memory.</para><para><parameterlist kind="param"><parameteritem>
+<para>Return the number of register variables saved in flash memory.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>the number of register variables saved in flash memory. </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>the number of register variables saved in flash memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1086" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1378" bodyend="1397"/>
+        <location file="Pozyx.h" line="1086" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1378" bodyend="1397"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

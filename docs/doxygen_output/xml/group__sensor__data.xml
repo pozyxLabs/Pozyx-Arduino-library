@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="group__sensor__data" kind="group">
     <compoundname>sensor_data</compoundname>
     <title>Sensor_data</title>
@@ -21,19 +21,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Retrieve the configured sensor mode. This function reads out the register reg:POZYX_SENSORS_MODE which describes the configured sensor mode.</para><para><parameterlist kind="param"><parameteritem>
+<para>Retrieve the configured sensor mode. This function reads out the register reg:POZYX_SENSORS_MODE which describes the configured sensor mode.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>sensor_mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the sensor mode </para></parameterdescription>
+<para>reference to the sensor mode </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -41,27 +44,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1450" column="1" bodyfile="Pozyx_lib.cpp" bodystart="368" bodyend="371"/>
+        <location file="Pozyx.h" line="1452" column="16" bodyfile="Pozyx_lib.cpp" bodystart="368" bodyend="371"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga5ec67d77efc6833681645fd661d55d41" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -80,19 +87,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the sensor mode. This function reads out the register reg:POZYX_SENSORS_MODE which describes the configured sensor mode.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the sensor mode. This function reads out the register reg:POZYX_SENSORS_MODE which describes the configured sensor mode.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>sensor_mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the desired sensor mode. </para></parameterdescription>
+<para>the desired sensor mode. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -100,20 +110,23 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1462" column="1" bodyfile="Pozyx_lib.cpp" bodystart="373" bodyend="379"/>
+        <location file="Pozyx.h" line="1464" column="16" bodyfile="Pozyx_lib.cpp" bodystart="373" bodyend="379"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga3adf6096157564e8eacc394846693ce9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -132,19 +145,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain all raw sensor data at once as it&apos;s stored in the registers. This functions reads out the pressure, acceleration, magnetic field strength, angular velocity, orientation in Euler angles, the orientation as a quaternion, the linear acceleration, the gravity vector and temperature.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain all raw sensor data at once as it&apos;s stored in the registers. This functions reads out the pressure, acceleration, magnetic field strength, angular velocity, orientation in Euler angles, the orientation as a quaternion, the linear acceleration, the gravity vector and temperature.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>sensor_raw</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the sensor_raw object </para></parameterdescription>
+<para>reference to the sensor_raw object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -152,27 +168,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1476" column="1" bodyfile="Pozyx_lib.cpp" bodystart="396" bodyend="399"/>
+        <location file="Pozyx.h" line="1478" column="16" bodyfile="Pozyx_lib.cpp" bodystart="396" bodyend="399"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga96f125c933bb1ebc31df18693bdfb08e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -191,19 +211,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain all sensor data at once. This functions reads out the pressure, acceleration, magnetic field strength, angular velocity, orientation in Euler angles, the orientation as a quaternion, the linear acceleration, the gravity vector and temperature.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain all sensor data at once. This functions reads out the pressure, acceleration, magnetic field strength, angular velocity, orientation in Euler angles, the orientation as a quaternion, the linear acceleration, the gravity vector and temperature.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>sensor_data</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the sensor_data object </para></parameterdescription>
+<para>reference to the sensor_data object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -211,27 +234,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1490" column="1" bodyfile="Pozyx_lib.cpp" bodystart="401" bodyend="443"/>
+        <location file="Pozyx.h" line="1492" column="16" bodyfile="Pozyx_lib.cpp" bodystart="401" bodyend="443"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga3926a9fe02aa9261b8d791b3a0a30ea9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -250,19 +277,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the atmospheric pressure in Pascal. This function reads out the pressure starting from the register POZYX_PRESSURE. The maximal update rate is 10Hz. The units are Pa.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the atmospheric pressure in Pascal. This function reads out the pressure starting from the register POZYX_PRESSURE. The maximal update rate is 10Hz. The units are Pa.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>pressure</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pressure variable </para></parameterdescription>
+<para>reference to the pressure variable </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -270,27 +300,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1503" column="1" bodyfile="Pozyx_lib.cpp" bodystart="445" bodyend="457"/>
+        <location file="Pozyx.h" line="1505" column="16" bodyfile="Pozyx_lib.cpp" bodystart="445" bodyend="457"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga3a1fecdd51db3e57926a62e577979252" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -309,19 +343,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the max linear acceleration This registers functions similarly to the interrupt and error registers in that it clears the register&apos;s value upon reading. This is the max linear acceleration since the last read.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the max linear acceleration This registers functions similarly to the interrupt and error registers in that it clears the register&apos;s value upon reading. This is the max linear acceleration since the last read.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>max_lin_acc</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to a variable that will hold the max linear acceleration </para></parameterdescription>
+<para>pointer to a variable that will hold the max linear acceleration </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -329,27 +366,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1517" column="1" bodyfile="Pozyx_lib.cpp" bodystart="475" bodyend="477"/>
+        <location file="Pozyx.h" line="1519" column="16" bodyfile="Pozyx_lib.cpp" bodystart="475" bodyend="477"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga67549041d5a4ffeba63242f33135ad0e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -368,19 +409,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the 3D acceleration vector in mg. This function reads out the acceleration data starting from the register reg:POZYX_ACCEL_X. The maximal update rate is 100Hz. The units are mg. The vector is expressed in body coordinates (i.e., along axes of the device).</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the 3D acceleration vector in mg. This function reads out the acceleration data starting from the register reg:POZYX_ACCEL_X. The maximal update rate is 100Hz. The units are mg. The vector is expressed in body coordinates (i.e., along axes of the device).</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>acceleration</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the acceleration object </para></parameterdescription>
+<para>reference to the acceleration object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -388,27 +432,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1531" column="1" bodyfile="Pozyx_lib.cpp" bodystart="459" bodyend="473"/>
+        <location file="Pozyx.h" line="1533" column="16" bodyfile="Pozyx_lib.cpp" bodystart="459" bodyend="473"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1gafd6b4021601b896236f15589715d39c1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -427,19 +475,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the 3D magnetic field strength vector in µTesla. This function reads out the magnetic field strength data starting from the register reg:POZYX_MAGN_X. The maximal update rate is 100Hz. The vector is expressed in body coordinates (i.e., along axes of the device).</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the 3D magnetic field strength vector in µTesla. This function reads out the magnetic field strength data starting from the register reg:POZYX_MAGN_X. The maximal update rate is 100Hz. The vector is expressed in body coordinates (i.e., along axes of the device).</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>magnetic</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the magnetic object </para></parameterdescription>
+<para>reference to the magnetic object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -447,27 +498,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1545" column="1" bodyfile="Pozyx_lib.cpp" bodystart="479" bodyend="493"/>
+        <location file="Pozyx.h" line="1547" column="16" bodyfile="Pozyx_lib.cpp" bodystart="479" bodyend="493"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga3e9fecefe9e1d2d79ef50c5bcb29b3b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -486,19 +541,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the 3D angular velocity vector degrees per second. This function reads out the angular velocity from the gyroscope using the register reg:POZYX_GYRO_X. The maximal update rate is 100Hz. The rotations are expressed in body coordinates (i.e., the rotations around the axes of the device).</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the 3D angular velocity vector degrees per second. This function reads out the angular velocity from the gyroscope using the register reg:POZYX_GYRO_X. The maximal update rate is 100Hz. The rotations are expressed in body coordinates (i.e., the rotations around the axes of the device).</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>angular_vel</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the angular velocity object </para></parameterdescription>
+<para>reference to the angular velocity object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -506,27 +564,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1559" column="1" bodyfile="Pozyx_lib.cpp" bodystart="495" bodyend="509"/>
+        <location file="Pozyx.h" line="1561" column="16" bodyfile="Pozyx_lib.cpp" bodystart="495" bodyend="509"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga4c1015fcd60a841519d78eb2d5d5fa0e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -545,19 +607,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the orientation in Euler angles in degrees. This function reads out the Euleur angles: Yaw, Pitch and Roll that represents the 3D orientation of the device</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the orientation in Euler angles in degrees. This function reads out the Euleur angles: Yaw, Pitch and Roll that represents the 3D orientation of the device</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>euler_angles</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the euler_angles object </para></parameterdescription>
+<para>reference to the euler_angles object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -565,27 +630,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1572" column="1" bodyfile="Pozyx_lib.cpp" bodystart="511" bodyend="525"/>
+        <location file="Pozyx.h" line="1574" column="16" bodyfile="Pozyx_lib.cpp" bodystart="511" bodyend="525"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga2341c56eda847eb8c103f07b51586f3d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -604,19 +673,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the orientation in quaternions. This function reads out the 4 coordinates of the quaternion that represents the 3D orientation of the device. The quaternions are unitless and normalized.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the orientation in quaternions. This function reads out the 4 coordinates of the quaternion that represents the 3D orientation of the device. The quaternions are unitless and normalized.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>quaternion</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the quaternion object </para></parameterdescription>
+<para>reference to the quaternion object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -624,27 +696,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1586" column="1" bodyfile="Pozyx_lib.cpp" bodystart="527" bodyend="542"/>
+        <location file="Pozyx.h" line="1588" column="16" bodyfile="Pozyx_lib.cpp" bodystart="527" bodyend="542"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga9655806bc0206261052552b683ee664d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -663,19 +739,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the 3D linear acceleration in mg. This function reads out the linear acceleration data starting from the register reg:POZYX_LIA_X. The Linear acceleration is the acceleration compensated for gravity. The maximal update rate is 100Hz. The units are mg. The vector is expressed in body coordinates (i.e., along axes of the device).</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the 3D linear acceleration in mg. This function reads out the linear acceleration data starting from the register reg:POZYX_LIA_X. The Linear acceleration is the acceleration compensated for gravity. The maximal update rate is 100Hz. The units are mg. The vector is expressed in body coordinates (i.e., along axes of the device).</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>linear_acceleration</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the acceleration object </para></parameterdescription>
+<para>reference to the acceleration object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -683,27 +762,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1602" column="1" bodyfile="Pozyx_lib.cpp" bodystart="544" bodyend="558"/>
+        <location file="Pozyx.h" line="1604" column="16" bodyfile="Pozyx_lib.cpp" bodystart="544" bodyend="558"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga02f900f7b07df379c4a245726fa162cd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -722,19 +805,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the 3D gravity vector in mg. This function reads out the gravity vector coordinates starting from the register reg:POZYX_GRAV_X. The maximal update rate is 100Hz. The units are mg. The vector is expressed in body coordinates (i.e., along axes of the device). This vector always points to the ground, regardless of the orientation.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the 3D gravity vector in mg. This function reads out the gravity vector coordinates starting from the register reg:POZYX_GRAV_X. The maximal update rate is 100Hz. The units are mg. The vector is expressed in body coordinates (i.e., along axes of the device). This vector always points to the ground, regardless of the orientation.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>gravity_vector</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the gravity_vector object </para></parameterdescription>
+<para>reference to the gravity_vector object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -742,27 +828,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1616" column="1" bodyfile="Pozyx_lib.cpp" bodystart="560" bodyend="574"/>
+        <location file="Pozyx.h" line="1618" column="16" bodyfile="Pozyx_lib.cpp" bodystart="560" bodyend="574"/>
       </memberdef>
       <memberdef kind="function" id="group__sensor__data_1ga5a17d79a793ebaa2e0e53be76356c838" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -781,19 +871,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the temperature in degrees Celcius. This function reads out the temperature from the register reg:POZYX_TEMPERATURE. This function is unsupported in firmware version v0.9.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the temperature in degrees Celcius. This function reads out the temperature from the register reg:POZYX_TEMPERATURE. This function is unsupported in firmware version v0.9.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>temperature</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the temperature variable </para></parameterdescription>
+<para>reference to the temperature variable </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -801,27 +894,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1630" column="1" bodyfile="Pozyx_lib.cpp" bodystart="576" bodyend="588"/>
+        <location file="Pozyx.h" line="1632" column="16" bodyfile="Pozyx_lib.cpp" bodystart="576" bodyend="588"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

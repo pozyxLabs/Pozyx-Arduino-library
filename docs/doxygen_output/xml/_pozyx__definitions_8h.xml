@@ -1,35 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="_pozyx__definitions_8h" kind="file" language="C++">
     <compoundname>Pozyx_definitions.h</compoundname>
     <includedby refid="_pozyx_8h" local="yes">Pozyx.h</includedby>
     <includedby refid="_pozyx__core_8cpp" local="yes">Pozyx_core.cpp</includedby>
     <includedby refid="_pozyx__lib_8cpp" local="yes">Pozyx_lib.cpp</includedby>
     <invincdepgraph>
-      <node id="24">
-        <label>Pozyx_lib.cpp</label>
-        <link refid="_pozyx__lib_8cpp"/>
-      </node>
-      <node id="23">
+      <node id="3">
         <label>Pozyx_core.cpp</label>
         <link refid="_pozyx__core_8cpp"/>
       </node>
-      <node id="22">
+      <node id="2">
         <label>Pozyx.h</label>
         <link refid="_pozyx_8h"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="4">
+        <label>Pozyx_lib.cpp</label>
+        <link refid="_pozyx__lib_8cpp"/>
+      </node>
+      <node id="1">
         <label>Pozyx_definitions.h</label>
         <link refid="_pozyx__definitions_8h"/>
-        <childnode refid="22" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -220,7 +220,7 @@
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ae3734235731cd3745347c086c099b65e" prot="public" static="no">
         <name>POZYX_POS_FILTER</name>
-        <initializer>0x14   /* Pozyx filter configuration register */</initializer>
+        <initializer>0x14   /* <ref refid="_pozyx__core_8cpp_1a46279fcbb42c9e7c0939e4407287c673" kindref="member">Pozyx</ref> filter configuration register */</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -869,7 +869,7 @@
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a6681f73d9785a3bc570f58e0ac38fc7b" prot="public" static="no">
         <name>POZYX_RESET_SYS</name>
-        <initializer>0xB0   /* Reset the Pozyx device */</initializer>
+        <initializer>0xB0   /* Reset the <ref refid="_pozyx__core_8cpp_1a46279fcbb42c9e7c0939e4407287c673" kindref="member">Pozyx</ref> device */</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -1596,6 +1596,28 @@
         </inbodydescription>
         <location file="Pozyx_definitions.h" line="218" column="9" bodyfile="Pozyx_definitions.h" bodystart="218" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="define" id="_pozyx__definitions_8h_1accfe5e80a04ccb598e6b905ec4a1dec2" prot="public" static="no">
+        <name>POZYX_DELAY_POSITIONING</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx_definitions.h" line="219" column="9" bodyfile="Pozyx_definitions.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_pozyx__definitions_8h_1a4d9cb05643d8ddf2315febf4b251670e" prot="public" static="no">
+        <name>POZYX_DELAY_REMOTE_POSITIONING</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx_definitions.h" line="220" column="9" bodyfile="Pozyx_definitions.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a0fda3cf7b8359460f6e2850960c0cd2c" prot="public" static="no">
         <name>POZYX_DELAY_CALIBRATION</name>
         <initializer>1000</initializer>
@@ -1605,7 +1627,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="219" column="9" bodyfile="Pozyx_definitions.h" bodystart="219" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="221" column="9" bodyfile="Pozyx_definitions.h" bodystart="221" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" prot="public" static="no">
         <name>POZYX_FAILURE</name>
@@ -1616,7 +1638,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="220" column="9" bodyfile="Pozyx_definitions.h" bodystart="220" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="222" column="9" bodyfile="Pozyx_definitions.h" bodystart="222" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" prot="public" static="no">
         <name>POZYX_SUCCESS</name>
@@ -1627,7 +1649,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="221" column="9" bodyfile="Pozyx_definitions.h" bodystart="221" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="223" column="9" bodyfile="Pozyx_definitions.h" bodystart="223" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" prot="public" static="no">
         <name>POZYX_TIMEOUT</name>
@@ -1638,7 +1660,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="222" column="9" bodyfile="Pozyx_definitions.h" bodystart="222" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="224" column="9" bodyfile="Pozyx_definitions.h" bodystart="224" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" prot="public" static="no">
         <name>POZYX_3D</name>
@@ -1649,7 +1671,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="223" column="9" bodyfile="Pozyx_definitions.h" bodystart="223" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="225" column="9" bodyfile="Pozyx_definitions.h" bodystart="225" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" prot="public" static="no">
         <name>POZYX_2D</name>
@@ -1660,7 +1682,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="224" column="9" bodyfile="Pozyx_definitions.h" bodystart="224" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="226" column="9" bodyfile="Pozyx_definitions.h" bodystart="226" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" prot="public" static="no">
         <name>POZYX_2_5D</name>
@@ -1671,7 +1693,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="225" column="9" bodyfile="Pozyx_definitions.h" bodystart="225" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="227" column="9" bodyfile="Pozyx_definitions.h" bodystart="227" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1acb4a6e3f633b4725d8e02ddfe8be1a6a" prot="public" static="no">
         <name>POZYX_INT_PIN0</name>
@@ -1682,7 +1704,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="226" column="9" bodyfile="Pozyx_definitions.h" bodystart="226" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="228" column="9" bodyfile="Pozyx_definitions.h" bodystart="228" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1accbf30f50d2d3b1f265dc8f2817ba8bd" prot="public" static="no">
         <name>POZYX_INT_PIN1</name>
@@ -1693,7 +1715,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="227" column="9" bodyfile="Pozyx_definitions.h" bodystart="227" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="229" column="9" bodyfile="Pozyx_definitions.h" bodystart="229" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a90b7ae9cbc62159017f920d23bb63c89" prot="public" static="no">
         <name>POZYX_LED_CTRL_LEDRX</name>
@@ -1704,7 +1726,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="230" column="9" bodyfile="Pozyx_definitions.h" bodystart="230" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="232" column="9" bodyfile="Pozyx_definitions.h" bodystart="232" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a7a99d49cf1a32475fd37d058c40cca03" prot="public" static="no">
         <name>POZYX_LED_CTRL_LEDTX</name>
@@ -1715,7 +1737,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="231" column="9" bodyfile="Pozyx_definitions.h" bodystart="231" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="233" column="9" bodyfile="Pozyx_definitions.h" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" prot="public" static="no">
         <name>POZYX_ANCHOR_MODE</name>
@@ -1726,7 +1748,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="233" column="9" bodyfile="Pozyx_definitions.h" bodystart="233" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="235" column="9" bodyfile="Pozyx_definitions.h" bodystart="235" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" prot="public" static="no">
         <name>POZYX_TAG_MODE</name>
@@ -1737,7 +1759,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="234" column="9" bodyfile="Pozyx_definitions.h" bodystart="234" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="236" column="9" bodyfile="Pozyx_definitions.h" bodystart="236" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" prot="public" static="no">
         <name>POZYX_GPIO_DIGITAL_INPUT</name>
@@ -1748,7 +1770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="237" column="9" bodyfile="Pozyx_definitions.h" bodystart="237" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="239" column="9" bodyfile="Pozyx_definitions.h" bodystart="239" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" prot="public" static="no">
         <name>POZYX_GPIO_PUSHPULL</name>
@@ -1759,7 +1781,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="238" column="9" bodyfile="Pozyx_definitions.h" bodystart="238" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="240" column="9" bodyfile="Pozyx_definitions.h" bodystart="240" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" prot="public" static="no">
         <name>POZYX_GPIO_OPENDRAIN</name>
@@ -1770,7 +1792,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="239" column="9" bodyfile="Pozyx_definitions.h" bodystart="239" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="241" column="9" bodyfile="Pozyx_definitions.h" bodystart="241" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" prot="public" static="no">
         <name>POZYX_GPIO_NOPULL</name>
@@ -1781,7 +1803,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="242" column="9" bodyfile="Pozyx_definitions.h" bodystart="242" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="244" column="9" bodyfile="Pozyx_definitions.h" bodystart="244" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" prot="public" static="no">
         <name>POZYX_GPIO_PULLUP</name>
@@ -1792,7 +1814,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="243" column="9" bodyfile="Pozyx_definitions.h" bodystart="243" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="245" column="9" bodyfile="Pozyx_definitions.h" bodystart="245" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" prot="public" static="no">
         <name>POZYX_GPIO_PULLDOWN</name>
@@ -1803,7 +1825,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="244" column="9" bodyfile="Pozyx_definitions.h" bodystart="244" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="246" column="9" bodyfile="Pozyx_definitions.h" bodystart="246" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" prot="public" static="no">
         <name>POZYX_ANCHOR_SEL_MANUAL</name>
@@ -1814,7 +1836,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="247" column="9" bodyfile="Pozyx_definitions.h" bodystart="247" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="249" column="9" bodyfile="Pozyx_definitions.h" bodystart="249" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" prot="public" static="no">
         <name>POZYX_ANCHOR_SEL_AUTO</name>
@@ -1825,7 +1847,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="248" column="9" bodyfile="Pozyx_definitions.h" bodystart="248" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="250" column="9" bodyfile="Pozyx_definitions.h" bodystart="250" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aaf8b8a370641b5c75bdcbb3b76567ab6" prot="public" static="no">
         <name>POZYX_DISCOVERY_ANCHORS_ONLY</name>
@@ -1836,7 +1858,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="251" column="9" bodyfile="Pozyx_definitions.h" bodystart="251" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="253" column="9" bodyfile="Pozyx_definitions.h" bodystart="253" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aa4930276a621144b07085484d8c49f07" prot="public" static="no">
         <name>POZYX_DISCOVERY_TAGS_ONLY</name>
@@ -1847,7 +1869,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="252" column="9" bodyfile="Pozyx_definitions.h" bodystart="252" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="254" column="9" bodyfile="Pozyx_definitions.h" bodystart="254" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a3170131dfc671cd4a4f4e6fd5677ecc5" prot="public" static="no">
         <name>POZYX_DISCOVERY_ALL_DEVICES</name>
@@ -1858,7 +1880,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="253" column="9" bodyfile="Pozyx_definitions.h" bodystart="253" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="255" column="9" bodyfile="Pozyx_definitions.h" bodystart="255" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" prot="public" static="no">
         <name>MODE_POLLING</name>
@@ -1869,7 +1891,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="257" column="9" bodyfile="Pozyx_definitions.h" bodystart="257" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="259" column="9" bodyfile="Pozyx_definitions.h" bodystart="259" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" prot="public" static="no">
         <name>MODE_INTERRUPT</name>
@@ -1880,7 +1902,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="258" column="9" bodyfile="Pozyx_definitions.h" bodystart="258" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="260" column="9" bodyfile="Pozyx_definitions.h" bodystart="260" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a364dd4106755dec43f13bad863fb6493" prot="public" static="no">
         <name>POZYX_POS_DIV_MM</name>
@@ -1891,7 +1913,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="261" column="9" bodyfile="Pozyx_definitions.h" bodystart="261" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="263" column="9" bodyfile="Pozyx_definitions.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_pozyx__definitions_8h_1aadf626be681c8dd988fd9fc7e644dbe8" prot="public" static="no">
+        <name>POZYX_PRESS_DIVPOSITIONING</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx_definitions.h" line="264" column="9" bodyfile="Pozyx_definitions.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_pozyx__definitions_8h_1a197e4f49870c82e0b362e9d4ccdf122d" prot="public" static="no">
+        <name>POZYX_PRESS_DIVREMOTE_POSITIONING</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pozyx_definitions.h" line="265" column="9" bodyfile="Pozyx_definitions.h" bodystart="265" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a8880296c3a872f003992fdf90bd5b3d7" prot="public" static="no">
         <name>POZYX_PRESS_DIV_PA</name>
@@ -1902,7 +1946,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="262" column="9" bodyfile="Pozyx_definitions.h" bodystart="262" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="266" column="9" bodyfile="Pozyx_definitions.h" bodystart="266" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a21fd7cc96b2f6ac0c3ea14284d03c9b3" prot="public" static="no">
         <name>POZYX_ACCEL_DIV_MG</name>
@@ -1913,7 +1957,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="263" column="9" bodyfile="Pozyx_definitions.h" bodystart="263" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="267" column="9" bodyfile="Pozyx_definitions.h" bodystart="267" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a9457bfb66415f1a852cdb6a7ca3d704b" prot="public" static="no">
         <name>POZYX_GYRO_DIV_DPS</name>
@@ -1924,7 +1968,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="264" column="9" bodyfile="Pozyx_definitions.h" bodystart="264" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="268" column="9" bodyfile="Pozyx_definitions.h" bodystart="268" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1abe55f9c6f78414b62aca91dbded39ce9" prot="public" static="no">
         <name>POZYX_MAG_DIV_UT</name>
@@ -1935,7 +1979,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="265" column="9" bodyfile="Pozyx_definitions.h" bodystart="265" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="269" column="9" bodyfile="Pozyx_definitions.h" bodystart="269" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aab30d22d9a206563e33b63e581b003ef" prot="public" static="no">
         <name>POZYX_EULER_DIV_DEG</name>
@@ -1946,7 +1990,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="266" column="9" bodyfile="Pozyx_definitions.h" bodystart="266" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="270" column="9" bodyfile="Pozyx_definitions.h" bodystart="270" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a773654471c7b129dff7dd5902d937ddc" prot="public" static="no">
         <name>POZYX_QUAT_DIV</name>
@@ -1957,7 +2001,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="267" column="9" bodyfile="Pozyx_definitions.h" bodystart="267" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="271" column="9" bodyfile="Pozyx_definitions.h" bodystart="271" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ae396dbd8952d2514a663fcbbd8845212" prot="public" static="no">
         <name>POZYX_TEMP_DIV_CELSIUS</name>
@@ -1968,7 +2012,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="268" column="9" bodyfile="Pozyx_definitions.h" bodystart="268" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="272" column="9" bodyfile="Pozyx_definitions.h" bodystart="272" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a7e6775511d9c5ee345c22af70cf2bead" prot="public" static="no">
         <name>POZYX_ERROR_NONE</name>
@@ -1979,7 +2023,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="271" column="9" bodyfile="Pozyx_definitions.h" bodystart="271" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="275" column="9" bodyfile="Pozyx_definitions.h" bodystart="275" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a20116c465fcd0168ee536a107316ca44" prot="public" static="no">
         <name>POZYX_ERROR_I2C_WRITE</name>
@@ -1990,7 +2034,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="272" column="9" bodyfile="Pozyx_definitions.h" bodystart="272" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="276" column="9" bodyfile="Pozyx_definitions.h" bodystart="276" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a99e1f43376c172c187b04a3c8de965e7" prot="public" static="no">
         <name>POZYX_ERROR_I2C_CMDFULL</name>
@@ -2001,7 +2045,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="273" column="9" bodyfile="Pozyx_definitions.h" bodystart="273" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="277" column="9" bodyfile="Pozyx_definitions.h" bodystart="277" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a0c58f84f46047bbb63a6387a204266ac" prot="public" static="no">
         <name>POZYX_ERROR_ANCHOR_ADD</name>
@@ -2012,7 +2056,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="274" column="9" bodyfile="Pozyx_definitions.h" bodystart="274" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="278" column="9" bodyfile="Pozyx_definitions.h" bodystart="278" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a768b40cc98eb38690469fb2e437ea117" prot="public" static="no">
         <name>POZYX_ERROR_COMM_QUEUE_FULL</name>
@@ -2023,7 +2067,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="275" column="9" bodyfile="Pozyx_definitions.h" bodystart="275" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="279" column="9" bodyfile="Pozyx_definitions.h" bodystart="279" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ab4a5e5f1795036f5f34107f3da95e1ac" prot="public" static="no">
         <name>POZYX_ERROR_I2C_READ</name>
@@ -2034,7 +2078,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="276" column="9" bodyfile="Pozyx_definitions.h" bodystart="276" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="280" column="9" bodyfile="Pozyx_definitions.h" bodystart="280" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a7ee2e6ff2da4b5544268c9bf939ac564" prot="public" static="no">
         <name>POZYX_ERROR_UWB_CONFIG</name>
@@ -2045,7 +2089,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="277" column="9" bodyfile="Pozyx_definitions.h" bodystart="277" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="281" column="9" bodyfile="Pozyx_definitions.h" bodystart="281" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a1995d1ba34086cf2486fd8ec8b2584fe" prot="public" static="no">
         <name>POZYX_ERROR_OPERATION_QUEUE_FULL</name>
@@ -2056,7 +2100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="278" column="9" bodyfile="Pozyx_definitions.h" bodystart="278" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="282" column="9" bodyfile="Pozyx_definitions.h" bodystart="282" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a5578e09690cbc61eda6db38041b5adb5" prot="public" static="no">
         <name>POZYX_ERROR_TDMA</name>
@@ -2067,7 +2111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="279" column="9" bodyfile="Pozyx_definitions.h" bodystart="279" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="283" column="9" bodyfile="Pozyx_definitions.h" bodystart="283" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ad31c7d9fe1eec5ae9e01928f45b587ff" prot="public" static="no">
         <name>POZYX_ERROR_STARTUP_BUSFAULT</name>
@@ -2078,7 +2122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="280" column="9" bodyfile="Pozyx_definitions.h" bodystart="280" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="284" column="9" bodyfile="Pozyx_definitions.h" bodystart="284" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a658eb38058e795ae4aa8208360a20b66" prot="public" static="no">
         <name>POZYX_ERROR_FLASH_INVALID</name>
@@ -2089,7 +2133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="281" column="9" bodyfile="Pozyx_definitions.h" bodystart="281" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="285" column="9" bodyfile="Pozyx_definitions.h" bodystart="285" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a44d5dd9c53ee89143026981063d676e6" prot="public" static="no">
         <name>POZYX_ERROR_NOT_ENOUGH_ANCHORS</name>
@@ -2100,7 +2144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="282" column="9" bodyfile="Pozyx_definitions.h" bodystart="282" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="286" column="9" bodyfile="Pozyx_definitions.h" bodystart="286" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a114cc770cf8f516a97e7021aa9fd492f" prot="public" static="no">
         <name>POZYX_ERROR_DISCOVERY</name>
@@ -2111,7 +2155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="283" column="9" bodyfile="Pozyx_definitions.h" bodystart="283" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="287" column="9" bodyfile="Pozyx_definitions.h" bodystart="287" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1af35839a6682ec1b1dda98cb8eba5a525" prot="public" static="no">
         <name>POZYX_ERROR_CALIBRATION</name>
@@ -2122,7 +2166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="284" column="9" bodyfile="Pozyx_definitions.h" bodystart="284" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="288" column="9" bodyfile="Pozyx_definitions.h" bodystart="288" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ae3093ebd2e3c32291377c4d964d8ec3d" prot="public" static="no">
         <name>POZYX_ERROR_FUNC_PARAM</name>
@@ -2133,7 +2177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="285" column="9" bodyfile="Pozyx_definitions.h" bodystart="285" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="289" column="9" bodyfile="Pozyx_definitions.h" bodystart="289" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a3ce4eaf54cebd3e21f834f071fffd641" prot="public" static="no">
         <name>POZYX_ERROR_ANCHOR_NOT_FOUND</name>
@@ -2144,7 +2188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="286" column="9" bodyfile="Pozyx_definitions.h" bodystart="286" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="290" column="9" bodyfile="Pozyx_definitions.h" bodystart="290" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a1218cb16fce681f7b4cc2d1e39ed1d73" prot="public" static="no">
         <name>POZYX_ERROR_FLASH</name>
@@ -2155,7 +2199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="287" column="9" bodyfile="Pozyx_definitions.h" bodystart="287" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="291" column="9" bodyfile="Pozyx_definitions.h" bodystart="291" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a26900cc94f83f9921882dd224d10b0a0" prot="public" static="no">
         <name>POZYX_ERROR_MEMORY</name>
@@ -2166,7 +2210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="288" column="9" bodyfile="Pozyx_definitions.h" bodystart="288" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="292" column="9" bodyfile="Pozyx_definitions.h" bodystart="292" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a1e2166787251ad98cf6991160e67a754" prot="public" static="no">
         <name>POZYX_ERROR_RANGING</name>
@@ -2177,7 +2221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="289" column="9" bodyfile="Pozyx_definitions.h" bodystart="289" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="293" column="9" bodyfile="Pozyx_definitions.h" bodystart="293" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a32c48d7fe53e3bebdf0a355a89460472" prot="public" static="no">
         <name>POZYX_ERROR_RTIMEOUT1</name>
@@ -2188,7 +2232,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="290" column="9" bodyfile="Pozyx_definitions.h" bodystart="290" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="294" column="9" bodyfile="Pozyx_definitions.h" bodystart="294" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a9f9153304ead9f67eee184a4ee3555f7" prot="public" static="no">
         <name>POZYX_ERROR_RTIMEOUT2</name>
@@ -2199,7 +2243,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="291" column="9" bodyfile="Pozyx_definitions.h" bodystart="291" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="295" column="9" bodyfile="Pozyx_definitions.h" bodystart="295" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a7d7d4e2c6a3a2110d11ac7a729da3ceb" prot="public" static="no">
         <name>POZYX_ERROR_TXLATE</name>
@@ -2210,7 +2254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="292" column="9" bodyfile="Pozyx_definitions.h" bodystart="292" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="296" column="9" bodyfile="Pozyx_definitions.h" bodystart="296" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a326e3e8bae2e43182a690979dda7c5ef" prot="public" static="no">
         <name>POZYX_ERROR_UWB_BUSY</name>
@@ -2221,7 +2265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="293" column="9" bodyfile="Pozyx_definitions.h" bodystart="293" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="297" column="9" bodyfile="Pozyx_definitions.h" bodystart="297" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a8fb55d281ef44c8a94003226cff26623" prot="public" static="no">
         <name>POZYX_ERROR_POSALG</name>
@@ -2232,7 +2276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="294" column="9" bodyfile="Pozyx_definitions.h" bodystart="294" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="298" column="9" bodyfile="Pozyx_definitions.h" bodystart="298" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1aaf3294e7fbe80b7cfe48c83800af4cf1" prot="public" static="no">
         <name>POZYX_ERROR_NOACK</name>
@@ -2243,7 +2287,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="295" column="9" bodyfile="Pozyx_definitions.h" bodystart="295" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="299" column="9" bodyfile="Pozyx_definitions.h" bodystart="299" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a6864d93cbce9063d7da03b8fddd4d5b5" prot="public" static="no">
         <name>POZYX_ERROR_SNIFF_OVERFLOW</name>
@@ -2254,7 +2298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="296" column="9" bodyfile="Pozyx_definitions.h" bodystart="296" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="300" column="9" bodyfile="Pozyx_definitions.h" bodystart="300" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a92e5cda343727751d942136ec7705a54" prot="public" static="no">
         <name>POZYX_ERROR_NO_PPS</name>
@@ -2265,7 +2309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="297" column="9" bodyfile="Pozyx_definitions.h" bodystart="297" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="301" column="9" bodyfile="Pozyx_definitions.h" bodystart="301" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a70175686910722dc2c73abd4255c5a05" prot="public" static="no">
         <name>POZYX_ERROR_NEW_TASK</name>
@@ -2276,7 +2320,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="298" column="9" bodyfile="Pozyx_definitions.h" bodystart="298" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="302" column="9" bodyfile="Pozyx_definitions.h" bodystart="302" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1adb4a848f509999a532ee0806d2e0862f" prot="public" static="no">
         <name>POZYX_ERROR_UNRECDEV</name>
@@ -2287,7 +2331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="299" column="9" bodyfile="Pozyx_definitions.h" bodystart="299" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="303" column="9" bodyfile="Pozyx_definitions.h" bodystart="303" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1af4194dea98d35065b1ddf4d79d153829" prot="public" static="no">
         <name>POZYX_ERROR_GENERAL</name>
@@ -2298,7 +2342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="300" column="9" bodyfile="Pozyx_definitions.h" bodystart="300" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="304" column="9" bodyfile="Pozyx_definitions.h" bodystart="304" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a7ff8d0d00e4aaf3f9d2e2119926780e9" prot="public" static="no">
         <name>POZYX_FLASH_REGS</name>
@@ -2309,7 +2353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="303" column="9" bodyfile="Pozyx_definitions.h" bodystart="303" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="307" column="9" bodyfile="Pozyx_definitions.h" bodystart="307" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ac71959bd8d24fffa8fa73a492cae62e7" prot="public" static="no">
         <name>POZYX_FLASH_ANCHOR_IDS</name>
@@ -2320,7 +2364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="304" column="9" bodyfile="Pozyx_definitions.h" bodystart="304" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="308" column="9" bodyfile="Pozyx_definitions.h" bodystart="308" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1a03219e6997b604c65c6df81db4a1fe54" prot="public" static="no">
         <name>POZYX_FLASH_NETWORK</name>
@@ -2331,7 +2375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="305" column="9" bodyfile="Pozyx_definitions.h" bodystart="305" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="309" column="9" bodyfile="Pozyx_definitions.h" bodystart="309" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ab1934889333cf4657924683a2a0eb31d" prot="public" static="no">
         <name>PIN_MODE_PUSHPULL</name>
@@ -2342,7 +2386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="309" column="9" bodyfile="Pozyx_definitions.h" bodystart="309" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="313" column="9" bodyfile="Pozyx_definitions.h" bodystart="313" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ae397a62cb15b4e5927a836f9043905fa" prot="public" static="no">
         <name>PIN_ACTIVE_LOW</name>
@@ -2353,7 +2397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="310" column="9" bodyfile="Pozyx_definitions.h" bodystart="310" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="314" column="9" bodyfile="Pozyx_definitions.h" bodystart="314" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_pozyx__definitions_8h_1ab06ccdead13d48b3400809cda8354e26" prot="public" static="no">
         <name>PIN_ACTIVE_HIGH</name>
@@ -2364,7 +2408,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx_definitions.h" line="311" column="9" bodyfile="Pozyx_definitions.h" bodystart="311" bodyend="-1"/>
+        <location file="Pozyx_definitions.h" line="315" column="9" bodyfile="Pozyx_definitions.h" bodystart="315" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -2590,101 +2634,105 @@
 <codeline lineno="216" refid="_pozyx__definitions_8h_1a287375ef05e1a728853427682d805dba" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_REMOTE_WRITE<sp/><sp/><sp/><sp/>5</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="217" refid="_pozyx__definitions_8h_1a05bff13cd63b91eb95e9695bfb8e7c32" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_REMOTE_FUNCTION<sp/>10</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="218" refid="_pozyx__definitions_8h_1ab3bd326dd06121533fab4166279aad6e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_INTERRUPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>100</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="219" refid="_pozyx__definitions_8h_1a0fda3cf7b8359460f6e2850960c0cd2c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_CALIBRATION<sp/><sp/><sp/><sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="220" refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FAILURE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="221" refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="222" refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_TIMEOUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x8</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="223" refid="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_3D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="224" refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_2D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="225" refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_2_5D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="226" refid="_pozyx__definitions_8h_1acb4a6e3f633b4725d8e02ddfe8be1a6a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_INT_PIN0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="227" refid="_pozyx__definitions_8h_1accbf30f50d2d3b1f265dc8f2817ba8bd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_INT_PIN1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="normal"></highlight></codeline>
-<codeline lineno="229"><highlight class="normal"></highlight></codeline>
-<codeline lineno="230" refid="_pozyx__definitions_8h_1a90b7ae9cbc62159017f920d23bb63c89" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_LED_CTRL_LEDRX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x10</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="231" refid="_pozyx__definitions_8h_1a7a99d49cf1a32475fd37d058c40cca03" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_LED_CTRL_LEDTX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x20</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="232"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233" refid="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ANCHOR_MODE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="234" refid="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_TAG_MODE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"></highlight></codeline>
-<codeline lineno="236"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>GPIO<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="237" refid="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_DIGITAL_INPUT<sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="238" refid="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_PUSHPULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="239" refid="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_OPENDRAIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="240"><highlight class="normal"></highlight></codeline>
-<codeline lineno="241"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>GPIO<sp/>pull<sp/>resistor<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242" refid="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_NOPULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="243" refid="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_PULLUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="244" refid="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_PULLDOWN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="245"><highlight class="normal"></highlight></codeline>
-<codeline lineno="246"><highlight class="normal"></highlight><highlight class="comment">//<sp/>anchor<sp/>selection<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="247" refid="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ANCHOR_SEL_MANUAL<sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="248" refid="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ANCHOR_SEL_AUTO<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="249"><highlight class="normal"></highlight></codeline>
-<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment">//<sp/>discovery<sp/>options</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="251" refid="_pozyx__definitions_8h_1aaf8b8a370641b5c75bdcbb3b76567ab6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DISCOVERY_ANCHORS_ONLY<sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="252" refid="_pozyx__definitions_8h_1aa4930276a621144b07085484d8c49f07" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DISCOVERY_TAGS_ONLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="253" refid="_pozyx__definitions_8h_1a3170131dfc671cd4a4f4e6fd5677ecc5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DISCOVERY_ALL_DEVICES<sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="254"><highlight class="normal"></highlight></codeline>
-<codeline lineno="255"><highlight class="normal"></highlight></codeline>
-<codeline lineno="256"><highlight class="normal"></highlight><highlight class="comment">//<sp/>how<sp/>to<sp/>intercept<sp/>pozyx<sp/>events:<sp/>by<sp/>polling<sp/>or<sp/>by<sp/>interrupts</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="257" refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_POLLING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="258" refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_INTERRUPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="259"><highlight class="normal"></highlight></codeline>
-<codeline lineno="260"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Division<sp/>factors<sp/>for<sp/>converting<sp/>the<sp/>raw<sp/>register<sp/>values<sp/>to<sp/>meaningful<sp/>physical<sp/>quantities</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="261" refid="_pozyx__definitions_8h_1a364dd4106755dec43f13bad863fb6493" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_POS_DIV_MM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="262" refid="_pozyx__definitions_8h_1a8880296c3a872f003992fdf90bd5b3d7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_PRESS_DIV_PA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1000.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="263" refid="_pozyx__definitions_8h_1a21fd7cc96b2f6ac0c3ea14284d03c9b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ACCEL_DIV_MG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="264" refid="_pozyx__definitions_8h_1a9457bfb66415f1a852cdb6a7ca3d704b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GYRO_DIV_DPS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="265" refid="_pozyx__definitions_8h_1abe55f9c6f78414b62aca91dbded39ce9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_MAG_DIV_UT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="266" refid="_pozyx__definitions_8h_1aab30d22d9a206563e33b63e581b003ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_EULER_DIV_DEG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="267" refid="_pozyx__definitions_8h_1a773654471c7b129dff7dd5902d937ddc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_QUAT_DIV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16384.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="268" refid="_pozyx__definitions_8h_1ae396dbd8952d2514a663fcbbd8845212" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_TEMP_DIV_CELSIUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="269"><highlight class="normal"></highlight></codeline>
-<codeline lineno="270"><highlight class="normal"></highlight><highlight class="comment">//<sp/>error-code<sp/>defintions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="271" refid="_pozyx__definitions_8h_1a7e6775511d9c5ee345c22af70cf2bead" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="272" refid="_pozyx__definitions_8h_1a20116c465fcd0168ee536a107316ca44" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_I2C_WRITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="273" refid="_pozyx__definitions_8h_1a99e1f43376c172c187b04a3c8de965e7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_I2C_CMDFULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="274" refid="_pozyx__definitions_8h_1a0c58f84f46047bbb63a6387a204266ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_ANCHOR_ADD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="275" refid="_pozyx__definitions_8h_1a768b40cc98eb38690469fb2e437ea117" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_COMM_QUEUE_FULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x04</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="276" refid="_pozyx__definitions_8h_1ab4a5e5f1795036f5f34107f3da95e1ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_I2C_READ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x05</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="277" refid="_pozyx__definitions_8h_1a7ee2e6ff2da4b5544268c9bf939ac564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_UWB_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x06</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="278" refid="_pozyx__definitions_8h_1a1995d1ba34086cf2486fd8ec8b2584fe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_OPERATION_QUEUE_FULL<sp/><sp/>0x07</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="279" refid="_pozyx__definitions_8h_1a5578e09690cbc61eda6db38041b5adb5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_TDMA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xA0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="280" refid="_pozyx__definitions_8h_1ad31c7d9fe1eec5ae9e01928f45b587ff" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_STARTUP_BUSFAULT<sp/><sp/><sp/><sp/><sp/><sp/>0x08</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="281" refid="_pozyx__definitions_8h_1a658eb38058e795ae4aa8208360a20b66" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_FLASH_INVALID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x09</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="282" refid="_pozyx__definitions_8h_1a44d5dd9c53ee89143026981063d676e6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NOT_ENOUGH_ANCHORS<sp/><sp/><sp/><sp/>0x0A</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="283" refid="_pozyx__definitions_8h_1a114cc770cf8f516a97e7021aa9fd492f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_DISCOVERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0X0B</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="284" refid="_pozyx__definitions_8h_1af35839a6682ec1b1dda98cb8eba5a525" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_CALIBRATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0C</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="285" refid="_pozyx__definitions_8h_1ae3093ebd2e3c32291377c4d964d8ec3d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_FUNC_PARAM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0D</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="286" refid="_pozyx__definitions_8h_1a3ce4eaf54cebd3e21f834f071fffd641" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_ANCHOR_NOT_FOUND<sp/><sp/><sp/><sp/><sp/><sp/>0x0E</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="287" refid="_pozyx__definitions_8h_1a1218cb16fce681f7b4cc2d1e39ed1d73" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_FLASH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0F</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="288" refid="_pozyx__definitions_8h_1a26900cc94f83f9921882dd224d10b0a0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_MEMORY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x10</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="289" refid="_pozyx__definitions_8h_1a1e2166787251ad98cf6991160e67a754" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_RANGING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x11</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="290" refid="_pozyx__definitions_8h_1a32c48d7fe53e3bebdf0a355a89460472" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_RTIMEOUT1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x12</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="291" refid="_pozyx__definitions_8h_1a9f9153304ead9f67eee184a4ee3555f7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_RTIMEOUT2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x13</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="292" refid="_pozyx__definitions_8h_1a7d7d4e2c6a3a2110d11ac7a729da3ceb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_TXLATE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x14</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="293" refid="_pozyx__definitions_8h_1a326e3e8bae2e43182a690979dda7c5ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_UWB_BUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x15</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="294" refid="_pozyx__definitions_8h_1a8fb55d281ef44c8a94003226cff26623" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_POSALG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x16</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="295" refid="_pozyx__definitions_8h_1aaf3294e7fbe80b7cfe48c83800af4cf1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NOACK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x17</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="296" refid="_pozyx__definitions_8h_1a6864d93cbce9063d7da03b8fddd4d5b5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_SNIFF_OVERFLOW<sp/><sp/><sp/><sp/><sp/><sp/>0xE0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="297" refid="_pozyx__definitions_8h_1a92e5cda343727751d942136ec7705a54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NO_PPS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="298" refid="_pozyx__definitions_8h_1a70175686910722dc2c73abd4255c5a05" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NEW_TASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="299" refid="_pozyx__definitions_8h_1adb4a848f509999a532ee0806d2e0862f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_UNRECDEV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="300" refid="_pozyx__definitions_8h_1af4194dea98d35065b1ddf4d79d153829" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_GENERAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFF</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="301"><highlight class="normal"></highlight></codeline>
-<codeline lineno="302"><highlight class="normal"></highlight><highlight class="comment">//<sp/>flash<sp/>configuration<sp/>types</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="303" refid="_pozyx__definitions_8h_1a7ff8d0d00e4aaf3f9d2e2119926780e9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FLASH_REGS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="304" refid="_pozyx__definitions_8h_1ac71959bd8d24fffa8fa73a492cae62e7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FLASH_ANCHOR_IDS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="305" refid="_pozyx__definitions_8h_1a03219e6997b604c65c6df81db4a1fe54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FLASH_NETWORK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="306"><highlight class="normal"></highlight></codeline>
-<codeline lineno="307"><highlight class="normal"></highlight></codeline>
-<codeline lineno="308"><highlight class="normal"></highlight><highlight class="comment">//<sp/>possible<sp/>interrupt<sp/>pin<sp/>configuration<sp/>settings</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="309" refid="_pozyx__definitions_8h_1ab1934889333cf4657924683a2a0eb31d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_MODE_PUSHPULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="310" refid="_pozyx__definitions_8h_1ae397a62cb15b4e5927a836f9043905fa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_ACTIVE_LOW<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="311" refid="_pozyx__definitions_8h_1ab06ccdead13d48b3400809cda8354e26" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_ACTIVE_HIGH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="312"><highlight class="normal"></highlight></codeline>
-<codeline lineno="313"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="219" refid="_pozyx__definitions_8h_1accfe5e80a04ccb598e6b905ec4a1dec2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_POSITIONING<sp/><sp/><sp/><sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220" refid="_pozyx__definitions_8h_1a4d9cb05643d8ddf2315febf4b251670e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_REMOTE_POSITIONING<sp/><sp/><sp/><sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="_pozyx__definitions_8h_1a0fda3cf7b8359460f6e2850960c0cd2c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DELAY_CALIBRATION<sp/><sp/><sp/><sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FAILURE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224" refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_TIMEOUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_3D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_2D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_2_5D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="_pozyx__definitions_8h_1acb4a6e3f633b4725d8e02ddfe8be1a6a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_INT_PIN0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229" refid="_pozyx__definitions_8h_1accbf30f50d2d3b1f265dc8f2817ba8bd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_INT_PIN1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="_pozyx__definitions_8h_1a90b7ae9cbc62159017f920d23bb63c89" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_LED_CTRL_LEDRX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="_pozyx__definitions_8h_1a7a99d49cf1a32475fd37d058c40cca03" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_LED_CTRL_LEDTX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ANCHOR_MODE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_TAG_MODE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>GPIO<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="_pozyx__definitions_8h_1a2c769de44a12905dda5350b4c085bf51" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_DIGITAL_INPUT<sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240" refid="_pozyx__definitions_8h_1a2a88927aba7f763bb133b0c82236b538" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_PUSHPULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="_pozyx__definitions_8h_1a3448f2b15f2d90d35ada35141709efb0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_OPENDRAIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>GPIO<sp/>pull<sp/>resistor<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244" refid="_pozyx__definitions_8h_1af219f0b0b9073acd1b397e0ae9abdb0e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_NOPULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245" refid="_pozyx__definitions_8h_1aa6aa6f997e23331bacf22d61c35c9bf4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_PULLUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246" refid="_pozyx__definitions_8h_1af308c9597e3a586069ba741da3951899" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GPIO_PULLDOWN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="comment">//<sp/>anchor<sp/>selection<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249" refid="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ANCHOR_SEL_MANUAL<sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250" refid="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ANCHOR_SEL_AUTO<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="comment">//<sp/>discovery<sp/>options</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253" refid="_pozyx__definitions_8h_1aaf8b8a370641b5c75bdcbb3b76567ab6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DISCOVERY_ANCHORS_ONLY<sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="_pozyx__definitions_8h_1aa4930276a621144b07085484d8c49f07" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DISCOVERY_TAGS_ONLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255" refid="_pozyx__definitions_8h_1a3170131dfc671cd4a4f4e6fd5677ecc5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_DISCOVERY_ALL_DEVICES<sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="comment">//<sp/>how<sp/>to<sp/>intercept<sp/>pozyx<sp/>events:<sp/>by<sp/>polling<sp/>or<sp/>by<sp/>interrupts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259" refid="_pozyx__definitions_8h_1aafaaa4dd5a9f2d13dbffd7e96de81600" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_POLLING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="_pozyx__definitions_8h_1a8d77eb431b083266c7296180fa80f238" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_INTERRUPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Division<sp/>factors<sp/>for<sp/>converting<sp/>the<sp/>raw<sp/>register<sp/>values<sp/>to<sp/>meaningful<sp/>physical<sp/>quantities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="_pozyx__definitions_8h_1a364dd4106755dec43f13bad863fb6493" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_POS_DIV_MM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264" refid="_pozyx__definitions_8h_1aadf626be681c8dd988fd9fc7e644dbe8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_PRESS_DIVPOSITIONING<sp/><sp/><sp/><sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265" refid="_pozyx__definitions_8h_1a197e4f49870c82e0b362e9d4ccdf122d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_PRESS_DIVREMOTE_POSITIONING<sp/><sp/><sp/><sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="_pozyx__definitions_8h_1a8880296c3a872f003992fdf90bd5b3d7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_PRESS_DIV_PA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1000.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267" refid="_pozyx__definitions_8h_1a21fd7cc96b2f6ac0c3ea14284d03c9b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ACCEL_DIV_MG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268" refid="_pozyx__definitions_8h_1a9457bfb66415f1a852cdb6a7ca3d704b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_GYRO_DIV_DPS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="_pozyx__definitions_8h_1abe55f9c6f78414b62aca91dbded39ce9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_MAG_DIV_UT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270" refid="_pozyx__definitions_8h_1aab30d22d9a206563e33b63e581b003ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_EULER_DIV_DEG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271" refid="_pozyx__definitions_8h_1a773654471c7b129dff7dd5902d937ddc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_QUAT_DIV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>16384.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="_pozyx__definitions_8h_1ae396dbd8952d2514a663fcbbd8845212" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_TEMP_DIV_CELSIUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight><highlight class="comment">//<sp/>error-code<sp/>defintions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275" refid="_pozyx__definitions_8h_1a7e6775511d9c5ee345c22af70cf2bead" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276" refid="_pozyx__definitions_8h_1a20116c465fcd0168ee536a107316ca44" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_I2C_WRITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="_pozyx__definitions_8h_1a99e1f43376c172c187b04a3c8de965e7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_I2C_CMDFULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278" refid="_pozyx__definitions_8h_1a0c58f84f46047bbb63a6387a204266ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_ANCHOR_ADD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279" refid="_pozyx__definitions_8h_1a768b40cc98eb38690469fb2e437ea117" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_COMM_QUEUE_FULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x04</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280" refid="_pozyx__definitions_8h_1ab4a5e5f1795036f5f34107f3da95e1ac" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_I2C_READ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x05</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="_pozyx__definitions_8h_1a7ee2e6ff2da4b5544268c9bf939ac564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_UWB_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x06</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282" refid="_pozyx__definitions_8h_1a1995d1ba34086cf2486fd8ec8b2584fe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_OPERATION_QUEUE_FULL<sp/><sp/>0x07</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283" refid="_pozyx__definitions_8h_1a5578e09690cbc61eda6db38041b5adb5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_TDMA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xA0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284" refid="_pozyx__definitions_8h_1ad31c7d9fe1eec5ae9e01928f45b587ff" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_STARTUP_BUSFAULT<sp/><sp/><sp/><sp/><sp/><sp/>0x08</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285" refid="_pozyx__definitions_8h_1a658eb38058e795ae4aa8208360a20b66" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_FLASH_INVALID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x09</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286" refid="_pozyx__definitions_8h_1a44d5dd9c53ee89143026981063d676e6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NOT_ENOUGH_ANCHORS<sp/><sp/><sp/><sp/>0x0A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287" refid="_pozyx__definitions_8h_1a114cc770cf8f516a97e7021aa9fd492f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_DISCOVERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0X0B</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288" refid="_pozyx__definitions_8h_1af35839a6682ec1b1dda98cb8eba5a525" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_CALIBRATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289" refid="_pozyx__definitions_8h_1ae3093ebd2e3c32291377c4d964d8ec3d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_FUNC_PARAM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0D</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290" refid="_pozyx__definitions_8h_1a3ce4eaf54cebd3e21f834f071fffd641" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_ANCHOR_NOT_FOUND<sp/><sp/><sp/><sp/><sp/><sp/>0x0E</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291" refid="_pozyx__definitions_8h_1a1218cb16fce681f7b4cc2d1e39ed1d73" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_FLASH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0F</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292" refid="_pozyx__definitions_8h_1a26900cc94f83f9921882dd224d10b0a0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_MEMORY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="_pozyx__definitions_8h_1a1e2166787251ad98cf6991160e67a754" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_RANGING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="_pozyx__definitions_8h_1a32c48d7fe53e3bebdf0a355a89460472" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_RTIMEOUT1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295" refid="_pozyx__definitions_8h_1a9f9153304ead9f67eee184a4ee3555f7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_RTIMEOUT2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x13</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296" refid="_pozyx__definitions_8h_1a7d7d4e2c6a3a2110d11ac7a729da3ceb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_TXLATE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x14</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297" refid="_pozyx__definitions_8h_1a326e3e8bae2e43182a690979dda7c5ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_UWB_BUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298" refid="_pozyx__definitions_8h_1a8fb55d281ef44c8a94003226cff26623" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_POSALG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299" refid="_pozyx__definitions_8h_1aaf3294e7fbe80b7cfe48c83800af4cf1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NOACK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x17</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300" refid="_pozyx__definitions_8h_1a6864d93cbce9063d7da03b8fddd4d5b5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_SNIFF_OVERFLOW<sp/><sp/><sp/><sp/><sp/><sp/>0xE0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301" refid="_pozyx__definitions_8h_1a92e5cda343727751d942136ec7705a54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NO_PPS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302" refid="_pozyx__definitions_8h_1a70175686910722dc2c73abd4255c5a05" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_NEW_TASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="_pozyx__definitions_8h_1adb4a848f509999a532ee0806d2e0862f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_UNRECDEV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304" refid="_pozyx__definitions_8h_1af4194dea98d35065b1ddf4d79d153829" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_ERROR_GENERAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="comment">//<sp/>flash<sp/>configuration<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307" refid="_pozyx__definitions_8h_1a7ff8d0d00e4aaf3f9d2e2119926780e9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FLASH_REGS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308" refid="_pozyx__definitions_8h_1ac71959bd8d24fffa8fa73a492cae62e7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FLASH_ANCHOR_IDS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309" refid="_pozyx__definitions_8h_1a03219e6997b604c65c6df81db4a1fe54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POZYX_FLASH_NETWORK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="comment">//<sp/>possible<sp/>interrupt<sp/>pin<sp/>configuration<sp/>settings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="313" refid="_pozyx__definitions_8h_1ab1934889333cf4657924683a2a0eb31d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_MODE_PUSHPULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314" refid="_pozyx__definitions_8h_1ae397a62cb15b4e5927a836f9043905fa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_ACTIVE_LOW<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="_pozyx__definitions_8h_1ab06ccdead13d48b3400809cda8354e26" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_ACTIVE_HIGH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="Pozyx_definitions.h"/>
   </compounddef>

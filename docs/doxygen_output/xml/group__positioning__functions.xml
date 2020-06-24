@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="group__positioning__functions" kind="group">
     <compoundname>Positioning_functions</compoundname>
     <title>Positioning_functions</title>
@@ -21,19 +21,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the last coordinates of the device. Retrieve the last coordinates of the device or the remote device. Note that this function does not trigger positioning.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the last coordinates of the device. Retrieve the last coordinates of the device or the remote device. Note that this function does not trigger positioning.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>coordinates</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the coordinates pointer object. </para></parameterdescription>
+<para>reference to the coordinates pointer object. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used.</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -41,28 +44,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>, <ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>, <ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1110" column="1" bodyfile="Pozyx_lib.cpp" bodystart="381" bodyend="384"/>
+        <location file="Pozyx.h" line="1110" column="16" bodyfile="Pozyx_lib.cpp" bodystart="381" bodyend="384"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gaec7360ab64c1bef9699b21e8473658d1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -81,19 +89,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Set the coordinates of the device. Manually set the coordinates of the device or the remote device.</para><para><parameterlist kind="param"><parameteritem>
+<para>Set the coordinates of the device. Manually set the coordinates of the device or the remote device.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>coordinates</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>coordinates to be set </para></parameterdescription>
+<para>coordinates to be set </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -101,28 +112,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga4b8ff7242fde6a0db1bf05cf31fe447e" kindref="member">getCoordinates</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga4b8ff7242fde6a0db1bf05cf31fe447e" kindref="member">getCoordinates</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1125" column="1" bodyfile="Pozyx_lib.cpp" bodystart="386" bodyend="389"/>
+        <location file="Pozyx.h" line="1125" column="16" bodyfile="Pozyx_lib.cpp" bodystart="386" bodyend="389"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga1b16fa16ad0c15523488e7b7a69aaf79" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -141,19 +157,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the last estimated position error covariance information. Retrieve the last error covariance of the position for the device or the remote device. Note that this function does not trigger positioning.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the last estimated position error covariance information. Retrieve the last error covariance of the position for the device or the remote device. Note that this function does not trigger positioning.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>pos_error</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the pos error object </para></parameterdescription>
+<para>reference to the pos error object </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -161,27 +180,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1139" column="1" bodyfile="Pozyx_lib.cpp" bodystart="391" bodyend="394"/>
+        <location file="Pozyx.h" line="1139" column="16" bodyfile="Pozyx_lib.cpp" bodystart="391" bodyend="394"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga6b4d059335356e89fdc0d206c95c6f94" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -205,26 +228,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Manually set which anchors to use for positioning. Function to manually set which anchors to use for positioning by calling the register function reg:POZYX_POS_SET_ANCHOR_IDS. Notice that the anchors specified are only used if this is configured with setSelectionOfAnchors. Furthermore, the anchors specified in this functions must be available in the device list with their coordinates.</para><para><parameterlist kind="param"><parameteritem>
+<para>Manually set which anchors to use for positioning. Function to manually set which anchors to use for positioning by calling the register function reg:POZYX_POS_SET_ANCHOR_IDS. Notice that the anchors specified are only used if this is configured with setSelectionOfAnchors. Furthermore, the anchors specified in this functions must be available in the device list with their coordinates.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>anchors[]</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>an array with network id&apos;s of anchors to be used </para></parameterdescription>
+<para>an array with network id&apos;s of anchors to be used </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>anchor_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of anchors write </para></parameterdescription>
+<para>the number of anchors write </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -232,28 +259,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1ga4916badd5a879160bff75be96e94badb" kindref="member">getPositioningAnchorIds</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1ga4916badd5a879160bff75be96e94badb" kindref="member">getPositioningAnchorIds</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1157" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1019" bodyend="1025"/>
+        <location file="Pozyx.h" line="1157" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1019" bodyend="1025"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga4916badd5a879160bff75be96e94badb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -277,26 +309,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain which anchors used for positioning. Function to retrieve the anchors that used for positioning by calling the register function reg:POZYX_POS_GET_ANCHOR_IDS. When in automatic anchor selection mode, the chosen anchors are listed here.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain which anchors used for positioning. Function to retrieve the anchors that used for positioning by calling the register function reg:POZYX_POS_GET_ANCHOR_IDS. When in automatic anchor selection mode, the chosen anchors are listed here.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>anchors[]</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>an array with network id&apos;s of anchors manually set </para></parameterdescription>
+<para>an array with network id&apos;s of anchors manually set </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>anchor_num</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of anchors to read. </para></parameterdescription>
+<para>the number of anchors to read. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -304,28 +340,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1ga6b4d059335356e89fdc0d206c95c6f94" kindref="member">setPositioningAnchorIds</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1ga6b4d059335356e89fdc0d206c95c6f94" kindref="member">setPositioningAnchorIds</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1174" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1028" bodyend="1043"/>
+        <location file="Pozyx.h" line="1174" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1028" bodyend="1043"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga28a08ffb669f5a3d5ec2e0caf73f0173" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -344,19 +385,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Read the update interval continuous positioning. This function reads the configured update interval for continuous positioning from the register reg:POZYX_POS_INTERVAL.</para><para><parameterlist kind="param"><parameteritem>
+<para>Read the update interval continuous positioning. This function reads the configured update interval for continuous positioning from the register reg:POZYX_POS_INTERVAL.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>ms</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to the update interval in milliseconds. A value of 0 means that continuous positioning is disabled. </para></parameterdescription>
+<para>pointer to the update interval in milliseconds. A value of 0 means that continuous positioning is disabled. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -364,28 +408,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1gaee35fc368f4d56c36d9b6f594ab34323" kindref="member">setUpdateInterval</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1gaee35fc368f4d56c36d9b6f594ab34323" kindref="member">setUpdateInterval</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1189" column="1" bodyfile="Pozyx_lib.cpp" bodystart="93" bodyend="96"/>
+        <location file="Pozyx.h" line="1189" column="16" bodyfile="Pozyx_lib.cpp" bodystart="93" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gaee35fc368f4d56c36d9b6f594ab34323" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -404,19 +453,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the udpate interval for continuous positioning. This function configures the update interval by writing to the register reg:POZYX_POS_INTERVAL. By writing a valid value, the system will start continuous positioning which will generate a position estimate on regular intervals. This will generate a <ref refid="_pozyx__definitions_8h_1a048d311aa3d0be6a900394b7d032efed" kindref="member">POZYX_INT_STATUS_POS</ref> interrupt when interrupts are enabled.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the udpate interval for continuous positioning. This function configures the update interval by writing to the register reg:POZYX_POS_INTERVAL. By writing a valid value, the system will start continuous positioning which will generate a position estimate on regular intervals. This will generate a <ref refid="_pozyx__definitions_8h_1a048d311aa3d0be6a900394b7d032efed" kindref="member">POZYX_INT_STATUS_POS</ref> interrupt when interrupts are enabled.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>ms</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>update interval in milliseconds. The update interval must be larger or equal to 100ms. </para></parameterdescription>
+<para>update interval in milliseconds. The update interval must be larger or equal to 100ms. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -424,21 +476,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga28a08ffb669f5a3d5ec2e0caf73f0173" kindref="member">getUpdateInterval</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga28a08ffb669f5a3d5ec2e0caf73f0173" kindref="member">getUpdateInterval</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1205" column="1" bodyfile="Pozyx_lib.cpp" bodystart="98" bodyend="104"/>
+        <location file="Pozyx.h" line="1205" column="16" bodyfile="Pozyx_lib.cpp" bodystart="98" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga882f3c5f42513cd31ac25768d21dc86c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -457,19 +513,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the configured ranging protocol. This function obtains the configured ranging protocol by reading from the reg:POZYX_RANGE_PROTOCOL register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the configured ranging protocol. This function obtains the configured ranging protocol by reading from the reg:POZYX_RANGE_PROTOCOL register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>protocol</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to the variable holding the ranging protocol used when ranging. Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION. </para></parameterdescription>
+<para>pointer to the variable holding the ranging protocol used when ranging. Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -477,28 +536,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1gad720385d709c85fe83d254d8f8090f21" kindref="member">setRangingProtocol</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1gad720385d709c85fe83d254d8f8090f21" kindref="member">setRangingProtocol</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1221" column="1" bodyfile="Pozyx_lib.cpp" bodystart="112" bodyend="114"/>
+        <location file="Pozyx.h" line="1221" column="16" bodyfile="Pozyx_lib.cpp" bodystart="112" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gad720385d709c85fe83d254d8f8090f21" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -517,19 +581,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the ranging protocol. This function configures the ranging protocol by writing to the reg:POZYX_RANGE_PROTOCOL register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the ranging protocol. This function configures the ranging protocol by writing to the reg:POZYX_RANGE_PROTOCOL register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>protocol</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Ranging protocol used when ranging. Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION. </para></parameterdescription>
+<para>Ranging protocol used when ranging. Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -537,28 +604,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1ga882f3c5f42513cd31ac25768d21dc86c" kindref="member">getRangingProtocol</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1ga882f3c5f42513cd31ac25768d21dc86c" kindref="member">getRangingProtocol</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1237" column="1" bodyfile="Pozyx_lib.cpp" bodystart="106" bodyend="110"/>
+        <location file="Pozyx.h" line="1237" column="16" bodyfile="Pozyx_lib.cpp" bodystart="106" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga19b1738d0cf2658f72f79bf2b64181f5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -577,19 +649,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>TODO Obtain the configured positioning filter strength. This function obtains the configured positioning filter strength by reading from the reg:POZYX_POS_FILTER register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the configured positioning filter strength. This function obtains the configured positioning filter strength by reading from the reg:POZYX_POS_FILTER register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>filter_strength</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to the variable holding the filter strength used in the built-in filter. This strength is the amount of previous samples used in positioning. Possible values for the position filter strength is between 0 and 15 samples. </para></parameterdescription>
+<para>pointer to the variable holding the filter strength used in the built-in filter. This strength is the amount of previous samples used in positioning. Possible values for the position filter strength is between 0 and 15 samples. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -597,28 +672,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga8e234029c68c35a40d0bab9d4310241c" kindref="member">getPositionFilterType</ref>, getPositionFilter, <ref refid="group__positioning__functions_1ga141f3425b5d61c0f3cac39c249c8dc3a" kindref="member">setPositionFilter</ref>, setPositionFilterType, setPositionFilterStrength </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga8e234029c68c35a40d0bab9d4310241c" kindref="member">getPositionFilterType</ref>, <ref refid="group__positioning__functions_1ga141f3425b5d61c0f3cac39c249c8dc3a" kindref="member">setPositionFilter</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1254" column="1" bodyfile="Pozyx_lib.cpp" bodystart="163" bodyend="168"/>
+        <location file="Pozyx.h" line="1254" column="16" bodyfile="Pozyx_lib.cpp" bodystart="163" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga8e234029c68c35a40d0bab9d4310241c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -637,19 +717,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>TODO Obtain the configured positioning algorithm. This function obtains the configured positioning algorithm by reading from the reg:POZYX_POS_ALG register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the configured positioning filter type. This function obtains the configured positioning filter type by reading from the reg:POZYX_POS_FILTER register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>algorithm</parametername>
+<parametername>filter_type</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to the variable holding the algorithm used to determine position. Possible values for the positioning algorithm are <ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref> and <ref refid="_pozyx__definitions_8h_1afba6580cbdf81109115835e25310c07e" kindref="member">POZYX_POS_ALG_LS</ref>. </para></parameterdescription>
+<para>pointer to the variable holding the filter type data. Possible values for the positioning algorithm are <ref refid="_pozyx__definitions_8h_1a90899b60012ca8d80179b4487d973137" kindref="member">FILTER_TYPE_NONE</ref>, <ref refid="_pozyx__definitions_8h_1a0720f77bc3dc2799a590c5d9c26124a3" kindref="member">FILTER_TYPE_FIR</ref>, <ref refid="_pozyx__definitions_8h_1a9722f7039120e551c0aa2b0a3fb7386d" kindref="member">FILTER_TYPE_MOVINGMEDIAN</ref>, and <ref refid="_pozyx__definitions_8h_1a9332400a089b788042ee510a1e0aa7e7" kindref="member">FILTER_TYPE_MOVINGAVERAGE</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -657,28 +740,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga19b1738d0cf2658f72f79bf2b64181f5" kindref="member">getPositionFilterStrength</ref>, <ref refid="group__positioning__functions_1ga141f3425b5d61c0f3cac39c249c8dc3a" kindref="member">setPositionFilter</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1270" column="1" bodyfile="Pozyx_lib.cpp" bodystart="170" bodyend="175"/>
+        <location file="Pozyx.h" line="1270" column="16" bodyfile="Pozyx_lib.cpp" bodystart="170" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga141f3425b5d61c0f3cac39c249c8dc3a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -701,19 +789,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>TODO Configure the ranging protocol. This function configures the ranging protocol by writing to the reg:POZYX_RANGE_PROTOCOL register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the positioning filter. This function configures the positioning filter by writing to the reg:POZYX_POS_FILTER register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>protocol</parametername>
+<parametername>filter_type</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Ranging protocol used when ranging. Possible values for the ranging protocol are POZYX_RANGE_PROTOCOL_FAST and POZYX_RANGE_PROTOCOL_PRECISION. </para></parameterdescription>
+<para>Filter type used when positioning. Possible values for the positioning algorithm are <ref refid="_pozyx__definitions_8h_1a90899b60012ca8d80179b4487d973137" kindref="member">FILTER_TYPE_NONE</ref>, <ref refid="_pozyx__definitions_8h_1a0720f77bc3dc2799a590c5d9c26124a3" kindref="member">FILTER_TYPE_FIR</ref>, <ref refid="_pozyx__definitions_8h_1a9722f7039120e551c0aa2b0a3fb7386d" kindref="member">FILTER_TYPE_MOVINGMEDIAN</ref>, and <ref refid="_pozyx__definitions_8h_1a9332400a089b788042ee510a1e0aa7e7" kindref="member">FILTER_TYPE_MOVINGAVERAGE</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filter_strength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filter strength used when positioning. Possible values for the position filter strength is between 0 and 15 samples. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -721,28 +820,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1ga882f3c5f42513cd31ac25768d21dc86c" kindref="member">getRangingProtocol</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga19b1738d0cf2658f72f79bf2b64181f5" kindref="member">getPositionFilterStrength</ref>, <ref refid="group__positioning__functions_1ga8e234029c68c35a40d0bab9d4310241c" kindref="member">getPositionFilterType</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1286" column="1" bodyfile="Pozyx_lib.cpp" bodystart="177" bodyend="185"/>
+        <location file="Pozyx.h" line="1288" column="16" bodyfile="Pozyx_lib.cpp" bodystart="177" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -761,19 +865,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the configured positioning algorithm. This function obtains the configured positioning algorithm by reading from the reg:POZYX_POS_ALG register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the configured positioning algorithm. This function obtains the configured positioning algorithm by reading from the reg:POZYX_POS_ALG register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>algorithm</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to the variable holding the algorithm used to determine position. Possible values for the positioning algorithm are <ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref> and <ref refid="_pozyx__definitions_8h_1afba6580cbdf81109115835e25310c07e" kindref="member">POZYX_POS_ALG_LS</ref>. </para></parameterdescription>
+<para>pointer to the variable holding the algorithm used to determine position. Possible values for the positioning algorithm are <ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref> and <ref refid="_pozyx__definitions_8h_1afba6580cbdf81109115835e25310c07e" kindref="member">POZYX_POS_ALG_LS</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -781,28 +888,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1302" column="1" bodyfile="Pozyx_lib.cpp" bodystart="187" bodyend="193"/>
+        <location file="Pozyx.h" line="1304" column="16" bodyfile="Pozyx_lib.cpp" bodystart="187" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -821,19 +933,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the configured positioning dimension. This function obtains the configuration of the physical dimension by reading from the reg:POZYX_POS_ALG register.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the configured positioning dimension. This function obtains the configuration of the physical dimension by reading from the reg:POZYX_POS_ALG register.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>dimension</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>pointer to physical dimension used for the algorithm. Possible values for the dimension are <ref refid="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" kindref="member">POZYX_3D</ref>, <ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref> or <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref>. </para></parameterdescription>
+<para>pointer to physical dimension used for the algorithm. Possible values for the dimension are <ref refid="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" kindref="member">POZYX_3D</ref>, <ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref> or <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -841,28 +956,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" kindref="member">getPositionAlgorithm</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" kindref="member">getPositionAlgorithm</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1317" column="1" bodyfile="Pozyx_lib.cpp" bodystart="195" bodyend="200"/>
+        <location file="Pozyx.h" line="1319" column="16" bodyfile="Pozyx_lib.cpp" bodystart="195" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -887,26 +1007,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure the positioning algorithm. This function configures the positioning algorithm and the desired physical dimension by writing to the register reg:POZYX_POS_ALG.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure the positioning algorithm. This function configures the positioning algorithm and the desired physical dimension by writing to the register reg:POZYX_POS_ALG.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>algorithm</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>algorithm used to determine the position. Possible values are <ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref> and <ref refid="_pozyx__definitions_8h_1afba6580cbdf81109115835e25310c07e" kindref="member">POZYX_POS_ALG_LS</ref>. </para></parameterdescription>
+<para>algorithm used to determine the position. Possible values are <ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref> and <ref refid="_pozyx__definitions_8h_1afba6580cbdf81109115835e25310c07e" kindref="member">POZYX_POS_ALG_LS</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>dimension</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>physical dimension used for the algorithm. Possible values are <ref refid="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" kindref="member">POZYX_3D</ref>, <ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref> or <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref>. </para></parameterdescription>
+<para>physical dimension used for the algorithm. Possible values are <ref refid="_pozyx__definitions_8h_1aac0161672d3b0733f910e8a5151f4afd" kindref="member">POZYX_3D</ref>, <ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref> or <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref>. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -914,21 +1038,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" kindref="member">getPositionAlgorithm</ref>, <ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" kindref="member">getPositionAlgorithm</ref>, <ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1334" column="1" bodyfile="Pozyx_lib.cpp" bodystart="202" bodyend="212"/>
+        <location file="Pozyx.h" line="1336" column="16" bodyfile="Pozyx_lib.cpp" bodystart="202" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gaaef0649bc661ebf84c7a23cfac844e5a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -947,19 +1075,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the anchor selection mode. This function reads the anchor selection mode bit from the register reg:POZYX_POS_NUM_ANCHORS. This bit describes how the anchors are selected for positioning, either manually or automatically.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the anchor selection mode. This function reads the anchor selection mode bit from the register reg:POZYX_POS_NUM_ANCHORS. This bit describes how the anchors are selected for positioning, either manually or automatically.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the anchor selection mode. Possible results are <ref refid="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" kindref="member">POZYX_ANCHOR_SEL_MANUAL</ref> for manual anchor selection or <ref refid="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" kindref="member">POZYX_ANCHOR_SEL_AUTO</ref> for automatic anchor selection. </para></parameterdescription>
+<para>reference to the anchor selection mode. Possible results are <ref refid="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" kindref="member">POZYX_ANCHOR_SEL_MANUAL</ref> for manual anchor selection or <ref refid="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" kindref="member">POZYX_ANCHOR_SEL_AUTO</ref> for automatic anchor selection. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -967,27 +1098,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1348" column="1" bodyfile="Pozyx_lib.cpp" bodystart="214" bodyend="219"/>
+        <location file="Pozyx.h" line="1350" column="16" bodyfile="Pozyx_lib.cpp" bodystart="214" bodyend="219"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga31d624e2740311fd46d3354d31f1b9f7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1006,19 +1141,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the configured number of anchors used for positioning. This functions reads out the reg:POZYX_POS_NUM_ANCHORS register to obtain the number of anchors that are being used for positioning.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the configured number of anchors used for positioning. This functions reads out the reg:POZYX_POS_NUM_ANCHORS register to obtain the number of anchors that are being used for positioning.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>nr_anchors</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>reference to the number of anchors </para></parameterdescription>
+<para>reference to the number of anchors </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1026,27 +1164,31 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received. </para></parameterdescription>
+<para>function timed out, no response received. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1363" column="1" bodyfile="Pozyx_lib.cpp" bodystart="221" bodyend="226"/>
+        <location file="Pozyx.h" line="1365" column="16" bodyfile="Pozyx_lib.cpp" bodystart="221" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1069,26 +1211,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Configure how many anchors are used for positioning and how they are selected. This function configures the number of anchors used for positioning. Theoretically, a larger number of anchors leads to better positioning performance. However, in practice this is not always the case. The more anchors used for positioning, the longer the positioning process will take. Furthermore, it can be chosen which anchors are to be used: either a fixed set given by the user, or an automatic selection between all the anchors in the internal device list.</para><para><parameterlist kind="param"><parameteritem>
+<para>Configure how many anchors are used for positioning and how they are selected. This function configures the number of anchors used for positioning. Theoretically, a larger number of anchors leads to better positioning performance. However, in practice this is not always the case. The more anchors used for positioning, the longer the positioning process will take. Furthermore, it can be chosen which anchors are to be used: either a fixed set given by the user, or an automatic selection between all the anchors in the internal device list.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>describes how the anchors are selected. Possible values are <ref refid="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" kindref="member">POZYX_ANCHOR_SEL_MANUAL</ref> for manual anchor selection or <ref refid="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" kindref="member">POZYX_ANCHOR_SEL_AUTO</ref> for automatic anchor selection. </para></parameterdescription>
+<para>describes how the anchors are selected. Possible values are <ref refid="_pozyx__definitions_8h_1aa0625ea1fa2c0d24436e3f1ad45dcb06" kindref="member">POZYX_ANCHOR_SEL_MANUAL</ref> for manual anchor selection or <ref refid="_pozyx__definitions_8h_1a9dc67362b0d1dd2c2681228377d3e26d" kindref="member">POZYX_ANCHOR_SEL_AUTO</ref> for automatic anchor selection. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>nr_anchors</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of anchors to use for positioning. Must be larger than 2 and smaller than 16. </para></parameterdescription>
+<para>the number of anchors to use for positioning. Must be larger than 2 and smaller than 16. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1096,21 +1242,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga6b4d059335356e89fdc0d206c95c6f94" kindref="member">setPositioningAnchorIds</ref> to set the anchor IDs in manual anchor selection mode. </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga6b4d059335356e89fdc0d206c95c6f94" kindref="member">setPositioningAnchorIds</ref> to set the anchor IDs in manual anchor selection mode. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1383" column="1" bodyfile="Pozyx_lib.cpp" bodystart="228" bodyend="237"/>
+        <location file="Pozyx.h" line="1385" column="16" bodyfile="Pozyx_lib.cpp" bodystart="228" bodyend="237"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga693d7983f8c27ed279cf7e257d07a60d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1129,19 +1279,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the operation mode of the device. This function obtains the operation mode (anchor or tag) by reading from the register reg:POZYX_OPERATION_MODE. This operation mode is independent of the hardware it is on and will have it&apos;s effect when performing discovery or auto calibration.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the operation mode of the device. This function obtains the operation mode (anchor or tag) by reading from the register reg:POZYX_OPERATION_MODE. This operation mode is independent of the hardware it is on and will have it&apos;s effect when performing discovery or auto calibration.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The mode of operations <ref refid="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" kindref="member">POZYX_ANCHOR_MODE</ref> or <ref refid="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" kindref="member">POZYX_TAG_MODE</ref> </para></parameterdescription>
+<para>The mode of operations <ref refid="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" kindref="member">POZYX_ANCHOR_MODE</ref> or <ref refid="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" kindref="member">POZYX_TAG_MODE</ref> </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1149,28 +1302,33 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed. </para></parameterdescription>
+<para>function failed. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1a945acc4e445b8feb7dfbdf227ad8dda3" kindref="member">POZYX_TIMEOUT</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function timed out, no response received.</para></parameterdescription>
+<para>function timed out, no response received.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga7ca6dcb9668784e428e435ebbc89ea2a" kindref="member">setOperationMode</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga7ca6dcb9668784e428e435ebbc89ea2a" kindref="member">setOperationMode</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1400" column="1" bodyfile="Pozyx_lib.cpp" bodystart="356" bodyend="359"/>
+        <location file="Pozyx.h" line="1402" column="16" bodyfile="Pozyx_lib.cpp" bodystart="356" bodyend="359"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga7ca6dcb9668784e428e435ebbc89ea2a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1189,19 +1347,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Define if the device operates as a tag or an anchor. This function defines how the device should operate (as an anchor or tag) by writing to the register reg:POZYX_OPERATION_MODE. This operation mode is independent of the hardware it is on and will have it&apos;s effect when performing discovery or auto calibration. This function overrules the jumper that is present on the board.</para><para><parameterlist kind="param"><parameteritem>
+<para>Define if the device operates as a tag or an anchor. This function defines how the device should operate (as an anchor or tag) by writing to the register reg:POZYX_OPERATION_MODE. This operation mode is independent of the hardware it is on and will have it&apos;s effect when performing discovery or auto calibration. This function overrules the jumper that is present on the board.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The mode of operations <ref refid="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" kindref="member">POZYX_ANCHOR_MODE</ref> or <ref refid="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" kindref="member">POZYX_TAG_MODE</ref> </para></parameterdescription>
+<para>The mode of operations <ref refid="_pozyx__definitions_8h_1a399fea0b6a783cda5447f359d3988a9a" kindref="member">POZYX_ANCHOR_MODE</ref> or <ref refid="_pozyx__definitions_8h_1a4fe59c3707d087748e47b865488ba24d" kindref="member">POZYX_TAG_MODE</ref> </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1209,21 +1370,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga693d7983f8c27ed279cf7e257d07a60d" kindref="member">getOperationMode</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga693d7983f8c27ed279cf7e257d07a60d" kindref="member">getOperationMode</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1417" column="1" bodyfile="Pozyx_lib.cpp" bodystart="361" bodyend="366"/>
+        <location file="Pozyx.h" line="1419" column="16" bodyfile="Pozyx_lib.cpp" bodystart="361" bodyend="366"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga9e3985c70357d78589da57441b94c387" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>String</type>
@@ -1238,12 +1403,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Get the textual system error. This function reads out the reg:POZYX_ERRORCODE register and converts the error code to a textual message.</para><para><parameterlist kind="param"><parameteritem>
+<para>Get the textual system error. This function reads out the reg:POZYX_ERRORCODE register and converts the error code to a textual message.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device to be used</para></parameterdescription>
+<para>optional parameter that determines the remote device to be used</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1251,13 +1418,15 @@
 <parametername>String</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the textual error </para></parameterdescription>
+<para>the textual error </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1429" column="1" bodyfile="Pozyx_lib.cpp" bodystart="636" bodyend="705"/>
+        <location file="Pozyx.h" line="1431" column="19" bodyfile="Pozyx_lib.cpp" bodystart="636" bodyend="705"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1286,7 +1455,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1639" column="1" bodyfile="Pozyx_lib.cpp" bodystart="782" bodyend="788"/>
+        <location file="Pozyx.h" line="1641" column="16" bodyfile="Pozyx_lib.cpp" bodystart="782" bodyend="788"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga09f3f1c1d371f9c2733289843d267597" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1309,19 +1478,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the coordinates. This function triggers the positioning algorithm to perform positioning with the given parameters. By default it will automatically select 4 anchors from the internal device list. It will then perform ranging with these anchors and use the results to compute the coordinates. This function requires that the coordinates for the anchors are stored in the internal device list.</para><para>Please read the tutorial ready to localize to get started with positioning.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the coordinates. This function triggers the positioning algorithm to perform positioning with the given parameters. By default it will automatically select 4 anchors from the internal device list. It will then perform ranging with these anchors and use the results to compute the coordinates. This function requires that the coordinates for the anchors are stored in the internal device list.</para>
+<para>Please read the tutorial ready to localize to get started with positioning.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>position</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>data object to store the result </para></parameterdescription>
+<para>data object to store the result </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>height</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that is used for <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref> to give the height in mm of the tag</para></parameterdescription>
+<para>optional parameter that is used for <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref> to give the height in mm of the tag</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1329,21 +1502,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref>, <ref refid="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" kindref="member">doAnchorCalibration</ref>, <ref refid="group__device__list_1gaa009179113eb5cea2260e025f2352576" kindref="member">addDevice</ref>, <ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref>, <ref refid="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" kindref="member">doAnchorCalibration</ref>, <ref refid="group__device__list_1gaa009179113eb5cea2260e025f2352576" kindref="member">addDevice</ref>, <ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1658" column="1" bodyfile="Pozyx_lib.cpp" bodystart="790" bodyend="821"/>
+        <location file="Pozyx.h" line="1660" column="16" bodyfile="Pozyx_lib.cpp" bodystart="790" bodyend="821"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1376,7 +1553,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1661" column="1" bodyfile="Pozyx_lib.cpp" bodystart="894" bodyend="900"/>
+        <location file="Pozyx.h" line="1663" column="16" bodyfile="Pozyx_lib.cpp" bodystart="894" bodyend="900"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga4a51e3d3be70d10922e2b5b828b731e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1403,26 +1580,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Obtain the coordinates of a remote device. Don&apos;t use with 2.5D!</para><para>This function triggers the positioning algorithm on a remote pozyx device to perform positioning with the given parameters. By default it will automatically select 4 anchors from the internal device list on the remote device. The device will perform ranging with the anchors and use the results to compute the coordinates. This function requires that the coordinates for the anchors are stored in the internal device list on the remote device. After positioning is completed, the remote device will automatically transmit the result back.</para><para><parameterlist kind="param"><parameteritem>
+<para>Obtain the coordinates of a remote device. Don&apos;t use with 2.5D!</para>
+<para>This function triggers the positioning algorithm on a remote pozyx device to perform positioning with the given parameters. By default it will automatically select 4 anchors from the internal device list on the remote device. The device will perform ranging with the anchors and use the results to compute the coordinates. This function requires that the coordinates for the anchors are stored in the internal device list on the remote device. After positioning is completed, the remote device will automatically transmit the result back.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the remote device that will do the positioning </para></parameterdescription>
+<para>the remote device that will do the positioning </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>position</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>data object to store the result </para></parameterdescription>
+<para>data object to store the result </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>height</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that is used for <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref> to give the height in mm of the tag</para></parameterdescription>
+<para>optional parameter that is used for <ref refid="_pozyx__definitions_8h_1a53282e67a7053adf7ef7064a8447b2da" kindref="member">POZYX_2_5D</ref> to give the height in mm of the tag</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1430,21 +1612,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>, <ref refid="group__device__list_1gaa009179113eb5cea2260e025f2352576" kindref="member">addDevice</ref>, <ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>, <ref refid="group__device__list_1gaa009179113eb5cea2260e025f2352576" kindref="member">addDevice</ref>, <ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>, <ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1681" column="1" bodyfile="Pozyx_lib.cpp" bodystart="902" bodyend="974"/>
+        <location file="Pozyx.h" line="1683" column="16" bodyfile="Pozyx_lib.cpp" bodystart="902" bodyend="974"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1462,19 +1648,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Trigger ranging with a remote device. This function performs ranging with a remote device using the UWB signals.</para><para><parameterlist kind="param"><parameteritem>
+<para>Trigger ranging with a remote device. This function performs ranging with a remote device using the UWB signals.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>destination</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the target device to do ranging with </para></parameterdescription>
+<para>the target device to do ranging with </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>range</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the pointer to where the resulting data will be stored</para></parameterdescription>
+<para>the pointer to where the resulting data will be stored</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1482,21 +1671,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" kindref="member">doRemoteRanging</ref>, <ref refid="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" kindref="member">getDeviceRangeInfo</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" kindref="member">doRemoteRanging</ref>, <ref refid="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" kindref="member">getDeviceRangeInfo</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1695" column="1" bodyfile="Pozyx_lib.cpp" bodystart="719" bodyend="749"/>
+        <location file="Pozyx.h" line="1697" column="16" bodyfile="Pozyx_lib.cpp" bodystart="719" bodyend="749"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1518,26 +1711,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Trigger ranging between two remote devivces. Function allowing to trigger ranging between two remote devices A and B. The ranging data is collected by device A and transmitted back to the local device.</para><para><parameterlist kind="param"><parameteritem>
+<para>Trigger ranging between two remote devivces. Function allowing to trigger ranging between two remote devices A and B. The ranging data is collected by device A and transmitted back to the local device.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>device_from</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>device A that will initiate the range request. </para></parameterdescription>
+<para>device A that will initiate the range request. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>device_to</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>device B that will respond to the range request. </para></parameterdescription>
+<para>device B that will respond to the range request. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>range</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the pointer to where the resulting data will be stored</para></parameterdescription>
+<para>the pointer to where the resulting data will be stored</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="retval"><parameteritem>
@@ -1545,21 +1742,25 @@
 <parametername><ref refid="_pozyx__definitions_8h_1ad7d6663746be12398c26497b86a5925e" kindref="member">POZYX_SUCCESS</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>success. </para></parameterdescription>
+<para>success. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="_pozyx__definitions_8h_1ac822bbf1a25fb85a9a9671f3a794c17f" kindref="member">POZYX_FAILURE</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para>function failed.</para></parameterdescription>
+<para>function failed.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" kindref="member">getDeviceRangeInfo</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" kindref="member">getDeviceRangeInfo</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1711" column="1" bodyfile="Pozyx_lib.cpp" bodystart="751" bodyend="780"/>
+        <location file="Pozyx.h" line="1713" column="16" bodyfile="Pozyx_lib.cpp" bodystart="751" bodyend="780"/>
       </memberdef>
       <memberdef kind="function" id="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1582,33 +1783,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Retrieve stored ranging information. Functions to retrieve the latest ranging information (i.e., the distance, signal strength and timestamp) with respect to a remote device. This function does not trigger ranging.</para><para><parameterlist kind="param"><parameteritem>
+<para>Retrieve stored ranging information. Functions to retrieve the latest ranging information (i.e., the distance, signal strength and timestamp) with respect to a remote device. This function does not trigger ranging.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>device_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>network id of the device for which range information is requested </para></parameterdescription>
+<para>network id of the device for which range information is requested </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>device_range</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>data object to store the information </para></parameterdescription>
+<para>data object to store the information </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>remote_id</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>optional parameter that determines the remote device where this function is called.</para></parameterdescription>
+<para>optional parameter that determines the remote device where this function is called.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" kindref="member">doRemoteRanging</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="see"><para><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>, <ref refid="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" kindref="member">doRemoteRanging</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1724" column="1" bodyfile="Pozyx_lib.cpp" bodystart="1255" bodyend="1261"/>
+        <location file="Pozyx.h" line="1726" column="16" bodyfile="Pozyx_lib.cpp" bodystart="1255" bodyend="1261"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

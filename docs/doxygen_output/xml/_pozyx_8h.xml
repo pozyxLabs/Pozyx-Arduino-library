@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="_pozyx_8h" kind="file" language="C++">
     <compoundname>Pozyx.h</compoundname>
     <includes local="no">inttypes.h</includes>
@@ -9,48 +9,48 @@
     <includedby refid="_pozyx__core_8cpp" local="yes">Pozyx_core.cpp</includedby>
     <includedby refid="_pozyx__lib_8cpp" local="yes">Pozyx_lib.cpp</includedby>
     <incdepgraph>
-      <node id="7">
+      <node id="4">
         <label>assert.h</label>
       </node>
-      <node id="6">
+      <node id="3">
         <label>WProgram.h</label>
       </node>
-      <node id="4">
+      <node id="1">
         <label>Pozyx.h</label>
         <link refid="_pozyx_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
       </node>
-      <node id="8">
+      <node id="5">
         <label>Pozyx_definitions.h</label>
         <link refid="_pozyx__definitions_8h"/>
       </node>
-      <node id="5">
+      <node id="2">
         <label>inttypes.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="11">
-        <label>Pozyx_lib.cpp</label>
-        <link refid="_pozyx__lib_8cpp"/>
-      </node>
-      <node id="10">
+      <node id="2">
         <label>Pozyx_core.cpp</label>
         <link refid="_pozyx__core_8cpp"/>
       </node>
-      <node id="9">
+      <node id="1">
         <label>Pozyx.h</label>
         <link refid="_pozyx_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>Pozyx_lib.cpp</label>
+        <link refid="_pozyx__lib_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="struct___u_w_b__settings" prot="public">_UWB_settings</innerclass>
@@ -63,9 +63,15 @@
         </briefdescription>
         <detaileddescription>
 <para><heading level="2"><ref refid="_pozyx_8h" kindref="compound">Pozyx.h</ref> </heading>
-</para><para>This file is a definition of all structures, classes and functions used in the Pozyx environment.</para><para>Each function is described:<itemizedlist>
-<listitem><para>which input parameters are expected</para></listitem><listitem><para>what is the behaviour</para></listitem><listitem><para>and what is the expected output </para></listitem></itemizedlist>
-</para>        </detaileddescription>
+</para>
+<para>This file is a definition of all structures, classes and functions used in the Pozyx environment.</para>
+<para>Each function is described:<itemizedlist>
+<listitem><para>which input parameters are expected</para>
+</listitem><listitem><para>what is the behaviour</para>
+</listitem><listitem><para>and what is the expected output </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="Pozyx.h" line="26" column="10" bodyfile="Pozyx.h" bodystart="26" bodyend="-1"/>
@@ -73,7 +79,7 @@
       <memberdef kind="define" id="_pozyx_8h_1ad6d5aaa966ca7424f7cb9bd01f2c838b" prot="public" static="no">
         <name>assert</name>
         <param><defname>e</defname></param>
-        <initializer>((e) ? (void)0 : \
+        <initializer>                         ((e) ? (void)0 : \
                          <ref refid="_pozyx_8h_1a8fd60a3f003692172f158c587ec6530f" kindref="member">__assert_pozyx</ref>(__func__, __FILE__, __LINE__))</initializer>
         <briefdescription>
         </briefdescription>
@@ -96,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="53" column="1" bodyfile="Pozyx.h" bodystart="53" bodyend="-1"/>
+        <location file="Pozyx.h" line="53" column="15" bodyfile="Pozyx.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="_pozyx_8h_1aa96363e7b5f3f825c1b231ca6fec62bd" prot="public" static="no">
         <type>struct <ref refid="struct___u_w_b__settings" kindref="compound">_UWB_settings</ref></type>
@@ -106,10 +112,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The UWB settings type defines all attributes needed to set the UWB (communication) parameters </para>        </detaileddescription>
+<para>The UWB settings type defines all attributes needed to set the UWB (communication) parameters </para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="93" column="1"/>
+        <location file="Pozyx.h" line="93" column="15"/>
       </memberdef>
       <memberdef kind="typedef" id="_pozyx_8h_1a84f14ee425b3aa9bcc52783df8b4c2a8" prot="public" static="no">
         <type><ref refid="_pozyx_8h_1ae61f67f9db7962f3dc24966a11656cdb" kindref="member">v3D_float32_t</ref></type>
@@ -122,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="121" column="1" bodyfile="Pozyx.h" bodystart="121" bodyend="-1"/>
+        <location file="Pozyx.h" line="121" column="23" bodyfile="Pozyx.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="_pozyx_8h_1a97e1992316652c0e62843025ffc51c9c" prot="public" static="no">
         <type><ref refid="_pozyx_8h_1ae61f67f9db7962f3dc24966a11656cdb" kindref="member">v3D_float32_t</ref></type>
@@ -135,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="122" column="1" bodyfile="Pozyx.h" bodystart="122" bodyend="-1"/>
+        <location file="Pozyx.h" line="122" column="23" bodyfile="Pozyx.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="_pozyx_8h_1a8d174eab9744297db3e8d1046d3c67a3" prot="public" static="no">
         <type><ref refid="_pozyx_8h_1ae61f67f9db7962f3dc24966a11656cdb" kindref="member">v3D_float32_t</ref></type>
@@ -148,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="123" column="1" bodyfile="Pozyx.h" bodystart="123" bodyend="-1"/>
+        <location file="Pozyx.h" line="123" column="23" bodyfile="Pozyx.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="_pozyx_8h_1acbe3c0cfe1b20f5ad0d626b488cb84e7" prot="public" static="no">
         <type><ref refid="_pozyx_8h_1ae61f67f9db7962f3dc24966a11656cdb" kindref="member">v3D_float32_t</ref></type>
@@ -161,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="124" column="1" bodyfile="Pozyx.h" bodystart="124" bodyend="-1"/>
+        <location file="Pozyx.h" line="124" column="23" bodyfile="Pozyx.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="_pozyx_8h_1ad6058b607c1ceac9b07a1d7d88a5eebe" prot="public" static="no">
         <type><ref refid="_pozyx_8h_1ae61f67f9db7962f3dc24966a11656cdb" kindref="member">v3D_float32_t</ref></type>
@@ -174,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="125" column="1" bodyfile="Pozyx.h" bodystart="125" bodyend="-1"/>
+        <location file="Pozyx.h" line="125" column="23" bodyfile="Pozyx.h" bodystart="125" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -306,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="1865" column="1" bodyfile="Pozyx_core.cpp" bodystart="671" bodyend="-1"/>
+        <location file="Pozyx.h" line="1867" column="19" bodyfile="Pozyx_core.cpp" bodystart="671" bodyend="-1" declfile="Pozyx.h" declline="1867" declcolumn="19"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -333,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Pozyx.h" line="44" column="1"/>
+        <location file="Pozyx.h" line="44" column="17" declfile="Pozyx.h" declline="44" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="_pozyx_8h_1a255f400b6a4025eff19371dee9911ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>struct</type>
@@ -346,47 +353,49 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The coordinates type defines the coordinates of position result or anchor location</para><para>A structure representing a 3D vector with floating points. This type is used to represent most of the sensor values that have components in 3 dimensions.</para><para>The position error type gives the resulting error covariance for a given position result</para><para>The euler angles type holds the absolute orientation of the pozyx device using the Euler angles (yaw, pitch, roll) representation</para><para>The quaternion_t type holds the absolute orientation of the pozyx device using the a quaternion representation</para><para>raw sensor data. This follows the ordering of the pozyx registers</para><para>The sensor data type allows to read the whole sensor data in one datastructure with one call</para><para>The device_coordinates_t type is used to describe a pozyx device required for the device list</para><para>The device range type stores all the attributes linked to a range measurement </para>        </detaileddescription>
+<para>The coordinates type defines the coordinates of position result or anchor location</para>
+<para>A structure representing a 3D vector with floating points. This type is used to represent most of the sensor values that have components in 3 dimensions.</para>
+<para>The position error type gives the resulting error covariance for a given position result</para>
+<para>The euler angles type holds the absolute orientation of the pozyx device using the Euler angles (yaw, pitch, roll) representation</para>
+<para>The quaternion_t type holds the absolute orientation of the pozyx device using the a quaternion representation</para>
+<para>raw sensor data. This follows the ordering of the pozyx registers</para>
+<para>The sensor data type allows to read the whole sensor data in one datastructure with one call</para>
+<para>The device_coordinates_t type is used to describe a pozyx device required for the device list</para>
+<para>The device range type stores all the attributes linked to a range measurement </para>
+        </detaileddescription>
         <inbodydescription>
-<para>The x-coordinate in mm <linebreak/>
-<linebreak/>
- The y-coordinate in mm <linebreak/>
- The z-coordinate in mm</para><para>The x-coordinate of the vector <linebreak/>
-<linebreak/>
- The y-coordinate of the vector <linebreak/>
- The z-coordinate of the vector</para><para>The variance in the x-coordinate <linebreak/>
-<linebreak/>
-<linebreak/>
-<linebreak/>
-<linebreak/>
- The variance in the y-coordinate <linebreak/>
-<linebreak/>
-<linebreak/>
-<linebreak/>
- The variance in the z-coordinate <linebreak/>
-<linebreak/>
-<linebreak/>
- The covariance of xy <linebreak/>
-<linebreak/>
- The covariance of xz <linebreak/>
- The covariance of yz</para><para>The heading (yaw) in degrees. <linebreak/>
-<linebreak/>
- The roll in degrees. <linebreak/>
- The pitch in degrees.</para><para>weight of the quaterion. <linebreak/>
-<linebreak/>
-<linebreak/>
- x-coordinate of the quaterion. <linebreak/>
-<linebreak/>
- y-coordinate of the quaterion. <linebreak/>
- z-coordinate of the quaterion.</para><para>the unique 16-bit network id (by default this is the same as on the label of the device) <linebreak/>
-<linebreak/>
- a flag indicating some aspects of the device such as anchor or tag. Possible values are:</para><para><itemizedlist>
-<listitem><para>1 : anchor</para></listitem><listitem><para>2 : tag</para></listitem></itemizedlist>
-</para><para>The coordinates of the device</para><para>The timestamp in ms of the range measurement. <linebreak/>
-<linebreak/>
- The distance in mm. <linebreak/>
- The received signal strength in dBm. </para>        </inbodydescription>
-        <location file="Pozyx.h" line="53" column="1" bodyfile="Pozyx.h" bodystart="98" bodyend="105"/>
+<para>The x-coordinate in mm</para>
+<para>The y-coordinate in mm</para>
+<para>The z-coordinate in mm</para>
+<para>The x-coordinate of the vector</para>
+<para>The y-coordinate of the vector</para>
+<para>The z-coordinate of the vector</para>
+<para>The variance in the x-coordinate</para>
+<para>The variance in the y-coordinate</para>
+<para>The variance in the z-coordinate</para>
+<para>The covariance of xy</para>
+<para>The covariance of xz</para>
+<para>The covariance of yz</para>
+<para>The heading (yaw) in degrees.</para>
+<para>The roll in degrees.</para>
+<para>The pitch in degrees.</para>
+<para>weight of the quaterion.</para>
+<para>x-coordinate of the quaterion.</para>
+<para>y-coordinate of the quaterion.</para>
+<para>z-coordinate of the quaterion.</para>
+<para>the unique 16-bit network id (by default this is the same as on the label of the device)</para>
+<para>a flag indicating some aspects of the device such as anchor or tag. Possible values are:</para>
+<para><itemizedlist>
+<listitem><para>1 : anchor</para>
+</listitem><listitem><para>2 : tag</para>
+</listitem></itemizedlist>
+</para>
+<para>The coordinates of the device</para>
+<para>The timestamp in ms of the range measurement.</para>
+<para>The distance in mm.</para>
+<para>The received signal strength in dBm.</para>
+        </inbodydescription>
+        <location file="Pozyx.h" line="53" column="15" bodyfile="Pozyx.h" bodystart="98" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -680,100 +689,100 @@
 <codeline lineno="1255"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga8e234029c68c35a40d0bab9d4310241c" kindref="member">getPositionFilterType</ref>(uint8_t<sp/>*filter_type,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
 <codeline lineno="1271"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga141f3425b5d61c0f3cac39c249c8dc3a" kindref="member">setPositionFilter</ref>(uint8_t<sp/>filter_type,<sp/>uint8_t<sp/>filter_strength,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1287"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" kindref="member">getPositionAlgorithm</ref>(uint8_t<sp/>*algorithm,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1303"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref>(uint8_t<sp/>*dimension,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1318"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1319"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>algorithm<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimension<sp/>=<sp/>0x0,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1335"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gaaef0649bc661ebf84c7a23cfac844e5a" kindref="member">getAnchorSelectionMode</ref>(uint8_t<sp/>*mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1349"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1350"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1363"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga31d624e2740311fd46d3354d31f1b9f7" kindref="member">getNumberOfAnchors</ref>(uint8_t<sp/>*nr_anchors,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1364"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1365"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1383"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nr_anchors,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1384"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1400"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga693d7983f8c27ed279cf7e257d07a60d" kindref="member">getOperationMode</ref>(uint8_t<sp/>*mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1401"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1402"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1417"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga7ca6dcb9668784e428e435ebbc89ea2a" kindref="member">setOperationMode</ref>(uint8_t<sp/>mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1418"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1419"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1429"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>String<sp/><ref refid="group__positioning__functions_1ga9e3985c70357d78589da57441b94c387" kindref="member">getSystemError</ref>(uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1430"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1431"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1450"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga2125f38273179faa58ce15b88775d245" kindref="member">getSensorMode</ref>(uint8_t<sp/>*sensor_mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1451"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1462"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga5ec67d77efc6833681645fd661d55d41" kindref="member">setSensorMode</ref>(uint8_t<sp/>sensor_mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1463"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1476"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3adf6096157564e8eacc394846693ce9" kindref="member">getRawSensorData</ref>(<ref refid="_pozyx_8h_1ac449ece372cef0445bda56171e2cde76" kindref="member">sensor_raw_t</ref><sp/>*sensor_raw,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1477"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1490"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga96f125c933bb1ebc31df18693bdfb08e" kindref="member">getAllSensorData</ref>(<ref refid="_pozyx_8h_1a15234b3226ab681085f3286c71dec539" kindref="member">sensor_data_t</ref><sp/>*sensor_data,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1491"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1503"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3926a9fe02aa9261b8d791b3a0a30ea9" kindref="member">getPressure_Pa</ref>(<ref refid="_pozyx_8h_1a4611b605e45ab401f02cab15c5e38715" kindref="member">float32_t</ref><sp/>*pressure,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1504"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1517"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3a1fecdd51db3e57926a62e577979252" kindref="member">getMaxLinearAcceleration</ref>(uint16_t<sp/>*max_lin_acc,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1518"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1531"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga67549041d5a4ffeba63242f33135ad0e" kindref="member">getAcceleration_mg</ref>(<ref refid="_pozyx_8h_1a84f14ee425b3aa9bcc52783df8b4c2a8" kindref="member">acceleration_t</ref><sp/>*acceleration,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1532"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1545"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1gafd6b4021601b896236f15589715d39c1" kindref="member">getMagnetic_uT</ref>(<ref refid="_pozyx_8h_1a97e1992316652c0e62843025ffc51c9c" kindref="member">magnetic_t</ref><sp/>*magnetic,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1546"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1559"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3e9fecefe9e1d2d79ef50c5bcb29b3b4" kindref="member">getAngularVelocity_dps</ref>(<ref refid="_pozyx_8h_1a8d174eab9744297db3e8d1046d3c67a3" kindref="member">angular_vel_t</ref><sp/>*angular_vel,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1560"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1572"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga4c1015fcd60a841519d78eb2d5d5fa0e" kindref="member">getEulerAngles_deg</ref>(<ref refid="_pozyx_8h_1a2b5f5871256ae51801ef8845fc239605" kindref="member">euler_angles_t</ref><sp/>*euler_angles,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1573"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1586"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga2341c56eda847eb8c103f07b51586f3d" kindref="member">getQuaternion</ref>(<ref refid="_pozyx_8h_1afa0cb0bdc39f2fc03721639f17fc5422" kindref="member">quaternion_t</ref><sp/>*quaternion,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1587"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1602"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga9655806bc0206261052552b683ee664d" kindref="member">getLinearAcceleration_mg</ref>(<ref refid="_pozyx_8h_1acbe3c0cfe1b20f5ad0d626b488cb84e7" kindref="member">linear_acceleration_t</ref><sp/>*linear_acceleration,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1603"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1616"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga02f900f7b07df379c4a245726fa162cd" kindref="member">getGravityVector_mg</ref>(<ref refid="_pozyx_8h_1ad6058b607c1ceac9b07a1d7d88a5eebe" kindref="member">gravity_vector_t</ref><sp/>*gravity_vector,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1617"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1630"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga5a17d79a793ebaa2e0e53be76356c838" kindref="member">getTemperature_c</ref>(<ref refid="_pozyx_8h_1a4611b605e45ab401f02cab15c5e38715" kindref="member">float32_t</ref><sp/>*temperature,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1631"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1638"><highlight class="normal"><sp/><sp/><sp/><sp/>[[deprecated(</highlight><highlight class="stringliteral">&quot;doPositioning<sp/>will<sp/>no<sp/>longer<sp/>set<sp/>the<sp/>algorithm<sp/>in<sp/>future<sp/>releases.<sp/>Use<sp/>setPositionAlgorithm<sp/>in<sp/>setup()<sp/>instead.&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
-<codeline lineno="1639"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>(<ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height,<sp/>uint8_t<sp/>algorithm);</highlight></codeline>
-<codeline lineno="1640"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1658"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>(<ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*position,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height=0);</highlight></codeline>
-<codeline lineno="1659"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1660"><highlight class="normal"><sp/><sp/><sp/><sp/>[[deprecated(</highlight><highlight class="stringliteral">&quot;doRemotePositioning<sp/>will<sp/>no<sp/>longer<sp/>set<sp/>the<sp/>algorithm<sp/>in<sp/>future<sp/>releases.<sp/>Use<sp/>setPositionAlgorithm<sp/>in<sp/>setup()<sp/>instead.&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
-<codeline lineno="1661"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref>(uint16_t<sp/>remote_id,<sp/><ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height,<sp/>uint8_t<sp/>algorithm);</highlight></codeline>
-<codeline lineno="1662"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1681"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref>(uint16_t<sp/>remote_id,<sp/><ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height=0);</highlight></codeline>
-<codeline lineno="1682"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1695"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>(uint16_t<sp/>destination,<sp/><ref refid="_pozyx_8h_1a9cc05230d7a56a257523607dc6966542" kindref="member">device_range_t</ref><sp/>*range);</highlight></codeline>
-<codeline lineno="1696"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1711"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" kindref="member">doRemoteRanging</ref>(uint16_t<sp/>device_from,<sp/>uint16_t<sp/>device_to,<sp/><ref refid="_pozyx_8h_1a9cc05230d7a56a257523607dc6966542" kindref="member">device_range_t</ref><sp/>*range);</highlight></codeline>
-<codeline lineno="1712"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1724"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" kindref="member">getDeviceRangeInfo</ref>(uint16_t<sp/>device_id,<sp/><ref refid="_pozyx_8h_1a9cc05230d7a56a257523607dc6966542" kindref="member">device_range_t</ref><sp/>*device_range,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1725"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1744"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga3b304a60d246f30bb89a31017978e6b4" kindref="member">getDeviceListSize</ref>(uint8_t<sp/>*device_list_size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1745"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1746"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1758"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga2606d4f50a13e31bbb7f75666774c622" kindref="member">getDeviceIds</ref>(uint16_t<sp/>devices[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1759"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1771"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga792c8f5bc8a5e420a243cf39922974fd" kindref="member">getAnchorIds</ref>(uint16_t<sp/>anchors[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1772"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1784"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga2fbc8f498c8b58fce93fde945b124523" kindref="member">getTagIds</ref>(uint16_t<sp/>tags[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1785"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1800"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga563ac8a8cae694f75fdcdaac9781b5cc" kindref="member">doDiscovery</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type<sp/>=<sp/>0x0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slots<sp/>=<sp/>3,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slot_duration<sp/>=<sp/>10);</highlight></codeline>
-<codeline lineno="1801"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1823"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" kindref="member">doAnchorCalibration</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimension<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_measurements<sp/>=<sp/>10,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_anchors<sp/>=<sp/>0,<sp/>uint16_t<sp/>anchors[]<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/><sp/>int32_t<sp/>heights[]<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1824"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1834"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga7ce8c358b99e9c1d3d67ca041d8919bc" kindref="member">clearDevices</ref>(uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1835"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1847"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1gaa009179113eb5cea2260e025f2352576" kindref="member">addDevice</ref>(<ref refid="_pozyx_8h_1a1fc169ea06842359ca2143dcf66dd2e2" kindref="member">device_coordinates_t</ref><sp/>device_coordinates,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1848"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1860"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga5a54f0d50b547d02c915464eca53e82f" kindref="member">getDeviceCoordinates</ref>(uint16_t<sp/>device_id,<sp/><ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
-<codeline lineno="1861"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1864"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="1865"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class" kindref="compound">PozyxClass</ref><sp/><ref refid="_pozyx_8h_1a46279fcbb42c9e7c0939e4407287c673" kindref="member">Pozyx</ref>;</highlight></codeline>
-<codeline lineno="1866"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1867"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1868"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="1288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga141f3425b5d61c0f3cac39c249c8dc3a" kindref="member">setPositionFilter</ref>(uint8_t<sp/>filter_type,<sp/>uint8_t<sp/>filter_strength,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga40dcc956c7ced34e975fb3df4a3f855a" kindref="member">getPositionAlgorithm</ref>(uint8_t<sp/>*algorithm,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gac4c5796e0893435c23ec3ae42ef9dff2" kindref="member">getPositionDimension</ref>(uint8_t<sp/>*dimension,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gad4b32f732bc6fd94e784a8537464f7ac" kindref="member">setPositionAlgorithm</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>algorithm<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1a323d5db7e583c5d78dc9ae1bb66b6e8c" kindref="member">POZYX_POS_ALG_UWB_ONLY</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimension<sp/>=<sp/>0x0,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1350"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gaaef0649bc661ebf84c7a23cfac844e5a" kindref="member">getAnchorSelectionMode</ref>(uint8_t<sp/>*mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1352"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1365"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga31d624e2740311fd46d3354d31f1b9f7" kindref="member">getNumberOfAnchors</ref>(uint8_t<sp/>*nr_anchors,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1385"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga41fc706bd9ffba1d8483cdbeb01d1a75" kindref="member">setSelectionOfAnchors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nr_anchors,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1402"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga693d7983f8c27ed279cf7e257d07a60d" kindref="member">getOperationMode</ref>(uint8_t<sp/>*mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1403"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1419"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga7ca6dcb9668784e428e435ebbc89ea2a" kindref="member">setOperationMode</ref>(uint8_t<sp/>mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1420"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1421"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1431"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>String<sp/><ref refid="group__positioning__functions_1ga9e3985c70357d78589da57441b94c387" kindref="member">getSystemError</ref>(uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1432"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1433"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1452"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga2125f38273179faa58ce15b88775d245" kindref="member">getSensorMode</ref>(uint8_t<sp/>*sensor_mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1453"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1464"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga5ec67d77efc6833681645fd661d55d41" kindref="member">setSensorMode</ref>(uint8_t<sp/>sensor_mode,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1465"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1478"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3adf6096157564e8eacc394846693ce9" kindref="member">getRawSensorData</ref>(<ref refid="_pozyx_8h_1ac449ece372cef0445bda56171e2cde76" kindref="member">sensor_raw_t</ref><sp/>*sensor_raw,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1479"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1492"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga96f125c933bb1ebc31df18693bdfb08e" kindref="member">getAllSensorData</ref>(<ref refid="_pozyx_8h_1a15234b3226ab681085f3286c71dec539" kindref="member">sensor_data_t</ref><sp/>*sensor_data,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1493"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1505"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3926a9fe02aa9261b8d791b3a0a30ea9" kindref="member">getPressure_Pa</ref>(<ref refid="_pozyx_8h_1a4611b605e45ab401f02cab15c5e38715" kindref="member">float32_t</ref><sp/>*pressure,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1506"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3a1fecdd51db3e57926a62e577979252" kindref="member">getMaxLinearAcceleration</ref>(uint16_t<sp/>*max_lin_acc,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1520"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1533"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga67549041d5a4ffeba63242f33135ad0e" kindref="member">getAcceleration_mg</ref>(<ref refid="_pozyx_8h_1a84f14ee425b3aa9bcc52783df8b4c2a8" kindref="member">acceleration_t</ref><sp/>*acceleration,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1534"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1547"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1gafd6b4021601b896236f15589715d39c1" kindref="member">getMagnetic_uT</ref>(<ref refid="_pozyx_8h_1a97e1992316652c0e62843025ffc51c9c" kindref="member">magnetic_t</ref><sp/>*magnetic,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1548"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1561"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga3e9fecefe9e1d2d79ef50c5bcb29b3b4" kindref="member">getAngularVelocity_dps</ref>(<ref refid="_pozyx_8h_1a8d174eab9744297db3e8d1046d3c67a3" kindref="member">angular_vel_t</ref><sp/>*angular_vel,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1562"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1574"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga4c1015fcd60a841519d78eb2d5d5fa0e" kindref="member">getEulerAngles_deg</ref>(<ref refid="_pozyx_8h_1a2b5f5871256ae51801ef8845fc239605" kindref="member">euler_angles_t</ref><sp/>*euler_angles,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1575"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1588"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga2341c56eda847eb8c103f07b51586f3d" kindref="member">getQuaternion</ref>(<ref refid="_pozyx_8h_1afa0cb0bdc39f2fc03721639f17fc5422" kindref="member">quaternion_t</ref><sp/>*quaternion,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1589"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1604"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga9655806bc0206261052552b683ee664d" kindref="member">getLinearAcceleration_mg</ref>(<ref refid="_pozyx_8h_1acbe3c0cfe1b20f5ad0d626b488cb84e7" kindref="member">linear_acceleration_t</ref><sp/>*linear_acceleration,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1605"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1618"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga02f900f7b07df379c4a245726fa162cd" kindref="member">getGravityVector_mg</ref>(<ref refid="_pozyx_8h_1ad6058b607c1ceac9b07a1d7d88a5eebe" kindref="member">gravity_vector_t</ref><sp/>*gravity_vector,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1619"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1632"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sensor__data_1ga5a17d79a793ebaa2e0e53be76356c838" kindref="member">getTemperature_c</ref>(<ref refid="_pozyx_8h_1a4611b605e45ab401f02cab15c5e38715" kindref="member">float32_t</ref><sp/>*temperature,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1633"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1640"><highlight class="normal"><sp/><sp/><sp/><sp/>[[deprecated(</highlight><highlight class="stringliteral">&quot;doPositioning<sp/>will<sp/>no<sp/>longer<sp/>set<sp/>the<sp/>algorithm<sp/>in<sp/>future<sp/>releases.<sp/>Use<sp/>setPositionAlgorithm<sp/>in<sp/>setup()<sp/>instead.&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
+<codeline lineno="1641"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>(<ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height,<sp/>uint8_t<sp/>algorithm);</highlight></codeline>
+<codeline lineno="1642"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1660"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gacee7c418820028dcc400eccb3e5bbbbe" kindref="member">doPositioning</ref>(<ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*position,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height=0);</highlight></codeline>
+<codeline lineno="1661"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1662"><highlight class="normal"><sp/><sp/><sp/><sp/>[[deprecated(</highlight><highlight class="stringliteral">&quot;doRemotePositioning<sp/>will<sp/>no<sp/>longer<sp/>set<sp/>the<sp/>algorithm<sp/>in<sp/>future<sp/>releases.<sp/>Use<sp/>setPositionAlgorithm<sp/>in<sp/>setup()<sp/>instead.&quot;</highlight><highlight class="normal">)]]</highlight></codeline>
+<codeline lineno="1663"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref>(uint16_t<sp/>remote_id,<sp/><ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height,<sp/>uint8_t<sp/>algorithm);</highlight></codeline>
+<codeline lineno="1664"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1683"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga36888bbf13339ed34d6250be34b4e53f" kindref="member">doRemotePositioning</ref>(uint16_t<sp/>remote_id,<sp/><ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint8_t<sp/>dimension,<sp/>int32_t<sp/>height=0);</highlight></codeline>
+<codeline lineno="1684"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1697"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga462352b5d2360ab4bc164ed1af564a03" kindref="member">doRanging</ref>(uint16_t<sp/>destination,<sp/><ref refid="_pozyx_8h_1a9cc05230d7a56a257523607dc6966542" kindref="member">device_range_t</ref><sp/>*range);</highlight></codeline>
+<codeline lineno="1698"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1713"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1ga607a4dcf6d2216afaad4cac1f481e629" kindref="member">doRemoteRanging</ref>(uint16_t<sp/>device_from,<sp/>uint16_t<sp/>device_to,<sp/><ref refid="_pozyx_8h_1a9cc05230d7a56a257523607dc6966542" kindref="member">device_range_t</ref><sp/>*range);</highlight></codeline>
+<codeline lineno="1714"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1726"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__positioning__functions_1gac9b20a33dfa4c5917c5134b768d6ba0b" kindref="member">getDeviceRangeInfo</ref>(uint16_t<sp/>device_id,<sp/><ref refid="_pozyx_8h_1a9cc05230d7a56a257523607dc6966542" kindref="member">device_range_t</ref><sp/>*device_range,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1727"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1746"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga3b304a60d246f30bb89a31017978e6b4" kindref="member">getDeviceListSize</ref>(uint8_t<sp/>*device_list_size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1747"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1748"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1760"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga2606d4f50a13e31bbb7f75666774c622" kindref="member">getDeviceIds</ref>(uint16_t<sp/>devices[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1761"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1773"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga792c8f5bc8a5e420a243cf39922974fd" kindref="member">getAnchorIds</ref>(uint16_t<sp/>anchors[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1774"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1786"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga2fbc8f498c8b58fce93fde945b124523" kindref="member">getTagIds</ref>(uint16_t<sp/>tags[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1787"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1802"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga563ac8a8cae694f75fdcdaac9781b5cc" kindref="member">doDiscovery</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type<sp/>=<sp/>0x0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slots<sp/>=<sp/>3,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slot_duration<sp/>=<sp/>10);</highlight></codeline>
+<codeline lineno="1803"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1825"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga6f1fc7881cd3556922eb140f2c6ef5b2" kindref="member">doAnchorCalibration</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimension<sp/>=<sp/><ref refid="_pozyx__definitions_8h_1ad4293bda2d6f890f8d916680aa51e9f5" kindref="member">POZYX_2D</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_measurements<sp/>=<sp/>10,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_anchors<sp/>=<sp/>0,<sp/>uint16_t<sp/>anchors[]<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>,<sp/><sp/>int32_t<sp/>heights[]<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1826"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1836"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga7ce8c358b99e9c1d3d67ca041d8919bc" kindref="member">clearDevices</ref>(uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1837"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1849"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1gaa009179113eb5cea2260e025f2352576" kindref="member">addDevice</ref>(<ref refid="_pozyx_8h_1a1fc169ea06842359ca2143dcf66dd2e2" kindref="member">device_coordinates_t</ref><sp/>device_coordinates,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1850"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1862"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__device__list_1ga5a54f0d50b547d02c915464eca53e82f" kindref="member">getDeviceCoordinates</ref>(uint16_t<sp/>device_id,<sp/><ref refid="_pozyx_8h_1a1efe64ccd3433982cd4bbe1057f5e722" kindref="member">coordinates_t</ref><sp/>*coordinates,<sp/>uint16_t<sp/>remote_id<sp/>=<sp/><ref refid="_pozyx_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="1863"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1866"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="1867"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="class_pozyx_class" kindref="compound">PozyxClass</ref><sp/><ref refid="_pozyx_8h_1a46279fcbb42c9e7c0939e4407287c673" kindref="member">Pozyx</ref>;</highlight></codeline>
+<codeline lineno="1868"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1869"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1870"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="Pozyx.h"/>
   </compounddef>
