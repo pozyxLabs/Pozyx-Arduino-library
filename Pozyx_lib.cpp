@@ -147,7 +147,7 @@ int PozyxClass::setConfigGPIO(int gpio_num, int mode, int pull, uint16_t remote_
   assert(gpio_num > 0);
   assert(gpio_num <= 4);
   assert((mode == POZYX_GPIO_DIGITAL_INPUT) || (mode == POZYX_GPIO_PUSHPULL) || (mode == POZYX_GPIO_OPENDRAIN) );
-  assert((pull == POZYX_GPIO_NOPULL) || (mode == POZYX_GPIO_PULLUP) || (mode == POZYX_GPIO_PULLDOWN) );
+  assert((pull == POZYX_GPIO_NOPULL) || (pull == POZYX_GPIO_PULLUP) || (pull == POZYX_GPIO_PULLDOWN) );
 
   uint8_t gpio_register = POZYX_CONFIG_GPIO1 + (gpio_num-1);
   uint8_t mask = mode + (pull << 3);
