@@ -314,4 +314,10 @@
 #define PIN_ACTIVE_LOW                    0
 #define PIN_ACTIVE_HIGH                   1
 
+//Make library compatible with SAMD21 boards.
+//These use a ring buffer for I2C with a different size var
+#if !defined BUFFER_LENGTH && defined SERIAL_BUFFER_SIZE
+#define BUFFER_LENGTH SERIAL_BUFFER_SIZE
+#endif
+
 #endif
