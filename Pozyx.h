@@ -286,7 +286,7 @@ protected:
     /**
     * This function calls the waitForFlag function in polling mode. After this, the previous mode is reset.
     *
-    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
+    *   @param interrupt_flag the expected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
     *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.
     *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
     *   @param interrupt a pointer that will contain the value of the interrupt status register
@@ -391,7 +391,7 @@ public:
     * shield. The event flag is checked by reading the contents of the reg:POZYX_INT_STATUS register.
     * This function can work in both polled and interupt mode
     *
-    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
+    *   @param interrupt_flag the expected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
     *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.
     *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
     *   @param interrupt a pointer that will contain the value of the interrupt status register
@@ -409,7 +409,7 @@ public:
     /**
     * Does the same as the remoteRegFunction, but doesn't wait for nearly as long and doesn't care about whether the function worked.
     *
-    *   @param interrupt_flag the exepected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
+    *   @param interrupt_flag the expected Pozyx interrupt. Possible values are #POZYX_INT_STATUS_ERR,
     *   #POZYX_INT_STATUS_POS, #POZYX_INT_STATUS_IMU, #POZYX_INT_STATUS_RX_DATA, #POZYX_INT_STATUS_FUNC, or combinations.
     *   @param timeout_ms maximum waiting time in milliseconds for flag to occur
     *   @param interrupt a pointer that will contain the value of the interrupt status register
